@@ -7,6 +7,7 @@
 		<title>Welcome to Stark Industry</title>
 		<link rel="stylesheet" href="/StarkLearningApp/css/bootstrap.min.css">
 		<link rel="stylesheet" href="/StarkLearningApp/css/bootstrap.css">
+		<link rel="stylesheet" href="/StarkLearningApp/css/all.css"> 
 		<link rel="stylesheet" href="/StarkLearningApp/css/home.css">		
 	</head>
 	
@@ -18,24 +19,33 @@
 			</button>
 		
 			<div class="navbar-collapse collapse" id="navbarColor01" style="">
-				<ul class="navbar-nav ml-auto">	    
+				<ul class="navbar-nav mr-auto">	    
 					<li class="nav-item">
 						<a class="nav-link" href="#">About</a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link" href="#">Our Team</a>
 					</li>
-			   		<li class="nav-item">
-			   			<a class="nav-link" href = "#">Login</a>
-			   		</li>
-			   		<!-- 
-			   		<li class="nav-item">
-						<a class="nav-link" href = "#"><button type="button" class="btn btn-outline-secondary">Sign Up</button></a>
-  					</li>-->
-  				</ul>
-  				<form class="form-inline my-2 my-lg-0">
-  					<a class="nav-link" href = "#"><button type="button" class="btn btn-outline-secondary my-2 my-sm-0">Sign Up</button></a>
-				</form>
+			   	</ul>
+				<ul class="navbar-nav ml-auto">	    
+			   		<li class="nav-item" style="padding-top: 5px;">
+						<a class="nav-link" href = "#">Login</a>
+  					</li> 
+ 					<li>
+ 						<a class="nav-link" href = "#">
+  						<button type="button" class="btn btn-outline-secondary">
+  							<i class="fas fa-user"></i><span style="padding-left: 10px;">Sign Up</span>
+  						</button>
+ 						</a>
+  					</li>
+			   	</ul>
+ 				<!-- <form class="form-inline" style="background: white; padding: 0;">
+  					<a class="nav-link" href = "#">
+  						<button type="button" class="btn btn-outline-secondary">
+  							<i class="fas fa-user"></i><span style="padding-left: 10px;">Sign Up</span>
+  						</button>
+  					</a>
+				</form> -->
 		    </div>
 		</nav>
 		<!-- End of Navbar -->
