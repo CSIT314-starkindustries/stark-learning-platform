@@ -6,9 +6,7 @@
 		<meta charset="ISO-8859-1">
 		<title>Student Login</title>
 		<link rel="stylesheet" href="/StarkLearningApp/css/bootstrap.min.css">
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>         
-		<script src="/StarkLearningApp/js/bootstrap.min.js"></script>
-		<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+		<link rel="stylesheet" href="/StarkLearningApp/css/bootstrap.css">
 	</head>
 	<body>
 		hello its me mario
