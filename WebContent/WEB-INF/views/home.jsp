@@ -39,13 +39,6 @@
  						</a>
   					</li>
 			   	</ul>
- 				<!-- <form class="form-inline" style="background: white; padding: 0;">
-  					<a class="nav-link" href = "#">
-  						<button type="button" class="btn btn-outline-secondary">
-  							<i class="fas fa-user"></i><span style="padding-left: 10px;">Sign Up</span>
-  						</button>
-  					</a>
-				</form> -->
 		    </div>
 		</nav>
 		<!-- End of Navbar -->
@@ -68,7 +61,7 @@
 		<!-- end of Content -->
 		
 		<!-- Footer -->
-		<div class = "navbar navbar-dark bg-primary fixed-bottom">
+		<div class = "navbar navbar-dark bg-primary">
 			<footer class="footer">
 		  		<h6 style = "color: white;">© 2020 Copyright Stark Industries</h6>		
 			</footer>
