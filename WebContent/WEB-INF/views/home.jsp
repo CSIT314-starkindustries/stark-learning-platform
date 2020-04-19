@@ -28,8 +28,10 @@
 					</li>
 			   	</ul>
 				<ul class="navbar-nav ml-auto">	    
-			   		<li class="nav-item" style="padding-top: 5px;">
-						<a class="nav-link" href = "#">Login</a>
+			   		<li class="nav-item">
+						<a class="nav-link" href = "#">
+							<button type="button" class="btn btn-link" id="loginBtn">Login</button>
+						</a>
   					</li> 
  					<li>
  						<a class="nav-link" href = "#">
@@ -44,7 +46,7 @@
 		<!-- End of Navbar -->
 		
 		<!-- Content -->
-		<div id="main">
+		<div class="container-fluid" id="main">
 			<div class="centered">
 				<h2 id="typing">Welcome to Stark's!</h2>
 				<br>
