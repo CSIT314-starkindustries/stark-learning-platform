@@ -1,97 +1,72 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" 
+	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 	<head>
 		<meta charset="ISO-8859-1">
 		<title>Welcome to Stark Industry</title>
 		<link rel="stylesheet" href="/StarkLearningApp/css/bootstrap.min.css">
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>         
-		<script src="/StarkLearningApp/js/bootstrap.min.js"></script>
-		<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+		<link rel="stylesheet" href="/StarkLearningApp/css/bootstrap.css">
+		<link rel="stylesheet" href="/StarkLearningApp/css/home.css">		
 	</head>
-	<style>
-		.navbar {
-			border-radius: 0;
-		}
+	
+	<body>		
+		<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+			<a class="navbar-brand" href="home_page">Stark Industries</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+			  <span class="navbar-toggler-icon"></span>
+			</button>
 		
-		#typing{
-			animation: type 4s steps(16) infinite;
-			overflow: hidden;
-			white-space:nowrap;
-			border-right: 4px solid white;
-		}
-		
-		@keyframes type {
-			0% {
-				width:0ch;
-			}
-			100% {
-				width:16ch;
-			}
-		}
-		
-		body {
-			background-image: url(/StarkLearningApp/img/study.jpg);
-			background-size: cover;
-			background-repeat: no-repeat;
-		}
-		
-		.centered {
-		  position: absolute;
-		  top: 50%;
-		  left: 50%;
-		  transform: translate(-50%, -50%);
-		  color:white;
-		  font-family: "Lucida Console", Courier, monospace;
-		}
-		
-		html,body {
-			height:100%;
-		}
-		
-	</style>
-	<body>
-		<!-- Navigation bar -->
-		<nav class="navbar navbar-inverse">
-			<div class="container-fluid">
-				<div class="navbar-header">
-					<button type="button" class="navbar-toggle"
-							data-toggle="collapse" data-target="#navMenu">
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-					</button>
-					
-					<!-- Logo -->
-					<a class="navbar-brand" href="/welcome_response">Stark Industries</a>
-				</div>
-				
-				<!-- Login menu -->
-				<div class="collapse navbar-collapse" id="navMenu">
-					<ul class="nav navbar-nav navbar-right">
-						
-						<!-- Redirect to specific servlet -->
-						<li><a href="login_page">Login</a></li>
-						<li><a href="#">Sign up</a></li>
-						<li><a href="#">Staff Login</a></li>
-					</ul>
-				</div>
-			</div>
+			<div class="navbar-collapse collapse" id="navbarColor01" style="">
+				<ul class="navbar-nav ml-auto">	    
+					<li class="nav-item">
+						<a class="nav-link" href="#">About</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#">Our Team</a>
+					</li>
+			   		<li class="nav-item">
+			   			<a class="nav-link" href = "#">Login</a>
+			   		</li>
+			   		<!-- 
+			   		<li class="nav-item">
+						<a class="nav-link" href = "#"><button type="button" class="btn btn-outline-secondary">Sign Up</button></a>
+  					</li>-->
+  				</ul>
+  				<form class="form-inline my-2 my-lg-0">
+  					<a class="nav-link" href = "#"><button type="button" class="btn btn-outline-secondary my-2 my-sm-0">Sign Up</button></a>
+				</form>
+		    </div>
 		</nav>
-		<!-- end of Navigation bar -->
+		<!-- End of Navbar -->
 		
 		<!-- Content -->
-		<div class="centered">
-			<h1 id="typing">Hello Students.</h1>
-			<h3>Welcome to Stark's Learning Platform.</h3>
-			<br>
-			<button type="button class="btn btn-basic"
-					style="background-color: black; border: none; font-size: 20px;">
-				<a href="login_page"
-					style="text-decoration: none; color: #ffffff !important;">Get Started</a>
-			</button>
+		<div id="main">
+			<div class="centered">
+				<h2 id="typing">Welcome to Stark's!</h2>
+				<br>
+				<button type="button" class="btn btn-basic" style="background-color: black; border: none; font-size: 20px; position: relative">
+					<a href="login_page" style="text-decoration: none; color: #ffffff !important;">Get Started</a>
+				</button>
+			</div>
+		</div>
+		
+		<div>
+			<h1>Hellpnsdjvsdv</h1>
+			<p>Moshi Moshi</p>
 		</div>
 		<!-- end of Content -->
+		
+		<!-- Footer -->
+		<div class = "navbar navbar-dark bg-primary fixed-bottom">
+			<footer class="footer">
+		  		<h6 style = "color: white;">© 2020 Copyright Stark Industries</h6>		
+			</footer>
+		</div>
+		<!-- End of Footer -->
+		
+		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>      	
 	</body>
 </html>
