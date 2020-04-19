@@ -1,0 +1,33 @@
+#adminBtn:hover {
+	text-decoration: none;
+}
+
+.table{
+	text-align: center;
+}
+		
+#aboveTable {
+	background-color: #ecf0f1;
+	padding: 20px 0px;
+}
+
+#tableDiv {
+	padding-top: 10px;
+}
+
+.table th { 
+	border-top: none; 
+}
+
+#searchBtn, #infoBtn, #resetPwBtn {
+	border: none;
+	background-color: transparent;
+}
+
+.newUserIcon {
+	margin-right: 20px;
+}
+
+#infoHeader {
+	border: none;
+}
