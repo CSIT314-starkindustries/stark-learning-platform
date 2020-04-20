@@ -13,7 +13,7 @@
 	
 	<body>
 		<!-- Navbar -->
-		<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+		<nav class="navbar navbar-expand-lg navbar-dark bg-primary" id="topPage">
 			<a class="navbar-brand" href="home">Stark Industries</a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
 			  <span class="navbar-toggler-icon"></span>
@@ -288,7 +288,7 @@
 				<footer class="footer" style="min-width: 100%;">
 					<div class="row">
 						<div class="col">
-							<h6 style="color: white;">© 2020 Copyright Stark Industries</h6>
+							<h6 style="color: white;">ï¿½ 2020 Copyright Stark Industries</h6>
 						</div>
 						<div class="col">
 							<a href="#topPage">
