@@ -110,3 +110,26 @@ html {
 .card:hover {
   box-shadow: 0 8px 16px 0 #424242;
 }
+
+.selectPane.active, .selectPane:hover{
+	background: #FDCA2E !important;
+}
+
+.selectPane {
+	background-color: #5E5E5E;
+	color: white;
+	font-family: "Trebuchet MS", Helvetica, sans-serif;	
+}
+
+#loginBtn {
+	font-family: "Trebuchet MS", Helvetica, sans-serif;	
+}
+
+#forgot_password_collapse {
+	text-align: left;
+	padding-top: 2%;
+}
+
+.forgot_password_collapse_link.active, .forgot_password_collapse_link:active{
+	color: blue !important;
+}
