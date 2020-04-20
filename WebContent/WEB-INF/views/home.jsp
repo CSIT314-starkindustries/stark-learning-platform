@@ -9,12 +9,13 @@
 		<link rel="stylesheet" href="/StarkLearningApp/css/bootstrap.css">
 		<link rel="stylesheet" href="/StarkLearningApp/css/all.css"> 
 		<link rel="stylesheet" href="/StarkLearningApp/css/home.css">		
-		<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		<script type="text/javascript" src="/StarkLearningApp/js/home.js"></script>
 	</head>
 	
 	<body>		
 		<nav class="navbar navbar-expand-lg navbar-dark bg-primary" id="topPage">
-			<a class="navbar-brand" href="home_page">Stark Industries</a>
+			<a class="navbar-brand" href="home">Stark Industries</a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
 			  <span class="navbar-toggler-icon"></span>
 			</button>
@@ -31,14 +32,14 @@
 				<ul class="navbar-nav ml-auto">	    
 			   		<li class="nav-item">
 						<a class="nav-link" href="#login_modal">
-							<button type="button" class="btn btn-link" data-toggle="modal" data-target="#login_modal" style="text-decoration: none;">
+							<button type="button" class="btn btn-link" id="loginModalBtn" data-toggle="modal" data-target="#login_modal" style="text-decoration: none;">
 								Login
 							</button>
 						</a>
   					</li> 
  					<li class="nav-item">
  						<a class="nav-link" href="#register_modal">
-	  						<button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#register_modal">
+	  						<button type="button" class="btn btn-outline-secondary" id="registerModalBtn" data-toggle="modal" data-target="#register_modal">
 	  							<i class="fas fa-user"></i><span style="padding-left: 10px;">Register</span>
 	  						</button>
  						</a>
@@ -214,72 +215,254 @@
 				        </button>
 			      	</div>
 			      	<div class="modal-body mx-3">
-			      		<form>
+			      		<form class="needs-validation" novalidate>
  							<fieldset>
  								<div class="form-group row">
  									<div class="col-sm-1"></div>
-								    <label for="userIdInput_Reg" class="col-sm-1 col-form-label text-right"><i class="fas fa-user"></i></label>
-								    <div class="col-sm-9">
-								    	<input type="text" class="form-control" id="userIdInput_Reg" placeholder="User ID">
+								    <label for="userIdInput_Reg" class="col-sm-2 col-form-label text-right"><i class="fas fa-user"></i></label>
+								    <div class="col-sm-7">
+								    	<input type="text" class="form-control" id="userIdInput_Reg" placeholder="User ID" required>
 									</div>
-									<div class="col-sm-1"></div>			
+									<div class="col-sm-2"></div>			
 								</div>
 								<div class="form-group row">
  									<div class="col-sm-1"></div>
-								    <label for="passwordInput" class="col-sm-1 col-form-label text-right"><i class="fas fa-lock"></i></label>
-								    <div class="col-sm-9">
-								    	<input type="text" class="form-control" id="passwordInput" placeholder="Password">
+								    <label for="passwordInput" class="col-sm-2 col-form-label text-right"><i class="fas fa-lock"></i></label>
+								    <div class="col-sm-7">
+								    	<input type="text" class="form-control" id="passwordInput" placeholder="Password" required>
 									</div>
-									<div class="col-sm-1"></div>			
+									<div class="col-sm-2"></div>			
 								</div>
 								<div class="form-group row">
  									<div class="col-sm-1"></div>
-								    <label for="confirmPasswordInput" class="col-sm-1 col-form-label text-right"><i class="fas fa-check"></i></label>
-								    <div class="col-sm-9">
-								    	<input type="text" class="form-control" id="confirmPasswordInput" placeholder="Confirm Password">
+								    <label for="confirmPasswordInput" class="col-sm-2 col-form-label text-right"><i class="fas fa-check"></i></label>
+								    <div class="col-sm-7">
+								    	<input type="text" class="form-control" id="confirmPasswordInput" placeholder="Confirm Password" required>
 									</div>
-									<div class="col-sm-1"></div>			
+									<div class="col-sm-2"></div>			
 								</div>
+								<div class="form-group row text-center">
+									<div class="col">
+										<div class="form-check">
+									      	<input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+									      	<label class="form-check-label" for="invalidCheck">I agree to terms and conditions</label>
+									      	<div class="invalid-feedback">
+									        	You must agree before submitting.
+									    	</div>
+										</div>
+									</div>
+								</div>
+								
+								<div class="modal-footer" style="text-align: center;">
+						        	<button type="submit" class="btn btn-primary mr-auto" id="#registerBtn" style="margin: auto; display: block;">Register</button>			        	
+						    	</div>
  							</fieldset>
  						</form>
 					</div>
-			    	<div class="modal-footer" style="text-align: center;">
-			        	<button type="button" class="btn btn-primary mr-auto" id="#registerBtn" style="margin: auto; display: block;">Register</button>			        	
-			    	</div>
+			    	
 			    </div>
 			</div>
 		</div>
 
 		<!-- Login Modal -->
 		<div class="modal fade" id="login_modal" tabindex="-1" role="dialog" aria-labelledby="modal" aria-hidden="true">
-			<div class="modal-dialog  modal-dialog-centered" role="document">
-		    	<div class="modal-content">
-	    			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-	          			<span aria-hidden="true">&times;</span>
-	        		</button>
-		    		<ul class="nav nav-tabs">
-						<li class="nav-item">
-				    		<a class="nav-link active" data-toggle="tab" href="#home">Home</a>
-				  		</li>
-				  		<li class="nav-item">
-				    		<a class="nav-link" data-toggle="tab" href="#profile">Profile</a>
-				  		</li>
-					</ul>
-		    		<!-- 
-		      		<div class="modal-header">
-		        		<h5 class="modal-title">Modal title</h5>
+			<div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+		    	<div class="modal-content container-fluid" id="login_modal_content">
+		    		<div class="modal-header">
+		    			<h5 class="modal-title" style="font-family: "Trebuchet MS", Helvetica, sans-serif;">Log In As</h5>
 		        		<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 		          			<span aria-hidden="true">&times;</span>
 		        		</button>
-		      		</div>
-		      		<div class="modal-body">
-		        		<p>Modal body text goes here.</p>
-		      		</div>
-		      		<div class="modal-footer">
-		        		<button type="button" class="btn btn-primary">Save changes</button>
-		        		<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-		      		</div>
-		      		-->
+	        		</div>
+	        		
+	        		<!-- Nav Tabs -->
+		    		<ul class="nav nav-tabs nav-justified active">
+						<li class="nav-item">
+				    		<a class="nav-link active selectPane" data-toggle="tab" href="#stud_login" data-target="#studLoginPane">Student</a>
+				  		</li>
+				  		<li class="nav-item">
+				    		<a class="nav-link selectPane" data-toggle="tab" href="#mod_login" data-target="#modLoginPane">Moderator</a>
+				  		</li>
+				  		<li class="nav-item">
+				    		<a class="nav-link selectPane" data-toggle="tab" href="#userAdmin_login" data-target="#userAdminLoginPane">User Administrator</a>
+				  		</li>
+					</ul>
+					
+					<!-- Tab Panes -->
+					<div id="myTabContent" class="tab-content">
+					
+						<!-- Stud Login Pane -->
+						<div class="tab-pane fade active show container-fluid" id="studLoginPane" style="padding-bottom: 3%;">
+							<div class="model-header text-center">
+								<h5 style="padding-top: 5%; padding-bottom: 5%;">Log in as Student</h5>
+							</div>				    	
+							<div class="model-body mx-3">
+								<form class="needs-validation" novalidate>
+		 							<fieldset>
+		 								<div class="form-group row">
+		 									<div class="col-sm-2"></div>
+										    <label for="userIdInput_Reg" class="col-sm-2 col-form-label text-right"><i class="fas fa-user"></i></label>
+										    <div class="col-sm-5">
+										    	<input type="text" class="form-control" id="userIdInput_Reg" placeholder="User ID" required>
+											</div>
+											<div class="col-sm-3"></div>			
+										</div>
+										<div class="form-group row" style="padding-bottom: 3%;">
+		 									<div class="col-sm-2"></div>
+										    <label for="passwordInput" class="col-sm-2 col-form-label text-right"><i class="fas fa-lock"></i></label>
+										    <div class="col-sm-5">
+										    	<input type="text" class="form-control" id="passwordInput" placeholder="Password" required>
+											</div>
+											<div class="col-sm-3"></div>			
+										</div>
+										<div class="form-group row text-center">
+											<button type="submit" class="btn btn-primary mr-auto" id="#loginBtn" style="margin: auto; display: block;">Log In</button>			        			
+										</div>
+									</fieldset>
+								</form>
+							</div>
+							<div class="model-footer">
+								<div class="row text-center">
+									<div class="col">
+										<button type="button" class="btn btn-link forgot_password_collapse_link" data-toggle="collapse" href="#forgot_password_collapse" aria-expanded="false" aria-controls="forgot_password_collapse">
+											Forgot password?
+										</button>	
+									</div>
+									<div class="col">									
+										<button type="button" class="btn btn-link" data-toggle="modal" data-target="#register_modal" style="text-decoration: none;" data-dismiss="modal" aria-label="Close">
+											Don't have an account yet?
+										</button>			        													
+									</div>
+								</div>
+
+								<div class="collapse" id="forgot_password_collapse" style="padding-bottom: 3%;">
+									<div class="row text-center">
+										<div class="col">
+											<hr/>
+											<h5>Password Reset Request</h5>
+											<p>Please enter your User ID and we will send a reset password request to the user administrator.											
+												<br>Once approved, the password will be sent to the email associated with your User ID.
+											</p>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-sm-3"></div>
+										<div class="col-sm-6">
+											<form class="needs-validation" novalidate>
+												<fieldset>
+													<div class="form-group">
+									                	<input type="text" class="form-control" id="forgot_password_userId" placeholder="User ID" required>
+									                </div>
+									                <button type="submit" class="btn btn-secondary mr-auto text-center" style="margin: auto; display: block;">Send Reset Password Request</button>
+												</fieldset>
+											</form>
+										</div>
+										<div class="col-sm-3"></div>
+									</div>								
+								</div>
+							</div>
+					  	</div>
+					  	
+					  	<!-- Mod Login Pane -->
+					  	<div class="tab-pane fade container-fluid" id="modLoginPane" style="padding-bottom: 3%;">
+							<div class="model-header text-center">
+								<h5 style="padding-top: 5%; padding-bottom: 5%;">Log in as Moderator</h5>
+							</div>				    	
+							<div class="model-body mx-3">
+								<form class="needs-validation" novalidate>
+		 							<fieldset>
+		 								<div class="form-group row">
+		 									<div class="col-sm-2"></div>
+										    <label for="userIdInput_Reg" class="col-sm-2 col-form-label text-right"><i class="fas fa-user"></i></label>
+										    <div class="col-sm-5">
+										    	<input type="text" class="form-control" id="userIdInput_Reg" placeholder="User ID" required>
+											</div>
+											<div class="col-sm-3"></div>			
+										</div>
+										<div class="form-group row" style="padding-bottom: 3%;">
+		 									<div class="col-sm-2"></div>
+										    <label for="passwordInput" class="col-sm-2 col-form-label text-right"><i class="fas fa-lock"></i></label>
+										    <div class="col-sm-5">
+										    	<input type="password" class="form-control" id="passwordInput" placeholder="Password" required>
+											</div>
+											<div class="col-sm-3"></div>			
+										</div>
+										<div class="form-group row text-center">
+											<button type="submit" class="btn btn-primary mr-auto" id="#loginBtn" style="margin: auto; display: block;">Log In</button>			        			
+										</div>
+									</fieldset>
+								</form>
+							</div>
+							<div class="model-footer">
+								<div class="row text-center">
+									<div class="col">
+										<button type="button" class="btn btn-link forgot_password_collapse_link" data-toggle="collapse" href="#forgot_password_collapse" aria-expanded="false" aria-controls="forgot_password_collapse">
+											Forgot password?
+										</button>	
+									</div>
+								</div>
+
+								<div class="collapse" id="forgot_password_collapse" style="padding-bottom: 3%;">
+									<div class="row text-center">
+										<div class="col">
+											<hr/>
+											<h5>Password Reset Request</h5>
+											<p>Please enter your User ID and we will send a reset password request to the user administrator.											
+												<br>Once approved, the password will be sent to the email associated with your User ID.
+											</p>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-sm-3"></div>
+										<div class="col-sm-6">
+											<form class="needs-validation" novalidate>
+												<fieldset>
+													<div class="form-group">
+									                	<input type="text" class="form-control" id="forgot_password_userId" placeholder="User ID" required>
+									                </div>
+									                <button type="submit" class="btn btn-secondary mr-auto text-center" style="margin: auto; display: block;">Send Reset Password Request</button>
+												</fieldset>
+											</form>
+										</div>
+										<div class="col-sm-3"></div>
+									</div>								
+								</div>
+							</div>
+					  	</div>
+					  	
+					  	<!-- User Admin Login Pane -->
+					  	<div class="tab-pane fade container-fluid" id="userAdminLoginPane" style="padding-bottom: 3%;">
+							<div class="model-header text-center">
+								<h5 style="padding-top: 5%; padding-bottom: 5%;">Log in as User Administrator</h5>
+							</div>				    	
+							<div class="model-body mx-3">
+								<form class="needs-validation" novalidate>
+		 							<fieldset>
+		 								<div class="form-group row">
+		 									<div class="col-sm-2"></div>
+										    <label for="userIdInput_Reg" class="col-sm-2 col-form-label text-right"><i class="fas fa-user"></i></label>
+										    <div class="col-sm-5">
+										    	<input type="text" class="form-control" id="userIdInput_Reg" placeholder="User ID" required>
+											</div>
+											<div class="col-sm-3"></div>			
+										</div>
+										<div class="form-group row" style="padding-bottom: 3%;">
+		 									<div class="col-sm-2"></div>
+										    <label for="passwordInput" class="col-sm-2 col-form-label text-right"><i class="fas fa-lock"></i></label>
+										    <div class="col-sm-5">
+										    	<input type="password" class="form-control" id="passwordInput" placeholder="Password" required>
+											</div>
+											<div class="col-sm-3"></div>			
+										</div>
+										<div class="form-group row text-center">
+											<button type="submit" class="btn btn-primary mr-auto" id="#loginBtn" style="margin: auto; display: block;">Log In</button>			        			
+										</div>
+									</fieldset>
+								</form>
+							</div>
+							<div class="model-footer" style="padding-bottom: 4%;"></div>
+					  	</div>					  	
+					</div>
 		    	</div>
 			</div>
 		</div>
@@ -308,5 +491,7 @@
 		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>      	
+
+	
 	</body>
 </html>
