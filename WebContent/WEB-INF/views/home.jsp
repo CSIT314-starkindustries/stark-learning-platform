@@ -209,29 +209,33 @@
 				        </button>
 			      	</div>
 			      	<div class="modal-body mx-3">
-			      		<form class="needs-validation" novalidate>
+			      		<form class="needs-validation" novalidate id="regForm">
  							<fieldset>
  								<div class="form-group row">
  									<div class="col-sm-1"></div>
-								    <label for="userIdInput_Reg" class="col-sm-2 col-form-label text-right"><i class="fas fa-user"></i></label>
+								    <label for="regUserId" class="col-sm-2 col-form-label text-right"><i class="fas fa-user"></i></label>
 								    <div class="col-sm-7">
-								    	<input type="text" class="form-control" id="userIdInput_Reg" placeholder="User ID" required>
+								    	<input type="text" class="form-control" id="regUserId" placeholder="User ID" minlength="7" maxlength="7" required>
+										<div class="invalid-feedback">Please enter your assigned User ID</div>
 									</div>
 									<div class="col-sm-2"></div>			
 								</div>
 								<div class="form-group row">
  									<div class="col-sm-1"></div>
-								    <label for="passwordInput" class="col-sm-2 col-form-label text-right"><i class="fas fa-lock"></i></label>
+								    <label for="regPassword" class="col-sm-2 col-form-label text-right"><i class="fas fa-lock"></i></label>
 								    <div class="col-sm-7">
-								    	<input type="text" class="form-control" id="passwordInput" placeholder="Password" required>
+								    	<input type="password" class="form-control" id="regPassword" placeholder="Password" 
+								    	pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required>
+								    	<div class="invalid-feedback">Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters</div>
 									</div>
 									<div class="col-sm-2"></div>			
 								</div>
 								<div class="form-group row">
  									<div class="col-sm-1"></div>
-								    <label for="confirmPasswordInput" class="col-sm-2 col-form-label text-right"><i class="fas fa-check"></i></label>
+								    <label for="regConfirmPassword" class="col-sm-2 col-form-label text-right"><i class="fas fa-check"></i></label>
 								    <div class="col-sm-7">
-								    	<input type="text" class="form-control" id="confirmPasswordInput" placeholder="Confirm Password" required>
+								    	<input type="password" class="form-control" id="regConfirmPassword" placeholder="Confirm Password" required>
+								    	<div class="invalid-feedback">Password is not the same</div>
 									</div>
 									<div class="col-sm-2"></div>			
 								</div>
@@ -295,17 +299,17 @@
 		 							<fieldset>
 		 								<div class="form-group row">
 		 									<div class="col-sm-2"></div>
-										    <label for="userIdInput_Reg" class="col-sm-2 col-form-label text-right"><i class="fas fa-user"></i></label>
+										    <label for="studUserId" class="col-sm-2 col-form-label text-right"><i class="fas fa-user"></i></label>
 										    <div class="col-sm-5">
-										    	<input type="text" class="form-control" id="userIdInput_Reg" placeholder="User ID" required>
+										    	<input type="text" class="form-control" id="studUserId" placeholder="User ID" required>
 											</div>
 											<div class="col-sm-3"></div>			
 										</div>
 										<div class="form-group row" style="padding-bottom: 3%;">
 		 									<div class="col-sm-2"></div>
-										    <label for="passwordInput" class="col-sm-2 col-form-label text-right"><i class="fas fa-lock"></i></label>
+										    <label for="studPassword" class="col-sm-2 col-form-label text-right"><i class="fas fa-lock"></i></label>
 										    <div class="col-sm-5">
-										    	<input type="text" class="form-control" id="passwordInput" placeholder="Password" required>
+										    	<input type="password" class="form-control" id="studPassword" placeholder="Password" required>
 											</div>
 											<div class="col-sm-3"></div>			
 										</div>
@@ -367,17 +371,17 @@
 		 							<fieldset>
 		 								<div class="form-group row">
 		 									<div class="col-sm-2"></div>
-										    <label for="userIdInput_Reg" class="col-sm-2 col-form-label text-right"><i class="fas fa-user"></i></label>
+										    <label for=""modUserId"" class="col-sm-2 col-form-label text-right"><i class="fas fa-user"></i></label>
 										    <div class="col-sm-5">
-										    	<input type="text" class="form-control" id="userIdInput_Reg" placeholder="User ID" required>
+										    	<input type="text" class="form-control" id="modUserId" placeholder="User ID" required>
 											</div>
 											<div class="col-sm-3"></div>			
 										</div>
 										<div class="form-group row" style="padding-bottom: 3%;">
 		 									<div class="col-sm-2"></div>
-										    <label for="passwordInput" class="col-sm-2 col-form-label text-right"><i class="fas fa-lock"></i></label>
+										    <label for="modPassword" class="col-sm-2 col-form-label text-right"><i class="fas fa-lock"></i></label>
 										    <div class="col-sm-5">
-										    	<input type="password" class="form-control" id="passwordInput" placeholder="Password" required>
+										    	<input type="password" class="form-control" id="modPassword" placeholder="Password" required>
 											</div>
 											<div class="col-sm-3"></div>			
 										</div>
@@ -412,7 +416,7 @@
 											<form class="needs-validation" novalidate>
 												<fieldset>
 													<div class="form-group">
-									                	<input type="text" class="form-control" id="forgot_password_userId" placeholder="User ID" required>
+									                	<input type="password" class="form-control" id="forgot_password_userId" placeholder="User ID" required>
 									                </div>
 									                <button type="submit" class="btn btn-secondary mr-auto text-center" style="margin: auto; display: block;">Send Reset Password Request</button>
 												</fieldset>
@@ -434,24 +438,24 @@
 		 							<fieldset>
 		 								<div class="form-group row">
 		 									<div class="col-sm-2"></div>
-										    <label for="userIdInput_Reg" class="col-sm-2 col-form-label text-right"><i class="fas fa-user"></i></label>
+										    <label for="userAdminUserId" class="col-sm-2 col-form-label text-right"><i class="fas fa-user"></i></label>
 										    <div class="col-sm-5">
-										    	<input type="text" class="form-control" id="userIdInput_Reg" placeholder="User ID" required>
+										    	<input type="text" class="form-control" id="userAdminUserId" placeholder="User ID" required>
 											</div>
 											<div class="col-sm-3"></div>			
 										</div>
 										<div class="form-group row" style="padding-bottom: 3%;">
 		 									<div class="col-sm-2"></div>
-										    <label for="passwordInput" class="col-sm-2 col-form-label text-right"><i class="fas fa-lock"></i></label>
+										    <label for="userAdminPassword" class="col-sm-2 col-form-label text-right"><i class="fas fa-lock"></i></label>
 										    <div class="col-sm-5">
-										    	<input type="password" class="form-control" id="passwordInput" placeholder="Password" required>
+										    	<input type="password" class="form-control" id="userAdminPassword" placeholder="Password" required>
 											</div>
 											<div class="col-sm-3"></div>			
 										</div>
 										<div class="form-group row text-center">
 											<button type="submit" class="btn btn-primary mr-auto" id="#loginBtn" style="margin: auto; display: block;">Log In</button>			        			
 										</div>
-									<!-- </fieldset> -->
+									</fieldset>
 								</form>
 							</div>
 							<div class="model-footer" style="padding-bottom: 4%;"></div>
