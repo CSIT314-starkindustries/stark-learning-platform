@@ -14,7 +14,7 @@
 	<body>
 		<!-- Navbar -->
 		<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-			<a class="navbar-brand" href="home_page">Stark Industries</a>
+			<a class="navbar-brand" href="home">Stark Industries</a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
 			  <span class="navbar-toggler-icon"></span>
 			</button>
@@ -27,7 +27,7 @@
 						</a>
   					</li> 
  					<li>
- 						<a class="nav-link" href = "home_page">
+ 						<a class="nav-link" href = "home">
   						<button type="button" class="btn btn-outline-secondary">
   							<i class="fas fa-sign-out-alt"></i><span style="padding-left: 10px;">Logout</span>
   						</button>
