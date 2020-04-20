@@ -31,18 +31,14 @@
 			   	</ul>
 				<ul class="navbar-nav ml-auto">	    
 			   		<li class="nav-item">
-						<a class="nav-link" href="#login_modal">
-							<button type="button" class="btn btn-link" id="loginModalBtn" data-toggle="modal" data-target="#login_modal" style="text-decoration: none;">
-								Login
-							</button>
-						</a>
+						<button type="button" class="btn btn-link" id="loginModalBtn" data-toggle="modal" data-target="#login_modal" style="text-decoration: none;">
+							Login
+						</button>
   					</li> 
  					<li class="nav-item">
- 						<a class="nav-link" href="#register_modal">
-	  						<button type="button" class="btn btn-outline-secondary" id="registerModalBtn" data-toggle="modal" data-target="#register_modal">
-	  							<i class="fas fa-user"></i><span style="padding-left: 10px;">Register</span>
-	  						</button>
- 						</a>
+	  					<button type="button" class="btn btn-outline-secondary" id="registerModalBtn" data-toggle="modal" data-target="#register_modal">
+	  						<i class="fas fa-user"></i><span style="padding-left: 10px;">Register</span>
+	  					</button>
   					</li>
 			   	</ul>
 		    </div>
@@ -54,9 +50,7 @@
 			<div class="centered">
 				<h2 id="typing" style="margin-bottom: 5%;">Welcome to Stark's!</h2>
 				<br>
-				<a href="#register_modal" style="text-decoration: none;">
-					<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#register_modal">Get Started</button>
-				</a>
+				<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#register_modal">Get Started</button>
 			</div>
 		</div>
 		
@@ -457,7 +451,7 @@
 										<div class="form-group row text-center">
 											<button type="submit" class="btn btn-primary mr-auto" id="#loginBtn" style="margin: auto; display: block;">Log In</button>			        			
 										</div>
-									</fieldset>
+									<!-- </fieldset> -->
 								</form>
 							</div>
 							<div class="model-footer" style="padding-bottom: 4%;"></div>
@@ -477,14 +471,13 @@
 							<h6 style="color: white;">© 2020 Copyright Stark Industries</h6>
 						</div>
 						<div class="col">
-							<a href="#topPage">
-								<span style="float: right; color: white;"><i class="fas fa-arrow-alt-circle-up fa-2x"></i></span>	
-							</a>
+							<button type="button" onclick="scrollToTopFunction()" id="scrollToTopBtn">
+						    	<i class="fas fa-arrow-alt-circle-up fa-2x"></i>
+						    </button>
 						</div>
 				  	</div>
 				</footer>
 			</div>	
-			
 		</div>
 		<!-- End of Footer -->
 		

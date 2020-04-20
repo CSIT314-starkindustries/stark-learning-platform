@@ -31,3 +31,10 @@
 #infoHeader {
 	border: none;
 }
+
+#scrollToTopBtn {
+	background-color: transparent;
+	border: none;
+	float: right; 
+	color: white;
+}

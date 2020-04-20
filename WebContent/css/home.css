@@ -133,3 +133,10 @@ html {
 .forgot_password_collapse_link.active, .forgot_password_collapse_link:active{
 	color: blue !important;
 }
+
+#scrollToTopBtn {
+	background-color: transparent;
+	border: none;
+	float: right; 
+	color: white;
+}
