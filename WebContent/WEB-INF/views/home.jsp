@@ -215,13 +215,13 @@
 				        </button>
 			      	</div>
 			      	<div class="modal-body mx-3">
-			      		<form>
+			      		<form class="needs-validation" novalidate>
  							<fieldset>
  								<div class="form-group row">
  									<div class="col-sm-1"></div>
 								    <label for="userIdInput_Reg" class="col-sm-2 col-form-label text-right"><i class="fas fa-user"></i></label>
 								    <div class="col-sm-7">
-								    	<input type="text" class="form-control" id="userIdInput_Reg" placeholder="User ID">
+								    	<input type="text" class="form-control" id="userIdInput_Reg" placeholder="User ID" required>
 									</div>
 									<div class="col-sm-2"></div>			
 								</div>
@@ -229,7 +229,7 @@
  									<div class="col-sm-1"></div>
 								    <label for="passwordInput" class="col-sm-2 col-form-label text-right"><i class="fas fa-lock"></i></label>
 								    <div class="col-sm-7">
-								    	<input type="text" class="form-control" id="passwordInput" placeholder="Password">
+								    	<input type="text" class="form-control" id="passwordInput" placeholder="Password" required>
 									</div>
 									<div class="col-sm-2"></div>			
 								</div>
@@ -237,7 +237,7 @@
  									<div class="col-sm-1"></div>
 								    <label for="confirmPasswordInput" class="col-sm-2 col-form-label text-right"><i class="fas fa-check"></i></label>
 								    <div class="col-sm-7">
-								    	<input type="text" class="form-control" id="confirmPasswordInput" placeholder="Confirm Password">
+								    	<input type="text" class="form-control" id="confirmPasswordInput" placeholder="Confirm Password" required>
 									</div>
 									<div class="col-sm-2"></div>			
 								</div>
@@ -252,12 +252,14 @@
 										</div>
 									</div>
 								</div>
+								
+								<div class="modal-footer" style="text-align: center;">
+						        	<button type="submit" class="btn btn-primary mr-auto" id="#registerBtn" style="margin: auto; display: block;">Register</button>			        	
+						    	</div>
  							</fieldset>
  						</form>
 					</div>
-			    	<div class="modal-footer" style="text-align: center;">
-			        	<button type="submit" class="btn btn-primary mr-auto" id="#registerBtn" style="margin: auto; display: block;">Register</button>			        	
-			    	</div>
+			    	
 			    </div>
 			</div>
 		</div>
@@ -295,13 +297,13 @@
 								<h5 style="padding-top: 5%; padding-bottom: 5%;">Log in as Student</h5>
 							</div>				    	
 							<div class="model-body mx-3">
-								<form>
+								<form class="needs-validation" novalidate>
 		 							<fieldset>
 		 								<div class="form-group row">
 		 									<div class="col-sm-2"></div>
 										    <label for="userIdInput_Reg" class="col-sm-2 col-form-label text-right"><i class="fas fa-user"></i></label>
 										    <div class="col-sm-5">
-										    	<input type="text" class="form-control" id="userIdInput_Reg" placeholder="User ID">
+										    	<input type="text" class="form-control" id="userIdInput_Reg" placeholder="User ID" required>
 											</div>
 											<div class="col-sm-3"></div>			
 										</div>
@@ -309,14 +311,12 @@
 		 									<div class="col-sm-2"></div>
 										    <label for="passwordInput" class="col-sm-2 col-form-label text-right"><i class="fas fa-lock"></i></label>
 										    <div class="col-sm-5">
-										    	<input type="text" class="form-control" id="passwordInput" placeholder="Password">
+										    	<input type="text" class="form-control" id="passwordInput" placeholder="Password" required>
 											</div>
 											<div class="col-sm-3"></div>			
 										</div>
 										<div class="form-group row text-center">
-											<a href="home">
-												<button type="submit" class="btn btn-primary mr-auto" id="#loginBtn" style="margin: auto; display: block;">Log In</button>			        			
-											</a>
+											<button type="submit" class="btn btn-primary mr-auto" id="#loginBtn" style="margin: auto; display: block;">Log In</button>			        			
 										</div>
 									</fieldset>
 								</form>
@@ -348,10 +348,10 @@
 									<div class="row">
 										<div class="col-sm-3"></div>
 										<div class="col-sm-6">
-											<form>
+											<form class="needs-validation" novalidate>
 												<fieldset>
 													<div class="form-group">
-									                	<input type="text" class="form-control" id="forgot_password_userId" placeholder="User ID">
+									                	<input type="text" class="form-control" id="forgot_password_userId" placeholder="User ID" required>
 									                </div>
 									                <button type="submit" class="btn btn-secondary mr-auto text-center" style="margin: auto; display: block;">Send Reset Password Request</button>
 												</fieldset>
@@ -369,13 +369,13 @@
 								<h5 style="padding-top: 5%; padding-bottom: 5%;">Log in as Moderator</h5>
 							</div>				    	
 							<div class="model-body mx-3">
-								<form>
+								<form class="needs-validation" novalidate>
 		 							<fieldset>
 		 								<div class="form-group row">
 		 									<div class="col-sm-2"></div>
 										    <label for="userIdInput_Reg" class="col-sm-2 col-form-label text-right"><i class="fas fa-user"></i></label>
 										    <div class="col-sm-5">
-										    	<input type="text" class="form-control" id="userIdInput_Reg" placeholder="User ID">
+										    	<input type="text" class="form-control" id="userIdInput_Reg" placeholder="User ID" required>
 											</div>
 											<div class="col-sm-3"></div>			
 										</div>
@@ -383,7 +383,7 @@
 		 									<div class="col-sm-2"></div>
 										    <label for="passwordInput" class="col-sm-2 col-form-label text-right"><i class="fas fa-lock"></i></label>
 										    <div class="col-sm-5">
-										    	<input type="text" class="form-control" id="passwordInput" placeholder="Password">
+										    	<input type="password" class="form-control" id="passwordInput" placeholder="Password" required>
 											</div>
 											<div class="col-sm-3"></div>			
 										</div>
@@ -415,10 +415,10 @@
 									<div class="row">
 										<div class="col-sm-3"></div>
 										<div class="col-sm-6">
-											<form>
+											<form class="needs-validation" novalidate>
 												<fieldset>
 													<div class="form-group">
-									                	<input type="text" class="form-control" id="forgot_password_userId" placeholder="User ID">
+									                	<input type="text" class="form-control" id="forgot_password_userId" placeholder="User ID" required>
 									                </div>
 									                <button type="submit" class="btn btn-secondary mr-auto text-center" style="margin: auto; display: block;">Send Reset Password Request</button>
 												</fieldset>
@@ -436,13 +436,13 @@
 								<h5 style="padding-top: 5%; padding-bottom: 5%;">Log in as User Administrator</h5>
 							</div>				    	
 							<div class="model-body mx-3">
-								<form>
+								<form class="needs-validation" novalidate>
 		 							<fieldset>
 		 								<div class="form-group row">
 		 									<div class="col-sm-2"></div>
 										    <label for="userIdInput_Reg" class="col-sm-2 col-form-label text-right"><i class="fas fa-user"></i></label>
 										    <div class="col-sm-5">
-										    	<input type="text" class="form-control" id="userIdInput_Reg" placeholder="User ID">
+										    	<input type="text" class="form-control" id="userIdInput_Reg" placeholder="User ID" required>
 											</div>
 											<div class="col-sm-3"></div>			
 										</div>
@@ -450,7 +450,7 @@
 		 									<div class="col-sm-2"></div>
 										    <label for="passwordInput" class="col-sm-2 col-form-label text-right"><i class="fas fa-lock"></i></label>
 										    <div class="col-sm-5">
-										    	<input type="text" class="form-control" id="passwordInput" placeholder="Password">
+										    	<input type="password" class="form-control" id="passwordInput" placeholder="Password" required>
 											</div>
 											<div class="col-sm-3"></div>			
 										</div>
@@ -491,5 +491,7 @@
 		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>      	
+
+	
 	</body>
 </html>
