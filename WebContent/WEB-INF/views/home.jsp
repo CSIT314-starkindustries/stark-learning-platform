@@ -215,7 +215,7 @@
  									<div class="col-sm-1"></div>
 								    <label for="regUserId" class="col-sm-2 col-form-label text-right"><i class="fas fa-user"></i></label>
 								    <div class="col-sm-7">
-								    	<input type="text" class="form-control" id="regUserId" placeholder="User ID" minlength="7" maxlength="7" required>
+								    	<input type="text" class="form-control" id="regUserId" placeholder="User ID" required>
 										<div class="invalid-feedback">Please enter your assigned User ID</div>
 									</div>
 									<div class="col-sm-2"></div>			
@@ -302,6 +302,7 @@
 										    <label for="studUserId" class="col-sm-2 col-form-label text-right"><i class="fas fa-user"></i></label>
 										    <div class="col-sm-5">
 										    	<input type="text" class="form-control" id="studUserId" placeholder="User ID" required>
+										    	<div class="invalid-feedback">Please fill out this field.</div>
 											</div>
 											<div class="col-sm-3"></div>			
 										</div>
@@ -310,6 +311,7 @@
 										    <label for="studPassword" class="col-sm-2 col-form-label text-right"><i class="fas fa-lock"></i></label>
 										    <div class="col-sm-5">
 										    	<input type="password" class="form-control" id="studPassword" placeholder="Password" required>
+										    	<div class="invalid-feedback">Please fill out this field.</div>
 											</div>
 											<div class="col-sm-3"></div>			
 										</div>
@@ -350,6 +352,7 @@
 												<fieldset>
 													<div class="form-group">
 									                	<input type="text" class="form-control" id="forgot_password_userId" placeholder="User ID" required>
+									                	<div class="invalid-feedback">Please fill out this field.</div>
 									                </div>
 									                <button type="submit" class="btn btn-secondary mr-auto text-center" style="margin: auto; display: block;">Send Reset Password Request</button>
 												</fieldset>
@@ -374,6 +377,7 @@
 										    <label for=""modUserId"" class="col-sm-2 col-form-label text-right"><i class="fas fa-user"></i></label>
 										    <div class="col-sm-5">
 										    	<input type="text" class="form-control" id="modUserId" placeholder="User ID" required>
+										    	<div class="invalid-feedback">Please fill out this field.</div>
 											</div>
 											<div class="col-sm-3"></div>			
 										</div>
@@ -382,6 +386,7 @@
 										    <label for="modPassword" class="col-sm-2 col-form-label text-right"><i class="fas fa-lock"></i></label>
 										    <div class="col-sm-5">
 										    	<input type="password" class="form-control" id="modPassword" placeholder="Password" required>
+										    	<div class="invalid-feedback">Please fill out this field.</div>
 											</div>
 											<div class="col-sm-3"></div>			
 										</div>
@@ -417,6 +422,7 @@
 												<fieldset>
 													<div class="form-group">
 									                	<input type="password" class="form-control" id="forgot_password_userId" placeholder="User ID" required>
+									                	<div class="invalid-feedback">Please fill out this field.</div>
 									                </div>
 									                <button type="submit" class="btn btn-secondary mr-auto text-center" style="margin: auto; display: block;">Send Reset Password Request</button>
 												</fieldset>
@@ -441,6 +447,7 @@
 										    <label for="userAdminUserId" class="col-sm-2 col-form-label text-right"><i class="fas fa-user"></i></label>
 										    <div class="col-sm-5">
 										    	<input type="text" class="form-control" id="userAdminUserId" placeholder="User ID" required>
+										    	<div class="invalid-feedback">Please fill out this field.</div>
 											</div>
 											<div class="col-sm-3"></div>			
 										</div>
@@ -449,6 +456,7 @@
 										    <label for="userAdminPassword" class="col-sm-2 col-form-label text-right"><i class="fas fa-lock"></i></label>
 										    <div class="col-sm-5">
 										    	<input type="password" class="form-control" id="userAdminPassword" placeholder="Password" required>
+												<div class="invalid-feedback">Please fill out this field.</div>
 											</div>
 											<div class="col-sm-3"></div>			
 										</div>
