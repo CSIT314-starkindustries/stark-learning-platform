@@ -13,7 +13,7 @@
 	
 	<body>
 		<!-- Navbar -->
-		<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+		<nav class="navbar navbar-expand-lg navbar-dark bg-primary" id="topPage">
 			<a class="navbar-brand" href="home_page">Stark Industries</a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
 			  <span class="navbar-toggler-icon"></span>
@@ -114,30 +114,7 @@
 								</div>
 						    </td>
 				   		</tr>
-				   		
-				   		<tr>
-						    <td class="font-weight-bold">2</td>
-						    <td>123457</td>
-						    <td>Yeo Cindy</td>
-						    <td>Moderator</td>
-						    <td></td>
-						    <td>
-						    	<button type="button" id="resetPwBtn">
-						    		<i class="fas fa-lock" data-toggle="modal" data-target="#resetPwModal" aria-hidden="true"></i>
-						    	</button>
-						    </td>
-						    <td>
-						    	<div class="form-group">
-									<div class="d-inline custom-control custom-switch">
-								      	<input type="checkbox" onclick="suspendFunction()" id="suspendBtn1" class="custom-control-input">
-								      	<label class="custom-control-label" for="suspendBtn1"></label>
-								    </div>
-								    <div class="d-inline font-weight-bold" id="suspendOff">
-						    			Off
-						    		</div>
-								</div>
-						    </td>
-				   		</tr>
+
 					</tbody>
 				</table>
 			</div>
@@ -239,8 +216,7 @@
 			        	<h4 class="text-center">Do you wish to reset the password?</h4>
 			      	</div>
 			      	<div class="modal-footer">
-			      		<button type="button" class="btn btn-primary ml-auto" onclick="onSubmitResetPw()">Submit</button>
-			      		<button type="button" class="btn btn-primary mr-auto">Cancel</button>
+			      		<button type="button" class="btn btn-primary ml-auto mr-auto" onclick="onSubmitResetPw()">Submit</button>
 			      	</div>
 		    	</div>
 			</div>
@@ -262,8 +238,7 @@
 			        	<h4 class="text-center">Do you wish to suspend the user?</h4>
 			      	</div>
 			      	<div class="modal-footer">
-			      		<button type="button" onclick="onSubmitSuspendUser()" class="btn btn-primary ml-auto">Yes</button>
-			      		<button type="button" class="btn btn-primary mr-auto">Cancel</button>
+			      		<button type="button" onclick="onSubmitSuspendUser()" class="btn btn-primary ml-auto mr-auto">Yes</button>
 			      	</div>
 		    	</div>
 			</div>
@@ -308,10 +283,21 @@
 		<!-- End of Content -->
 
 		<!-- Footer -->
-		<div class = "navbar navbar-dark bg-primary fixed-bottom">
-			<footer class="footer">
-		  		<h6 style = "color: white;">© 2020 Copyright Stark Industries</h6>		
-			</footer>
+		<div class="navbar navbar-dark bg-primary">
+			<div class="container-fluid">
+				<footer class="footer" style="min-width: 100%;">
+					<div class="row">
+						<div class="col">
+							<h6 style="color: white;">© 2020 Copyright Stark Industries</h6>
+						</div>
+						<div class="col">
+							<a href="#topPage">
+								<span style="float: right; color: white;"><i class="fas fa-arrow-alt-circle-up fa-2x"></i></span>	
+							</a>
+						</div>
+				  	</div>
+				</footer>
+			</div>
 		</div>
 		<!-- End of Footer -->
 		
