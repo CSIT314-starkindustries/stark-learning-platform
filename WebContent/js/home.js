@@ -23,7 +23,7 @@ function scrollToTopFunction() {
 
 
 // Comparing password and confirm password for registration form
-/*window.onload = function () {
+window.onload = function () {
     var regPassword = document.getElementById("regPassword");
     var regConfirmPassword = document.getElementById("regConfirmPassword");
     regPassword.onchange = ConfirmPassword;
@@ -35,32 +35,4 @@ function scrollToTopFunction() {
         	regConfirmPassword.setCustomValidity("Passwords do not match.");
         }
     }
-} */
-
-$(document).ready(function() {
-    $('#regForm').bootstrapValidator({
-        feedbackIcons: {
-            valid: 'glyphicon glyphicon-ok',
-            invalid: 'glyphicon glyphicon-remove',
-            validating: 'glyphicon glyphicon-refresh'
-        },
-        fields: {
-            password: {
-                validators: {
-                    identical: {
-                        field: 'confirmPassword',
-                        message: 'The password and its confirm are not the same'
-                    }
-                }
-            },
-            confirmPassword: {
-                validators: {
-                    identical: {
-                        field: 'password',
-                        message: 'The password and its confirm are not the same'
-                    }
-                }
-            }
-        }
-    });
-});
+} 
