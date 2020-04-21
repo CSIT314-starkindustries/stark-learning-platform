@@ -14,6 +14,7 @@
 	</head>
 	
 	<body>		
+		<!-- Start of Navbar -->
 		<nav class="navbar navbar-expand-lg navbar-dark bg-primary" id="topPage">
 			<a class="navbar-brand" href="home">Stark Industries</a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
@@ -45,7 +46,7 @@
 		</nav>
 		<!-- End of Navbar -->
 		
-		<!-- Content -->
+		<!-- Start of Contents -->
 		<div class="container-fluid" id="main">
 			<div class="centered">
 				<h2 id="typing" style="margin-bottom: 5%;">Welcome to Stark's!</h2>
@@ -472,9 +473,9 @@
 		    	</div>
 			</div>
 		</div>
-		<!-- end of Content -->
+		<!-- End of Contents -->
 		
-		<!-- Footer -->
+		<!-- Start of Footer -->
 		<div class="navbar navbar-dark bg-primary">
 			<div class="container-fluid">
 				<footer class="footer" style="min-width: 100%;">

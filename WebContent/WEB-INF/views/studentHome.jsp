@@ -4,17 +4,21 @@
 <html>
 	<head>
 		<meta charset="ISO-8859-1">
-		<title>Welcome to Stark Industry</title>
+		<title>Student Home</title>
 		<link rel="stylesheet" href="/StarkLearningApp/css/bootstrap.min.css">
 		<link rel="stylesheet" href="/StarkLearningApp/css/bootstrap.css">
 		<link rel="stylesheet" href="/StarkLearningApp/css/all.css"> 
-		<link rel="stylesheet" href="/StarkLearningApp/css/test.css">		
+		<link rel="stylesheet" href="/StarkLearningApp/css/studentHome.css">		
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-		<script type="text/javascript" src="/StarkLearningApp/js/test.js"></script>
+		<script type="text/javascript" src="/StarkLearningApp/js/studentHome.js"></script>
 	</head>
+	
 	<body>
-		<div class="content">		
-			<nav class="navbar navbar-expand-lg navbar-dark bg-primary" id="topPage">
+		<!-- Start of Page Container -->
+		<div class="pageCon">
+		
+			<!-- Start of Navbar -->			
+			<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
 				<a class="navbar-brand" href="#">Stark Industries</a>
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
 				  <span class="navbar-toggler-icon"></span>
@@ -40,8 +44,9 @@
 					<div class="col-sm-1"></div>		
 			    </div>
 			</nav>
-			<!-- End of Navbar -->	
-					
+			<!-- End of Navbar -->			
+			
+			<!-- Start of Contents -->
 			<div class="container-fluid">
 				<p style="font-size: 30px;">
 					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nunc eget lorem dolor sed viverra ipsum nunc aliquet bibendum. Nunc sed augue lacus viverra vitae. Ut enim blandit volutpat maecenas volutpat blandit. Aliquam etiam erat velit scelerisque in dictum non. Ut sem viverra aliquet eget sit amet tellus cras. Augue lacus viverra vitae congue eu consequat ac. Nisl condimentum id venenatis a condimentum vitae. Sed viverra ipsum nunc aliquet. Luctus accumsan tortor posuere ac ut consequat. Non pulvinar neque laoreet suspendisse interdum consectetur libero id faucibus.	
@@ -51,14 +56,16 @@
 					Etiam non quam lacus suspendisse faucibus interdum posuere. Nunc congue nisi vitae suscipit. Lobortis mattis aliquam faucibus purus in. Leo a diam sollicitudin tempor id eu nisl nunc mi. Enim tortor at auctor urna. Nisl pretium fusce id velit. Tellus in metus vulputate eu scelerisque felis imperdiet proin. Risus at ultrices mi tempus imperdiet nulla malesuada pellentesque. Curabitur vitae nunc sed velit dignissim sodales ut. Libero justo laoreet sit amet cursus. Massa eget egestas purus viverra accumsan. Ipsum consequat nisl vel pretium lectus quam id leo in. Interdum velit euismod in pellentesque massa placerat duis. Nullam eget felis eget nunc lobortis mattis. Sollicitudin aliquam ultrices sagittis orci a scelerisque. Sed risus ultricies tristique nulla aliquet enim tortor at.
 				</p>
 			</div>
+			<!-- End of Contents -->			
 		</div>
-	
-		<!-- Footer -->
-		<div class="navbar-dark bg-primary" id="footer">
+		<!-- End of Page Container -->
+		
+		<!-- Start of Footer -->
+		<div class="navbar navbar-dark bg-primary id="footer">
 			<div class="container-fluid">
 				<footer class="footer" style="min-width: 100%;">
-					<div class="row">
-						<div class="col-sm-6">
+					<div class="row ">
+						<div class="col-sm-6" >
 							<h6 style="color: white;">© 2020 Copyright Stark Industries</h6>
 						</div>
 						<div class="col-sm-6">
@@ -68,9 +75,11 @@
 						</div>
 				  	</div>
 				</footer>
-			</div>
+			</div>	
 		</div>
 		<!-- End of Footer -->
+			
+		
 		
 		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>

@@ -1,0 +1,55 @@
+/*html,body {
+	height: 100%;
+	width: 100%;
+	margin: 0;
+	position: relative;
+}
+
+html {
+	scroll-behavior: smooth;
+}*/
+
+html, body {
+  height: 100%;
+}
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+.pageCon {
+  flex: 1 0 auto;
+}
+#footer {
+  flex-shrink: 0;
+}
+/*------------------------------------------------------------*/
+
+#userSettingToggle {
+	color: white;
+}
+
+#userSettingToggleBtn {
+	color: white;
+}
+
+#userSettingToggleBtn:hover {
+	color: #FDCA2E;
+}
+
+.userSettingDropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Show the dropdown menu on hover */
+.userSettingDropdown:hover .userSettingDropdown-content {
+	display: block;
+}
+
+#scrollToTopBtn {
+	background-color: transparent;
+	border: none;
+	float: right; 
+	color: white;
+}

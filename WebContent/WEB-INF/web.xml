@@ -5,5 +5,7 @@
     <welcome-file>home</welcome-file>
     <welcome-file>userAdmin</welcome-file>
     <welcome-file>test</welcome-file>
+    <welcome-file>studentHome</welcome-file>
+    <welcome-file>footer</welcome-file>
   </welcome-file-list>
 </web-app>
