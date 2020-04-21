@@ -45,11 +45,11 @@
 	overflow: hidden;
 	min-height: 468px;
 	width: 100%;
-	height: 40%;
+	height: 89%;
 	background: url(/StarkLearningApp/img/study.jpg);
 	background-size: cover;
 	background-repeat: no-repeat;
-	opacity: 0.8;
+	opacity: 0.75;
 }
 
 .centered {
@@ -58,10 +58,85 @@
 	left: 50%;
 	text-align: center;
 	transform: translate(-50%, -50%);
-	color:white;
-	font-family: "Lucida Console", Courier, monospace;
+	color: white;
+	/*font-family: "Lucida Console", Courier, monospace;*/
+	/*font-family: 'Roboto', sans-serif;*/
+	font-family: Georgia, serif;
 }
 
-/*html,body {
-	height:100%;
-}*/
+html,body {
+	height: 100%;
+	margin: 0;
+	position: relative;
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+#loginBtn:hover {
+	text-decoration: none;
+}
+
+#aboutCon {
+	padding-top: 5%;
+	background-color: #F3F3F3;
+	height: 60%;
+}
+
+#aboutP {
+	text-align: left;
+	font-size: 18px;
+}
+
+#ourTeamCon {
+	padding-top: 5%;
+	background-color: white;
+	height: 60%;
+}
+
+#ourTeamH4 {
+	text-align: center;
+	font-size: 18px;
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
+}
+
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px 0 #424242;
+}
+
+.selectPane.active, .selectPane:hover{
+	background: #FDCA2E !important;
+}
+
+.selectPane {
+	background-color: #5E5E5E;
+	color: white;
+	font-family: "Trebuchet MS", Helvetica, sans-serif;	
+}
+
+#loginBtn {
+	font-family: "Trebuchet MS", Helvetica, sans-serif;	
+}
+
+#forgot_password_collapse {
+	text-align: left;
+	padding-top: 2%;
+}
+
+.forgot_password_collapse_link.active, .forgot_password_collapse_link:active{
+	color: blue !important;
+}
+
+#scrollToTopBtn {
+	background-color: transparent;
+	border: none;
+	float: right; 
+	color: white;
+}
