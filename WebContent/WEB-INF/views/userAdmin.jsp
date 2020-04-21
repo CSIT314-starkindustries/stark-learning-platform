@@ -82,9 +82,12 @@
 							<th scope="col" class="tbl">User ID</th>
 				      		<th scope="col" class="tbl">Name</th>
 				      		<th scope="col" class="tbl">User Type</th>
-						    <th scope="col" class="tbl">Information</th>
-						    <th scope="col" class="tbl">Reset Password</th>
-						    <th scope="col" class="tbl">Suspend User</th>
+						    <th scope="col" class="tbl">Total Question<br> Asked</th>
+						    <th scope="col" class="tbl">Total Answer<br> Posted</th>
+						    <th scope="col" class="tbl">Total Comment<br> Posted</th>
+						    <th scope="col" class="tbl">Participation<br> Rating</th>
+						    <th scope="col" class="tbl">Reset<br> Password</th>
+						    <th scope="col" class="tbl">Suspend<br> User</th>
 				    	</tr>
 				  	</thead>
 				  	<tbody>
@@ -93,11 +96,10 @@
 						    <td>123456</td>
 						    <td>Tan Caleb</td>
 						    <td>Student</td>
-						    <td>
-						    	<button type="button" id="infoBtn">
-						    		<i class="fas fa-question-circle" data-toggle="modal" data-target="#studentInfoModal" aria-hidden="true"></i>
-						    	</button>
-						    </td>
+						    <td>12</td>
+						    <td>12</td>
+						    <td>12</td>
+						    <td>24</td>
 						    <td>
 						    	<button type="button" id="resetPwBtn">
 						    		<i class="fas fa-lock" data-toggle="modal" data-target="#resetPwModal" aria-hidden="true"></i>
@@ -169,38 +171,6 @@
 			</div>
 		</div>
 		<!-- End of Create New User Modal Box -->
-		
-		<!-- Student Information Modal Box -->
-		<div class="modal fade" id="studentInfoModal" tabindex="-1" role="dialog" aria-labelledby="infoModalLabel" aria-hidden="true">
-			<div class="modal-dialog modal-dialog-centered" role="document">
-				<div class="modal-content">
-		      		<div class="modal-header">
-				        <h5 class="modal-title col-12 text-center font-weight-bold" id="infoModalLabel">Information
-					        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-					          <span aria-hidden="true">&times;</span>
-					        </button>
-				        </h5>
-		      		</div>
-					<div class="container modal-body">
-						<div class="row">
-							<div class="col-md-4">
-								<h1 class="font-weight-bolder text-center">12</h1>
-								<h6 class="font-weight-bold text-center">Total Number of Questions</h6>
-							</div>
-							<div class="col-md-4">
-								<h1 class="font-weight-bolder text-center">12</h1>
-								<h6 class="font-weight-bold text-center">Total Number of Answers</h6>
-							</div>
-							<div class="col-md-4">
-								<h1 class="font-weight-bolder text-center">24</h1>
-								<h6 class="font-weight-bold text-center">Participation Ratings</h6>
-							</div>
-						</div>
-			      	</div>
-		    	</div>
-			</div>
-		</div>
-		<!-- End of Student Information Modal Box -->
 		
 		<!-- Reset Password Modal Box -->
 		<div class="modal fade" id="resetPwModal" tabindex="-1" role="dialog" aria-labelledby="resetPwModalLabel" aria-hidden="true">
