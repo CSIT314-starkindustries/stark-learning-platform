@@ -1,0 +1,49 @@
+#moderatorBtn:hover {
+	text-decoration: none;
+}
+		
+#aboveTable {
+	background-color: #ecf0f1;
+	padding: 20px 0px;
+}
+
+#scrollToTopBtn {
+	background-color: transparent;
+	border: none;
+	float: right; 
+	color: white;
+}
+
+#tableDiv {
+	padding-top: 10px;
+}
+
+.tbl { 
+	border-top: none; 
+	text-align: center;
+}
+
+.content-checkbox {
+	display: grid;
+	justify-content: center;
+}
+
+#yearRad, #monthRad {
+	padding-bottom: 20px;
+}
+
+.yearDropDown {
+	padding-bottom: 50px;
+}
+
+#yearSelection {
+	position: relative;
+}
+
+#goBtn {
+	background-color: transparent;
+	border: none;
+	position: absolute;
+  	top: 50%;
+  	transform: translateY(-50%);
+}
