@@ -3,23 +3,28 @@
 	width: 100%;
 	margin: 0;
 	position: relative;
-}
+}*/
+
+/* For footer to stay below regardless of content length*/
 
 html {
 	scroll-behavior: smooth;
-}*/
+}
 
 html, body {
   height: 100%;
 }
+
 body {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
 }
+
 .pageCon {
   flex: 1 0 auto;
 }
+
 #footer {
   flex-shrink: 0;
 }
