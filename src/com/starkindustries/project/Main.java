@@ -14,26 +14,26 @@ public class Main {
 		
 		/*
 		 * 1. login to useradmin
-		 * - check username and password
+		 * - validateAcc(username,password)
+		 * 
 		 * 
 		 * 
 		 * 2. register/create user account (done)
-		 * - check if username taken
+		 * - validateUser(username)
 		 * 
 		 * 
 		 * 3. suspend or unsuspend user
-		 * - get user suspend status by username
 		 * - update isSuspended to true or false
 		 * 
 		 * 
 		 * 4. reset username password
-		 * - get user info by username
 		 * - update password
 		 *
 		 *
 		 * 5. view all student and moderator info (done)
-		 * - get all user info
+		 * 
 		 * */ 
 		
+
 	}
 }
