@@ -88,6 +88,9 @@
 				    	</tr>
 				  	</thead>
 				  	<tbody>
+				  	
+				  		<!-- for loop here -->
+				  		
 				    	<tr>
 						    <td class="font-weight-bold">1</td>
 						    <td>123456</td>
@@ -115,6 +118,8 @@
 								</div>
 						    </td>
 				   		</tr>
+				   		
+				   		<!-- end for loop here -->
 
 					</tbody>
 				</table>
