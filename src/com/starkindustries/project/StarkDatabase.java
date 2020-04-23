@@ -81,4 +81,70 @@ public class StarkDatabase {
 		
 		mystmt.execute();	
 	}
+	
+	public boolean studentSuspendToggle(String username, Connection conn) throws SQLException {
+		ResultSet rs = new StarkDatabase().getOneUserById("student",username,conn);
+		
+		if (!rs.next()) return false;
+		
+		Statement mystmt;
+		String query = "";
+		
+		if (rs.getBoolean("issuspended")) {
+			query = String.format("UPDATE student SET issuspended = '%b' WHERE stud_username = '%s'",false,username);
+		}
+		else query = String.format("UPDATE student SET issuspended = '%b' WHERE stud_username = '%s'",true,username);
+		
+		mystmt = conn.createStatement();
+		mystmt.executeUpdate(query);
+		
+		return true;
+	}
+	
+	public boolean resetPassword(String studOrMod, String username, Connection conn) throws SQLException {
+		int rowsUpdated = 0;
+		Statement mystmt;
+		String query = "";
+		
+		if(studOrMod.equalsIgnoreCase("student")) {
+			query = String.format("UPDATE student SET stud_password = '%s' WHERE stud_username = '%s'",username,username);
+		}
+		else query = String.format("UPDATE moderator SET mod_password = '%s' WHERE mod_username = '%s'",username,username);
+		
+		mystmt = conn.createStatement();
+		rowsUpdated = mystmt.executeUpdate(query);
+		
+		if (rowsUpdated == 0) return false;
+		else return true;
+	}
+	
+	/* Basic Debug Commands, not currently supported in Use Cases */
+	
+	public boolean changePassword(String studOrMod, String username, Connection conn) throws SQLException {
+		int rowsUpdated = 0;
+		Statement mystmt;
+		String query = "";
+		
+		if(studOrMod.equalsIgnoreCase("student")) {
+			query = String.format("UPDATE student SET stud_password = '%s' WHERE stud_username = '%s'",username+1,username);
+		}
+		else query = String.format("UPDATE moderator SET mod_password = '%s' WHERE mod_username = '%s'",username+1,username);
+		
+		mystmt = conn.createStatement();
+		rowsUpdated = mystmt.executeUpdate(query);
+		
+		if (rowsUpdated == 0) return false;
+		else return true;
+	}
+	
+	public void deleteUser(String studOrMod, String username, Connection conn) throws SQLException {
+		Statement mystmt;
+		String query = "";
+		if (studOrMod.equalsIgnoreCase("student")) {
+			query = String.format("DELETE FROM student WHERE stud_username = '%s'", username); 
+		} else query = String.format("DELETE FROM moderator WHERE mod_username = '%s'", username); 
+		
+		mystmt = conn.createStatement();
+		mystmt.executeUpdate(query);
+	}
 }

@@ -13,41 +13,39 @@ import java.util.List;
 public class Main {
 
 	public static void main(String[] args) throws URISyntaxException, SQLException {
-		
-		System.out.println("Login as (Number):");
-		System.out.println("1: Student");
-		System.out.println("2: Moderator");
-		System.out.println("3: User Admin");
-		System.out.print("Enter Number: ");
 		Scanner input = new Scanner(System.in);
-		int num = input.nextInt();
 		
-		System.out.print("Username: ");
-		String user = input.next();
+		while (true) {
+			System.out.println("------------------");
+			System.out.println("Main Menu");
+			System.out.println("1: Account Validation Test");
+			System.out.println("2: User Suspension Test");
+			System.out.println("3: Reset Password Test:");
+			System.out.println("4: Misc Debug");
+			System.out.println("5: Exit");
+			System.out.print("Enter Number to test: ");
+			
+			int num = input.nextInt();
 		
-		System.out.print("Password: ");
-		String pass = input.next();
-		
-		boolean success = new Validation().validateUser(num,user,pass);
-		
-		if (success) {
-			System.out.println("User Validation successful.");
+			if (num == 1) {
+				ValidationTest(input);
+			}
+			else if (num == 2) {
+				UserSuspensionTest(input);
+			}
+			else if (num == 3) {
+				ResetPasswordTest(input);
+			}
+			else if (num == 4) {
+				MiscDebugTest(input);
+			}
+			else if (num == 5) {
+				break;
+			}
 		}
-		else {
-			System.out.println("User Validation failed.");
-		}
 		
-		/*
-		Connection conn = new StarkDatabase().getConn();
-		Statement stmt = conn.createStatement();
-		ResultSet rs = stmt.executeQuery("select * from public.user_admin");
-		while (rs.next()) {
-			String username = rs.getString("ua_username");
-			String password = rs.getString("ua_password");
-			System.out.println(username + " " + password);
-		}
-		conn.close();
-		*/
+		input.close();
+		
 		/*
 		 * 1. login to useradmin
 		 * - check username and password
@@ -70,5 +68,207 @@ public class Main {
 		 * 5. view all student and moderator info (done)
 		 * - get all user info
 		 * */ 
+	}
+	
+	public static void ValidationTest(Scanner input) throws URISyntaxException, SQLException {
+		System.out.println("------------------");
+		System.out.println("Login as (Number):");
+		System.out.println("1: Student");
+		System.out.println("2: Moderator");
+		System.out.println("3: User Admin");
+		System.out.print("Enter Number: ");
+		int num = input.nextInt();
+		
+		System.out.print("Username: ");
+		String user = input.next();
+		
+		System.out.print("Password: ");
+		String pass = input.next();
+		
+		boolean success = new Validation().validateUser(num,user,pass);
+		
+		if (success) {
+			System.out.println("User Validation successful.");
+		}
+		else System.out.println("User Validation failed.");
+		
+	}
+	
+	public static void UserSuspensionTest(Scanner input) throws URISyntaxException, SQLException {
+		System.out.println("------------------");
+		System.out.print("Enter Student Username: ");
+		String user = input.next();
+		
+		Connection conn = new StarkDatabase().getConn();
+		
+		boolean success = new StarkDatabase().studentSuspendToggle(user,conn);
+		
+		if (success) {
+			System.out.println("Student Suspension successful.");
+		}
+		else System.out.println("Student Suspension failed.");
+		
+	}
+	
+	public static void ResetPasswordTest(Scanner input) throws URISyntaxException, SQLException {
+		System.out.println("------------------");
+		System.out.println("Choose Option:");
+		System.out.println("1. Reset Student Password:");
+		System.out.println("2. Reset Moderator Password:");
+		System.out.print("Enter Number: ");
+		int num = input.nextInt();
+		
+		System.out.print("Enter Username: ");
+		String user = input.next();
+		
+		Connection conn = new StarkDatabase().getConn();
+		
+		boolean success;
+		if (num == 1) success = new StarkDatabase().resetPassword("student",user,conn);
+		else success = new StarkDatabase().resetPassword("moderator",user,conn);
+		
+		if (success) {
+			System.out.println("Reset Password successful.");
+		}
+		else System.out.println("Reset Password failed.");
+		
+	}
+	
+	public static void MiscDebugTest(Scanner input) throws URISyntaxException, SQLException {
+		System.out.println("------------------");
+		System.out.println("Choose Option:");
+		System.out.println("1. Get All Records:");
+		System.out.println("2. Get Singular Record:");
+		System.out.println("3. Change User Password:");
+		System.out.println("4. Create User:");
+		System.out.println("5. Delete User:");
+		System.out.print("Enter Number: ");
+		int num = input.nextInt();
+		
+		Connection conn = new StarkDatabase().getConn();
+		
+		if (num == 1) {
+			System.out.println("------------------");
+			System.out.println("Choose Option:");
+			System.out.println("1. Student:");
+			System.out.println("2. Moderator:");
+			System.out.print("Enter Number: ");
+			num = input.nextInt();
+			if (num == 1) {
+				ResultSet rs = new StarkDatabase().getAllRecords("student", conn);
+				System.out.println("------------------");
+				while (rs.next()) {
+					System.out.print(rs.getString("stud_username") + " ");
+					System.out.print(rs.getString("stud_password") + " ");
+					System.out.print(rs.getInt("total_qn_asked") + " ");
+					System.out.print(rs.getInt("total_ans_posted") + " ");
+					System.out.print(rs.getInt("total_comment_posted") + " ");
+					System.out.print(rs.getBoolean("issuspended") + " ");
+					System.out.println(rs.getInt("participation_rating"));
+				}
+			}
+			else if (num == 2) {
+				ResultSet rs = new StarkDatabase().getAllRecords("moderator", conn);
+				System.out.println("------------------");
+				while (rs.next()) {
+					System.out.print(rs.getString("mod_username") + " ");
+					System.out.println(rs.getString("mod_password"));
+				}
+			}
+		}
+		else if (num == 2) {
+			System.out.println("------------------");
+			System.out.println("Choose Option:");
+			System.out.println("1. Student:");
+			System.out.println("2. Moderator:");
+			System.out.println("3. User Admin:");
+			System.out.print("Enter Number: ");
+			num = input.nextInt();
+			
+			System.out.print("Enter Username: ");
+			String user = input.next();
+			if (num == 1) {
+				ResultSet rs = new StarkDatabase().getOneUserById("student",user,conn);
+				System.out.println("------------------");
+				while (rs.next()) {
+					System.out.print(rs.getString("stud_username") + " ");
+					System.out.print(rs.getString("stud_password") + " ");
+					System.out.print(rs.getInt("total_qn_asked") + " ");
+					System.out.print(rs.getInt("total_ans_posted") + " ");
+					System.out.print(rs.getInt("total_comment_posted") + " ");
+					System.out.print(rs.getBoolean("issuspended") + " ");
+					System.out.println(rs.getInt("participation_rating"));
+				}
+			}
+			else if (num == 2) {
+				ResultSet rs = new StarkDatabase().getOneUserById("moderator",user,conn);
+				System.out.println("------------------");
+				while (rs.next()) {
+					System.out.print(rs.getString("mod_username") + " ");
+					System.out.println(rs.getString("mod_password"));
+				}
+			}
+			else if (num == 3) {
+				ResultSet rs = new StarkDatabase().getOneUserById("user_admin",user,conn);
+				System.out.println("------------------");
+				while (rs.next()) {
+					System.out.print(rs.getString("ua_username") + " ");
+					System.out.println(rs.getString("ua_password"));
+				}
+			}
+		}
+		else if (num == 3) {
+			System.out.println("------------------");
+			System.out.println("Choose Option:");
+			System.out.println("1. Student:");
+			System.out.println("2. Moderator:");
+			System.out.print("Enter Number: ");
+			num = input.nextInt();
+			
+			System.out.print("Enter Username: ");
+			String user = input.next();
+			
+			boolean success;
+			if (num == 1) success = new StarkDatabase().changePassword("student",user,conn);
+			else success = new StarkDatabase().changePassword("moderator",user,conn);
+			
+			if (success) {
+				System.out.println("Change Password successful.");
+			}
+			else System.out.println("Change Password failed.");
+		}
+		else if (num == 4) {
+			System.out.println("------------------");
+			System.out.println("Choose Option:");
+			System.out.println("1. Student:");
+			System.out.println("2. Moderator:");
+			System.out.print("Enter Number: ");
+			num = input.nextInt();
+			
+			System.out.print("Enter Username: ");
+			String user = input.next();
+			
+			System.out.print("Enter Password: ");
+			String pass = input.next();
+			
+			if (num == 1) new StarkDatabase().createNewUser("student",user,pass,conn);
+			else new StarkDatabase().createNewUser("moderator",user,pass,conn);
+		}
+		else if (num == 5) {
+			System.out.println("------------------");
+			System.out.println("Choose Option:");
+			System.out.println("1. Student:");
+			System.out.println("2. Moderator:");
+			System.out.print("Enter Number: ");
+			num = input.nextInt();
+			
+			System.out.print("Enter Username: ");
+			String user = input.next();
+			
+			if (num == 1) new StarkDatabase().deleteUser("student",user,conn);
+			else new StarkDatabase().deleteUser("moderator",user,conn);
+		}
+		
+		conn.close();
 	}
 }
