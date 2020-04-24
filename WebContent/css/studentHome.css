@@ -1,10 +1,3 @@
-/*html,body {
-	height: 100%;
-	width: 100%;
-	margin: 0;
-	position: relative;
-}*/
-
 /* For footer to stay below regardless of content length*/
 
 html {
@@ -29,33 +22,17 @@ body {
 #footer {
   flex-shrink: 0;
 }
-/*------------------------------------------------------------*/
-
-#userSettingToggle {
-	color: white;
-}
-
-#userSettingToggleBtn {
-	color: white;
-}
-
-#userSettingToggleBtn:hover {
-	color: #FDCA2E;
-}
-
-.userSettingDropdown {
-  position: relative;
-  display: inline-block;
-}
-
-/* Show the dropdown menu on hover */
-.userSettingDropdown:hover .userSettingDropdown-content {
-	display: block;
-}
+/* ------------------------------------------------------ */
 
 #scrollToTopBtn {
 	background-color: transparent;
 	border: none;
 	float: right; 
 	color: white;
+}
+
+.sidebar-container {
+    min-height: 100vh;   
+    background-color: #ecf0f1;
+    padding: 0;
 }
