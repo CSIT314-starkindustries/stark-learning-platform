@@ -29,3 +29,9 @@ body {
 	float: right; 
 	color: white;
 }
+
+.sidebar-container {
+    min-height: 100vh;   
+    background-color: #ecf0f1;
+    padding: 0;
+}
