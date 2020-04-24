@@ -46,9 +46,10 @@
 			                <button class="btn btn-link dropdown-toggle" id="smallerscreenmenu" data-toggle="dropdown">View Options</button>
 			                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="smallerscreenmenu">
 			                    <a class="dropdown-item" href="#">Most Recent Questions</a>
-			                    <a class="dropdown-item" href="#">My Questions</a>
 			                    <a class="dropdown-item" href="#">All Questions</a>
+			                    <a class="dropdown-item" href="#">My Questions</a>
 			                    <a class="dropdown-item" href="#">My Answers</a>
+			                    <a class="dropdown-item" href="#">My Comments</a>
 			                </div>
 		                </div>
 		            </div>
@@ -61,32 +62,37 @@
 				<div class="row">
 					<div class="sidebar-container col-sm-2 d-none d-md-block">
 						<div class="list-group">
-				            <a href="#" id="sidebars" class="list-group-item list-group-item-action flex-column">
+							<div class="list-group-item sidebar-separator-title text-muted d-flex w-100 align-items-center justify-content-center" style="background-color: #ebf7f6; height: 35px;">
+			                  <small class="font-weight-bold">GENERAL</small>
+			               	</div>
+				            <a href="#" class="list-group-item list-group-item-action flex-column">
 				                <div class="d-flex w-100 justify-content-center align-items-center">
 				                	<span class="mr-3"><i class="fas fa-fist-raised"></i></span>
 				                    <span>Most Recent<br>Questions</span>
 				                </div>
 				            </a>
-				            <a href="#" id="sidebars" class="list-group-item list-group-item-action flex-column">
+				            <a href="#" class="list-group-item list-group-item-action flex-column">
 				                <div class="d-flex w-100 justify-content-center align-items-center">
 				                    <span class="mr-3"><i class="fas fa-question-circle"></i></span>
 				                    <span>All Questions</span>
 				                </div>
 				            </a>
-				            <hr>
-				            <a href="#" id="sidebars" class="list-group-item list-group-item-action flex-column">
+				            <div class="list-group-item sidebar-separator-title text-muted d-flex w-100 align-items-center justify-content-center" style="background-color: #ebf7f6; height: 35px;">
+			                  <small class="font-weight-bold">PERSONAL</small>
+			               	</div>
+				            <a href="#" class="list-group-item list-group-item-action flex-column">
 				                <div class="d-flex w-100 justify-content-center align-items-center">
 				                    <span class="mr-3"><i class="far fa-question-circle"></i></span>
 				                    <span>My Questions</span>
 				                </div>
 				            </a>				            
-				            <a href="#" id="sidebars" class="list-group-item list-group-item-action flex-column">
+				            <a href="#" class="list-group-item list-group-item-action flex-column">
 				                <div class="d-flex w-100 justify-content-center align-items-center">
 				                    <span class="mr-3"><i class="fas fa-hands-helping"></i></span>
-				                    <span>My Answers</span>
+				                    <span style="padding-right: 15px;">My Answers</span>
 				                </div>
 				            </a>
-				            <a href="#" id="sidebars" class="list-group-item list-group-item-action flex-column">
+				            <a href="#" class="list-group-item list-group-item-action flex-column">
 				                <div class="d-flex w-100 justify-content-center align-items-center">
 				                    <span class="mr-3"><i class="fas fa-comment"></i></span>
 				                    <span>My Comments</span>

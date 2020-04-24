@@ -1,11 +1,11 @@
-/*// Hide submenus
+// Hide submenus
 $('#body-row .collapse').collapse('hide'); 
 
 // Collapse/Expand icon
 $('#collapse-icon').addClass('fa-angle-double-left'); 
 
 // Collapse click
-$('[data-toggle=sidebar-collapse]').click(function() {
+$('[data-toggle=sidebar-colapse]').click(function() {
     SidebarCollapse();
 });
 
@@ -25,4 +25,4 @@ function SidebarCollapse () {
     
     // Collapse/Expand icon
     $('#collapse-icon').toggleClass('fa-angle-double-left fa-angle-double-right');
-}*/
+}
