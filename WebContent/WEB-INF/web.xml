@@ -9,5 +9,6 @@
     <welcome-file>studentHome</welcome-file>
     <welcome-file>footer</welcome-file>
     <welcome-file>testSideNav</welcome-file>
+    <welcome-file>viewQuestion</welcome-file>
   </welcome-file-list>
 </web-app>
