@@ -69,20 +69,27 @@
 				            </a>
 				            <a href="#" id="sidebars" class="list-group-item list-group-item-action flex-column">
 				                <div class="d-flex w-100 justify-content-center align-items-center">
-				                    <span class="mr-3"><i class="far fa-question-circle"></i></span>
-				                    <span>My Questions</span>
-				                </div>
-				            </a>
-				            <a href="#" id="sidebars" class="list-group-item list-group-item-action flex-column">
-				                <div class="d-flex w-100 justify-content-center align-items-center">
 				                    <span class="mr-3"><i class="fas fa-question-circle"></i></span>
 				                    <span>All Questions</span>
 				                </div>
 				            </a>
+				            <hr>
+				            <a href="#" id="sidebars" class="list-group-item list-group-item-action flex-column">
+				                <div class="d-flex w-100 justify-content-center align-items-center">
+				                    <span class="mr-3"><i class="far fa-question-circle"></i></span>
+				                    <span>My Questions</span>
+				                </div>
+				            </a>				            
 				            <a href="#" id="sidebars" class="list-group-item list-group-item-action flex-column">
 				                <div class="d-flex w-100 justify-content-center align-items-center">
 				                    <span class="mr-3"><i class="fas fa-hands-helping"></i></span>
 				                    <span>My Answers</span>
+				                </div>
+				            </a>
+				            <a href="#" id="sidebars" class="list-group-item list-group-item-action flex-column">
+				                <div class="d-flex w-100 justify-content-center align-items-center">
+				                    <span class="mr-3"><i class="fas fa-comment"></i></span>
+				                    <span>My Comments</span>
 				                </div>
 				            </a>
 						</div>
