@@ -36,8 +36,12 @@
 						<div class="dropdown" role="group">
 							<button id="userSettingToggleBtn" type="button" class="btn btn-link dropdown-toggle" data-toggle="dropdown">UserXXX</button>
 						    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userSettingToggleBtn">
-						      	<a class="dropdown-item" href="#" id="userProfileLink">View Profile</a>
-						      	<a class="dropdown-item" href="#" id="logoutLink">Logout</a>
+						      	<a class="dropdown-item" href="studentProfile" id="userProfileLink">
+						      		<span class="mr-3"><i class="fas fa-user-cog"></i></span>View Profile
+						      	</a>
+						      	<a class="dropdown-item" href="home" id="logoutLink">
+						      		<span class="mr-3"><i class="fas fa-sign-out-alt"></i></span>Logout
+						      	</a>
 							</div>
 						</div>
 					</div>
@@ -131,16 +135,20 @@
 								</div>
 								<div class="col-md-2 d-flex align-items-center justify-content-center">
 									<div class="row">
-										<div class="col-md-12">
-											<button type="button" class="btn btn-primary btn-block btn-sm mb-2" data-toggle="tooltip" title="Click to ask questions">
-												<span style="padding-right: 22%"><i class="far fa-question-circle mr-auto"></i></span>
-												Ask Question
+										<div class="col-md-12 flex-column">
+											<button type="button" class="btn btn-primary btn-block btn-sm mb-2" title="Click to ask questions" data-toggle="modal" data-target="#askQns_modal">
+												<div class="d-flex w-100 justify-content-center align-items-center">
+								                    <span class="mr-4" style="padding-right: 5px;"><i class="far fa-question-circle"></i></span>
+								                    <span>Ask Question</span>
+								                </div>												
 											</button>
 										</div>
-										<div class="col-md-12">
-											<button type="button" class="btn btn-outline-primary btn-block btn-sm mt-2" data-toggle="tooltip" title="Click to answer to this question">
-												<span style="padding-right: 5%"><i class="far fa-comment-alt mr-auto"></i></span>
-												Answer Question
+										<div class="col-md-12 flex-column">
+											<button type="button" class="btn btn-outline-primary btn-block btn-sm mt-2" title="Click to answer to this question" data-toggle="modal" data-target="#ansQns-modal">
+												<div class="d-flex w-100 justify-content-center align-items-center">
+								                    <span class="mr-2"><i class="far fa-comment-alt"></i></span>
+								                    <span>Answer Question</span>
+								                </div>												
 											</button>
 										</div>
 									</div>
@@ -359,8 +367,95 @@
 						</div>
 					</div>
 				</div>
+				
+				<!-- Ask Qns Modal -->
+				<div class="modal fade" id="askQns_modal" tabindex="-1" role="dialog" aria-labelledby="modal" aria-hidden="true">
+					<div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+					    <div class="modal-content">
+					      	<div class="modal-header text-center">
+						        <h4 class="modal-title w-100">Ask A Question</h4>
+						        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						          <span aria-hidden="true">&times;</span>
+						        </button>
+					      	</div>
+					      	<div class="modal-body mx-3">
+					      		<form id="askQnsForm" class="needs-validation" novalidate>
+		 							<fieldset>
+		 								<div class="form-group row">
+		 									<div class="col-sm-1"></div>
+		 									<div class="col-sm-10">
+		 										<label for="qnsTitle"><b>Title</b></label>
+										      	<input type="text" class="form-control" id="qnsTitle" aria-describedby="qnsTitleHelp" placeholder="Enter title" contenteditable="true">
+										      	<small id="qnsTitleHelp" class="form-text text-muted">Be specific</small>		 										
+		 									</div>
+										    <div class="col-sm-1"></div>	
+										</div>
+										<div class="form-group row">
+		 									<div class="col-sm-1"></div>
+										    <div class="col-sm-10">
+										    	<label for="qnsBody"><b>Body</b></label>
+      											<textarea class="form-control" id="qnsBody" aria-describedby="qnsBodyHelp" rows="10" contenteditable="true" style="resize: none;"></textarea>
+										    	<small id="qnsBodyHelp" class="form-text text-muted">Describe in detail and include all information related to your question</small>	
+										    </div>
+											<div class="col-sm-1"></div>			
+										</div>
+										
+										<div class="modal-footer" style="text-align: center;">
+								        	<button type="submit" class="btn btn-primary mr-auto" id="#postQnsBtn" style="margin: auto; display: block;">Post Question</button>			        	
+								    	</div>
+		 							</fieldset>
+		 						</form>
+							</div>					    	
+					    </div>
+					</div>
+				</div>
+				<!-- End of Ask Question Modal -->
+				
+				<!-- Answer Question Modal -->
+				<div class="modal fade" id="ansQns-modal" tabindex="-1" role="dialog" aria-labelledby="modal" aria-hidden="true">
+					<div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+					    <div class="modal-content">
+					      	<div class="modal-header text-center">
+						        <h4 class="modal-title w-100">Answer Question</h4>
+						        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						          <span aria-hidden="true">&times;</span>
+						        </button>
+					      	</div>
+					      	<div class="modal-body mx-3">
+					      		<form id="ansQnsForm" class="needs-validation" novalidate>
+		 							<fieldset>
+		 								<div class="form-group row">
+		 									<div class="col-sm-1"></div>
+		 									<div class="col-sm-10">
+		 										<label for="ansTitle"><b>Title</b></label>
+										      	<input type="text" class="form-control" id="qnsTitle" aria-describedby="ansTitleSubtitle" placeholder="Enter title" contenteditable="true">
+										      	<small id="ansTitleSubtitle" class="form-text text-muted">Be specific</small>		 										
+		 									</div>
+										    <div class="col-sm-1"></div>	
+										</div>
+										<div class="form-group row">
+		 									<div class="col-sm-1"></div>
+										    <div class="col-sm-10">
+										    	<label for="ansBody"><b>Body</b></label>
+      											<textarea class="form-control" id="qnsBody" aria-describedby="ansBodySubtitle" rows="10" contenteditable="true" style="resize: none;"></textarea>
+										    	<small id="ansBodySubtitle" class="form-text text-muted">Describe in detail and include all information related to your question</small>	
+										    </div>
+											<div class="col-sm-1"></div>			
+										</div>
+										
+										<div class="modal-footer" style="text-align: center;">
+								        	<button type="submit" class="btn btn-primary mr-auto" id="#postAnsBtn" style="margin: auto; display: block;">Post Answer</button>			        	
+								    	</div>
+		 							</fieldset>
+		 						</form>
+							</div>					    	
+					    </div>
+					</div>
+				</div>
+				<!-- End of Answer Question Modal -->
+				
 			</div>
-			<!-- End of Contents -->			
+			<!-- End of Contents -->		
 		</div>
 		<!-- End of Page Container -->
 		
