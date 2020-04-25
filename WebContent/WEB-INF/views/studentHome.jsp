@@ -251,12 +251,12 @@
 									  	<tbody>
 									    	<tr class="d-flex" id="allQnsTableRow">
 									      		<td class="col-4 text-left" id="qnsIdCol">
-									      			<a href="#" style="color: #065590;" id="qnsId">
+									      			<a href="viewQuestion" style="color: #065590;" id="qnsId">
 									      				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 									      			</a>
 									      		</td>								      		
 									      		<td class="col-2 text-center" id="userIdCol">
-									      			<a href="#" id="userIdProfile">User111</a>
+									      			<a href="viewStudentProfile" id="userIdProfile">User111</a>
 									      		</td>
 									      		<td class="col-2 text-center" id="qnsVoteCountCol">3</td>
 									      		<td class="col-2 text-center" id="ansCountCol">2</td>
@@ -329,7 +329,7 @@
 									  	<tbody>
 									    	<tr class="d-flex" id="myQnsTableRow">
 									      		<td class="col-4 text-left" id="qnsIdCol">
-													<a href="#" style="color: #065590;" id="qnsId">
+													<a href="viewQuestion" style="color: #065590;" id="qnsId">
 									      				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 									      			</a>									      		
 									      		</td>
@@ -409,12 +409,12 @@
 									  	<tbody>
 									    	<tr class="d-flex" id="myAnsTableRow">
 									      		<td class="col-3 text-left" id="qnsIdCol">
-													<a href="#" style="color: #065590;" id="qnsId">
+													<a href="viewQuestion" style="color: #065590;" id="qnsId">
 									      				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 									      			</a>									      		
 									      		</td>
 									      		<td class="col-2 text-center" id="userIdCol">
-									      			<a href="#" id="userIdProfile">User122</a>
+									      			<a href="viewStudentProfile" id="userIdProfile">User122</a>
 									      		</td>
 									      		<td class="col-1 text-center" id="viewCountCol">4</td>
 									      		<td class="col-2 text-center" id="viewMyAnsCol">
@@ -494,12 +494,12 @@
 									  	<tbody>
 									    	<tr class="d-flex" id="myCommentsTableRow">
 									      		<td class="col-4 text-left" id="qnsIdCol">
-									      			<a href="#"  style="color: #065590;" id="qnsId">
+									      			<a href="viewQuestion"  style="color: #065590;" id="qnsId">
 									      				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 									      			</a>
 									      		</td>
 									      		<td class="col-2 text-center" id="userIdCol">
-									      			<a href="#" id="userId">User121</a>
+									      			<a href="viewStudentProfile" id="userId">User121</a>
 									      		</td>
 									      		<td class="col-1 text-center" id="voteCountCol">0</td>
 									      		<td class="col-2 text-center" id="ansCountCol">1</td>	
