@@ -19,7 +19,7 @@
 		
 			<!-- Start of Navbar -->			
 			<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-				<a class="navbar-brand" href="#">Stark Industries</a>
+				<a class="navbar-brand" href="studentHome">Stark Industries</a>
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
 				  <span class="navbar-toggler-icon"></span>
 				</button>
@@ -36,8 +36,12 @@
 						<div class="dropdown" role="group">
 							<button id="userSettingToggleBtn" type="button" class="btn btn-link dropdown-toggle" data-toggle="dropdown">UserXXX</button>
 						    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userSettingToggleBtn">
-						      	<a class="dropdown-item" href="#" id="userProfileLink">View Profile</a>
-						      	<a class="dropdown-item" href="#" id="logoutLink">Logout</a>
+						      	<a class="dropdown-item" href="studentProfile" id="userProfileLink">
+						      		<span class="mr-3"><i class="fas fa-user-cog"></i></span>View Profile
+						      	</a>
+						      	<a class="dropdown-item" href="home" id="logoutLink">
+						      		<span class="mr-3"><i class="fas fa-sign-out-alt"></i></span>Logout
+						      	</a>
 							</div>
 						</div>
 					</div>
@@ -129,8 +133,13 @@
 											</fieldset>
 										</form>
 									</div>
-									<div class="col-sm-4 text-right">
-										<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#askQns_modal">Ask Question</button>
+									<div class="col-sm-4 d-flex align-items-center justify-content-center">
+										<div class="col-sm-6"></div>
+										<div class="col text-right">
+											<button type="button" class="btn btn-primary btn-block mb-2" data-toggle="modal" data-target="#askQns_modal">
+												<span style="padding-right: 10%;"><i class="far fa-question-circle"></i></span>Ask Question
+											</button>
+										</div>
 									</div>
 								</div>
 								
@@ -148,7 +157,7 @@
 									      			<span style="padding-left: 2%;"><i class="far fa-user-circle"></i></span>
 									      		</th>
 									      		<th scope="col" class="col-2">
-									      			Votes
+									      			Question Votes
 									      			<span style="padding-left: 2%;"><i class="far fa-thumbs-up"></i></span>
 									      		</th>
 									      		<th scope="col" class="col-2">
@@ -163,17 +172,17 @@
 									  	</thead>
 									  	<tbody>
 									    	<tr class="d-flex" id="mostRecentQnsTableRow">
-									      		<td class="col-4 text-left">
-									      			<a href="#" style="color: #065590;">
+									      		<td class="col-4 text-left" id="qnsIdCol">
+									      			<a href="viewQuestion" style="color: #065590;" id="qnsId">
 									      				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 									      			</a>
 									      		</td>
-									      		<td class="col-2 text-center">
-									      			User123
+									      		<td class="col-2 text-center" id="userIdCol">
+									      			<a href="viewStudentProfile" id="userIdProfile">User123</a>
 									      		</td>
-									      		<td class="col-2 text-center" id="ansCount">0</td>
-									      		<td class="col-2 text-center" id="voteCount">0</td>
-									      		<td class="col-2 text-center" id="viewCount">0</td>
+									      		<td class="col-2 text-center" id="qnsVoteCountCol">0</td>
+									      		<td class="col-2 text-center" id="ansCountCol">0</td>
+									      		<td class="col-2 text-center" id="viewCountCol">0</td>
 									    	</tr>
 										</tbody>
 									</table>
@@ -202,8 +211,13 @@
 											</fieldset>
 										</form>
 									</div>
-									<div class="col-sm-4 text-right">
-										<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#askQns_modal">Ask Question</button>
+									<div class="col-sm-4 d-flex align-items-center justify-content-center">
+										<div class="col-sm-6"></div>
+										<div class="col text-right">
+											<button type="button" class="btn btn-primary btn-block mb-2" data-toggle="modal" data-target="#askQns_modal">
+												<span style="padding-right: 10%;"><i class="far fa-question-circle"></i></span>Ask Question
+											</button>
+										</div>
 									</div>
 								</div>
 								
@@ -221,7 +235,7 @@
 									      			<span style="padding-left: 2%;"><i class="far fa-user-circle"></i></span>
 									      		</th>
 									      		<th scope="col" class="col-2">
-									      			Votes
+									      			Question Votes
 									      			<span style="padding-left: 2%;"><i class="far fa-thumbs-up"></i></span>
 									      		</th>
 									      		<th scope="col" class="col-2">
@@ -236,28 +250,17 @@
 									  	</thead>
 									  	<tbody>
 									    	<tr class="d-flex" id="allQnsTableRow">
-									      		<td class="col-4 text-left">
-									      			<a href="#" style="color: #065590;">
+									      		<td class="col-4 text-left" id="qnsIdCol">
+									      			<a href="viewQuestion" style="color: #065590;" id="qnsId">
 									      				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 									      			</a>
 									      		</td>								      		
-									      		<td class="col-2 text-center">User111</td>
-									      		<td class="col-2 text-center">3</td>
-									      		<td class="col-2 text-center">2</td>
-									      		<td class="col-2 text-center">10</td>
-									    	</tr>
-									    	<tr class="d-flex">
-									      		<td class="col-4 text-left">
-									      			<a href="#" style="color: #065590;">
-									      				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-									      			</a>
+									      		<td class="col-2 text-center" id="userIdCol">
+									      			<a href="viewStudentProfile" id="userIdProfile">User111</a>
 									      		</td>
-									      		<td class="col-2 text-center">
-									      			User123
-									      		</td>
-									      		<td class="col-2 text-center" id="ansCount">0</td>
-									      		<td class="col-2 text-center" id="voteCount">0</td>
-									      		<td class="col-2 text-center" id="viewCount">0</td>
+									      		<td class="col-2 text-center" id="qnsVoteCountCol">3</td>
+									      		<td class="col-2 text-center" id="ansCountCol">2</td>
+									      		<td class="col-2 text-center" id="viewCountCol">10</td>
 									    	</tr>
 										</tbody>
 									</table>
@@ -286,8 +289,13 @@
 											</fieldset>
 										</form>
 									</div>
-									<div class="col-sm-4 text-right">
-										<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#askQns_modal">Ask Question</button>
+									<div class="col-sm-4 d-flex align-items-center justify-content-center">
+										<div class="col-sm-6"></div>
+										<div class="col text-right">
+											<button type="button" class="btn btn-primary btn-block mb-2" data-toggle="modal" data-target="#askQns_modal">
+												<span style="padding-right: 10%;"><i class="far fa-question-circle"></i></span>Ask Question
+											</button>
+										</div>
 									</div>
 								</div>
 								
@@ -301,7 +309,7 @@
 									      			<span style="padding-left: 2%;"><i class="far fa-question-circle"></i></span>
 									      		</th>
 									      		<th scope="col" class="col-2">
-									      			Votes
+									      			My Question Votes
 									      			<span style="padding-left: 2%;"><i class="far fa-thumbs-up"></i></span>
 									      		</th>
 									      		<th scope="col" class="col-2">
@@ -309,30 +317,26 @@
 									      			<span style="padding-left: 2%;"><i class="far fa-comment-alt"></i></span>
 									      		</th>
 									      		<th scope="col" class="col-2">
-									      			Comments
-									      			<span style="padding-left: 2%;"><i class="far fa-comments"></i></span>
-									      		</th>
-									      		<th scope="col" class="col-2">
 									      			Views
 									      			<span style="padding-left: 2%;"><i class="far fa-eye"></i></span>
-									      		</th>									      		
+									      		</th>
+									      		<th scope="col" class="col-2">
+									      			My Question Comments
+									      			<span style="padding-left: 2%;"><i class="far fa-comments"></i></span>
+									      		</th>									      											      		
 									    	</tr>
 									  	</thead>
 									  	<tbody>
 									    	<tr class="d-flex" id="myQnsTableRow">
-									      		<td class="col-4 text-left">
-													<a href="#" style="color: #065590;">
+									      		<td class="col-4 text-left" id="qnsIdCol">
+													<a href="viewQuestion" style="color: #065590;" id="qnsId">
 									      				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 									      			</a>									      		
 									      		</td>
-									      		<td class="col-2 text-center">0</td>
-									      		<td class="col-2 text-center">
-													<a href="#">View Answers</a>
-												</td>
-									      		<td class="col-2 text-center">
-									      			<a href="#">View Comments for Question</a>
-									      		</td>
-									      		<td class="col-2 text-center">20</td>
+									      		<td class="col-2 text-center" id="qnsVoteCountCol">0</td>
+									      		<td class="col-2 text-center" id="ansCountCol">0</td>
+									      		<td class="col-2 text-center" id="viewCountCol">20</td>
+									      		<td class="col-2 text-center" id="qnsCommentCountCol">0</td>
 									    	</tr>									    	
 										</tbody>
 									</table>
@@ -361,8 +365,13 @@
 											</fieldset>
 										</form>
 									</div>
-									<div class="col-sm-4 text-right">
-										<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#askQns_modal">Ask Question</button>
+									<div class="col-sm-4 d-flex align-items-center justify-content-center">
+										<div class="col-sm-6"></div>
+										<div class="col text-right">
+											<button type="button" class="btn btn-primary btn-block mb-2" data-toggle="modal" data-target="#askQns_modal">
+												<span style="padding-right: 10%;"><i class="far fa-question-circle"></i></span>Ask Question
+											</button>
+										</div>
 									</div>
 								</div>
 								
@@ -379,35 +388,40 @@
 									      			Asked By
 									      			<span style="padding-left: 2%;"><i class="far fa-user-circle"></i></span>
 									      		</th>
-									      		<th scope="col" class="col-3">
-									      			My Answer
+									      		<th scope="col" class="col-1">
+									      			Views
+									      			<span style="padding-left: 2%;"><i class="far fa-eye"></i></span>
+									      		</th>
+									      		<th scope="col" class="col-2">
+									      			My Answers
 									      			<span style="padding-left: 2%;"><i class="far fa-comment-alt"></i></span>
 									      		</th>
 									      		<th scope="col" class="col-2">
-									      			Votes
+									      			My Answer Votes
 									      			<span style="padding-left: 2%;"><i class="far fa-thumbs-up"></i></span>
 									      		</th>
 									      		<th scope="col" class="col-2">
-									      			Comments
+									      			My Answer Comments
 									      			<span style="padding-left: 2%;"><i class="far fa-comments"></i></span>
 									      		</th>
 									    	</tr>
 									  	</thead>
 									  	<tbody>
 									    	<tr class="d-flex" id="myAnsTableRow">
-									      		<td class="col-3 text-left">
-													<a href="#" style="color: #065590;">
+									      		<td class="col-3 text-left" id="qnsIdCol">
+													<a href="viewQuestion" style="color: #065590;" id="qnsId">
 									      				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 									      			</a>									      		
 									      		</td>
-									      		<td class="col-2 text-center">User122</td>
-									      		<td class="col-3 text-center">
-									      			<a href="#">View My Answer</a>
+									      		<td class="col-2 text-center" id="userIdCol">
+									      			<a href="viewStudentProfile" id="userIdProfile">User122</a>
 									      		</td>
-									      		<td class="col-2 text-center">3</td>
-									      		<td class="col-2 text-center">
-									      			<a href="#">View Comments</a>
+									      		<td class="col-1 text-center" id="viewCountCol">4</td>
+									      		<td class="col-2 text-center" id="viewMyAnsCol">
+									      			<a href="#" id="viewMyAns">View My Answer</a>
 									      		</td>
+									      		<td class="col-2 text-center" id="ansVoteCountCol">3</td>
+									      		<td class="col-2 text-center" id="ansCommentCountCol">0</td>
 									    	</tr>
 										</tbody>
 									</table>
@@ -436,8 +450,13 @@
 											</fieldset>
 										</form>
 									</div>
-									<div class="col-sm-4 text-right">
-										<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#askQns_modal">Ask Question</button>
+									<div class="col-sm-4 d-flex align-items-center justify-content-center">
+										<div class="col-sm-6"></div>
+										<div class="col text-right">
+											<button type="button" class="btn btn-primary btn-block mb-2" data-toggle="modal" data-target="#askQns_modal">
+												<span style="padding-right: 10%;"><i class="far fa-question-circle"></i></span>Ask Question
+											</button>
+										</div>
 									</div>
 								</div>
 								
@@ -454,11 +473,7 @@
 									      			Asked By
 									      			<span style="padding-left: 2%;"><i class="far fa-user-circle"></i></span>
 									      		</th>
-									      		<th scope="col" class="col-2">
-									      			My Comments
-									      			<span style="padding-left: 2%;"><i class="far fa-comments"></i></span>
-									      		</th>
-									      		<th scope="col" class="col-2">
+									      		<th scope="col" class="col-1">
 									      			Votes
 									      			<span style="padding-left: 2%;"><i class="far fa-thumbs-up"></i></span>
 									      		</th>
@@ -466,33 +481,86 @@
 									      			Answers
 									      			<span style="padding-left: 2%;"><i class="far fa-comment-alt"></i></span>
 									      		</th>
+									      		<th scope="col" class="col-1">
+									      			Views
+									      			<span style="padding-left: 2%;"><i class="far fa-eye"></i></span>
+									      		</th>									      		
+									      		<th scope="col" class="col-2">
+									      			My Comments
+									      			<span style="padding-left: 2%;"><i class="far fa-comment"></i></span>
+									      		</th>
 									    	</tr>
 									  	</thead>
 									  	<tbody>
 									    	<tr class="d-flex" id="myCommentsTableRow">
-									      		<td class="col-4 text-left">
-									      			<a href="#"  style="color: #065590;">
+									      		<td class="col-4 text-left" id="qnsIdCol">
+									      			<a href="viewQuestion"  style="color: #065590;" id="qnsId">
 									      				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 									      			</a>
 									      		</td>
-									      		<td class="col-2 text-center">User121</td>
-									      		<td class="col-2 text-center">
-													<a href="#">View My Comments</a>
-												</td>
-									      		<td class="col-2 text-center">0</td>
-									      		<td class="col-2 text-center">1</td>
+									      		<td class="col-2 text-center" id="userIdCol">
+									      			<a href="viewStudentProfile" id="userId">User121</a>
+									      		</td>
+									      		<td class="col-1 text-center" id="voteCountCol">0</td>
+									      		<td class="col-2 text-center" id="ansCountCol">1</td>	
+									      		<td class="col-1 text-center" id="viewCountCol">1</td>
+									      		<td class="col-2 text-center" id="viewMyCommentCol">								      										      		
+													<a href="#" id="viewMyComment">View My Comments</a>
+												</td>									      		
 									    	</tr>
 										</tbody>
 									</table>
 								</div>															
-						  	</div>
-						  	
+						  	</div>						  	
 					  	</div>
-						<!-- End of Tab Panes -->
-						
+						<!-- End of Tab Panes -->						
 					</div>					
 					<!-- End of Tab Contents Container -->
 				</div>
+				
+				<!-- Ask Qns Modal -->
+				<div class="modal fade" id="askQns_modal" tabindex="-1" role="dialog" aria-labelledby="modal" aria-hidden="true">
+					<div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+					    <div class="modal-content">
+					      	<div class="modal-header text-center">
+						        <h4 class="modal-title w-100">Ask A Question</h4>
+						        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						          <span aria-hidden="true">&times;</span>
+						        </button>
+					      	</div>
+					      	<div class="modal-body mx-3">
+					      		<form id="askQnsForm" class="needs-validation" novalidate>
+		 							<fieldset>
+		 								<div class="form-group row">
+		 									<div class="col-sm-1"></div>
+		 									<div class="col-sm-10">
+		 										<label for="qnsTitle"><b>Title</b></label>
+										      	<input type="text" class="form-control" id="qnsTitle" aria-describedby="qnsTitleHelp" placeholder="Enter title" contenteditable="true">
+										      	<small id="qnsTitleHelp" class="form-text text-muted">Be specific</small>		 										
+		 									</div>
+										    <div class="col-sm-1"></div>	
+										</div>
+										<div class="form-group row">
+		 									<div class="col-sm-1"></div>
+										    <div class="col-sm-10">
+										    	<label for="qnsBody"><b>Body</b></label>
+      											<textarea class="form-control" id="qnsBody" aria-describedby="qnsBodyHelp" rows="10" contenteditable="true" style="resize: none;"></textarea>
+										    	<small id="qnsBodyHelp" class="form-text text-muted">Describe in detail and include all information related to your question</small>	
+										    </div>
+											<div class="col-sm-1"></div>			
+										</div>
+										
+										<div class="modal-footer" style="text-align: center;">
+								        	<button type="submit" class="btn btn-primary mr-auto" id="#postQnsBtn" style="margin: auto; display: block;">Post Question</button>			        	
+								    	</div>
+		 							</fieldset>
+		 						</form>
+							</div>					    	
+					    </div>
+					</div>
+				</div>
+				<!-- End of Ask Question Modal -->
+				
 			</div>
 			<!-- End of Contents -->			
 		</div>
