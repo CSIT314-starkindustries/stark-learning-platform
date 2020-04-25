@@ -43,13 +43,18 @@ body {
 	padding-bottom: 10px;
 }
 
-#content-one {
+.header-container {
 	padding-top: 10px;
+	padding-bottom: 10px;
+	background-color: #dce3e6;
+}
+
+#content-two-bottom, #content-four-bottom {
 	background-color: #F2F2F2;
 }
 
-#content-two-bottom, #content-four-bottom, .question-answer-container {
-	background-color: #F2F2F2;
+.question-answer {
+	background-color: #f5efe3;
 }
 
 .upvote, .downvote {
@@ -72,4 +77,19 @@ hr {
   width: 98%;               
   background-color: #F2F2F2;
   height: 1px;
+}
+
+.edit-question-link {
+	margin-top:-15px;
+	margin-bottom: 10px;
+}
+
+.full-question, .question-comment, .question-answer, .answer-comment {
+	padding-top: 5px;
+}
+
+.edit-answer {
+	margin-top:-15px;
+	padding-bottom: 10px;
+	background-color: #f5efe3;
 }
