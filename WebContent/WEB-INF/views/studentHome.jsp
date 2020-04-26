@@ -607,7 +607,7 @@
 				
 				<!-- View My Comment Modal -->
 				<div class="modal fade" id="viewMyComment_modal" tabindex="-1" role="dialog" aria-labelledby="modal" aria-hidden="true">
-					<div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+					<div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable" role="document">
 					    <div class="modal-content">
 					      	<div class="modal-header text-center">
 						        <h4 class="modal-title w-100">My Comments</h4>
@@ -616,24 +616,52 @@
 						        </button>
 					      	</div>
 					      	<div class="modal-body mx-3">
-		 						<div class="list-group">
-								  	<a href="#" class="list-group-item list-group-item-action flex-column align-items-start" style="background: #F2F2F2;">
-								    	<div class="d-flex w-100 justify-content-between">
-								      		<h5 class="col-sm-10" id="qnsTitle">Question Title....Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</h5>
-								      		<small class="col-sm-2" id="qnsDate" style="text-align: right;">26-4-2020</small>
-								    	</div>
-								    	<p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-								    	<small>Donec id elit non mi porta.</small>
-								  	</a>
-								  	<a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-								    	<div class="d-flex w-100 justify-content-between">
-								      		<h5 class="mb-1">List group item heading</h5>
-								      		<small class="text-muted">3 days ago</small>
-								    	</div>
-								    	<p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-								    	<small class="text-muted">Donec id elit non mi porta.</small>
-								  	</a>
-								</div>
+					      		<!-- Container for My Comments for Questions -->
+					      		<div class="container-fluid" style="padding-bottom: 5%;">		
+					      			<h5><b>My Comments for Questions</b></h5>		      			
+			 						<div class="list-group myCommentsQnsCon">
+									  	<a href="viewQuestion" id="viewQnsId_QnsComment" class="list-group-item list-group-item-action flex-column align-items-start" style="background: #F2F2F2;">
+									    	<div class="d-flex justify-content-between">
+									    		<div class="row">
+									      			<h5 class="col-sm-10 mb-1" id="myCommentQnsTitle" style="color: #065590;"><b>Question Title....Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</b></h5>
+									      			<small class="col-sm-2 text-right" id="qnsDate">22-4-2020</small>
+									    		</div>
+									    	</div>
+									    	<div class="myCommentQnsCon">
+										    	<div class="row">
+										    		<p id="myCommentId" class="col mb-1">My comment....Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+										    	</div>
+										    	<div class="row">
+										    		<small class="col-sm-4 text-left">Date of comment:<span id="dateTimeOfMyComment" style="padding-left: 3%;">27-4-2020</span></small>									    		
+										    	</div>
+										    </div>									   
+									  	</a>
+									</div>
+								</div>	
+								
+								<!-- Container for My Comments for Answers -->
+					      		<div class="container-fluid" style="padding-bottom: 5%;">	
+					      			<h5><b>My Comments for Answers</b></h5>			      			
+			 						<div class="list-group myCommentsAnsCon">
+									  	<a href="viewQuestion" id="viewQnsId_AnsComment" class="list-group-item list-group-item-action flex-column align-items-start" style="background: #F2F2F2;">
+									    	<div class="d-flex justify-content-between">
+									    		<div class="row">
+									      			<h5 class="col-sm-10 mb-1" id="myCommentAnsTitle" style="color: #065590;"><b>Answer Title....Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</b></h5>
+									      			<small class="col-sm-2 text-right" id="qnsDate">22-4-2020</small>
+									    		</div>
+									    	</div>
+									    	<div class="myCommentAnsCon">
+										    	<div class="row">
+										    		<p id="myCommentId" class="col mb-1">My comment....Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+										    	</div>
+										    	<div class="row">
+										    		<small class="col-sm-4 text-left">Date of comment:<span id="dateTimeOfMyComment" style="padding-left: 3%;">27-4-2020</span></small>									    		
+										    	</div>
+										    </div>
+									  	</a>
+									</div>
+								</div>								
+									
 							</div>
 					    	<div class="modal-footer" style="text-align: center;">
 					        	<button type="button" class="btn btn-secondary mr-auto" data-dismiss="modal"  style="margin: auto; display: block;">Close</button>			        	

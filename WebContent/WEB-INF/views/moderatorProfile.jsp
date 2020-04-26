@@ -90,7 +90,7 @@
 						 			<div class="col-sm-7">
 						 				<input type="password" class="form-control" id="currentPassword" placeholder="Current Password" name="currentPassword"
 											pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required>
-										<div class="invalid-feedback">Please enter current password</div>
+										<div class="invalid-feedback text-left">Please enter current password</div>
 						 			</div>
 						 		</div>	
 						 		<div class="form-group row text-center">

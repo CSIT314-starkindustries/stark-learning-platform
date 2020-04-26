@@ -39,7 +39,7 @@
 						      	<a class="dropdown-item" href="studentProfile" id="userProfileLink">
 						      		<span class="mr-3"><i class="fas fa-user-cog"></i></span>View Profile
 						      	</a>
-						      	<a class="dropdown-item" href="studentHome" id="userForumLink">
+						      	<a class="dropdown-item" href="studentHome" id="studentHomeLink">
 						      		<span class="mr-3"><i class="fas fa-chalkboard"></i></span>My Forum
 						      	</a>
 						      	<a class="dropdown-item" href="home" id="logoutLink">
