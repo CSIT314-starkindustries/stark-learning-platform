@@ -106,10 +106,12 @@ public class StarkDatabase {
 		Statement mystmt;
 		String query = "";
 		
+		String randPass = new Password().passwordGenerate();
+		
 		if(studOrMod.equalsIgnoreCase("student")) {
-			query = String.format("UPDATE student SET stud_password = '%s' WHERE stud_username = '%s'",username,username);
+			query = String.format("UPDATE student SET stud_password = '%s' WHERE stud_username = '%s'",randPass,username);
 		}
-		else query = String.format("UPDATE moderator SET mod_password = '%s' WHERE mod_username = '%s'",username,username);
+		else query = String.format("UPDATE moderator SET mod_password = '%s' WHERE mod_username = '%s'",randPass,username);
 		
 		mystmt = conn.createStatement();
 		rowsUpdated = mystmt.executeUpdate(query);
@@ -118,23 +120,41 @@ public class StarkDatabase {
 		else return true;
 	}
 	
-	/* Basic Debug Commands, not currently supported in Use Cases */
-	
-	public boolean changePassword(String studOrMod, String username, Connection conn) throws SQLException {
+	public boolean changePassword(String studOrMod, String username, String pass, Connection conn) throws SQLException {
 		int rowsUpdated = 0;
 		Statement mystmt;
 		String query = "";
 		
 		if(studOrMod.equalsIgnoreCase("student")) {
-			query = String.format("UPDATE student SET stud_password = '%s' WHERE stud_username = '%s'",username+1,username);
+			query = String.format("UPDATE student SET stud_password = '%s' WHERE stud_username = '%s'",pass,username);
 		}
-		else query = String.format("UPDATE moderator SET mod_password = '%s' WHERE mod_username = '%s'",username+1,username);
+		else query = String.format("UPDATE moderator SET mod_password = '%s' WHERE mod_username = '%s'",pass,username);
 		
 		mystmt = conn.createStatement();
 		rowsUpdated = mystmt.executeUpdate(query);
 		
 		if (rowsUpdated == 0) return false;
 		else return true;
+	}
+	
+	/* Debug Commands, not currently supported in use cases */
+	
+	public String retrievePassword(String studOrMod, String username, Connection conn) throws SQLException {
+		ResultSet rs;
+		Statement mystmt;
+		String query = "";
+		
+		if(studOrMod.equalsIgnoreCase("student")) {
+			query = String.format("SELECT stud_password FROM student where stud_username = '%s'",username);
+		}
+		else query = String.format("SELECT mod_password FROM moderator where mod_username = '%s'",username);
+		
+		mystmt = conn.createStatement();
+		rs = mystmt.executeQuery(query);
+		
+		if (!rs.next()) return null;
+		else if (studOrMod.equalsIgnoreCase("student")) return rs.getString("stud_password");
+		else return rs.getString("mod_password");
 	}
 	
 	public void deleteUser(String studOrMod, String username, Connection conn) throws SQLException {

@@ -13,7 +13,14 @@ import java.util.List;
 public class Main {
 
 	public static void main(String[] args) throws URISyntaxException, SQLException {
+		
+		/*String test = new Password().passwordGenerate();
+		boolean check = new Password().passwordCheck(test);
+		System.out.println("Does password meet requirements?");
+		System.out.print(check);*/
+		
 		Scanner input = new Scanner(System.in);
+		Connection conn = new StarkDatabase().getConn();
 		
 		while (true) {
 			System.out.println("------------------");
@@ -21,30 +28,41 @@ public class Main {
 			System.out.println("1: Account Validation Test");
 			System.out.println("2: User Suspension Test");
 			System.out.println("3: Reset Password Test:");
-			System.out.println("4: Misc Debug");
-			System.out.println("5: Exit");
+			System.out.println("4: Change Password Test:");
+			System.out.println("5: Misc Debug");
+			System.out.println("6: Exit");
 			System.out.print("Enter Number to test: ");
 			
 			int num = input.nextInt();
 		
 			if (num == 1) {
-				ValidationTest(input);
+				ValidationTest(input,conn);
+				//ValidationTest(input);
 			}
 			else if (num == 2) {
-				UserSuspensionTest(input);
+				UserSuspensionTest(input,conn);
+				//UserSuspensionTest(input);
 			}
 			else if (num == 3) {
-				ResetPasswordTest(input);
+				ResetPasswordTest(input,conn);
+				//ResetPasswordTest(input);
 			}
 			else if (num == 4) {
-				MiscDebugTest(input);
+				ChangePasswordTest(input,conn);
+				//ChangePasswordTest(input);
 			}
 			else if (num == 5) {
+				MiscDebugTest(input,conn);
+				//MiscDebugTest(input);
+			}
+			else if (num == 6) {
+				System.out.println("System exiting...");
 				break;
 			}
 		}
 		
 		input.close();
+		conn.close();
 		
 		/*
 		 * 1. login to useradmin
@@ -70,7 +88,7 @@ public class Main {
 		 * */ 
 	}
 	
-	public static void ValidationTest(Scanner input) throws URISyntaxException, SQLException {
+	public static void ValidationTest(Scanner input, Connection conn) throws URISyntaxException, SQLException {
 		System.out.println("------------------");
 		System.out.println("Login as (Number):");
 		System.out.println("1: Student");
@@ -94,12 +112,12 @@ public class Main {
 		
 	}
 	
-	public static void UserSuspensionTest(Scanner input) throws URISyntaxException, SQLException {
+	public static void UserSuspensionTest(Scanner input, Connection conn) throws URISyntaxException, SQLException {
 		System.out.println("------------------");
 		System.out.print("Enter Student Username: ");
 		String user = input.next();
 		
-		Connection conn = new StarkDatabase().getConn();
+		//Connection conn = new StarkDatabase().getConn();
 		
 		boolean success = new StarkDatabase().studentSuspendToggle(user,conn);
 		
@@ -110,7 +128,7 @@ public class Main {
 		
 	}
 	
-	public static void ResetPasswordTest(Scanner input) throws URISyntaxException, SQLException {
+	public static void ResetPasswordTest(Scanner input, Connection conn) throws URISyntaxException, SQLException {
 		System.out.println("------------------");
 		System.out.println("Choose Option:");
 		System.out.println("1. Reset Student Password:");
@@ -121,7 +139,7 @@ public class Main {
 		System.out.print("Enter Username: ");
 		String user = input.next();
 		
-		Connection conn = new StarkDatabase().getConn();
+		//Connection conn = new StarkDatabase().getConn();
 		
 		boolean success;
 		if (num == 1) success = new StarkDatabase().resetPassword("student",user,conn);
@@ -134,18 +152,58 @@ public class Main {
 		
 	}
 	
-	public static void MiscDebugTest(Scanner input) throws URISyntaxException, SQLException {
+	public static void ChangePasswordTest(Scanner input, Connection conn) throws URISyntaxException, SQLException {
+		System.out.println("------------------");
+		System.out.println("Choose Option:");
+		System.out.println("1. Change Student Password:");
+		System.out.println("2. Change Moderator Password:");
+		System.out.print("Enter Number: ");
+		int num = input.nextInt();
+		
+		System.out.print("Username: ");
+		String user = input.next();
+		String pass = "";
+		boolean goodPassword = false;
+		
+		do {
+			System.out.println("------------------");
+			System.out.println("Please ensure that the new password contains at least 8 characters, and contain at least:");
+			System.out.println("1. One Upper Case Letter");
+			System.out.println("2. One Lower Case Letter");
+			System.out.println("3. One Number");
+			System.out.print("Enter New Password: ");
+			pass = input.next();
+			goodPassword = new Password().passwordCheck(pass);
+			if (!goodPassword) {
+				System.out.println("New Password does not meet the requirements.");
+				pass = "";
+			}
+		} while (!goodPassword);
+		
+		//Connection conn = new StarkDatabase().getConn();
+		
+		boolean success;
+		if (num == 1) success = new StarkDatabase().changePassword("student",user,pass,conn);
+		else success = new StarkDatabase().changePassword("moderator",user,pass,conn);
+		
+		if (success) {
+			System.out.println("Change Password successful.");
+		}
+		else System.out.println("Change Password failed.");
+	}
+	
+	public static void MiscDebugTest(Scanner input, Connection conn) throws URISyntaxException, SQLException {
 		System.out.println("------------------");
 		System.out.println("Choose Option:");
 		System.out.println("1. Get All Records:");
 		System.out.println("2. Get Singular Record:");
-		System.out.println("3. Change User Password:");
+		System.out.println("3. Retrieve User Password:");
 		System.out.println("4. Create User:");
 		System.out.println("5. Delete User:");
 		System.out.print("Enter Number: ");
 		int num = input.nextInt();
 		
-		Connection conn = new StarkDatabase().getConn();
+		//Connection conn = new StarkDatabase().getConn();
 		
 		if (num == 1) {
 			System.out.println("------------------");
@@ -227,15 +285,16 @@ public class Main {
 			
 			System.out.print("Enter Username: ");
 			String user = input.next();
+			String retrievedPass = null;
 			
-			boolean success;
-			if (num == 1) success = new StarkDatabase().changePassword("student",user,conn);
-			else success = new StarkDatabase().changePassword("moderator",user,conn);
+			if (num == 1) retrievedPass = new StarkDatabase().retrievePassword("student",user,conn);
+			else retrievedPass = new StarkDatabase().retrievePassword("moderator",user,conn);
 			
-			if (success) {
-				System.out.println("Change Password successful.");
+			if (retrievedPass != null) {
+				System.out.println("Retrieve Password successful.");
+				System.out.println("Retrieved password is: " + retrievedPass);
 			}
-			else System.out.println("Change Password failed.");
+			else System.out.println("Retrieve Password failed.");
 		}
 		else if (num == 4) {
 			System.out.println("------------------");
@@ -269,6 +328,6 @@ public class Main {
 			else new StarkDatabase().deleteUser("moderator",user,conn);
 		}
 		
-		conn.close();
+		//conn.close();
 	}
 }
