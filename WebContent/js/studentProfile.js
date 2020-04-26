@@ -38,3 +38,13 @@ window.onload = function () {
         }
     }
 } 
+/* -------------------------------------------------------------------- */
+
+$(document).ready(function(){
+	  $("#allQnsTab").click(function(){
+		  e.preventDefault();
+		  var href = $(this).attr('href');
+		  $(href).data('#askQnsTab').tab('show');
+	  });
+});
+

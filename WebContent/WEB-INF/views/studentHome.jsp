@@ -39,6 +39,9 @@
 						      	<a class="dropdown-item" href="studentProfile" id="userProfileLink">
 						      		<span class="mr-3"><i class="fas fa-user-cog"></i></span>View Profile
 						      	</a>
+						      	<a class="dropdown-item" href="studentHome" id="studentHomeLink">
+						      		<span class="mr-3"><i class="fas fa-chalkboard"></i></span>My Forum
+						      	</a>
 						      	<a class="dropdown-item" href="home" id="logoutLink">
 						      		<span class="mr-3"><i class="fas fa-sign-out-alt"></i></span>Logout
 						      	</a>
@@ -69,13 +72,13 @@
 							<div class="list-group-item sidebar-separator-title text-muted d-flex w-100 align-items-center justify-content-center" style="background-color: #ebf7f6; height: 35px;">
 			                  <small class="font-weight-bold">GENERAL</small>
 			               	</div>
-				            <a href="#" class="list-group-item list-group-item-action flex-column active" data-toggle="tab" data-target="#mostRecentQnsPane">
+				            <a href="#mostRecentQnsTab" class="list-group-item list-group-item-action flex-column active" id="mostRecentQnsTab" data-toggle="tab" data-target="#mostRecentQnsPane">
 				                <div class="d-flex w-100 justify-content-center align-items-center">
 				                	<span class="mr-3"><i class="fas fa-fist-raised"></i></span>
 				                    <span>Most Recent<br>Questions</span>
 				                </div>
 				            </a>
-				            <a href="#" class="list-group-item list-group-item-action flex-column" data-toggle="tab" data-target="#allQnsPane">
+				            <a href="#allQnsTab" class="list-group-item list-group-item-action flex-column"  id="allQnsTab" data-toggle="tab" data-target="#allQnsPane">
 				                <div class="d-flex w-100 justify-content-center align-items-center">
 				                    <span class="mr-3"><i class="fas fa-question-circle"></i></span>
 				                    <span>All Questions</span>
@@ -84,19 +87,19 @@
 				            <div class="list-group-item sidebar-separator-title text-muted d-flex w-100 align-items-center justify-content-center" style="background-color: #ebf7f6; height: 35px;">
 			                  <small class="font-weight-bold">PERSONAL</small>
 			               	</div>
-				            <a href="#" class="list-group-item list-group-item-action flex-column" data-toggle="tab" data-target="#myQnsPane">
+				            <a href="#myQnsTab" class="list-group-item list-group-item-action flex-column" id="myQnsTab" data-toggle="tab" data-target="#myQnsPane">
 				                <div class="d-flex w-100 justify-content-center align-items-center">
 				                    <span class="mr-3"><i class="far fa-question-circle"></i></span>
 				                    <span>My Questions</span>
 				                </div>
 				            </a>				            
-				            <a href="#" class="list-group-item list-group-item-action flex-column" data-toggle="tab" data-target="#myAnsPane">
+				            <a href="#myAnsTab" class="list-group-item list-group-item-action flex-column" id="myAnsTab" data-toggle="tab" data-target="#myAnsPane">
 				                <div class="d-flex w-100 justify-content-center align-items-center">
 				                    <span class="mr-3"><i class="fas fa-hands-helping"></i></span>
 				                    <span style="padding-right: 15px;">My Answers</span>
 				                </div>
 				            </a>
-				            <a href="#" class="list-group-item list-group-item-action flex-column" data-toggle="tab" data-target="#myCommentsPane">
+				            <a href="#myCommentTab" class="list-group-item list-group-item-action flex-column" id="myCommentTab" data-toggle="tab" data-target="#myCommentsPane">
 				                <div class="d-flex w-100 justify-content-center align-items-center">
 				                    <span class="mr-3"><i class="fas fa-comment"></i></span>
 				                    <span>My Comments</span>
@@ -418,7 +421,7 @@
 									      		</td>
 									      		<td class="col-1 text-center" id="viewCountCol">4</td>
 									      		<td class="col-2 text-center" id="viewMyAnsCol">
-									      			<a href="#" id="viewMyAns">View My Answer</a>
+									      			<a href="#" id="viewMyAns" data-toggle="modal" data-target="#viewMyAns_modal">View My Answer</a>
 									      		</td>
 									      		<td class="col-2 text-center" id="ansVoteCountCol">3</td>
 									      		<td class="col-2 text-center" id="ansCommentCountCol">0</td>
@@ -505,7 +508,7 @@
 									      		<td class="col-2 text-center" id="ansCountCol">1</td>	
 									      		<td class="col-1 text-center" id="viewCountCol">1</td>
 									      		<td class="col-2 text-center" id="viewMyCommentCol">								      										      		
-													<a href="#" id="viewMyComment">View My Comments</a>
+													<a href="#" id="viewMyComment" data-toggle="modal" data-target="#viewMyComment_modal">View My Comments</a>
 												</td>									      		
 									    	</tr>
 										</tbody>
@@ -517,6 +520,7 @@
 					</div>					
 					<!-- End of Tab Contents Container -->
 				</div>
+				
 				
 				<!-- Ask Qns Modal -->
 				<div class="modal fade" id="askQns_modal" tabindex="-1" role="dialog" aria-labelledby="modal" aria-hidden="true">
@@ -559,7 +563,84 @@
 					    </div>
 					</div>
 				</div>
-				<!-- End of Ask Question Modal -->
+
+				
+				<!-- View My Answer Modal -->
+				<div class="modal fade" id="viewMyAns_modal" tabindex="-1" role="dialog" aria-labelledby="modal" aria-hidden="true">
+					<div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+					    <div class="modal-content">
+					      	<div class="modal-header text-center">
+						        <h4 class="modal-title w-100">My Answer</h4>
+						        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						          <span aria-hidden="true">&times;</span>
+						        </button>
+					      	</div>
+					      	<div class="modal-body mx-3">
+					      		<form id="viewMyAnsForm">
+		 							<fieldset>
+		 								<div class="form-group row">
+		 									<div class="col-sm-1"></div>
+										    <div class="col-sm-10">
+										    	<label for="qnsIdText"><b>Question:</b></label>
+      											<textarea class="form-control text-left" id="qnsIdText" rows="5" readonly style="resize: none;">Qns answered by the student will be displayed here</textarea>
+										    </div>
+											<div class="col-sm-1"></div>			
+										</div>
+		 								<div class="form-group row">
+		 									<div class="col-sm-1"></div>
+										    <div class="col-sm-10">
+										    	<label for="myAnsText"><b>My Answer:</b></label>
+      											<textarea class="form-control text-left" id="myAnsText" rows="10" readonly style="resize: none;">Ans posted by the student will be displayed here</textarea>
+										    </div>
+											<div class="col-sm-1"></div>			
+										</div>
+		 							</fieldset>
+		 						</form>
+							</div>
+					    	<div class="modal-footer" style="text-align: center;">
+					        	<button type="button" class="btn btn-secondary mr-auto" data-dismiss="modal"  style="margin: auto; display: block;">Close</button>			        	
+					    	</div>
+					    </div>
+					</div>
+				</div>
+				
+				
+				<!-- View My Comment Modal -->
+				<div class="modal fade" id="viewMyComment_modal" tabindex="-1" role="dialog" aria-labelledby="modal" aria-hidden="true">
+					<div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+					    <div class="modal-content">
+					      	<div class="modal-header text-center">
+						        <h4 class="modal-title w-100">My Comments</h4>
+						        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						          <span aria-hidden="true">&times;</span>
+						        </button>
+					      	</div>
+					      	<div class="modal-body mx-3">
+		 						<div class="list-group">
+								  	<a href="#" class="list-group-item list-group-item-action flex-column align-items-start" style="background: #F2F2F2;">
+								    	<div class="d-flex w-100 justify-content-between">
+								      		<h5 class="col-sm-10" id="qnsTitle">Question Title....Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</h5>
+								      		<small class="col-sm-2" id="qnsDate" style="text-align: right;">26-4-2020</small>
+								    	</div>
+								    	<p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+								    	<small>Donec id elit non mi porta.</small>
+								  	</a>
+								  	<a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+								    	<div class="d-flex w-100 justify-content-between">
+								      		<h5 class="mb-1">List group item heading</h5>
+								      		<small class="text-muted">3 days ago</small>
+								    	</div>
+								    	<p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+								    	<small class="text-muted">Donec id elit non mi porta.</small>
+								  	</a>
+								</div>
+							</div>
+					    	<div class="modal-footer" style="text-align: center;">
+					        	<button type="button" class="btn btn-secondary mr-auto" data-dismiss="modal"  style="margin: auto; display: block;">Close</button>			        	
+					    	</div>
+					    </div>
+					</div>
+				</div>
 				
 			</div>
 			<!-- End of Contents -->			
