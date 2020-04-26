@@ -8,35 +8,40 @@
 		<link rel="stylesheet" href="/StarkLearningApp/css/bootstrap.min.css">
 		<link rel="stylesheet" href="/StarkLearningApp/css/bootstrap.css">
 		<link rel="stylesheet" href="/StarkLearningApp/css/all.css"> 
-		<link rel="stylesheet" href="/StarkLearningApp/css/moderator.css">
-		<script type="text/javascript" src="/StarkLearningApp/js/moderator.js"></script>
+		<link rel="stylesheet" href="/StarkLearningApp/css/moderatorForum.css">
+		<script type="text/javascript" src="/StarkLearningApp/js/moderatorForum.js"></script>
 	</head>
 	
 	<body>
 		<!-- Start of Page Container -->
 		<div class="pageCon">
 			<!-- Navbar -->
-			<nav class="navbar navbar-expand-lg navbar-dark bg-primary" id="topPage">
-				<a class="navbar-brand" href="home">Stark Industries</a>
+			<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+				<a class="navbar-brand" href="#">Stark Industries</a>
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
 				  <span class="navbar-toggler-icon"></span>
 				</button>
 			
-				<div class="navbar-collapse collapse" id="navbarColor01" style="">
-					<ul class="navbar-nav ml-auto">	    
-				   		<li class="nav-item">
-							<a class="nav-link" href = "moderator">
-								<button type="button" class="btn btn-link" id="moderatorBtn">Hi, Professor</button>
-							</a>
-	  					</li> 
-	 					<li>
-	 						<a class="nav-link" href = "home">
-	  						<button type="button" class="btn btn-outline-secondary">
-	  							<i class="fas fa-sign-out-alt"></i><span style="padding-left: 10px;">Logout</span>
-	  						</button>
-	 						</a>
-	  					</li>
-				   	</ul>
+				<div class="navbar-nav navbar-collapse collapse row" id="navbarColor01">
+					<div class="nav-item col-sm-2"></div>
+					<div class="nav-item col-sm-6">
+					</div>
+					<div class="nav-item col-sm-4 text-sm-left text-md-right text-lg-right">
+						<div class="dropdown" role="group">
+							<button id="userSettingToggleBtn" type="button" class="btn btn-link dropdown-toggle" data-toggle="dropdown">Professor</button>
+						    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userSettingToggleBtn">
+						      	<a class="dropdown-item" href="moderatorProfile" id="moderatorProfileLink">
+						      		<span class="mr-3"><i class="fas fa-user-cog"></i></span>View Profile
+						      	</a>
+						      	<a class="dropdown-item" href="moderatorForum" id="moderatorForumLink">
+						      		<span class="mr-3"><i class="fas fa-chalkboard-teacher"></i></span>My Forum
+						      	</a>
+						      	<a class="dropdown-item" href="home" id="logoutLink">
+						      		<span class="mr-3"><i class="fas fa-sign-out-alt"></i></span>Logout
+						      	</a>
+							</div>
+						</div>
+					</div>
 			    </div>
 			</nav>
 			<!-- End of Navbar -->
