@@ -119,7 +119,7 @@
 							<!-- Container above table -->
 							<div class="row d-flex align-items-center header-container">
 								<div class="col-md-2">
-									<button type="submit" class="btn btn-outline-primary" id="genReportBtn">Generate Report</button>
+									<a href="#" role="button" class="btn btn-outline-primary" id="genReportBtn">Generate Report</a>
 								</div>
 								<div class="col-md-4">
 									<form class="needs-validation" novalidate>
@@ -175,7 +175,7 @@
 							<!-- Container above table -->
 							<div class="row d-flex align-items-center header-container">
 								<div class="col-md-2">
-									<button type="submit" class="btn btn-outline-primary" id="genReportBtn">Generate Report</button>
+									<a href="#" role="button" class="btn btn-outline-primary" id="genReportBtn">Generate Report</a>
 								</div>
 								<div class="col-md-4">
 									<form class="needs-validation" novalidate>	
@@ -247,7 +247,7 @@
 							<!-- Container above table -->
 							<div class="row d-flex align-items-center header-container">
 								<div class="col-md-2">
-									<button type="submit" class="btn btn-outline-primary" id="genReportBtn">Generate Report</button>
+									<a href="#" role="button" class="btn btn-outline-primary" id="genReportBtn">Generate Report</a>
 								</div>
 								<div class="col-md-4">
 									<form class="needs-validation" novalidate>
@@ -301,7 +301,7 @@
 							<!-- Container above table -->
 							<div class="row d-flex align-items-center" style="padding: 25px 0px; background-color: #dce3e6;">
 								<div class="col-md-2">
-									<button type="submit" class="btn btn-outline-primary" id="genReportBtn">Generate Report</button>
+									<a href="#" role="button" class="btn btn-outline-primary" id="genReportBtn">Generate Report</a>
 								</div>
 							</div>
 							<!-- End of Container above table -->
