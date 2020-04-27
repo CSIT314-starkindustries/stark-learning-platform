@@ -15,12 +15,6 @@ public class Main {
 
 	public static void main(String[] args) throws URISyntaxException, SQLException {
 		
-		StarkDatabase db = new StarkDatabase();
-		
-		List <Moderator> modList = Moderator.getModeratorList((db.getAllRecords("moderator", db.getConn())));
-		
-		for(Moderator mod : modList) {
-			System.out.println(mod.getPassword());
-		}
+
 	}
 }
