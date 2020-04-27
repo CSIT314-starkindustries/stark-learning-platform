@@ -99,7 +99,7 @@
 				                    <span style="padding-right: 15px;">My Answers</span>
 				                </div>
 				            </a>
-				            <a href="#myCommentTab" class="list-group-item list-group-item-action flex-column" id="myCommentTab" data-toggle="tab" data-target="#myCommentsPane">
+				            <a href="#myCommentsTab" class="list-group-item list-group-item-action flex-column" id="myCommentsTab" data-toggle="tab" data-target="#myCommentsPane">
 				                <div class="d-flex w-100 justify-content-center align-items-center">
 				                    <span class="mr-3"><i class="fas fa-comment"></i></span>
 				                    <span>My Comments</span>
@@ -624,9 +624,10 @@
 									    	<div class="d-flex justify-content-between">
 									    		<div class="row">
 									      			<h5 class="col-sm-10 mb-1" id="myCommentQnsTitle" style="color: #065590;"><b>Question Title....Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</b></h5>
-									      			<small class="col-sm-2 text-right" id="qnsDate">22-4-2020</small>
+									      			<small class="col-sm-2 text-right" id="qnsDate">22-4-2020</small>								    			
 									    		</div>
 									    	</div>
+									    	<hr>
 									    	<div class="myCommentQnsCon">
 										    	<div class="row">
 										    		<p id="myCommentId" class="col mb-1">My comment....Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
@@ -650,6 +651,7 @@
 									      			<small class="col-sm-2 text-right" id="qnsDate">22-4-2020</small>
 									    		</div>
 									    	</div>
+									    	<hr>
 									    	<div class="myCommentAnsCon">
 										    	<div class="row">
 										    		<p id="myCommentId" class="col mb-1">My comment....Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
