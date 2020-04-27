@@ -30,7 +30,7 @@
 					</div>
 					<div class="nav-item col-sm-4 text-sm-left text-md-right text-lg-right">
 						<div class="dropdown" role="group">
-							<button id="userSettingToggleBtn" type="button" class="btn btn-link dropdown-toggle" data-toggle="dropdown">Professor</button>
+							<button id="userSettingToggleBtn" type="button" class="btn btn-link dropdown-toggle" data-toggle="dropdown">Moderator</button>
 						    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userSettingToggleBtn">
 						      	<a class="dropdown-item" href="moderatorProfile" id="moderatorProfileLink">
 						      		<span class="mr-3"><i class="fas fa-user-cog"></i></span>View Profile
@@ -90,7 +90,7 @@
 						 			<div class="col-sm-7">
 						 				<input type="password" class="form-control" id="currentPassword" placeholder="Current Password" name="currentPassword"
 											pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required>
-										<div class="invalid-feedback">Please enter current password</div>
+										<div class="invalid-feedback text-left">Please enter current password</div>
 						 			</div>
 						 		</div>	
 						 		<div class="form-group row text-center">
