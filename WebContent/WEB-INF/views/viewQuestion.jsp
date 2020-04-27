@@ -4,7 +4,7 @@
 <html>
 	<head>
 		<meta charset="ISO-8859-1">
-		<title>Welcome to Stark Industry</title>
+		<title>Student View Question</title>
 		<link rel="stylesheet" href="/StarkLearningApp/css/bootstrap.min.css">
 		<link rel="stylesheet" href="/StarkLearningApp/css/bootstrap.css">
 		<link rel="stylesheet" href="/StarkLearningApp/css/all.css"> 
@@ -66,21 +66,7 @@
 			
 			<!-- Start of Contents -->
 			<div class="container-fluid">
-				<div class="row">
-				
-					<!-- Start of Side Navbar -->
-					<!-- <div class="sidebar-container col-sm-2 d-none d-md-block">
-						<div class="list-group">
-				            <a href="studentHome" class="list-group-item list-group-item-action flex-column">
-				                <div class="d-flex w-100 justify-content-center align-items-center">
-				                	<span class="mr-3"><i class="fas fa-undo-alt"></i></span>
-				                    <span>Return to Forum</span>
-				                </div>
-				            </a>
-						</div>
-					</div> -->
-					<!-- End of Side Navbar -->
-					
+				<div class="row">				
 					
 					<div class="container-fluid">
 						<div class=" content-container">

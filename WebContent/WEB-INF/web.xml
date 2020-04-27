@@ -13,5 +13,9 @@
     <welcome-file>studentProfile</welcome-file>
     <welcome-file>viewStudentProfile</welcome-file>
     <welcome-file>moderatorProfile</welcome-file>
+    <welcome-file>monthlyReport</welcome-file>
+    <welcome-file>weeklyReport</welcome-file>
+    <welcome-file>topVotedQns</welcome-file>
+    <welcome-file>participationRatings</welcome-file>
   </welcome-file-list>
 </web-app>
