@@ -11,6 +11,7 @@
 		<link rel="stylesheet" href="/StarkLearningApp/css/studentProfile.css">		
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 		<script type="text/javascript" src="/StarkLearningApp/js/studentProfile.js"></script>
+		
 	</head>
 	
 	<body>
@@ -39,6 +40,9 @@
 						      	<a class="dropdown-item" href="studentProfile" id="userProfileLink">
 						      		<span class="mr-3"><i class="fas fa-user-cog"></i></span>View Profile
 						      	</a>
+						      	<a class="dropdown-item" href="studentHome" id="studentHomeLink">
+						      		<span class="mr-3"><i class="fas fa-chalkboard"></i></span>My Forum
+						      	</a>
 						      	<a class="dropdown-item" href="home" id="logoutLink">
 						      		<span class="mr-3"><i class="fas fa-sign-out-alt"></i></span>Logout
 						      	</a>
@@ -63,81 +67,40 @@
 			
 			<!-- Start of Contents -->
 			<div class="container-fluid">
-				<div class="row">
-					<div class="sidebar-container col-sm-2 d-none d-md-block">
-						<div class="list-group">
-							<div class="list-group-item sidebar-separator-title text-muted d-flex w-100 align-items-center justify-content-center" style="background-color: #ebf7f6; height: 35px;">
-			                  <small class="font-weight-bold">GENERAL</small>
-			               	</div>
-				            <a href="#" class="list-group-item list-group-item-action flex-column active" data-toggle="tab" data-target="#mostRecentQnsPane">
-				                <div class="d-flex w-100 justify-content-center align-items-center">
-				                	<span class="mr-3"><i class="fas fa-fist-raised"></i></span>
-				                    <span>Most Recent<br>Questions</span>
-				                </div>
-				            </a>
-				            <a href="#" class="list-group-item list-group-item-action flex-column" data-toggle="tab" data-target="#allQnsPane">
-				                <div class="d-flex w-100 justify-content-center align-items-center">
-				                    <span class="mr-3"><i class="fas fa-question-circle"></i></span>
-				                    <span>All Questions</span>
-				                </div>
-				            </a>
-				            <div class="list-group-item sidebar-separator-title text-muted d-flex w-100 align-items-center justify-content-center" style="background-color: #ebf7f6; height: 35px;">
-			                  <small class="font-weight-bold">PERSONAL</small>
-			               	</div>
-				            <a href="#" class="list-group-item list-group-item-action flex-column" data-toggle="tab" data-target="#myQnsPane">
-				                <div class="d-flex w-100 justify-content-center align-items-center">
-				                    <span class="mr-3"><i class="far fa-question-circle"></i></span>
-				                    <span>My Questions</span>
-				                </div>
-				            </a>				            
-				            <a href="#" class="list-group-item list-group-item-action flex-column" data-toggle="tab" data-target="#myAnsPane">
-				                <div class="d-flex w-100 justify-content-center align-items-center">
-				                    <span class="mr-3"><i class="fas fa-hands-helping"></i></span>
-				                    <span style="padding-right: 15px;">My Answers</span>
-				                </div>
-				            </a>
-				            <a href="#" class="list-group-item list-group-item-action flex-column" data-toggle="tab" data-target="#myCommentsPane">
-				                <div class="d-flex w-100 justify-content-center align-items-center">
-				                    <span class="mr-3"><i class="fas fa-comment"></i></span>
-				                    <span>My Comments</span>
-				                </div>
-				            </a>
-						</div>
-					</div>
-					
+				<div class="row">					
 					<!-- Profile Contents -->
 					<div class="col container-fluid text-center" style="padding-top: 2%; padding-bottom: 2%;">
 						<div class="row container-fluid" style="padding-top: 2%; padding-bottom: 2%;">
 							<div class="col"></div>
 							<div class="col-md-auto">
 								<h3 style="padding-bottom: 3%;">My Profile</h3>
-								<div class="card mb-3" id="studentCard" style="max-width: 30rem;">								 	
+								<div class="card mb-3" id="studentCard" style="min-width: 30rem;">								 	
 								 	<span id="profilePic" style="font-size: 10rem;"><i class="fas fa-user-graduate"></i></span>
 								 	<div class="card-body text-center" style="padding: 0;">
 								 		<div class="container-fluid">
-								 			<form>
-								 				<fieldset>
-									 				<div class="form-group row text-center" style="margin-bottom: 0;">
-									 					<label for="userId" class="col-sm-5 col-form-label text-right"><b>User ID:</b></label>
-									 					<div class="col-sm-7">
-									 						<input type="text" readonly="" class="form-control-plaintext" id="userId" value="UserXXX">
-									 					</div>
-									 				</div>			
-									 				<div class="form-group row text-center">
-									 					<label for="myParticipationRating" class="col-sm-5 col-form-label text-right"><b>My Participation Rating:</b></label>
-									 					<div class="col-sm-2 text-left">
-									 						<input type="text" readonly="" class="form-control-plaintext" id="myParticipationRating" value="80">
-									 					</div>
-									 					<div class="col-sm-2 text-left">
-									 						<input type="text" readonly="" class="form-control-plaintext" value="/">
-									 					</div>
-									 					<div class="col-sm-2 text-left">
-									 						<input type="text" readonly="" class="form-control-plaintext" value="100">
-									 					</div>
-									 					<div class="col-sm-1"></div>
-									 				</div>	
-									 			</fieldset>
-									 		</form>			 		
+							 				<div class="row" style="margin-bottom: 0;">
+							 					<div class="col-sm-5 text-right">
+							 						<p><b>User ID:</b></label></p>
+							 					</div>
+							 					<div class="col-sm-7 text-left">
+							 						<p id="userId">UserXXX</p>
+							 					</div>
+							 				</div>			
+							 				<div class="row" style="margin-bottom: 0;">
+							 					<div class="col-sm-5 text-right">
+							 						<p><b>My Participation Rating:</b></p>
+							 					</div>
+							 					<div class="col-sm-7 text-left">
+							 						<div class="row container-fluid">
+								 						<div class="col-sm-3">
+								 							<p id="myParticipationRating">80</p>
+								 						</div>
+								 						<div class="col-sm-9">
+								 							<p>/ 100</p>
+								 						</div>
+							 						</div>
+							 					</div>
+							 				</div>		
 								 		</div>
 									</div>
 								</div>
@@ -160,7 +123,7 @@
 						 					<div class="col-sm-7">
 						 						<input type="password" class="form-control" id="currentPassword" placeholder="Current Password" name="currentPassword"
 											    	pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required>
-										    	<div class="invalid-feedback">Please enter current password</div>
+										    	<div class="invalid-feedback text-left">Please enter current password</div>
 						 					</div>
 						 				</div>	
 						 				<div class="form-group row text-center">

@@ -39,6 +39,9 @@
 						      	<a class="dropdown-item" href="studentProfile" id="userProfileLink">
 						      		<span class="mr-3"><i class="fas fa-user-cog"></i></span>View Profile
 						      	</a>
+						      	<a class="dropdown-item" href="studentHome" id="studentHomeLink">
+						      		<span class="mr-3"><i class="fas fa-chalkboard"></i></span>My Forum
+						      	</a>
 						      	<a class="dropdown-item" href="home" id="logoutLink">
 						      		<span class="mr-3"><i class="fas fa-sign-out-alt"></i></span>Logout
 						      	</a>
@@ -111,33 +114,33 @@
 							<div class="col"></div>
 							<div class="col-md-auto">
 								<h3 style="padding-bottom: 3%;">User Profile</h3>
-								<div class="card mb-3" id="studentCard" style="max-width: 30rem;">								 	
+								<div class="card mb-3" id="studentCard" style="min-width: 30rem;">								 	
 								 	<span id="profilePic" style="font-size: 10rem;"><i class="fas fa-user-graduate"></i></span>
 								 	<div class="card-body text-center" style="padding: 0;">
 								 		<div class="container-fluid">
-								 			<form>
-								 				<fieldset>
-									 				<div class="form-group row text-center" style="margin-bottom: 0;">
-									 					<label for="userId" class="col-sm-5 col-form-label text-right"><b>User ID:</b></label>
-									 					<div class="col-sm-7">
-									 						<input type="text" readonly="" class="form-control-plaintext" id="userId" value="User123">
-									 					</div>
-									 				</div>			
-									 				<div class="form-group row text-center">
-									 					<label for="myParticipationRating" class="col-sm-5 col-form-label text-right"><b>My Participation Rating:</b></label>
-									 					<div class="col-sm-2 text-left">
-									 						<input type="text" readonly="" class="form-control-plaintext" id="myParticipationRating" value="80">
-									 					</div>
-									 					<div class="col-sm-2 text-left">
-									 						<input type="text" readonly="" class="form-control-plaintext" value="/">
-									 					</div>
-									 					<div class="col-sm-2 text-left">
-									 						<input type="text" readonly="" class="form-control-plaintext" value="100">
-									 					</div>
-									 					<div class="col-sm-1"></div>
-									 				</div>	
-									 			</fieldset>
-									 		</form>			 		
+							 				<div class="row" style="margin-bottom: 0;">
+							 					<div class="col-sm-5 text-right">
+							 						<p><b>User ID:</b></label></p>
+							 					</div>
+							 					<div class="col-sm-7 text-left">
+							 						<p id="userId">UserXXX</p>
+							 					</div>
+							 				</div>			
+							 				<div class="row" style="margin-bottom: 0;">
+							 					<div class="col-sm-5 text-right">
+							 						<p><b>Participation Rating:</b></p>
+							 					</div>
+							 					<div class="col-sm-7 text-left">
+							 						<div class="row container-fluid">
+								 						<div class="col-sm-3">
+								 							<p id="participationRating">80</p>
+								 						</div>
+								 						<div class="col-sm-9">
+								 							<p>/ 100</p>
+								 						</div>
+							 						</div>
+							 					</div>
+							 				</div>		
 								 		</div>
 									</div>
 								</div>
