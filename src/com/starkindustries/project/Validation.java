@@ -3,6 +3,11 @@ package com.starkindustries.project;
 import java.net.URISyntaxException;
 import java.sql.*;
 
+/*
+ * 1 = student
+ * 2 = moderator
+ * 3 = user admin
+ * */
 public class Validation {
 	
 	public boolean validateUser(int num, String user, String pass) throws URISyntaxException, SQLException {

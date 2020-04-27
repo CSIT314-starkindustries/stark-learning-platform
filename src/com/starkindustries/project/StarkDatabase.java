@@ -54,32 +54,41 @@ public class StarkDatabase {
 		return rs;
 	}
 	
-	public void createNewUser(String studOrMod, String username, String password, Connection conn) throws SQLException {
-		PreparedStatement mystmt = null;
-		String newStudquery = "INSERT INTO student (stud_username, stud_password, total_qn_asked, total_ans_posted, total_comment_posted, issuspended, participation_rating)"
-							+ "VALUES (?,?,?,?,?,?,?); ";
+	public boolean createNewUser(String studOrMod, String username, String password, Connection conn) throws SQLException {
+		ResultSet rs = getOneUserById(studOrMod,username,conn);
 		
-		String newModquery = "INSERT INTO moderator (mod_username, mod_password)"
-				+ "VALUES (?,?); ";
-		
-		
-		if(studOrMod.equalsIgnoreCase("student")) {
-			mystmt = conn.prepareStatement(newStudquery);
-			mystmt.setString(1,username);
-			mystmt.setString(2, password);
-			mystmt.setInt(3, 0);
-			mystmt.setInt(4,0);
-			mystmt.setInt(5,0);
-			mystmt.setBoolean(6, false);
-			mystmt.setInt(7,0);
+		//return empty result
+		if(!rs.isBeforeFirst()) {
+			PreparedStatement mystmt = null;
+			String newStudquery = "INSERT INTO student (stud_username, stud_password, total_qn_asked, total_ans_posted, total_comment_posted, issuspended, participation_rating)"
+								+ "VALUES (?,?,?,?,?,?,?); ";
 			
+			String newModquery = "INSERT INTO moderator (mod_username, mod_password)"
+					+ "VALUES (?,?); ";
+			
+			
+			if(studOrMod.equalsIgnoreCase("student")) {
+				mystmt = conn.prepareStatement(newStudquery);
+				mystmt.setString(1,username);
+				mystmt.setString(2, password);
+				mystmt.setInt(3, 0);
+				mystmt.setInt(4,0);
+				mystmt.setInt(5,0);
+				mystmt.setBoolean(6, false);
+				mystmt.setInt(7,0);
+				
+			}else {
+				mystmt = conn.prepareStatement(newModquery);
+				mystmt.setString(1,username);
+				mystmt.setString(2, password);
+			}
+			
+			mystmt.execute();
+			return true; //new account created
 		}else {
-			mystmt = conn.prepareStatement(newModquery);
-			mystmt.setString(1,username);
-			mystmt.setString(2, password);
+			return false; //username taken
 		}
-		
-		mystmt.execute();	
+			
 	}
 	
 	public boolean studentSuspendToggle(String username, Connection conn) throws SQLException {
