@@ -13,7 +13,7 @@
 		<script type="text/javascript" src="/StarkLearningApp/js/viewQuestion.js"></script>
 	</head>
 	
-	<body>		
+	<body>
 		<!-- Start of Page Container -->
 		<div class="pageCon">
 		
@@ -69,55 +69,32 @@
 				<div class="row">
 				
 					<!-- Start of Side Navbar -->
-					<div class="sidebar-container col-sm-2 d-none d-md-block">
+					<!-- <div class="sidebar-container col-sm-2 d-none d-md-block">
 						<div class="list-group">
-							<div class="list-group-item sidebar-separator-title text-muted d-flex w-100 align-items-center justify-content-center" style="background-color: #ebf7f6; height: 35px;">
-			                  <small class="font-weight-bold">GENERAL</small>
-			               	</div>
-				            <a href="#" class="list-group-item list-group-item-action flex-column">
+				            <a href="studentHome" class="list-group-item list-group-item-action flex-column">
 				                <div class="d-flex w-100 justify-content-center align-items-center">
-				                	<span class="mr-3"><i class="fas fa-fist-raised"></i></span>
-				                    <span>Most Recent<br>Questions</span>
-				                </div>
-				            </a>
-				            <a href="#" class="list-group-item list-group-item-action flex-column">
-				                <div class="d-flex w-100 justify-content-center align-items-center">
-				                    <span class="mr-3"><i class="fas fa-question-circle"></i></span>
-				                    <span>All Questions</span>
-				                </div>
-				            </a>
-				            <div class="list-group-item sidebar-separator-title text-muted d-flex w-100 align-items-center justify-content-center" style="background-color: #ebf7f6; height: 35px;">
-			                  <small class="font-weight-bold">PERSONAL</small>
-			               	</div>
-				            <a href="#" class="list-group-item list-group-item-action flex-column">
-				                <div class="d-flex w-100 justify-content-center align-items-center">
-				                    <span class="mr-3"><i class="far fa-question-circle"></i></span>
-				                    <span>My Questions</span>
-				                </div>
-				            </a>				            
-				            <a href="#" class="list-group-item list-group-item-action flex-column">
-				                <div class="d-flex w-100 justify-content-center align-items-center">
-				                    <span class="mr-3"><i class="fas fa-hands-helping"></i></span>
-				                    <span style="padding-right: 15px;">My Answers</span>
-				                </div>
-				            </a>
-				            <a href="#" class="list-group-item list-group-item-action flex-column">
-				                <div class="d-flex w-100 justify-content-center align-items-center">
-				                    <span class="mr-3"><i class="fas fa-comment"></i></span>
-				                    <span>My Comments</span>
+				                	<span class="mr-3"><i class="fas fa-undo-alt"></i></span>
+				                    <span>Return to Forum</span>
 				                </div>
 				            </a>
 						</div>
-					</div>
+					</div> -->
 					<!-- End of Side Navbar -->
 					
 					
-					<div class="col-sm-10">
-						<div class="container-fluid content-container">
+					<div class="container-fluid">
+						<div class=" content-container">
 							
 							<!-- Start of first row (blue grey colour) -->
 							<div class="row header-container" id="content-one">
 								<div class="col-md-10">
+									<div class="row">
+										<div class="d-flex w-100 mb-2">
+											<div class="col-md-12 d-flex align-items-center justify-content-start">
+												<small><a href="studentHome" style="color: #ea8a8a;"><i class="far fa-hand-point-left mr-1"></i>Back to Forum</a></small>
+											</div>
+										</div>
+									</div>
 									<div class="row">
 										<div class="d-flex w-100 mb-4">
 											<div class="col-md-10 d-flex align-items-center justify-content-start">
