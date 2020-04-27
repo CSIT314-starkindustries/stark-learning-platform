@@ -65,8 +65,15 @@
 			<!-- End of Navbar -->			
 			
 			<!-- Start of Contents -->
-			<div class="container-fluid">
+			<div class="container-fluid">			
 				<div class="row">
+					<div class="col container-fluid" style="padding-top: 1%;">
+						<a href="studentHome" style="color: #ea8a8a;"><i class="far fa-hand-point-left mr-1"></i>Back to Forum</a>
+					</div>
+				</div>
+				
+				<div class="row">
+					<!-- 
 					<div class="sidebar-container col-sm-2 d-none d-md-block">
 						<div class="list-group">
 							<div class="list-group-item sidebar-separator-title text-muted d-flex w-100 align-items-center justify-content-center" style="background-color: #ebf7f6; height: 35px;">
@@ -107,6 +114,7 @@
 				            </a>
 						</div>
 					</div>
+					-->							
 					
 					<!-- Profile Contents -->
 					<div class="col container-fluid text-center" style="padding-top: 2%; padding-bottom: 2%;">
