@@ -5,14 +5,27 @@
 	<head>
 		<meta charset="ISO-8859-1">
 		<title>Welcome to Stark Industry</title>
-		<link rel="stylesheet" href="/StarkLearningApp/css/bootstrap.min.css">
-		<link rel="stylesheet" href="/StarkLearningApp/css/bootstrap.css">
-		<link rel="stylesheet" href="/StarkLearningApp/css/all.css"> 
-		<link rel="stylesheet" href="/StarkLearningApp/css/home.css">		
+		<link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.min.css">
+		<link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.css">
+		<link rel="stylesheet" href="${pageContext.request.contextPath}/css/all.css"> 
+		<link rel="stylesheet" href="${pageContext.request.contextPath}/css/home.css">		
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-		<script type="text/javascript" src="/StarkLearningApp/js/home.js"></script>
+		<script type="text/javascript" src="${pageContext.request.contextPath}/js/home.js"></script>
 	</head>
+	<style>
+		#main {
+			position: relative;
+			overflow: hidden;
+			min-height: 468px;
+			width: 100%;
+			height: 89%;
+			background: url(../img/study.jpg);
+			background-size: cover;
+			background-repeat: no-repeat;
+			opacity: 0.75;
+		}
 	
+	</style>
 	<body>		
 		<nav class="navbar navbar-expand-lg navbar-dark bg-primary" id="topPage">
 			<a class="navbar-brand" href="home">Stark Industries</a>
@@ -103,7 +116,7 @@
 						<div class="card text-white bg-primary mb-3" style="max-width: 20rem;">
 							<div class="card-header">Captain Steve Rogers</div>
 							<div class="img-card">
-								<img src="/StarkLearningApp/img/captain_america.jpg" class="card-img-top" alt="..." height="200px">
+								<img src="${pageContext.request.contextPath}/img/captain_america.jpg" class="card-img-top" alt="..." height="200px">
 						  	</div>
 						  	<div class="card-body">
 						    	<h4 class="card-title">Captain America</h4>
@@ -115,7 +128,7 @@
 						<div class="card text-white bg-primary mb-3" style="max-width: 20rem;">
 							<div class="card-header">Peter Parker</div>
 							<div class="img-card">
-								<img src="/StarkLearningApp/img/spiderman.jpg" class="card-img-top" alt="..." height="200px">
+								<img src="${pageContext.request.contextPath}/img/spiderman.jpg" class="card-img-top" alt="..." height="200px">
 						  	</div>
 						  	<div class="card-body">
 						    	<h4 class="card-title">Spider-Man</h4>
@@ -127,7 +140,7 @@
 						<div class="card text-white bg-primary mb-3" style="max-width: 20rem;">
 							<div class="card-header">Thor Odinson</div>
 							<div class="img-card">
-								<img src="/StarkLearningApp/img/thor.jpg" class="card-img-top" alt="..." height="200px">
+								<img src="${pageContext.request.contextPath}/img/thor.jpg" class="card-img-top" alt="..." height="200px">
 						  	</div>
 						  	<div class="card-body">
 						    	<h4 class="card-title">Thor</h4>
@@ -144,7 +157,7 @@
 						<div class="card text-white bg-primary mb-3" style="max-width: 20rem;">
 							<div class="card-header">Stephen Vincent Strange</div>
 							<div class="img-card">
-								<img src="/StarkLearningApp/img/doctor_strange.jpg" class="card-img-top" alt="..." height="200px">
+								<img src="${pageContext.request.contextPath}/img/doctor_strange.jpg" class="card-img-top" alt="..." height="200px">
 						  	</div>
 						  	<div class="card-body">
 						    	<h4 class="card-title">Doctor Strange</h4>
@@ -156,7 +169,7 @@
 						<div class="card text-white bg-primary mb-3" style="max-width: 20rem;">
 							<div class="card-header">89P13</div>
 							<div class="img-card">
-								<img src="/StarkLearningApp/img/rocket_raccoon.jpg" class="card-img-top" alt="..." height="200px">
+								<img src="${pageContext.request.contextPath}/img/rocket_raccoon.jpg" class="card-img-top" alt="..." height="200px">
 						  	</div>
 						  	<div class="card-body">
 						    	<h4 class="card-title">Rocket Raccoon</h4>
@@ -168,7 +181,7 @@
 						<div class="card text-white bg-primary mb-3" style="max-width: 20rem;">
 							<div class="card-header">Groot</div>
 							<div class="img-card">
-								<img src="/StarkLearningApp/img/groot.jpg" class="card-img-top" alt="..." height="200px">
+								<img src="${pageContext.request.contextPath}/img/groot.jpg" class="card-img-top" alt="..." height="200px">
 						  	</div>
 						  	<div class="card-body">
 						    	<h4 class="card-title">Baby Groot</h4>
@@ -185,7 +198,7 @@
 						<div class="card text-white bg-primary mb-3" style="max-width: 20rem;">
 							<div class="card-header">Tony Stark</div>
 							<div class="img-card">
-								<img src="/StarkLearningApp/img/tony_stark.jpg" class="card-img-top" alt="..." height="200px">
+								<img src="${pageContext.request.contextPath}/img/tony_stark.jpg" class="card-img-top" alt="..." height="200px">
 						  	</div>
 						  	<div class="card-body">
 						    	<h4 class="card-title">Iron Man</h4>

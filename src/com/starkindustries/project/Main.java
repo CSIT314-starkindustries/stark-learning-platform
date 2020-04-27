@@ -17,12 +17,10 @@ public class Main {
 		
 		StarkDatabase db = new StarkDatabase();
 		
-		if(db.createNewUser("student", "user110", "user150", db.getConn())) {
-			System.out.println("new account created");
-		}else {
-			System.out.println("username taken");
-		}
+		List <Moderator> modList = Moderator.getModeratorList((db.getAllRecords("moderator", db.getConn())));
 		
-
+		for(Moderator mod : modList) {
+			System.out.println(mod.getPassword());
+		}
 	}
 }
