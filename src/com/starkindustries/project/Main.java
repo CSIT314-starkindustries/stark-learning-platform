@@ -15,14 +15,6 @@ public class Main {
 
 	public static void main(String[] args) throws URISyntaxException, SQLException {
 		
-		StarkDatabase db = new StarkDatabase();
-		
-		if(db.createNewUser("student", "user110", "user150", db.getConn())) {
-			System.out.println("new account created");
-		}else {
-			System.out.println("username taken");
-		}
-		
 
 	}
 }
