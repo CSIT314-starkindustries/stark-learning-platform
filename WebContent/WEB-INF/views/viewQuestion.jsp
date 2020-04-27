@@ -19,7 +19,7 @@
 		
 			<!-- Start of Navbar -->			
 			<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-				<a class="navbar-brand" href="#">Stark Industries</a>
+				<a class="navbar-brand" href="studentHome">Stark Industries</a>
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
 				  <span class="navbar-toggler-icon"></span>
 				</button>
@@ -66,21 +66,7 @@
 			
 			<!-- Start of Contents -->
 			<div class="container-fluid">
-				<div class="row">
-				
-					<!-- Start of Side Navbar -->
-					<!-- <div class="sidebar-container col-sm-2 d-none d-md-block">
-						<div class="list-group">
-				            <a href="studentHome" class="list-group-item list-group-item-action flex-column">
-				                <div class="d-flex w-100 justify-content-center align-items-center">
-				                	<span class="mr-3"><i class="fas fa-undo-alt"></i></span>
-				                    <span>Return to Forum</span>
-				                </div>
-				            </a>
-						</div>
-					</div> -->
-					<!-- End of Side Navbar -->
-					
+				<div class="row">				
 					
 					<div class="container-fluid">
 						<div class=" content-container">

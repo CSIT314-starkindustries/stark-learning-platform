@@ -11,6 +11,24 @@
 		<link rel="stylesheet" href="/StarkLearningApp/css/modForum.css">		
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 		<script type="text/javascript" src="/StarkLearningApp/js/moderatorForum.js"></script>
+		
+		<script>
+		    window.onload = function () {
+		        //Reference the DropDownList.
+		        var ddlYears = document.getElementById("ddlYears");
+		 
+		        //Determine the Current Year.
+		        var currentYear = (new Date()).getFullYear();
+		 		
+		        //Loop and add the Year values to DropDownList.
+		        for (var i = currentYear; i >= 2000 ; i--) {
+		        	var option = document.createElement("OPTION");
+		            option.innerHTML = i;
+		            option.value = i;
+		            ddlYears.appendChild(option);
+		        }
+		    };
+		</script>
 	</head>
 	
 	<body>		
@@ -47,10 +65,10 @@
 		                <div class="dropdown">
 			                <button class="btn btn-link dropdown-toggle" id="smallerscreenmenu" data-toggle="dropdown">Generate Report Options</button>
 			                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="smallerscreenmenu">
-			                    <a class="dropdown-item" href="#">Top Voted Questions of the Year</a>
-			                    <a class="dropdown-item" href="#">Monthly Questions</a>
-			                    <a class="dropdown-item" href="#">Weekly Questions</a>
-			                    <a class="dropdown-item" href="#">Top Students' Participation Ratings</a>
+			                    <a class="dropdown-item" href="#" data-toggle="tab" data-target="#yearlyReportPane">Top Voted Questions of the Year</a>
+			                    <a class="dropdown-item" href="#" data-toggle="tab" data-target="#monthlyReportPane">Monthly Questions</a>
+			                    <a class="dropdown-item" href="#" data-toggle="tab" data-target="#weeklyReportPane">Weekly Questions</a>
+			                    <a class="dropdown-item" href="#" data-toggle="tab" data-target="#participationRatingPane">Top Students' Participation Ratings</a>
 			                </div>
 		                </div>
 		            </div>
@@ -69,25 +87,25 @@
 			                  <small class="font-weight-bold">GENERATE REPORT</small>
 			               	</div>
 				            <a href="#" class="list-group-item list-group-item-action flex-column active" data-toggle="tab" data-target="#yearlyReportPane">
-				                <div class="d-flex w-100 justify-content-start align-items-start">
+				                <div class="d-flex w-100 justify-content-center align-items-center">
 				                	<span class="mr-3"><i class="fas fa-trophy"></i></span>
 				                    <span>Top Voted Questions of the Year</span>
 				                </div>
 				            </a>
 				            <a href="#" class="list-group-item list-group-item-action flex-column" data-toggle="tab" data-target="#monthlyReportPane">
-				                <div class="d-flex w-100 justify-content-start align-items-start">
+				                <div class="d-flex w-100 justify-content-center align-items-center" style="padding-right: 6%;">
 				                    <span class="mr-3"><i class="fas fa-calendar-alt"></i></span>
 				                    <span>Monthly Questions</span>
 				                </div>
 				            </a>
 				            <a href="#" class="list-group-item list-group-item-action flex-column" data-toggle="tab" data-target="#weeklyReportPane">
-				                <div class="d-flex w-100 justify-content-start align-items-start">
+				                <div class="d-flex w-100 justify-content-center align-items-center" style="padding-right: 10%;">
 				                    <span class="mr-3"><i class="fas fa-calendar-week"></i></span>
 				                    <span>Weekly Questions</span>
 				                </div>
 				            </a>
 				            <a href="#" class="list-group-item list-group-item-action flex-column" data-toggle="tab" data-target="#participationRatingPane">
-				                <div class="d-flex w-100 justify-content-start align-items-start">
+				                <div class="d-flex w-100 justify-content-center align-items-center">
 				                    <span class="mr-3"><i class="fas fa-award"></i></span>
 				                    <span>Top Students' Participation Ratings</span>
 				                </div>
@@ -99,9 +117,16 @@
 					<div id="myTabContent" class="col-sm-10 tab-content">
 						<div class="tab-pane fade show active" id="yearlyReportPane">
 							<!-- Container above table -->
-							<div class="row align-items-center header-container">
+							<div class="row d-flex align-items-center header-container">
 								<div class="col-md-2">
-									<button type="button" class="btn btn-outline-primary">Generate Report</button>
+									<button type="submit" class="btn btn-outline-primary" id="genReportBtn">Generate Report</button>
+								</div>
+								<div class="col-md-4">
+									<form class="needs-validation" novalidate>
+										<div class="form-group" style="margin-top: 15px;">
+											<select class="form-control" id="ddlYears"></select>
+										</div>
+									</form>
 								</div>
 							</div>
 							<!-- End of Container above table -->
@@ -114,48 +139,18 @@
 											<tr>
 												<th scope="col" class="text-center" style="border-top: none;">#</th>
 												<th scope="col" class="text-center" style="border-top: none;">User ID</th>
+												<th scope="col" class="text-center" style="border-top: none;">Year</th>
+												<th scope="col" class="text-center" style="border-top: none;">Vote</th>
 												<th scope="col" class="text-center" style="border-top: none;">Questions</th>
 											</tr>
 										</thead>
 										<tbody>
 											<tr>
 												<td class="font-weight-bold">1</td>
-												<td style="text-align:center;">UserXXX</td>
-												<td>YEAR... Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-													Nullam volutpat ligula sit amet ipsum condimentum, id imperdiet urna efficitur. 
-													Maecenas convallis est vitae laoreet dictum. 
-													Integer facilisis dolor in ipsum dapibus convallis vel ut diam. 
-													Aenean lacinia nulla nisl, lobortis lobortis neque lacinia eget. 
-													Nunc sollicitudin sed risus at cursus. 
-													Integer malesuada malesuada nunc, non ultrices odio imperdiet luctus. 
-													Morbi vel nulla at ligula porta tincidunt eu imperdiet dolor. 
-													Aliquam pellentesque pharetra metus condimentum pretium. 
-													In hac habitasse platea dictumst. Nullam in quam metus. 
-													Aliquam lacinia lacinia felis, eu venenatis felis sodales quis. 
-													Donec egestas arcu eu felis volutpat euismod.
-												</td>
-											</tr>
-											<tr>
-												<td class="font-weight-bold">2</td>
-												<td style="text-align:center;">UserXXX</td>
-												<td>YEAR... Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-													Nullam volutpat ligula sit amet ipsum condimentum, id imperdiet urna efficitur. 
-													Maecenas convallis est vitae laoreet dictum. 
-													Integer facilisis dolor in ipsum dapibus convallis vel ut diam. 
-													Aenean lacinia nulla nisl, lobortis lobortis neque lacinia eget. 
-													Nunc sollicitudin sed risus at cursus. 
-													Integer malesuada malesuada nunc, non ultrices odio imperdiet luctus. 
-													Morbi vel nulla at ligula porta tincidunt eu imperdiet dolor. 
-													Aliquam pellentesque pharetra metus condimentum pretium. 
-													In hac habitasse platea dictumst. Nullam in quam metus. 
-													Aliquam lacinia lacinia felis, eu venenatis felis sodales quis. 
-													Donec egestas arcu eu felis volutpat euismod.
-												</td>
-											</tr>
-											<tr>
-												<td class="font-weight-bold">3</td>
-												<td style="text-align:center;">UserXXX</td>
-												<td>YEAR... Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+												<td class="text-center"><a href="studentProfile">UserXXX</a></td>
+												<td class="text-center">2020</td>
+												<td class="text-center">200</td>
+												<td>YEARLY... Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
 													Nullam volutpat ligula sit amet ipsum condimentum, id imperdiet urna efficitur. 
 													Maecenas convallis est vitae laoreet dictum. 
 													Integer facilisis dolor in ipsum dapibus convallis vel ut diam. 
@@ -178,9 +173,16 @@
 						
 						<div class="tab-pane fade" id="monthlyReportPane">
 							<!-- Container above table -->
-							<div class="row align-items-center header-container">
+							<div class="row d-flex align-items-center header-container">
 								<div class="col-md-2">
-									<button type="button" class="btn btn-outline-primary">Generate Report</button>
+									<button type="submit" class="btn btn-outline-primary" id="genReportBtn">Generate Report</button>
+								</div>
+								<div class="col-md-4">
+									<form class="needs-validation" novalidate>	
+										<div class="form-group" style="margin-top: 15px;">
+											<input class="form-control" type="month" min="2000-01">
+										</div>
+									</form>
 								</div>
 							</div>
 							<!-- End of Container above table -->
@@ -193,14 +195,16 @@
 											<tr>
 												<th scope="col" class="text-center" style="border-top: none;">#</th>
 												<th scope="col" class="text-center" style="border-top: none;">User ID</th>
+												<th scope="col" class="text-center" style="border-top: none;">Month/Year</th>
 												<th scope="col" class="text-center" style="border-top: none;">Questions</th>
 											</tr>
 										</thead>
 										<tbody>
 											<tr>
 												<td class="font-weight-bold">1</td>
-												<td style="text-align:center;">UserXXX</td>
-												<td>MONTH... Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+												<td class="text-center"><a href="studentProfile">UserXXX</a></td>
+												<td class="text-center">April 2020</td>
+												<td>MONTHLY... Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
 													Nullam volutpat ligula sit amet ipsum condimentum, id imperdiet urna efficitur. 
 													Maecenas convallis est vitae laoreet dictum. 
 													Integer facilisis dolor in ipsum dapibus convallis vel ut diam. 
@@ -214,7 +218,24 @@
 													Donec egestas arcu eu felis volutpat euismod.
 												</td>
 											</tr>
-											
+											<tr>
+												<td class="font-weight-bold text-center">2</td>
+												<td class="text-center"><a href="studentProfile">UserXXX</a></td>
+												<td class="text-center">April 2020</td>
+												<td>MONTHLY... Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+													Nullam volutpat ligula sit amet ipsum condimentum, id imperdiet urna efficitur. 
+													Maecenas convallis est vitae laoreet dictum. 
+													Integer facilisis dolor in ipsum dapibus convallis vel ut diam. 
+													Aenean lacinia nulla nisl, lobortis lobortis neque lacinia eget. 
+													Nunc sollicitudin sed risus at cursus. 
+													Integer malesuada malesuada nunc, non ultrices odio imperdiet luctus. 
+													Morbi vel nulla at ligula porta tincidunt eu imperdiet dolor. 
+													Aliquam pellentesque pharetra metus condimentum pretium. 
+													In hac habitasse platea dictumst. Nullam in quam metus. 
+													Aliquam lacinia lacinia felis, eu venenatis felis sodales quis. 
+													Donec egestas arcu eu felis volutpat euismod.
+												</td>
+											</tr>
 										</tbody>
 									</table>
 								</div>
@@ -224,9 +245,16 @@
 						
 						<div class="tab-pane fade" id="weeklyReportPane">
 							<!-- Container above table -->
-							<div class="row align-items-center header-container">
+							<div class="row d-flex align-items-center header-container">
 								<div class="col-md-2">
-									<button type="button" class="btn btn-outline-primary">Generate Report</button>
+									<button type="submit" class="btn btn-outline-primary" id="genReportBtn">Generate Report</button>
+								</div>
+								<div class="col-md-4">
+									<form class="needs-validation" novalidate>
+										<div class="form-group" style="margin-top: 15px;">
+											<input class="form-control" type="week" min="2000-01">
+										</div>
+									</form>
 								</div>
 							</div>
 							<!-- End of Container above table -->
@@ -239,14 +267,16 @@
 											<tr>
 												<th scope="col" class="text-center" style="border-top: none;">#</th>
 												<th scope="col" class="text-center" style="border-top: none;">User ID</th>
+												<th scope="col" class="text-center" style="border-top: none;">Week</th>
 												<th scope="col" class="text-center" style="border-top: none;">Questions</th>
 											</tr>
 										</thead>
 										<tbody>
 											<tr>
-												<td class="font-weight-bold">1</td>
-												<td style="text-align:center;">UserXXX</td>
-												<td>DAILY... Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+												<td class="font-weight-bold text-center">1</td>
+												<td class="text-center"><a href="studentProfile">UserXXX</a></td>
+												<td class="text-center">17</td>
+												<td>WEEKLY... Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
 													Nullam volutpat ligula sit amet ipsum condimentum, id imperdiet urna efficitur. 
 													Maecenas convallis est vitae laoreet dictum. 
 													Integer facilisis dolor in ipsum dapibus convallis vel ut diam. 
@@ -269,9 +299,9 @@
 						
 						<div class="tab-pane fade" id="participationRatingPane">
 							<!-- Container above table -->
-							<div class="row align-items-center header-container">
+							<div class="row d-flex align-items-center" style="padding: 25px 0px; background-color: #dce3e6;">
 								<div class="col-md-2">
-									<button type="button" class="btn btn-outline-primary">Generate Report</button>
+									<button type="submit" class="btn btn-outline-primary" id="genReportBtn">Generate Report</button>
 								</div>
 							</div>
 							<!-- End of Container above table -->
@@ -284,26 +314,24 @@
 											<tr>
 												<th scope="col" class="text-center" style="border-top: none;">#</th>
 												<th scope="col" class="text-center" style="border-top: none;">User ID</th>
-												<th scope="col" class="text-center" style="border-top: none;">Questions</th>
+												<th scope="col" class="text-center" style="border-top: none;">Participation Ratings</th>
 											</tr>
 										</thead>
 										<tbody>
 											<tr>
-												<td class="font-weight-bold">1</td>
-												<td style="text-align:center;">UserXXX</td>
-												<td>DAILY... Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-													Nullam volutpat ligula sit amet ipsum condimentum, id imperdiet urna efficitur. 
-													Maecenas convallis est vitae laoreet dictum. 
-													Integer facilisis dolor in ipsum dapibus convallis vel ut diam. 
-													Aenean lacinia nulla nisl, lobortis lobortis neque lacinia eget. 
-													Nunc sollicitudin sed risus at cursus. 
-													Integer malesuada malesuada nunc, non ultrices odio imperdiet luctus. 
-													Morbi vel nulla at ligula porta tincidunt eu imperdiet dolor. 
-													Aliquam pellentesque pharetra metus condimentum pretium. 
-													In hac habitasse platea dictumst. Nullam in quam metus. 
-													Aliquam lacinia lacinia felis, eu venenatis felis sodales quis. 
-													Donec egestas arcu eu felis volutpat euismod.
-												</td>
+												<td class="font-weight-bold text-center">1</td>
+												<td class="text-center"><a href="studentProfile">UserXXX</a></td>
+												<td class="text-center">80/100</td>
+											</tr>
+											<tr>
+												<td class="font-weight-bold text-center">2</td>
+												<td class="text-center"><a href="studentProfile">UserXXX</a></td>
+												<td class="text-center">76/100</td>
+											</tr>
+											<tr>
+												<td class="font-weight-bold text-center">3</td>
+												<td class="text-center"><a href="studentProfile">UserXXX</a></td>
+												<td class="text-center">68/100</td>
 											</tr>
 										</tbody>
 									</table>
