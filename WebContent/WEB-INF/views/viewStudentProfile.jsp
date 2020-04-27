@@ -67,11 +67,12 @@
 			<!-- Start of Contents -->
 			<div class="container-fluid">			
 				<div class="row">
-					<div class="col container-fluid" style="padding-top: 1%;">
-						<a href="studentHome" style="color: #ea8a8a;"><i class="far fa-hand-point-left mr-1"></i>Back to Forum</a>
+					<div class="d-flex w-100 mt-2">
+						<div class="col-md-12 d-flex align-items-center justify-content-start">
+							<a href="studentHome" style="color: #ea8a8a;"><i class="far fa-hand-point-left mr-1"></i>Back to Forum</a>
+						</div>
 					</div>
 				</div>
-				
 				<div class="row">
 					<!-- 
 					<div class="sidebar-container col-sm-2 d-none d-md-block">
