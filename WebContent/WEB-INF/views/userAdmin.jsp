@@ -116,7 +116,7 @@
 								    			<input type="checkbox" class="suspend_btn" id="suspendBtn_${user.username}" checked>
 								    	</c:if>
 								    	<c:if test="${!user.isSuspended}">
-								    			<input type="checkbox" class="suspend_btn" id="suspendBtn_${user.username}">
+								    			<input type="checkbox" class="suspend_btn" id="suspendBtn_${user.username}" >
 								    	</c:if>
 								    	
 								    <!-- 
@@ -153,9 +153,11 @@
 				    		</c:choose>
 							
 		    				<td>
-						    	<button type="button" id="resetPwBtn">
-						    		<i class="fas fa-lock" data-toggle="modal" data-target="#resetPwModal" aria-hidden="true"></i>
+		 
+						    	<button type="button" id="${userType}-${user.username}" class="resetButtons">
+						    		<i class="fas fa-lock"></i>
 						    	</button>
+						    	 
 						    </td>
 				   		</tr>
 				   		</c:forEach>
@@ -322,9 +324,11 @@
 		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		
 	</body>
 	<script>
+		
+		//when user admin create user account with used username
 		if(${created == 'false'}){
 			  alert("username taken");
 		}
@@ -332,6 +336,42 @@
 		var suspend_buttons = document.querySelectorAll("input[type='checkbox']");
 		for(var i = 0; i <suspend_buttons.length; i++) {
 			suspend_buttons[i].addEventListener("click",suspend_user);
+		}
+		
+		var resetPw_buttons = document.getElementsByClassName("resetButtons");
+		for(var i = 0; i < resetPw_buttons.length; i++) {
+			resetPw_buttons[i].addEventListener("click",reset_user);
+		}
+		
+		function reset_user(event) {
+			var get_button_id = this.id;
+			var user_info = get_button_id.split("-");
+			
+			var userType = user_info[0];
+			var user_id = user_info[1];
+			alert("you have reset password for " + user_id);
+			
+			sendToResetPwServlet(userType, user_id);
+		}
+		
+		function sendToResetPwServlet(userType, user_id) {
+			var xmlhttp;
+			if(window.XMLHttpRequest) {
+				xmlhttp = new XMLHttpRequest();
+			}else {
+				xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+			}
+			
+			xmlhttp.onreadystatechange = function() {
+				if(xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+					console.log(xmlhttp.responseText);
+				}
+			}
+			
+			var params = "usertype=" + userType + "&" + "username=" + user_id
+			xmlhttp.open('POST', "/resetPwServlet",true);
+			xmlhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+			xmlhttp.send(params);
 		}
 		
 		function suspend_user(event) {
@@ -344,6 +384,28 @@
 				alert("You have unsuspended " + user_id);
 				// send user_id to servelt to unsuspend 
 			}
+			
+			sendToSuspendServlet(user_id);
+			
+		}
+		
+		function sendToSuspendServlet(stud_id) {
+			var xmlhttp;
+			if(window.XMLHttpRequest) {
+				xmlhttp = new XMLHttpRequest();
+			}else {
+				xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+			}
+			
+			xmlhttp.onreadystatechange = function() {
+				if(xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+					console.log(xmlhttp.responseText);
+				}
+			}
+			
+			var params = "username=" + stud_id;
+			xmlhttp.open('GET', "/suspendServlet?"+params,true);
+			xmlhttp.send();
 		}
 		
 		function getUserInfo() {

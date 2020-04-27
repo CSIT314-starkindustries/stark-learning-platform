@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" 
 	pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -11,6 +12,7 @@
 		<link rel="stylesheet" href="${pageContext.request.contextPath}/css/home.css">		
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 		<script type="text/javascript" src="${pageContext.request.contextPath}/js/home.js"></script>
+		
 	</head>
 	<style>
 		#main {
@@ -453,13 +455,17 @@
 								<h5 style="padding-top: 5%; padding-bottom: 5%;">Log in as User Administrator</h5>
 							</div>				    	
 							<div class="model-body mx-3">
-								<form class="needs-validation" novalidate>
+							
+								<form action="/loginServlet" method="POST" class="needs-validation" novalidate>
 		 							<fieldset>
 		 								<div class="form-group row">
 		 									<div class="col-sm-2"></div>
 										    <label for="userAdminUserId" class="col-sm-2 col-form-label text-right"><i class="fas fa-user"></i></label>
 										    <div class="col-sm-5">
-										    	<input type="text" class="form-control" id="userAdminUserId" placeholder="User ID" required>
+										    	<input type="text" class="form-control" id="userAdminUserId" placeholder="User ID" name="username" value ="" required>
+										    	
+										    	<input type="hidden" name="usertype" value="user_admin">
+										    	
 										    	<div class="invalid-feedback">Please fill out this field.</div>
 											</div>
 											<div class="col-sm-3"></div>			
@@ -468,7 +474,7 @@
 		 									<div class="col-sm-2"></div>
 										    <label for="userAdminPassword" class="col-sm-2 col-form-label text-right"><i class="fas fa-lock"></i></label>
 										    <div class="col-sm-5">
-										    	<input type="password" class="form-control" id="userAdminPassword" placeholder="Password" required>
+										    	<input type="password" class="form-control" id="userAdminPassword" placeholder="Password" name="password" value="" required>
 												<div class="invalid-feedback">Please fill out this field.</div>
 											</div>
 											<div class="col-sm-3"></div>			
@@ -476,8 +482,20 @@
 										<div class="form-group row text-center">
 											<button type="submit" class="btn btn-primary mr-auto" id="#loginBtn" style="margin: auto; display: block;">Log In</button>			        			
 										</div>
+										
+										<!-- style red and centralize -->
+										<c:if test="${not empty invalid_acc}">
+											<script>
+												window.addEventListener("load",function() {
+													alert("${invalid_acc}");
+												})
+											</script>
+										</c:if>
+										
+										
 									</fieldset>
 								</form>
+								
 							</div>
 							<div class="model-footer" style="padding-bottom: 4%;"></div>
 					  	</div>					  	
