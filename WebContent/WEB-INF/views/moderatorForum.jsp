@@ -4,7 +4,7 @@
 <html>
 	<head>
 		<meta charset="ISO-8859-1">
-		<title>Welcome to Stark Industry</title>
+		<title>Moderator Forum</title>
 		<link rel="stylesheet" href="/StarkLearningApp/css/bootstrap.min.css">
 		<link rel="stylesheet" href="/StarkLearningApp/css/bootstrap.css">
 		<link rel="stylesheet" href="/StarkLearningApp/css/all.css"> 

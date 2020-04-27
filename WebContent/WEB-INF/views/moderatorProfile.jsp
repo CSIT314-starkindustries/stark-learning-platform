@@ -4,7 +4,7 @@
 <html>
 	<head>
 		<meta charset="ISO-8859-1">
-		<title>Welcome to Stark Industry</title>
+		<title>Moderator Profile</title>
 		<link rel="stylesheet" href="/StarkLearningApp/css/bootstrap.min.css">
 		<link rel="stylesheet" href="/StarkLearningApp/css/bootstrap.css">
 		<link rel="stylesheet" href="/StarkLearningApp/css/all.css"> 
@@ -50,70 +50,81 @@
 			
 			<!-- Start of Contents -->
 			
-			<!-- Profile Contents -->
-			<div class="col container-fluid text-center" style="padding-top: 2%; padding-bottom: 2%;">
-				<div class="row container-fluid" style="padding-top: 2%; padding-bottom: 2%;">
-					<div class="col"></div>
-					<div class="col-md-auto">
-						<h3 style="padding-bottom: 3%;">My Profile</h3>
-						<div class="card mb-3" id="moderatorCard" style="min-width: 30rem;">								 	
-							<span id="moderatorProfilePic" style="font-size: 10rem;"><i class="fas fa-user-tie"></i></span>
-							<div class="card-body text-center" style="padding: 0;">
-								 <div class="container-fluid">
-								 	<form>
-								 		<fieldset>
-									 		<div class="row" style="margin-bottom: 0;">
-									 			<p class="col-sm-6 text-right font-weight-bold">Moderator ID:</p>
-									 			<p class="col-sm-6 text-left">ModXXX</p>
-									 		</div>
-									 	</fieldset>
-									 </form>			 		
-								 </div>
-							</div>
+			<div class="container-fluid">
+				<div class="row">
+					<div class="d-flex w-100 mt-2">
+						<div class="col-md-12 d-flex align-items-center justify-content-start">
+							<a href="moderatorForum" style="color: #ea8a8a;"><i class="far fa-hand-point-left mr-1"></i>Back to Forum</a>
 						</div>
 					</div>
-					<div class="col"></div>
 				</div>
-						
-				<div class="row container-fluid">
-					<div class="col"></div>
-					<div class="col">
-						<form id="profileForm" class="needs-validation" novalidate>
-						 	<fieldset>
-						 		<div class="row" style="margin-bottom: 3%;">
-						 			<div class="col">
-						 				<h4>Change Password</h4>
-						 			</div>
-						 		</div>
-						 		<div class="form-group row text-center">
-						 			<label for="currentPassword" class="col-sm-5 col-form-label text-right"><b>Current Password:</b></label>
-						 			<div class="col-sm-7">
-						 				<input type="password" class="form-control" id="currentPassword" placeholder="Current Password" name="currentPassword"
-											pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required>
-										<div class="invalid-feedback text-left">Please enter current password</div>
-						 			</div>
-						 		</div>	
-						 		<div class="form-group row text-center">
-						 			<label for="newPassword" class="col-sm-5 col-form-label text-right"><b>New Password:</b></label>
-						 			<div class="col-sm-7">
-						 				<input type="password" class="form-control" id="newPassword" placeholder="New Password" name="newPassword"
-											pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
-									   	<div class="invalid-feedback text-left">New password cannot be the same as current password</div>
-						 			</div>
-						 		</div>		
-						 		<div class="form-group row">
-						 			<div class="col-sm-5"></div>
-						 			<div class="col-sm-7 text-left">
-						 				<button type="submit" class="btn btn-outline-primary text-center">Change Password</button>
-						 			</div>
-						 		</div>							 													 												 		
-						 	</fieldset>
-						</form>			
+				<div class="row">
+					<!-- Profile Contents -->
+					<div class="col container-fluid text-center" style="padding-top: 2%; padding-bottom: 2%;">
+						<div class="row container-fluid" style="padding-top: 2%; padding-bottom: 2%;">
+							<div class="col"></div>
+							<div class="col-md-auto">
+								<h3 style="padding-bottom: 3%;">My Profile</h3>
+								<div class="card mb-3" id="moderatorCard" style="min-width: 30rem;">								 	
+									<span id="moderatorProfilePic" style="font-size: 10rem;"><i class="fas fa-user-tie"></i></span>
+									<div class="card-body text-center" style="padding: 0;">
+										 <div class="container-fluid">
+										 	<form>
+										 		<fieldset>
+											 		<div class="row" style="margin-bottom: 0;">
+											 			<p class="col-sm-6 text-right font-weight-bold">Moderator ID:</p>
+											 			<p class="col-sm-6 text-left">ModXXX</p>
+											 		</div>
+											 	</fieldset>
+											 </form>			 		
+										 </div>
+									</div>
+								</div>
+							</div>
+							<div class="col"></div>
+						</div>
+								
+						<div class="row container-fluid">
+							<div class="col"></div>
+							<div class="col">
+								<form id="profileForm" class="needs-validation" novalidate>
+								 	<fieldset>
+								 		<div class="row" style="margin-bottom: 3%;">
+								 			<div class="col">
+								 				<h4>Change Password</h4>
+								 			</div>
+								 		</div>
+								 		<div class="form-group row text-center">
+								 			<label for="currentPassword" class="col-sm-5 col-form-label text-right"><b>Current Password:</b></label>
+								 			<div class="col-sm-7">
+								 				<input type="password" class="form-control" id="currentPassword" placeholder="Current Password" name="currentPassword"
+													pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required>
+												<div class="invalid-feedback text-left">Please enter current password</div>
+								 			</div>
+								 		</div>	
+								 		<div class="form-group row text-center">
+								 			<label for="newPassword" class="col-sm-5 col-form-label text-right"><b>New Password:</b></label>
+								 			<div class="col-sm-7">
+								 				<input type="password" class="form-control" id="newPassword" placeholder="New Password" name="newPassword"
+													pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
+											   	<div class="invalid-feedback text-left">New password cannot be the same as current password</div>
+								 			</div>
+								 		</div>		
+								 		<div class="form-group row">
+								 			<div class="col-sm-5"></div>
+								 			<div class="col-sm-7 text-left">
+								 				<button type="submit" class="btn btn-outline-primary text-center">Change Password</button>
+								 			</div>
+								 		</div>							 													 												 		
+								 	</fieldset>
+								</form>			
+							</div>
+							<div class="col"></div>		
+						</div>		
 					</div>
-					<div class="col"></div>		
-				</div>		
+					<!-- End of Profile Contents -->
+				</div>
 			</div>
-			<!-- End of Profile Contents -->
 			
 			<!-- End of Contents -->		
 		</div>
