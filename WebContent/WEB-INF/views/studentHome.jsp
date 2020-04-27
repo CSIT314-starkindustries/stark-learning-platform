@@ -115,7 +115,7 @@
 						<div id="myTabContent" class="tab-content">	
 								
 							<!-- Most Recent Question Pane -->
-							<div class="tab-pane fade active show" id="mostRecentQnsPane">
+							<div class="tab-pane fade show active" id="mostRecentQnsPane">
 								<div class="row" style="padding-top: 2%; padding-bottom: 2%; background: #F2F2F2;">
 									<!-- Header -->
 									<div class="col-sm-4 text-left">

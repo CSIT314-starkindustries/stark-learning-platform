@@ -4,6 +4,14 @@
   <welcome-file-list>
     <welcome-file>home</welcome-file>
     <welcome-file>userAdmin</welcome-file>
+    <welcome-file>moderatorForum</welcome-file>
     <welcome-file>test</welcome-file>
+    <welcome-file>studentHome</welcome-file>
+    <welcome-file>footer</welcome-file>
+    <welcome-file>testSideNav</welcome-file>
+    <welcome-file>viewQuestion</welcome-file>
+    <welcome-file>studentProfile</welcome-file>
+    <welcome-file>viewStudentProfile</welcome-file>
+    <welcome-file>moderatorProfile</welcome-file>
   </welcome-file-list>
 </web-app>

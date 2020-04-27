@@ -1,21 +1,23 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" 
+	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 	<head>
 		<meta charset="ISO-8859-1">
-		<title>Stark Industries</title>
+		<title>Welcome to Stark Industry</title>
 		<link rel="stylesheet" href="/StarkLearningApp/css/bootstrap.min.css">
 		<link rel="stylesheet" href="/StarkLearningApp/css/bootstrap.css">
 		<link rel="stylesheet" href="/StarkLearningApp/css/all.css"> 
-		<link rel="stylesheet" href="/StarkLearningApp/css/moderatorForum.css">
+		<link rel="stylesheet" href="/StarkLearningApp/css/modForum.css">		
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 		<script type="text/javascript" src="/StarkLearningApp/js/moderatorForum.js"></script>
 	</head>
 	
-	<body>
+	<body>		
 		<!-- Start of Page Container -->
 		<div class="pageCon">
-			<!-- Navbar -->
+		
+			<!-- Start of Navbar -->			
 			<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
 				<a class="navbar-brand" href="#">Stark Industries</a>
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
@@ -24,11 +26,10 @@
 			
 				<div class="navbar-nav navbar-collapse collapse row" id="navbarColor01">
 					<div class="nav-item col-sm-2"></div>
-					<div class="nav-item col-sm-6">
-					</div>
+					<div class="nav-item col-sm-6"></div>
 					<div class="nav-item col-sm-4 text-sm-left text-md-right text-lg-right">
 						<div class="dropdown" role="group">
-							<button id="userSettingToggleBtn" type="button" class="btn btn-link dropdown-toggle" data-toggle="dropdown">Professor</button>
+							<button id="userSettingToggleBtn" type="button" class="btn btn-link dropdown-toggle" data-toggle="dropdown">Moderator</button>
 						    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userSettingToggleBtn">
 						      	<a class="dropdown-item" href="moderatorProfile" id="moderatorProfileLink">
 						      		<span class="mr-3"><i class="fas fa-user-cog"></i></span>View Profile
@@ -42,150 +43,283 @@
 							</div>
 						</div>
 					</div>
+					<div class="nav-item col-sm-4 d-sm-block d-md-none">
+		                <div class="dropdown">
+			                <button class="btn btn-link dropdown-toggle" id="smallerscreenmenu" data-toggle="dropdown">Generate Report Options</button>
+			                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="smallerscreenmenu">
+			                    <a class="dropdown-item" href="#">Top Voted Questions of the Year</a>
+			                    <a class="dropdown-item" href="#">Monthly Questions</a>
+			                    <a class="dropdown-item" href="#">Weekly Questions</a>
+			                    <a class="dropdown-item" href="#">Top Students' Participation Ratings</a>
+			                </div>
+		                </div>
+		            </div>
 			    </div>
 			</nav>
-			<!-- End of Navbar -->
+			<!-- End of Navbar -->			
 			
-			<!-- Content -->
-			
-			<!-- Container above table -->
+			<!-- Start of Contents -->
 			<div class="container-fluid">
-			
-				<div class="row align-items-center" id="aboveTable">
-					<div class="col-md-2">
-						<button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#generateReportModal">Generate Report</button>
+				<div class="row">
+				
+					<!-- Start of Side Navbar -->
+					<div class="sidebar-container col-sm-2 d-none d-md-block">
+						<div class="list-group">
+							<div class="list-group-item sidebar-separator-title text-muted d-flex w-100 align-items-center justify-content-center" style="background-color: #ebf7f6; height: 35px;">
+			                  <small class="font-weight-bold">GENERATE REPORT</small>
+			               	</div>
+				            <a href="#" class="list-group-item list-group-item-action flex-column active" data-toggle="tab" data-target="#yearlyReportPane">
+				                <div class="d-flex w-100 justify-content-start align-items-start">
+				                	<span class="mr-3"><i class="fas fa-trophy"></i></span>
+				                    <span>Top Voted Questions of the Year</span>
+				                </div>
+				            </a>
+				            <a href="#" class="list-group-item list-group-item-action flex-column" data-toggle="tab" data-target="#monthlyReportPane">
+				                <div class="d-flex w-100 justify-content-start align-items-start">
+				                    <span class="mr-3"><i class="fas fa-calendar-alt"></i></span>
+				                    <span>Monthly Questions</span>
+				                </div>
+				            </a>
+				            <a href="#" class="list-group-item list-group-item-action flex-column" data-toggle="tab" data-target="#weeklyReportPane">
+				                <div class="d-flex w-100 justify-content-start align-items-start">
+				                    <span class="mr-3"><i class="fas fa-calendar-week"></i></span>
+				                    <span>Weekly Questions</span>
+				                </div>
+				            </a>
+				            <a href="#" class="list-group-item list-group-item-action flex-column" data-toggle="tab" data-target="#participationRatingPane">
+				                <div class="d-flex w-100 justify-content-start align-items-start">
+				                    <span class="mr-3"><i class="fas fa-award"></i></span>
+				                    <span>Top Students' Participation Ratings</span>
+				                </div>
+				            </a>
+						</div>
 					</div>
-				</div>
-			</div> 
-			<!-- End of Container above table -->
-			
-			<!-- Table -->
-			<div class="">
-				<div class="table-responsive" id="tableDiv">
-					<table class="table table-hover">
-						<thead>
-					    	<tr>
-								<th scope="col" class="tbl">#</th>
-								<th scope="col" class="tbl">User ID</th>
-					      		<th scope="col" class="tbl">Question</th>
-					    	</tr>
-					  	</thead>
-					  	<tbody>
-					    	<tr>
-							    <td class="font-weight-bold">1</td>
-							    <td style="text-align:center;">123456</td>
-							    <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-							    Nullam volutpat ligula sit amet ipsum condimentum, id imperdiet urna efficitur. 
-							    Maecenas convallis est vitae laoreet dictum. 
-							    Integer facilisis dolor in ipsum dapibus convallis vel ut diam. 
-							    Aenean lacinia nulla nisl, lobortis lobortis neque lacinia eget. 
-							    Nunc sollicitudin sed risus at cursus. 
-							    Integer malesuada malesuada nunc, non ultrices odio imperdiet luctus. 
-							    Morbi vel nulla at ligula porta tincidunt eu imperdiet dolor. 
-							    Aliquam pellentesque pharetra metus condimentum pretium. 
-							    In hac habitasse platea dictumst. Nullam in quam metus. 
-							    Aliquam lacinia lacinia felis, eu venenatis felis sodales quis. 
-							    Donec egestas arcu eu felis volutpat euismod.</td>
-					   		</tr>
-						</tbody>
-					</table>
-				</div>
-			</div>
-			<!-- End of Table -->
-			
-			<!-- Generate Report Modal Box -->
-			<div class="modal fade" id="generateReportModal" tabindex="-1" role="dialog" aria-labelledby="genReportLabel" aria-hidden="true">
-				<div class="modal-dialog modal-dialog-centered" role="document">
-					<div class="modal-content">
-			      		<div class="modal-header">
-					        <h5 class="modal-title col-12 text-center font-weight-bold" id="genReportLabel">Generate Report
-						        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-						          <span aria-hidden="true">&times;</span>
-						        </button>
-					        </h5>
-			      		</div>
-						<div class="container modal-body">
-							<form class="needs-validation" novalidate>
-								<div class="form-group form-check content-checkbox" id="radioSelection">
-									<div class="custom-control custom-radio" id="yearRad">
-									  <input class="custom-control-input" value="Year" type="radio" name="periodRadios" id="yearRadio" required>
-									  <label class="custom-control-label" for="yearRadio">Year</label>
-									</div>
-									<div class="custom-control custom-radio" id="monthRad">
-									  <input class="custom-control-input" value="Month" type="radio" name="periodRadios" id="monthRadio" required>
-									  <label class="custom-control-label" for="monthRadio">Month</label>
-									</div>
-									<div class="custom-control custom-radio" id="dayRad">
-									  <input class="custom-control-input" value="Day" type="radio" name="periodRadios" id="dayRadio" required>
-									  <label class="custom-control-label" for="dayRadio">Day</label>
-									</div>
-								</div>
-								<div class="modal-footer">
-						      		<button type="button" onclick="onSelection()" class="btn btn-primary mr-auto ml-auto">Submit</button>
-						      	</div>
-							</form>
-				      	</div>
-				      	
-			    	</div>
-				</div>
-			</div>
-			<!-- End of Generate Report Modal Box -->
-			
-			<!-- GR (YEAR) Modal Box -->
-			<div class="modal fade" id="grYearModal" tabindex="-1" role="dialog" aria-labelledby="grYearLabel" aria-hidden="true">
-				<div class="modal-dialog modal-dialog-centered" role="document">
-					<div class="modal-content">
-			      		<div class="modal-header">
-							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-						    	<span aria-hidden="true">&times;</span>
-							</button>
-			      		</div>
-						<div class="modal-body yearDropDown">
-							<form class="needs-validation" novalidate>
-								<div class="row">
-								<div class="col-md-10">
-									<div class="col-auto my-1" id="yearSelection">
-								      <select class="custom-select mr-sm-2 text-center" required>
-								        <option value="">Choose the Year</option>
-								        <option value="2020">2020</option>
-								        <option value="2019">2019</option>
-								        <option value="2018">2018</option>
-								      </select>
-								    </div>
-								</div>
+					<!-- End of Side Navbar -->
+
+					<div id="myTabContent" class="col-sm-10 tab-content">
+						<div class="tab-pane fade show active" id="yearlyReportPane">
+							<!-- Container above table -->
+							<div class="row align-items-center header-container">
 								<div class="col-md-2">
-									<button type="button" id="goBtn" data-toggle="collapse" data-target="#genReportBrowse" aria-expanded="false" aria-controls="genReportBrowse">
-										<i class="fas fa-check-circle" aria-hidden="true"></i>
-									</button>
+									<button type="button" class="btn btn-outline-primary">Generate Report</button>
 								</div>
-								</div>
-							</form>
-				      	</div>
-				      	<div class="modal-footer collapse" id="genReportBrowse">
-								<form>
-									<div class="form-group">
-									    <div class="input-group">
-									      <div class="custom-file">
-									        <input type="file" class="custom-file-input" id="inputGroupFile02">
-									        <label class="custom-file-label" for="inputGroupFile02">Choose file</label>
-									      </div>
-									      <div class="input-group-append">
-									        <span class="input-group-text" id="">Upload</span>
-									      </div>
-									    </div>
-									</div>
-								</form>
 							</div>
-				      	
-			    	</div>
+							<!-- End of Container above table -->
+								
+							<!-- Table -->
+							<div class="row">
+								<div class="table-responsive">
+									<table class="table table-hover">
+										<thead>
+											<tr>
+												<th scope="col" class="text-center" style="border-top: none;">#</th>
+												<th scope="col" class="text-center" style="border-top: none;">User ID</th>
+												<th scope="col" class="text-center" style="border-top: none;">Questions</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td class="font-weight-bold">1</td>
+												<td style="text-align:center;">UserXXX</td>
+												<td>YEAR... Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+													Nullam volutpat ligula sit amet ipsum condimentum, id imperdiet urna efficitur. 
+													Maecenas convallis est vitae laoreet dictum. 
+													Integer facilisis dolor in ipsum dapibus convallis vel ut diam. 
+													Aenean lacinia nulla nisl, lobortis lobortis neque lacinia eget. 
+													Nunc sollicitudin sed risus at cursus. 
+													Integer malesuada malesuada nunc, non ultrices odio imperdiet luctus. 
+													Morbi vel nulla at ligula porta tincidunt eu imperdiet dolor. 
+													Aliquam pellentesque pharetra metus condimentum pretium. 
+													In hac habitasse platea dictumst. Nullam in quam metus. 
+													Aliquam lacinia lacinia felis, eu venenatis felis sodales quis. 
+													Donec egestas arcu eu felis volutpat euismod.
+												</td>
+											</tr>
+											<tr>
+												<td class="font-weight-bold">2</td>
+												<td style="text-align:center;">UserXXX</td>
+												<td>YEAR... Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+													Nullam volutpat ligula sit amet ipsum condimentum, id imperdiet urna efficitur. 
+													Maecenas convallis est vitae laoreet dictum. 
+													Integer facilisis dolor in ipsum dapibus convallis vel ut diam. 
+													Aenean lacinia nulla nisl, lobortis lobortis neque lacinia eget. 
+													Nunc sollicitudin sed risus at cursus. 
+													Integer malesuada malesuada nunc, non ultrices odio imperdiet luctus. 
+													Morbi vel nulla at ligula porta tincidunt eu imperdiet dolor. 
+													Aliquam pellentesque pharetra metus condimentum pretium. 
+													In hac habitasse platea dictumst. Nullam in quam metus. 
+													Aliquam lacinia lacinia felis, eu venenatis felis sodales quis. 
+													Donec egestas arcu eu felis volutpat euismod.
+												</td>
+											</tr>
+											<tr>
+												<td class="font-weight-bold">3</td>
+												<td style="text-align:center;">UserXXX</td>
+												<td>YEAR... Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+													Nullam volutpat ligula sit amet ipsum condimentum, id imperdiet urna efficitur. 
+													Maecenas convallis est vitae laoreet dictum. 
+													Integer facilisis dolor in ipsum dapibus convallis vel ut diam. 
+													Aenean lacinia nulla nisl, lobortis lobortis neque lacinia eget. 
+													Nunc sollicitudin sed risus at cursus. 
+													Integer malesuada malesuada nunc, non ultrices odio imperdiet luctus. 
+													Morbi vel nulla at ligula porta tincidunt eu imperdiet dolor. 
+													Aliquam pellentesque pharetra metus condimentum pretium. 
+													In hac habitasse platea dictumst. Nullam in quam metus. 
+													Aliquam lacinia lacinia felis, eu venenatis felis sodales quis. 
+													Donec egestas arcu eu felis volutpat euismod.
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+							<!-- End of Table -->
+						</div>
+						
+						<div class="tab-pane fade" id="monthlyReportPane">
+							<!-- Container above table -->
+							<div class="row align-items-center header-container">
+								<div class="col-md-2">
+									<button type="button" class="btn btn-outline-primary">Generate Report</button>
+								</div>
+							</div>
+							<!-- End of Container above table -->
+								
+							<!-- Table -->
+							<div class="row">
+								<div class="table-responsive">
+									<table class="table table-hover">
+										<thead>
+											<tr>
+												<th scope="col" class="text-center" style="border-top: none;">#</th>
+												<th scope="col" class="text-center" style="border-top: none;">User ID</th>
+												<th scope="col" class="text-center" style="border-top: none;">Questions</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td class="font-weight-bold">1</td>
+												<td style="text-align:center;">UserXXX</td>
+												<td>MONTH... Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+													Nullam volutpat ligula sit amet ipsum condimentum, id imperdiet urna efficitur. 
+													Maecenas convallis est vitae laoreet dictum. 
+													Integer facilisis dolor in ipsum dapibus convallis vel ut diam. 
+													Aenean lacinia nulla nisl, lobortis lobortis neque lacinia eget. 
+													Nunc sollicitudin sed risus at cursus. 
+													Integer malesuada malesuada nunc, non ultrices odio imperdiet luctus. 
+													Morbi vel nulla at ligula porta tincidunt eu imperdiet dolor. 
+													Aliquam pellentesque pharetra metus condimentum pretium. 
+													In hac habitasse platea dictumst. Nullam in quam metus. 
+													Aliquam lacinia lacinia felis, eu venenatis felis sodales quis. 
+													Donec egestas arcu eu felis volutpat euismod.
+												</td>
+											</tr>
+											
+										</tbody>
+									</table>
+								</div>
+							</div>
+							<!-- End of Table -->
+						</div>
+						
+						<div class="tab-pane fade" id="weeklyReportPane">
+							<!-- Container above table -->
+							<div class="row align-items-center header-container">
+								<div class="col-md-2">
+									<button type="button" class="btn btn-outline-primary">Generate Report</button>
+								</div>
+							</div>
+							<!-- End of Container above table -->
+								
+							<!-- Table -->
+							<div class="row">
+								<div class="table-responsive">
+									<table class="table table-hover">
+										<thead>
+											<tr>
+												<th scope="col" class="text-center" style="border-top: none;">#</th>
+												<th scope="col" class="text-center" style="border-top: none;">User ID</th>
+												<th scope="col" class="text-center" style="border-top: none;">Questions</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td class="font-weight-bold">1</td>
+												<td style="text-align:center;">UserXXX</td>
+												<td>DAILY... Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+													Nullam volutpat ligula sit amet ipsum condimentum, id imperdiet urna efficitur. 
+													Maecenas convallis est vitae laoreet dictum. 
+													Integer facilisis dolor in ipsum dapibus convallis vel ut diam. 
+													Aenean lacinia nulla nisl, lobortis lobortis neque lacinia eget. 
+													Nunc sollicitudin sed risus at cursus. 
+													Integer malesuada malesuada nunc, non ultrices odio imperdiet luctus. 
+													Morbi vel nulla at ligula porta tincidunt eu imperdiet dolor. 
+													Aliquam pellentesque pharetra metus condimentum pretium. 
+													In hac habitasse platea dictumst. Nullam in quam metus. 
+													Aliquam lacinia lacinia felis, eu venenatis felis sodales quis. 
+													Donec egestas arcu eu felis volutpat euismod.
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+							<!-- End of Table -->
+						</div>
+						
+						<div class="tab-pane fade" id="participationRatingPane">
+							<!-- Container above table -->
+							<div class="row align-items-center header-container">
+								<div class="col-md-2">
+									<button type="button" class="btn btn-outline-primary">Generate Report</button>
+								</div>
+							</div>
+							<!-- End of Container above table -->
+								
+							<!-- Table -->
+							<div class="row">
+								<div class="table-responsive">
+									<table class="table table-hover">
+										<thead>
+											<tr>
+												<th scope="col" class="text-center" style="border-top: none;">#</th>
+												<th scope="col" class="text-center" style="border-top: none;">User ID</th>
+												<th scope="col" class="text-center" style="border-top: none;">Questions</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td class="font-weight-bold">1</td>
+												<td style="text-align:center;">UserXXX</td>
+												<td>DAILY... Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+													Nullam volutpat ligula sit amet ipsum condimentum, id imperdiet urna efficitur. 
+													Maecenas convallis est vitae laoreet dictum. 
+													Integer facilisis dolor in ipsum dapibus convallis vel ut diam. 
+													Aenean lacinia nulla nisl, lobortis lobortis neque lacinia eget. 
+													Nunc sollicitudin sed risus at cursus. 
+													Integer malesuada malesuada nunc, non ultrices odio imperdiet luctus. 
+													Morbi vel nulla at ligula porta tincidunt eu imperdiet dolor. 
+													Aliquam pellentesque pharetra metus condimentum pretium. 
+													In hac habitasse platea dictumst. Nullam in quam metus. 
+													Aliquam lacinia lacinia felis, eu venenatis felis sodales quis. 
+													Donec egestas arcu eu felis volutpat euismod.
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+							<!-- End of Table -->
+						</div>
+						
+					</div>				
 				</div>
 			</div>
-			<!-- End of GR (YEAR) Modal Box -->
+			<!-- End of Contents -->	
 			
-			<!-- End of Content -->
 		</div>
 		<!-- End of Page Container -->
-
+		
 		<!-- Start of Footer -->
 		<div class="navbar navbar-dark bg-primary id="footer">
 			<div class="container-fluid">
@@ -205,9 +339,10 @@
 		</div>
 		<!-- End of Footer -->
 		
+		
 		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-		
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>      	
+	
 	</body>
 </html>

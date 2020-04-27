@@ -1,21 +1,5 @@
-(function() {
-	'use strict';
-	window.addEventListener('load', function() {
-		var forms = document.getElementsByClassName('needs-validation');
-		var validation = Array.prototype.filter.call(forms, function(form) {
-			form.addEventListener('submit', function(event) {
-				if (form.checkValidity() === false) {
-					event.preventDefault();
-					event.stopPropagation();
-				}
-				form.classList.add('was-validated');
-			}, false);
-		});
-	}, false);
-})();
-
-var y = document.getElementById('yearRad')
-function onSelection() {
-	$("#generateReportModal").modal("hide");
-	$("#grYearModal").modal("show");
+// Scroll to top of page
+function scrollToTopFunction() {
+	document.body.scrollTop = 0;
+	document.documentElement.scrollTop = 0;
 }
