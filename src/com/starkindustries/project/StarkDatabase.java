@@ -110,6 +110,7 @@ public class StarkDatabase {
 		return true;
 	}
 	
+	// for user admin
 	public boolean resetPassword(String studOrMod, String username, Connection conn) throws SQLException {
 		int rowsUpdated = 0;
 		Statement mystmt;
@@ -129,6 +130,7 @@ public class StarkDatabase {
 		else return true;
 	}
 	
+	//for user
 	public boolean changePassword(String studOrMod, String username, String pass, Connection conn) throws SQLException {
 		int rowsUpdated = 0;
 		Statement mystmt;

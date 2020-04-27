@@ -5,7 +5,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Student {
+public class Student implements User {
 	private String username;
 	private String password;
 	private int totalQnAsked;
@@ -69,7 +69,7 @@ public class Student {
 		this.totalCommentPosted = totalCommentPosted;
 	}
 
-	public boolean isSuspended() {
+	public boolean getIsSuspended() {
 		return isSuspended;
 	}
 

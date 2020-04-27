@@ -17,6 +17,7 @@ public class UserAdminServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    	
 		request.getRequestDispatcher("/WEB-INF/views/userAdmin.jsp").forward(request, response);
 	}
 
