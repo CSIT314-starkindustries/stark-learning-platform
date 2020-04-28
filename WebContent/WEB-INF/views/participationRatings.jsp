@@ -81,9 +81,7 @@
 					</div>
 					<div class="col-sm-2"></div>
 				</div>
-				
-				
-				
+								
 				<div class="row">
 					<div class="col text-center mt-3 mb-3">
 						<button type="submit" id="printPageBtn" class="btn btn-primary" onclick="printpage()">Print Report</button>					

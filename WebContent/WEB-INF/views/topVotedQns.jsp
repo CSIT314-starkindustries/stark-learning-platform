@@ -10,8 +10,19 @@
 		<link rel="stylesheet" href="/StarkLearningApp/css/all.css"> 
 		<link rel="stylesheet" href="/StarkLearningApp/css/topVotedQns.css">		
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-		<script type="text/javascript" src="/StarkLearningApp/js/topVotedQns.js"></script>
+		<!-- <script type="text/javascript" src="/StarkLearningApp/js/topVotedQns.js"></script> -->
 		
+		<style>
+		@media print {
+		  #printingBtn, #backToForumLink {
+		    display: none;
+		  }
+		  .hr {
+		  	background-color: #455A64 !important;
+		  	-webkit-print-color-adjust: exact;
+		  }
+		}
+		</style>
 	</head>	
 	<body>
 		<!-- Start of Page Container -->
@@ -49,7 +60,7 @@
 								</p>
 							</div>
 						</div>
-						<hr>
+						<hr class="hr" style="background-color: #455A64;">
 					</div>
 					<div class="col-sm-2"></div>
 				</div>
@@ -88,14 +99,14 @@
 								</p>
 							</div>
 						</div>
-						<hr>
+						<hr class="hr" style="background-color: #455A64;">
 					</div>
 					<div class="col-sm-2"></div>
 				</div>
 				
 				<div class="row">
 					<div class="col text-center mt-3 mb-3">
-						<button type="submit" id="printPageBtn" class="btn btn-primary" onclick="printpage()">Print Report</button>					
+						<button type="submit" id="printingBtn" class="btn btn-primary" onclick="window.print()">Print Report</button>					
 					</div>
 				</div>
 				
