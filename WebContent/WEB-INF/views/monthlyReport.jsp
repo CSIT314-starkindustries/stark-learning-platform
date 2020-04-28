@@ -37,7 +37,7 @@
 			<div class="row">
 				<div class="col text-center py-3">
 					<h3 class="font-weight-bolder">Monthly Report</h3>
-					<p>April 2020</p>
+					<p id="monthYear">April 2020</p>
 				</div>
 			</div>
 			<div class="row pt-1">
@@ -47,13 +47,13 @@
 						<div class="col">
 							<p>
 								<b>Requested By:</b>
-								<span id="userId" class="pl-2">Mod ID</span>
+								<span id="modId" class="pl-2">Mod ID</span>
 							</p>
 						</div>						
 						<div class="col">
 							<p>
 								<b>Date Requested:</b>
-								<span id="reportDate" class="pl-2">28-04-2020</span>
+								<span id="requestedDate" class="pl-2">28-04-2020</span>
 							</p>
 						</div>
 					</div>
@@ -84,25 +84,25 @@
 						</p>
 						<p class="col-6 my-auto d-flex justify-content-end">
 							<span class="font-weight-bold">Date Posted:</span>
-							<span id="userId" class="pl-2">24-04-2020</span>
+							<span id="datePosted" class="pl-2">24-04-2020</span>
 						</p>
 					</div>
 					<div class="row">
 						<p class="col-md-3 my-auto d-flex justify-content-start">
 							<span class="font-weight-bold">Votes:</span>
-							<span id="userId" class="pl-2">22</span>
+							<span id="noOfVotes" class="pl-2">22</span>
 						</p>
 						<p class="col-md-2 my-auto d-flex justify-content-start">
 							<span class="font-weight-bold">Views:</span>
-							<span id="userId" class="pl-2">24</span>
+							<span id="noOfViews" class="pl-2">24</span>
 						</p>
 						<p class="col-md-3 my-auto d-flex justify-content-end">
 							<span class="font-weight-bold">No. of Answers:</span>
-							<span id="userId" class="pl-2">5</span>
+							<span id="noOfAns" class="pl-2">5</span>
 						</p>
 						<p class="col-md-4 my-auto d-flex justify-content-end">
 							<span class="font-weight-bold">No. of Comments:</span>
-							<span id="userId" class="pl-2">10</span>
+							<span id="noOfQns" class="pl-2">10</span>
 						</p>
 					</div>
 					<hr class="hr" style="background-color: #455A64">

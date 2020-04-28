@@ -37,7 +37,7 @@
 		
 			<!-- Start of Navbar -->			
 			<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-				<a class="navbar-brand" href="#">Stark Industries</a>
+				<a class="navbar-brand" href="moderatorForum">Stark Industries</a>
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
 				  <span class="navbar-toggler-icon"></span>
 				</button>
@@ -147,7 +147,7 @@
 										<tbody>
 											<tr>
 												<td class="font-weight-bold">1</td>
-												<td class="text-center"><a href="studentProfile">UserXXX</a></td>
+												<td class="text-center"><a href="viewStudentProfile">UserXXX</a></td>
 												<td class="text-center">2020</td>
 												<td class="text-center">200</td>
 												<td>YEARLY... Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
@@ -202,7 +202,7 @@
 										<tbody>
 											<tr>
 												<td class="font-weight-bold">1</td>
-												<td class="text-center"><a href="studentProfile">UserXXX</a></td>
+												<td class="text-center"><a href="viewStudentProfile">UserXXX</a></td>
 												<td class="text-center">April 2020</td>
 												<td>MONTHLY... Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
 													Nullam volutpat ligula sit amet ipsum condimentum, id imperdiet urna efficitur. 
@@ -220,7 +220,7 @@
 											</tr>
 											<tr>
 												<td class="font-weight-bold text-center">2</td>
-												<td class="text-center"><a href="studentProfile">UserXXX</a></td>
+												<td class="text-center"><a href="viewStudentProfile">UserXXX</a></td>
 												<td class="text-center">April 2020</td>
 												<td>MONTHLY... Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
 													Nullam volutpat ligula sit amet ipsum condimentum, id imperdiet urna efficitur. 
@@ -274,7 +274,7 @@
 										<tbody>
 											<tr>
 												<td class="font-weight-bold text-center">1</td>
-												<td class="text-center"><a href="studentProfile">UserXXX</a></td>
+												<td class="text-center"><a href="viewStudentProfile">UserXXX</a></td>
 												<td class="text-center">17</td>
 												<td>WEEKLY... Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
 													Nullam volutpat ligula sit amet ipsum condimentum, id imperdiet urna efficitur. 
@@ -320,17 +320,17 @@
 										<tbody>
 											<tr>
 												<td class="font-weight-bold text-center">1</td>
-												<td class="text-center"><a href="studentProfile">UserXXX</a></td>
+												<td class="text-center"><a href="viewStudentProfile">UserXXX</a></td>
 												<td class="text-center">80/100</td>
 											</tr>
 											<tr>
 												<td class="font-weight-bold text-center">2</td>
-												<td class="text-center"><a href="studentProfile">UserXXX</a></td>
+												<td class="text-center"><a href="viewStudentProfile">UserXXX</a></td>
 												<td class="text-center">76/100</td>
 											</tr>
 											<tr>
 												<td class="font-weight-bold text-center">3</td>
-												<td class="text-center"><a href="studentProfile">UserXXX</a></td>
+												<td class="text-center"><a href="viewStudentProfile">UserXXX</a></td>
 												<td class="text-center">68/100</td>
 											</tr>
 										</tbody>
