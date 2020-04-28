@@ -27,7 +27,7 @@
 			
 				<div class="row">
 					<div class="col text-center py-3">
-						<h3>Top Voted Question Of The Year Report</h3>
+						<h3 class="font-weight-bolder">Top Voted Question Of The Year Report</h3>
 					</div>
 				</div>
 				
