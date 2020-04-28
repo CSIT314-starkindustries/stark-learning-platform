@@ -27,7 +27,8 @@
 			
 				<div class="row">
 					<div class="col text-center py-3">
-						<h3>Top Voted Question Of The Year Report</h3>
+						<h3 class="font-weight-bolder">Top Voted Question Of The Year Report</h3>
+						<p id="yearId">2020</p>
 					</div>
 				</div>
 				
@@ -93,7 +94,7 @@
 				</div>
 				
 				<div class="row">
-					<div class="col text-center mt-3">
+					<div class="col text-center mt-3 mb-3">
 						<button type="submit" id="printPageBtn" class="btn btn-primary" onclick="printpage()">Print Report</button>					
 					</div>
 				</div>

@@ -28,7 +28,7 @@
 			
 				<div class="row">
 					<div class="col text-center py-3">
-						<h3>Top 10 Students' Participation Ratings Report</h3>
+						<h3 class="font-weight-bolder">Top 10 Students' Participation Ratings Report</h3>
 					</div>
 				</div>
 				
@@ -85,7 +85,7 @@
 				
 				
 				<div class="row">
-					<div class="col text-center mt-3">
+					<div class="col text-center mt-3 mb-3">
 						<button type="submit" id="printPageBtn" class="btn btn-primary" onclick="printpage()">Print Report</button>					
 					</div>
 				</div>
