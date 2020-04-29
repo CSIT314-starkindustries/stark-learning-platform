@@ -65,7 +65,7 @@
 		                <div class="dropdown">
 			                <button class="btn btn-link dropdown-toggle" id="smallerscreenmenu" data-toggle="dropdown">Generate Report Options</button>
 			                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="smallerscreenmenu">
-			                    <a class="dropdown-item" href="#" data-toggle="tab" data-target="#yearlyReportPane">Top Voted Questions of the Year</a>
+			                    <a class="dropdown-item" href="#" data-toggle="tab" data-target="#yearlyReportPane">Top Voted Question of the Year</a>
 			                    <a class="dropdown-item" href="#" data-toggle="tab" data-target="#monthlyReportPane">Monthly Questions</a>
 			                    <a class="dropdown-item" href="#" data-toggle="tab" data-target="#weeklyReportPane">Weekly Questions</a>
 			                    <a class="dropdown-item" href="#" data-toggle="tab" data-target="#participationRatingPane">Top Students' Participation Ratings</a>
@@ -89,7 +89,7 @@
 				            <a href="#" class="list-group-item list-group-item-action flex-column active" data-toggle="tab" data-target="#yearlyReportPane">
 				                <div class="d-flex w-100 justify-content-center align-items-center">
 				                	<span class="mr-3"><i class="fas fa-trophy"></i></span>
-				                    <span>Top Voted Questions of the Year</span>
+				                    <span>Top Voted Question of the Year</span>
 				                </div>
 				            </a>
 				            <a href="#" class="list-group-item list-group-item-action flex-column" data-toggle="tab" data-target="#monthlyReportPane">
@@ -140,8 +140,8 @@
 												<th scope="col" class="text-center" style="border-top: none;">#</th>
 												<th scope="col" class="text-center" style="border-top: none;">User ID</th>
 												<th scope="col" class="text-center" style="border-top: none;">Year</th>
-												<th scope="col" class="text-center" style="border-top: none;">Vote</th>
-												<th scope="col" class="text-center" style="border-top: none;">Questions</th>
+												<th scope="col" class="text-center" style="border-top: none;">Votes</th>
+												<th scope="col" class="text-center" style="border-top: none;">Question</th>
 											</tr>
 										</thead>
 										<tbody>
