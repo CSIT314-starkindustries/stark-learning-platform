@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 C:\Users\LIU ZI AN\Desktop\Java WorkSpace\StarkLearningApp\src\com\starkindustries\project\Servlet\DisplayUserInfoServlet.java
 C:\Users\LIU ZI AN\Desktop\Java WorkSpace\StarkLearningApp\src\com\starkindustries\project\Validation.java
 C:\Users\LIU ZI AN\Desktop\Java WorkSpace\StarkLearningApp\src\com\starkindustries\project\Servlet\LoginServlet.java
@@ -17,3 +18,21 @@ C:\Users\LIU ZI AN\Desktop\Java WorkSpace\StarkLearningApp\src\com\starkindustri
 C:\Users\LIU ZI AN\Desktop\Java WorkSpace\StarkLearningApp\src\com\starkindustries\project\Main.java
 C:\Users\LIU ZI AN\Desktop\Java WorkSpace\StarkLearningApp\src\com\starkindustries\project\Question.java
 C:\Users\LIU ZI AN\Desktop\Java WorkSpace\StarkLearningApp\src\com\starkindustries\project\Password.java
+=======
+C:\Users\Erin\Desktop\SIM Year 3 Term 2\CSIT314\Assignments\Stark Industries\stark-learning-platform\src\com\starkindustries\project\TestSideNavServlet.java
+C:\Users\Erin\Desktop\SIM Year 3 Term 2\CSIT314\Assignments\Stark Industries\stark-learning-platform\src\com\starkindustries\project\ModeratorProfileServlet.java
+C:\Users\Erin\Desktop\SIM Year 3 Term 2\CSIT314\Assignments\Stark Industries\stark-learning-platform\src\com\starkindustries\project\HomeServlet.java
+C:\Users\Erin\Desktop\SIM Year 3 Term 2\CSIT314\Assignments\Stark Industries\stark-learning-platform\src\com\starkindustries\project\StudentHomeServlet.java
+C:\Users\Erin\Desktop\SIM Year 3 Term 2\CSIT314\Assignments\Stark Industries\stark-learning-platform\src\com\starkindustries\project\StarkDatabase.java
+C:\Users\Erin\Desktop\SIM Year 3 Term 2\CSIT314\Assignments\Stark Industries\stark-learning-platform\src\com\starkindustries\project\StudentProfileServlet.java
+C:\Users\Erin\Desktop\SIM Year 3 Term 2\CSIT314\Assignments\Stark Industries\stark-learning-platform\src\com\starkindustries\project\UserAdmin.java
+C:\Users\Erin\Desktop\SIM Year 3 Term 2\CSIT314\Assignments\Stark Industries\stark-learning-platform\src\com\starkindustries\project\Main.java
+C:\Users\Erin\Desktop\SIM Year 3 Term 2\CSIT314\Assignments\Stark Industries\stark-learning-platform\src\com\starkindustries\project\ModeratorForumServlet.java
+C:\Users\Erin\Desktop\SIM Year 3 Term 2\CSIT314\Assignments\Stark Industries\stark-learning-platform\src\com\starkindustries\project\TestServlet.java
+C:\Users\Erin\Desktop\SIM Year 3 Term 2\CSIT314\Assignments\Stark Industries\stark-learning-platform\src\com\starkindustries\project\Student.java
+C:\Users\Erin\Desktop\SIM Year 3 Term 2\CSIT314\Assignments\Stark Industries\stark-learning-platform\src\com\starkindustries\project\Moderator.java
+C:\Users\Erin\Desktop\SIM Year 3 Term 2\CSIT314\Assignments\Stark Industries\stark-learning-platform\src\com\starkindustries\project\ViewQuestionServlet.java
+C:\Users\Erin\Desktop\SIM Year 3 Term 2\CSIT314\Assignments\Stark Industries\stark-learning-platform\src\com\starkindustries\project\ViewStudentProfileServlet.java
+C:\Users\Erin\Desktop\SIM Year 3 Term 2\CSIT314\Assignments\Stark Industries\stark-learning-platform\src\com\starkindustries\project\UserAdminServlet.java
+C:\Users\Erin\Desktop\SIM Year 3 Term 2\CSIT314\Assignments\Stark Industries\stark-learning-platform\src\com\starkindustries\project\FooterServlet.java
+>>>>>>> 088f447dadafd754c7fd56763e324b65aaff8585

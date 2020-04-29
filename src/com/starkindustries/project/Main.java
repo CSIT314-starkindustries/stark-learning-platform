@@ -24,5 +24,6 @@ public class Main {
 		System.out.println(val.validateUser(2,"mod_100", "mod_100"));
 		
 		System.out.println(UserAdmin.getUserAdmin(db.getOneUserById("user_admin", "ua_100", db.getConn())).getPassword());
+
 	}
 }

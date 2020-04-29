@@ -23,18 +23,16 @@ function scrollToTopFunction() {
 	document.documentElement.scrollTop = 0;
 }
 
-
-// Comparing password and confirm password for registration form
 window.onload = function () {
-    var regPassword = document.getElementById("regPassword");
-    var regConfirmPassword = document.getElementById("regConfirmPassword");
-    regPassword.onchange = ConfirmPassword;
-    regConfirmPassword.onkeyup = ConfirmPassword;
+    var currentPassword = document.getElementById("currentPassword");
+    var newPassword = document.getElementById("newPassword");
+    currentPassword.onchange = ResetPassword;
+    newPassword.onkeyup = ResetPassword;
     
-    function ConfirmPassword() {
-    	regConfirmPassword.setCustomValidity("");
-        if (regPassword.value != regConfirmPassword.value) {
-        	regConfirmPassword.setCustomValidity("Passwords do not match.");
+    function ResetPassword() {
+    	newPassword.setCustomValidity("");
+        if (currentPassword.value == newPassword.value) {
+        	newPassword.setCustomValidity("Passwords are the same.");
         }
     }
 } 

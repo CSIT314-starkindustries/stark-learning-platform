@@ -34,6 +34,7 @@
 	}
 }
 
+<<<<<<< HEAD
 /*body {
 	background-image: url(/StarkLearningApp/img/study.jpg);
 	background-size: cover;
@@ -41,6 +42,19 @@
 } */
 
 
+=======
+#main {
+	position: relative;
+	overflow: hidden;
+	min-height: 468px;
+	width: 100%;
+	height: 89%;
+	background: url(/StarkLearningApp/img/study.jpg);
+	background-size: cover;
+	background-repeat: no-repeat;
+	opacity: 0.75;
+}
+>>>>>>> 088f447dadafd754c7fd56763e324b65aaff8585
 
 .centered {
 	position: absolute;
