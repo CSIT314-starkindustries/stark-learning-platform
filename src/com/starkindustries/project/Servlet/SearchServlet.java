@@ -32,13 +32,13 @@ public class SearchServlet extends HttpServlet {
 		StarkDatabase db = new StarkDatabase();
 		ResultSet rs = null;
 		try {
-			if(username.contains("user")) {
-				rs = db.getOneUserById("student", username, db.getConn());
+			rs = db.getResultByUserId("student", username, db.getConn());
+			if(rs.isBeforeFirst()) { //if resultset is not null
 				List<Student> studentList = Student.getStudList(rs);
 				request.setAttribute("userInfo", studentList);
 				request.setAttribute("userType", "Student");
 			}else {
-				rs = db.getOneUserById("moderator",username, db.getConn());
+				rs = db.getResultByUserId("moderator",username, db.getConn());
 				List<Moderator> modList = Moderator.getModeratorList(rs);
 				request.setAttribute("userInfo", modList);
 				request.setAttribute("userType", "Moderator");

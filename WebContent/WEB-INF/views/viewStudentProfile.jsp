@@ -5,19 +5,18 @@
 	<head>
 		<meta charset="ISO-8859-1">
 		<title>View Student Profile</title>
-		<link rel="stylesheet" href="/StarkLearningApp/css/bootstrap.min.css">
-		<link rel="stylesheet" href="/StarkLearningApp/css/bootstrap.css">
-		<link rel="stylesheet" href="/StarkLearningApp/css/all.css"> 
-		<link rel="stylesheet" href="/StarkLearningApp/css/viewStudentProfile.css">		
+		<link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.min.css">
+		<link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.css">
+		<link rel="stylesheet" href="${pageContext.request.contextPath}/css/all.css"> 
+		<link rel="stylesheet" href="${pageContext.request.contextPath}/css/viewStudentProfile.css">		
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-		<script type="text/javascript" src="/StarkLearningApp/js/viewStudentProfile.js"></script>
+		<script type="text/javascript" src="${pageContext.request.contextPath}/js/viewStudentProfile.js"></script>
 	</head>
 	
 	<body>
 		<!-- Start of Page Container -->
 		<div class="pageCon">
 		
-			<!-- Start of Navbar -->			
 			<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
 				<a class="navbar-brand" href="studentHome">Stark Industries</a>
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">

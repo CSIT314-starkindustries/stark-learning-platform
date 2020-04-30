@@ -21,9 +21,9 @@ public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.getRequestDispatcher("/searchServlet").forward(request,response);
+		request.getRequestDispatcher("searchServlet").forward(request,response);
 	}
-
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String username = request.getParameter("username");
 		String password = request.getParameter("password"); 
@@ -35,7 +35,12 @@ public class LoginServlet extends HttpServlet {
 		try {
 			if(userType.equalsIgnoreCase("user_admin") && validator.validateUser(3, username, password)) {
 				request.getRequestDispatcher("/WEB-INF/views/userAdmin.jsp").forward(request,response);
-			}else {
+				
+			}else if(userType.equalsIgnoreCase("student") && validator.validateUser(1, username, password)) {
+				request.setAttribute("loggedInUser", username);
+				request.getRequestDispatcher("/WEB-INF/views/studentHome.jsp").forward(request,response);
+			}
+			else {
 				request.setAttribute("invalid_acc", "Invalid account");
 				request.getRequestDispatcher("/WEB-INF/views/home.jsp").forward(request,response);
 			}

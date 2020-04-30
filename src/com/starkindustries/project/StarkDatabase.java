@@ -18,44 +18,90 @@ public class StarkDatabase {
 		return DriverManager.getConnection(dbUrl, username, password);
 	}
 	
-	//return resultset obj that contains all the info of stud or mod
-	public ResultSet getAllRecords(String studOrMod, Connection conn) {
+	
+	/*
+	 * tableName case sensitive for sql search
+	 *               List of relations
+		 Schema |    Name    | Type  |     Owner
+		--------+------------+-------+----------------
+		 public | answers    | table | pvcqsusljpeasu
+		 public | comments   | table | pvcqsusljpeasu
+		 public | moderator  | table | pvcqsusljpeasu
+		 public | questions  | table | pvcqsusljpeasu
+		 public | student    | table | pvcqsusljpeasu
+		 public | user_admin | table | pvcqsusljpeasu
+	 * 
+	 * 
+	 * */
+	//return all result based on table name
+	public ResultSet getAllRecords(String tableName, Connection conn) {
 		Statement mystmt;
 		ResultSet rs = null;
-		String query = "SELECT * FROM " + studOrMod;
+		String query = "SELECT * FROM " + tableName;
 		try {
 			mystmt = conn.createStatement();
 			rs = mystmt.executeQuery(query);
+			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		return rs;
 	}
 	
-	// search by username function 
-	public ResultSet getOneUserById(String studOrModorAdmin, String username, Connection conn) {
+	// search by student/ua/mod username function 
+	public ResultSet getResultByUserId(String tableName, String username, Connection conn) {
 		Statement mystmt;
 		ResultSet rs = null;
 		String query = "";
-		if(studOrModorAdmin.equalsIgnoreCase("student")) {
+		if(tableName.equalsIgnoreCase("student")) {
 			query = String.format("SELECT * FROM student WHERE stud_username = '%s'", username);
-		}else if(studOrModorAdmin.equalsIgnoreCase("moderator")) {
-			query = String.format("SELECT * FROM moderator WHERE mod_username = '%s'", username); 
-		}else {
+		}else if(tableName.equalsIgnoreCase("moderator")) {
+			query = String.format("SELECT * FROM moderator WHERE mod_username = '%s'", username);
+		}else if(tableName.equalsIgnoreCase("question") ||tableName.equalsIgnoreCase("questions")) {
+			query = String.format("SELECT * FROM questions WHERE stud_username = '%s'", username);
+		}else if(tableName.equalsIgnoreCase("answer") ||tableName.equalsIgnoreCase("answers")) {
+			query = String.format("SELECT * FROM answers WHERE stud_username = '%s'", username);
+		}else if (tableName.equalsIgnoreCase("comment") ||tableName.equalsIgnoreCase("comments"))
+			query = String.format("SELECT * FROM comments WHERE stud_username = '%s'", username);
+		else {
 			query = String.format("SELECT * FROM user_admin WHERE ua_username = '%s'", username); 
 		}
-		
 		try {
 			mystmt = conn.createStatement();
 			rs = mystmt.executeQuery(query);
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return rs;
+		
+	}
+	
+	// search for one question/ comment/ answer
+	public ResultSet getResultByPostId(String quesOrComOrAns, String postId, Connection conn) {
+		Statement mystmt;
+		ResultSet rs = null;
+		String query = "";
+		if(quesOrComOrAns.equalsIgnoreCase("question") ||quesOrComOrAns.equalsIgnoreCase("questions")) {
+			query = String.format("SELECT * FROM questions WHERE question_id = '%s'", postId);
+		}else if(quesOrComOrAns.equalsIgnoreCase("answer") ||quesOrComOrAns.equalsIgnoreCase("answers")) {
+			query = String.format("SELECT * FROM answers WHERE answer_id = '%s'", postId);
+		}else 
+			query = String.format("SELECT * FROM comments WHERE comment_id = '%s'", postId);
+		try {
+			mystmt = conn.createStatement();
+			rs = mystmt.executeQuery(query);
+			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		return rs;
 	}
 	
+	
 	public boolean createNewUser(String studOrMod, String username, String password, Connection conn) throws SQLException {
-		ResultSet rs = getOneUserById(studOrMod,username,conn);
+		ResultSet rs = getResultByUserId(studOrMod,username,conn);
 		
 		//return empty result
 		if(!rs.isBeforeFirst()) {
@@ -84,6 +130,7 @@ public class StarkDatabase {
 			}
 			
 			mystmt.execute();
+			
 			return true; //new account created
 		}else {
 			return false; //username taken
@@ -92,7 +139,7 @@ public class StarkDatabase {
 	}
 	
 	public boolean studentSuspendToggle(String username, Connection conn) throws SQLException {
-		ResultSet rs = new StarkDatabase().getOneUserById("student",username,conn);
+		ResultSet rs = new StarkDatabase().getResultByUserId("student",username,conn);
 		
 		if (!rs.next()) return false;
 		
@@ -143,7 +190,6 @@ public class StarkDatabase {
 		
 		mystmt = conn.createStatement();
 		rowsUpdated = mystmt.executeUpdate(query);
-		
 		if (rowsUpdated == 0) return false;
 		else return true;
 	}
@@ -177,5 +223,6 @@ public class StarkDatabase {
 		
 		mystmt = conn.createStatement();
 		mystmt.executeUpdate(query);
+		
 	}
 }

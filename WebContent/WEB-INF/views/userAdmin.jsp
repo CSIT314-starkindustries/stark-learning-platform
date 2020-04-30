@@ -7,7 +7,6 @@
 <html>
 	<head>
 		<meta charset="ISO-8859-1">
-<<<<<<< HEAD
 		<title>Stark Industries</title>
 		<link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.min.css">
 		<link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.css">

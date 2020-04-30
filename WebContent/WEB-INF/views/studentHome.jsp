@@ -1,16 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 	<head>
 		<meta charset="ISO-8859-1">
 		<title>Student Home</title>
-		<link rel="stylesheet" href="/StarkLearningApp/css/bootstrap.min.css">
-		<link rel="stylesheet" href="/StarkLearningApp/css/bootstrap.css">
-		<link rel="stylesheet" href="/StarkLearningApp/css/all.css"> 
-		<link rel="stylesheet" href="/StarkLearningApp/css/studentHome.css">		
+		<link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.min.css">
+		<link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.css">
+		<link rel="stylesheet" href="${pageContext.request.contextPath}/css/all.css"> 
+		<link rel="stylesheet" href="${pageContext.request.contextPath}/css/studentHome.css">		
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-		<script type="text/javascript" src="/StarkLearningApp/js/studentHome.js"></script>
+		<script type="text/javascript" src="${pageContext.request.contextPath}/js/studentHome.js"></script>
 	</head>
 	
 	<body>
@@ -19,7 +20,7 @@
 		
 			<!-- Start of Navbar -->			
 			<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-				<a class="navbar-brand" href="studentHome">Stark Industries</a>
+				<a class="navbar-brand" href="home">Stark Industries</a>
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
 				  <span class="navbar-toggler-icon"></span>
 				</button>
@@ -34,17 +35,19 @@
 					</div>
 					<div class="nav-item col-sm-4 text-sm-left text-md-right text-lg-right">
 						<div class="dropdown" role="group">
-							<button id="userSettingToggleBtn" type="button" class="btn btn-link dropdown-toggle" data-toggle="dropdown">UserXXX</button>
+							<button id="userSettingToggleBtn" type="button" class="btn btn-link dropdown-toggle" data-toggle="dropdown">${loggedInUser}</button>
 						    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userSettingToggleBtn">
-						      	<a class="dropdown-item" href="studentProfile" id="userProfileLink">
+						    
+						      	<a class="dropdown-item" href="/studentProfileServlet?username=${loggedInUser}" id="userProfileLink">
 						      		<span class="mr-3"><i class="fas fa-user-cog"></i></span>View Profile
 						      	</a>
-						      	<a class="dropdown-item" href="studentHome" id="studentHomeLink">
+						      	<a class="dropdown-item" href="/studentHome?username=${loggedInUser}" id="studentHomeLink">
 						      		<span class="mr-3"><i class="fas fa-chalkboard"></i></span>My Forum
 						      	</a>
 						      	<a class="dropdown-item" href="home" id="logoutLink">
 						      		<span class="mr-3"><i class="fas fa-sign-out-alt"></i></span>Logout
 						      	</a>
+						      	
 							</div>
 						</div>
 					</div>

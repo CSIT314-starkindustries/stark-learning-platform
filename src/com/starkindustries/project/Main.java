@@ -1,29 +1,45 @@
 package com.starkindustries.project;
 
-import java.net.URI;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
 import java.net.URISyntaxException;
 import java.sql.Connection;
-import java.sql.Statement;
+import java.sql.Date;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.Scanner;
+import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
-
 public class Main {
-
-	public static void main(String[] args) throws URISyntaxException, SQLException {
+	public static void main(String[]args) throws URISyntaxException, SQLException {
 		StarkDatabase db = new StarkDatabase();
-		List<Moderator> studList = Moderator.getModeratorList(db.getAllRecords("moderator", db.getConn()));
-		for(Moderator s : studList) {
-			System.out.println("user: " + s.getUsername()+ " pw: "  + s.getPassword());
+		Connection conn = db.getConn();
+		
+		List<Comment> comList = Comment.getAllCommentList(db.getAllRecords("comments", conn));
+		for(Comment c : comList) {
+			System.out.println(c.getComment_id());
+			System.out.println(c.getDescription());
+			System.out.println(c.getDate_posted());
+			System.out.println(c.getStud_username());
+			System.out.println(c.getAnswer_id());
+			System.out.println(c.getQuestion_id());
+			System.out.println("================================");
 		}
 		
-		Validation val = new Validation();
-		System.out.println(val.validateUser(2,"mod_100", "mod_100"));
-		
-		System.out.println(UserAdmin.getUserAdmin(db.getOneUserById("user_admin", "ua_100", db.getConn())).getPassword());
-
+		Comment c = Comment.getCommentById(db.getResultByPostId("comments", "c100", conn));
+		System.out.println(c.getComment_id());
+		System.out.println(c.getDescription());
+		System.out.println(c.getDate_posted());
+		System.out.println(c.getStud_username());
+		System.out.println(c.getAnswer_id());
+		System.out.println(c.getQuestion_id());
+		System.out.println("================================");
 	}
+	
+	
+	
+	
 }

@@ -1,16 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 	<head>
 		<meta charset="ISO-8859-1">
 		<title>Student Profile</title>
-		<link rel="stylesheet" href="/StarkLearningApp/css/bootstrap.min.css">
-		<link rel="stylesheet" href="/StarkLearningApp/css/bootstrap.css">
-		<link rel="stylesheet" href="/StarkLearningApp/css/all.css"> 
-		<link rel="stylesheet" href="/StarkLearningApp/css/studentProfile.css">		
+		<link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.min.css">
+		<link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.css">
+		<link rel="stylesheet" href="${pageContext.request.contextPath}/css/all.css"> 
+		<link rel="stylesheet" href="${pageContext.request.contextPath}/css/studentProfile.css">		
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-		<script type="text/javascript" src="/StarkLearningApp/js/studentProfile.js"></script>
+		<script type="text/javascript" src="${pageContext.request.contextPath}/js/studentProfile.js"></script>
 		
 	</head>
 	
@@ -35,12 +36,12 @@
 					</div>
 					<div class="nav-item col-sm-4 text-sm-left text-md-right text-lg-right">
 						<div class="dropdown" role="group">
-							<button id="userSettingToggleBtn" type="button" class="btn btn-link dropdown-toggle" data-toggle="dropdown">UserXXX</button>
+							<button id="userSettingToggleBtn" type="button" class="btn btn-link dropdown-toggle" data-toggle="dropdown">${loggedInUser}</button>
 						    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userSettingToggleBtn">
-						      	<a class="dropdown-item" href="studentProfile" id="userProfileLink">
+						      	<a class="dropdown-item" href="studentProfileServlet?username=${loggedInUser}" id="userProfileLink">
 						      		<span class="mr-3"><i class="fas fa-user-cog"></i></span>View Profile
 						      	</a>
-						      	<a class="dropdown-item" href="studentHome" id="studentHomeLink">
+						      	<a class="dropdown-item" href="/studentHome?username=${loggedInUser}" id="studentHomeLink">
 						      		<span class="mr-3"><i class="fas fa-chalkboard"></i></span>My Forum
 						      	</a>
 						      	<a class="dropdown-item" href="home" id="logoutLink">
@@ -70,7 +71,7 @@
 				<div class="row">
 					<div class="d-flex w-100 mt-2">
 						<div class="col-md-12 d-flex align-items-center justify-content-start">
-							<a href="studentHome" style="color: #ea8a8a;"><i class="far fa-hand-point-left mr-1"></i>Back to Forum</a>
+							<a href="/studentHome?username=${loggedInUser}" style="color: #ea8a8a;"><i class="far fa-hand-point-left mr-1"></i>Back to Forum</a>
 						</div>
 					</div>
 				</div>
@@ -90,7 +91,7 @@
 							 						<p><b>User ID:</b></label></p>
 							 					</div>
 							 					<div class="col-sm-7 text-left">
-							 						<p id="userId">UserXXX</p>
+							 						<p id="userId">${loggedInUser}</p>
 							 					</div>
 							 				</div>			
 							 				<div class="row" style="margin-bottom: 0;">
@@ -100,7 +101,7 @@
 							 					<div class="col-sm-7 text-left">
 							 						<div class="row container-fluid">
 								 						<div class="col-sm-3">
-								 							<p id="myParticipationRating">80</p>
+								 							<p id="myParticipationRating">${user_part_rating}</p>
 								 						</div>
 								 						<div class="col-sm-9">
 								 							<p>/ 100</p>
@@ -118,7 +119,7 @@
 						<div class="row container-fluid">
 							<div class="col"></div>
 							<div class="col">
-								<form id="profileForm" class="needs-validation" novalidate>
+								<form action="/studentProfileServlet" method="POST" id="profileForm" class="needs-validation" novalidate>
 						 			<fieldset>
 						 				<div class="row" style="margin-bottom: 3%;">
 						 					<div class="col">
@@ -128,16 +129,19 @@
 						 				<div class="form-group row text-center">
 						 					<label for="currentPassword" class="col-sm-5 col-form-label text-right"><b>Current Password:</b></label>
 						 					<div class="col-sm-7">
-						 						<input type="password" class="form-control" id="currentPassword" placeholder="Current Password" name="currentPassword"
-											    	pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required>
+						 					
+						 						<input type="password" class="form-control" id="currentPassword" placeholder="Current Password" name="currentPassword" required>
+											    	
 										    	<div class="invalid-feedback text-left">Please enter current password</div>
 						 					</div>
 						 				</div>	
 						 				<div class="form-group row text-center">
 						 					<label for="newPassword" class="col-sm-5 col-form-label text-right"><b>New Password:</b></label>
 						 					<div class="col-sm-7">
+						 						<input type="hidden" name="username" value="${loggedInUser}">
 						 						<input type="password" class="form-control" id="newPassword" placeholder="New Password" name="newPassword"
 										    	pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
+										    	
 									    	<div class="invalid-feedback text-left">New password cannot be the same as current password</div>
 						 					</div>
 						 				</div>		
@@ -186,4 +190,13 @@
 		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>      	
 	
 	</body>
+	<script>
+		if(${isPwChanged == 'false'}){
+			  alert("Wrong current password");
+		} 
+		
+		if(${pwChangedSuccess == 'true'}){
+			alert("Password has been successfully changed.")
+		}
+	</script>
 </html>

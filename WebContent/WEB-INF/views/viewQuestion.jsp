@@ -5,14 +5,13 @@
 	<head>
 		<meta charset="ISO-8859-1">
 		<title>Student View Question</title>
-		<link rel="stylesheet" href="/StarkLearningApp/css/bootstrap.min.css">
-		<link rel="stylesheet" href="/StarkLearningApp/css/bootstrap.css">
-		<link rel="stylesheet" href="/StarkLearningApp/css/all.css"> 
-		<link rel="stylesheet" href="/StarkLearningApp/css/viewQuestion.css">		
+		<link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.min.css">
+		<link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.css">
+		<link rel="stylesheet" href="${pageContext.request.contextPath}/css/all.css"> 
+		<link rel="stylesheet" href="${pageContext.request.contextPath}/css/viewQuestion.css">		
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-		<script type="text/javascript" src="/StarkLearningApp/js/viewQuestion.js"></script>
+		<script type="text/javascript" src="${pageContext.request.contextPath}/js/viewQuestion.js"></script>
 	</head>
-	
 	<body>
 		<!-- Start of Page Container -->
 		<div class="pageCon">
