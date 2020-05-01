@@ -57,7 +57,7 @@
 			                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="smallerscreenmenu">
 			                    <a class="dropdown-item" href="#">Most Recent Questions</a>
 			                    <a class="dropdown-item" href="#">All Questions</a>
-			                    <a class="dropdown-item" href="#">My Questions</a>
+			          	        <a class="dropdown-item" href="#">My Questions</a>
 			                    <a class="dropdown-item" href="#">My Answers</a>
 			                    <a class="dropdown-item" href="#">My Comments</a>
 			                </div>
@@ -90,7 +90,8 @@
 				            <div class="list-group-item sidebar-separator-title text-muted d-flex w-100 align-items-center justify-content-center" style="background-color: #ebf7f6; height: 35px;">
 			                  <small class="font-weight-bold">PERSONAL</small>
 			               	</div>
-				            <a href="#myQnsTab" class="list-group-item list-group-item-action flex-column" id="myQnsTab" data-toggle="tab" data-target="#myQnsPane">
+			               	
+				            <a href="/viewMyPostServlet?postType=questions&username=${loggedInUser}" class="list-group-item list-group-item-action flex-column" id="myQnsTab" data-toggle="tab" data-target="#myQnsPane">
 				                <div class="d-flex w-100 justify-content-center align-items-center">
 				                    <span class="mr-3"><i class="far fa-question-circle"></i></span>
 				                    <span>My Questions</span>
@@ -333,17 +334,25 @@
 									    	</tr>
 									  	</thead>
 									  	<tbody>
-									    	<tr class="d-flex" id="myQnsTableRow">
-									      		<td class="col-4 text-left" id="qnsIdCol">
-													<a href="viewQuestion" style="color: #065590;" id="qnsId">
-									      				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-									      			</a>									      		
-									      		</td>
-									      		<td class="col-2 text-center" id="qnsVoteCountCol">0</td>
-									      		<td class="col-2 text-center" id="ansCountCol">0</td>
-									      		<td class="col-2 text-center" id="viewCountCol">20</td>
-									      		<td class="col-2 text-center" id="qnsCommentCountCol">0</td>
-									    	</tr>									    	
+									  	
+									  		<c:forEach items="${myQuestionList}" var="user" varStatus="loop">
+									  	
+										  		<!-- For each loop here. pass in question list here -->
+										    	<tr class="d-flex" id="myQnsTableRow">
+										      		<td class="col-4 text-left" id="qnsIdCol">
+														<a href="viewQuestion" style="color: #065590;" id="qnsId">
+										      				${user.title}
+										      			</a>									      		
+										      		</td>
+										      		<td class="col-2 text-center" id="qnsVoteCountCol">${user.total_votes}</td>
+										      		<td class="col-2 text-center" id="ansCountCol">0</td>
+										      		<td class="col-2 text-center" id="viewCountCol">20</td>
+										      		<td class="col-2 text-center" id="qnsCommentCountCol">0</td>
+										    	</tr>
+										    	
+										    	<!-- End For each loop-->	  
+									    	</c:forEach>
+									    	 	
 										</tbody>
 									</table>
 								</div>															
