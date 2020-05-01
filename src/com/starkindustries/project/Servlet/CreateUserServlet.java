@@ -44,7 +44,6 @@ public class CreateUserServlet extends HttpServlet {
 		try {
 			request.setAttribute("created",db.createNewUser(userType.toLowerCase(), username, password, db.getConn()));
 		} catch (SQLException | URISyntaxException e) {
-			
 			e.printStackTrace();
 		}
 		request.getRequestDispatcher("/WEB-INF/views/userAdmin.jsp").forward(request,response);

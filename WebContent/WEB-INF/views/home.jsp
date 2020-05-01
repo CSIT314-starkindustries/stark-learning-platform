@@ -1,10 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" 
 	pageEncoding="ISO-8859-1"%>
+	
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html>
 	<head>
 		<meta charset="ISO-8859-1">
+
 		<title>Welcome to Stark Industry</title>
 		<link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.min.css">
 		<link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.css">
@@ -12,23 +15,10 @@
 		<link rel="stylesheet" href="${pageContext.request.contextPath}/css/home.css">		
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 		<script type="text/javascript" src="${pageContext.request.contextPath}/js/home.js"></script>
-		
 	</head>
-	<style>
-		#main {
-			position: relative;
-			overflow: hidden;
-			min-height: 468px;
-			width: 100%;
-			height: 89%;
-			background: url(../img/study.jpg);
-			background-size: cover;
-			background-repeat: no-repeat;
-			opacity: 0.75;
-		}
 	
-	</style>
 	<body>		
+		<!-- Start of Navbar -->
 		<nav class="navbar navbar-expand-lg navbar-dark bg-primary" id="topPage">
 			<a class="navbar-brand" href="home">Stark Industries</a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
@@ -60,7 +50,7 @@
 		</nav>
 		<!-- End of Navbar -->
 		
-		<!-- Content -->
+		<!-- Start of Contents -->
 		<div class="container-fluid" id="main">
 			<div class="centered">
 				<h2 id="typing" style="margin-bottom: 5%;">Welcome to Stark's!</h2>
@@ -224,13 +214,13 @@
 				        </button>
 			      	</div>
 			      	<div class="modal-body mx-3">
-			      		<form id="regForm" class="needs-validation" novalidate>
+			      		<form action="/studentCreateAccServlet" method="POST" id="regForm" class="needs-validation" novalidate>
  							<fieldset>
  								<div class="form-group row">
  									<div class="col-sm-1"></div>
 								    <label for="regUserId" class="col-sm-2 col-form-label text-right"><i class="fas fa-user"></i></label>
 								    <div class="col-sm-7">
-								    	<input type="text" class="form-control" id="regUserId" placeholder="User ID" required>
+								    	<input type="text" class="form-control" id="regUserId" placeholder="User ID" name="username" required>
 										<div class="invalid-feedback">Please enter your assigned User ID</div>
 									</div>
 									<div class="col-sm-2"></div>			
@@ -310,13 +300,16 @@
 								<h5 style="padding-top: 5%; padding-bottom: 5%;">Log in as Student</h5>
 							</div>				    	
 							<div class="model-body mx-3">
-								<form class="needs-validation" novalidate>
+								<form action="/loginServlet" method="POST" class="needs-validation" novalidate>
 		 							<fieldset>
 		 								<div class="form-group row">
 		 									<div class="col-sm-2"></div>
 										    <label for="studUserId" class="col-sm-2 col-form-label text-right"><i class="fas fa-user"></i></label>
 										    <div class="col-sm-5">
-										    	<input type="text" class="form-control" id="studUserId" placeholder="User ID" required>
+										    
+										    	<input type="text" class="form-control" id="studUserId" placeholder="User ID" name="username" required>
+										    	<input type="hidden" name="usertype" value="student">
+										    	
 										    	<div class="invalid-feedback">Please fill out this field.</div>
 											</div>
 											<div class="col-sm-3"></div>			
@@ -325,7 +318,9 @@
 		 									<div class="col-sm-2"></div>
 										    <label for="studPassword" class="col-sm-2 col-form-label text-right"><i class="fas fa-lock"></i></label>
 										    <div class="col-sm-5">
-										    	<input type="password" class="form-control" id="studPassword" placeholder="Password" required>
+										    
+										    	<input type="password" class="form-control" id="studPassword" placeholder="Password" name="password" required>
+										    	
 										    	<div class="invalid-feedback">Please fill out this field.</div>
 											</div>
 											<div class="col-sm-3"></div>			
@@ -503,9 +498,9 @@
 		    	</div>
 			</div>
 		</div>
-		<!-- end of Content -->
+		<!-- End of Contents -->
 		
-		<!-- Footer -->
+		<!-- Start of Footer -->
 		<div class="navbar navbar-dark bg-primary">
 			<div class="container-fluid">
 				<footer class="footer" style="min-width: 100%;">
@@ -529,4 +524,11 @@
 		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>      	
 	
 	</body>
+	<script>
+	
+		if(${created == 'false'}){
+			  alert("username taken");
+		}
+	
+	</script>
 </html>

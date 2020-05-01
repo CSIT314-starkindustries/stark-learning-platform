@@ -240,77 +240,78 @@
 			      	</div>
 		    	</div>
 			</div>
-		</div>
-		<!-- End of Reset Password Modal Box -->
-		
-		<!-- Suspend User Modal Box -->
-		<div class="modal fade" id="suspendUserModal" tabindex="-1" role="dialog" aria-labelledby="suspendUserLabel" aria-hidden="true">
-			<div class="modal-dialog modal-dialog-centered" role="document">
-				<div class="modal-content">
-		      		<div class="modal-header">
-				        <h5 class="modal-title col-12 text-center font-weight-bold" id="suspendUserLabel">Suspend User
-					        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-					          <span aria-hidden="true">&times;</span>
-					        </button>
-				        </h5>
-		      		</div>
-					<div class="container modal-body">
-			        	<h4 class="text-center">Do you wish to suspend the user?</h4>
-			      	</div>
-			      	<div class="modal-footer">
-			      		<button type="button" onclick="onSubmitSuspendUser()" class="btn btn-primary ml-auto mr-auto">Yes</button>
-			      	</div>
-		    	</div>
+			<!-- End of Reset Password Modal Box -->
+			
+			<!-- Suspend User Modal Box -->
+			<div class="modal fade" id="suspendUserModal" tabindex="-1" role="dialog" aria-labelledby="suspendUserLabel" aria-hidden="true">
+				<div class="modal-dialog modal-dialog-centered" role="document">
+					<div class="modal-content">
+			      		<div class="modal-header">
+					        <h5 class="modal-title col-12 text-center font-weight-bold" id="suspendUserLabel">Suspend User
+						        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						          <span aria-hidden="true">&times;</span>
+						        </button>
+					        </h5>
+			      		</div>
+						<div class="container modal-body">
+				        	<h4 class="text-center">Do you wish to suspend the user?</h4>
+				      	</div>
+				      	<div class="modal-footer">
+				      		<button type="button" onclick="onSubmitSuspendUser()" class="btn btn-primary ml-auto mr-auto">Yes</button>
+				      	</div>
+			    	</div>
+				</div>
 			</div>
-		</div>
-		<!-- End of Suspend User Modal Box -->
-		
-		<!-- OnSubmit Reset Password Message Box -->
-		<div class="modal fade" id="onSubmitResetPwModal" tabindex="-1" role="dialog" aria-labelledby="onSubmitResetPwLabel" aria-hidden="true">
-			<div class="modal-dialog modal-dialog-centered" role="document">
-				<div class="modal-content">
-		      		<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-					    	<span aria-hidden="true">&times;</span>
-					    </button>
-		      		</div>
-					<div class="container modal-body">
-			        	<h4 class="text-center font-weight-bolder">Password has been reset</h4>
-			        	<h6 class="text-center">An email has been sent to the corresponding User ID email</h6>
-			      	</div>
-		    	</div>
+			<!-- End of Suspend User Modal Box -->
+			
+			<!-- OnSubmit Reset Password Message Box -->
+			<div class="modal fade" id="onSubmitResetPwModal" tabindex="-1" role="dialog" aria-labelledby="onSubmitResetPwLabel" aria-hidden="true">
+				<div class="modal-dialog modal-dialog-centered" role="document">
+					<div class="modal-content">
+			      		<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						    	<span aria-hidden="true">&times;</span>
+						    </button>
+			      		</div>
+						<div class="container modal-body">
+				        	<h4 class="text-center font-weight-bolder">Password has been reset</h4>
+				        	<h6 class="text-center">An email has been sent to the corresponding User ID email</h6>
+				      	</div>
+			    	</div>
+				</div>
 			</div>
-		</div>
-		<!-- End of OnSubmit Reset Password Message Box -->
-		
-		<!-- OnSubmit Suspend User Message Box -->
-		<div class="modal fade" id="onSubmitSuspendUserModal" tabindex="-1" role="dialog" aria-labelledby="onSubmitSuspendUserLabel" aria-hidden="true">
-			<div class="modal-dialog modal-dialog-centered" role="document">
-				<div class="modal-content">
-		      		<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-					    	<span aria-hidden="true">&times;</span>
-					    </button>
-		      		</div>
-					<div class="container modal-body">
-			        	<h4 class="text-center font-weight-bolder">Corresponding user has been suspended</h4>
-			      	</div>
-		    	</div>
+			<!-- End of OnSubmit Reset Password Message Box -->
+			
+			<!-- OnSubmit Suspend User Message Box -->
+			<div class="modal fade" id="onSubmitSuspendUserModal" tabindex="-1" role="dialog" aria-labelledby="onSubmitSuspendUserLabel" aria-hidden="true">
+				<div class="modal-dialog modal-dialog-centered" role="document">
+					<div class="modal-content">
+			      		<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						    	<span aria-hidden="true">&times;</span>
+						    </button>
+			      		</div>
+						<div class="container modal-body">
+				        	<h4 class="text-center font-weight-bolder">Corresponding user has been suspended</h4>
+				      	</div>
+			    	</div>
+				</div>
 			</div>
+			<!-- End of OnSubmit Suspend User Message Box -->
+			
+			<!-- End of Content -->
 		</div>
-		<!-- End of OnSubmit Suspend User Message Box -->
-		
-		<!-- End of Content -->
+		<!-- End of Page Container -->
 
-		<!-- Footer -->
-		<div class="navbar navbar-dark bg-primary">
+		<!-- Start of Footer -->
+		<div class="navbar navbar-dark bg-primary id="footer">
 			<div class="container-fluid">
 				<footer class="footer" style="min-width: 100%;">
-					<div class="row">
-						<div class="col">
+					<div class="row ">
+						<div class="col-sm-6" >
 							<h6 style="color: white;">© 2020 Copyright Stark Industries</h6>
 						</div>
-						<div class="col">
+						<div class="col-sm-6">
 							<button type="button" onclick="scrollToTopFunction()" id="scrollToTopBtn">
 						    	<i class="fas fa-arrow-alt-circle-up fa-2x"></i>
 						    </button>

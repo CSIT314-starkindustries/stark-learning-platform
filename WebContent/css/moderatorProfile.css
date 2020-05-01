@@ -1,0 +1,57 @@
+/* For footer to stay below regardless of content length*/
+
+html {
+	scroll-behavior: smooth;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+.pageCon {
+  flex: 1 0 auto;
+}
+
+#footer {
+  flex-shrink: 0;
+}
+/* ------------------------------------------------------ */
+
+#scrollToTopBtn {
+	background-color: transparent;
+	border: none;
+	float: right; 
+	color: white;
+}
+
+.sidebar-container {
+    min-height: 100vh;   
+    background-color: #ecf0f1;
+    padding: 0;
+}
+
+/* ------------------------------------------------------- */
+
+#moderatorCard {
+  /* Add shadows to create the "card" effect */
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  border-radius: 5px; /* 5px rounded corners */
+}
+
+/* On mouse-over, add a deeper shadow */
+#moderatorCard:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+/* Add rounded corners to the top left and the top right corner of the image */
+#moderatorProfilePic {
+  border-radius: 5px 5px 0 0;
+}
