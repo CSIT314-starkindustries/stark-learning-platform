@@ -1,4 +1,4 @@
-package com.starkindustries.project;
+package com.starkindustries.project.Servlet;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -17,6 +17,7 @@ public class UserAdminServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    	
 		request.getRequestDispatcher("/WEB-INF/views/userAdmin.jsp").forward(request, response);
 	}
 

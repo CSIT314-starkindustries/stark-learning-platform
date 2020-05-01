@@ -1,3 +1,4 @@
+// Bootstrap form validation
 (function() {
 	'use strict';
 	window.addEventListener('load', function() {
@@ -16,6 +17,7 @@
 	}, false);
 })();
 
+// Scroll to top of page
 function scrollToTopFunction() {
 	document.body.scrollTop = 0;
 	document.documentElement.scrollTop = 0;

@@ -35,6 +35,8 @@ function suspendFunction() {
 function onSubmitResetPw() {
 	$("#resetPwModal").modal("hide");
 	$("#onSubmitResetPwModal").modal("show");
+	
+	
 }
 			
 function onSubmitSuspendUser() {

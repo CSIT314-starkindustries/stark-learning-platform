@@ -1,0 +1,47 @@
+html {
+	scroll-behavior: smooth;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+.pageCon {
+  flex: 1 0 auto;
+}
+
+#footer {
+  flex-shrink: 0;
+}
+
+#scrollToTopBtn {
+	background-color: transparent;
+	border: none;
+	float: right; 
+	color: white;
+}
+
+.sidebar-container {
+    min-height: 100vh;   
+    background-color: #ecf0f1;
+    padding: 0;
+}
+
+.content-container {
+	padding: 0;
+	padding-bottom: 10px;
+}
+
+/*----------------------------------------------*/
+
+.header-container {
+	padding: 10px 0px;
+	background-color: #dce3e6;
+}

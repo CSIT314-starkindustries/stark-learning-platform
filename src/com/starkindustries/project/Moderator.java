@@ -5,7 +5,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Moderator {
+public class Moderator implements User {
 	private String username;
 	private String password;
 	
