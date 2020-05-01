@@ -88,15 +88,19 @@
 						</p>
 					</div>
 					<div class="row">
-						<p class="col-md-3 my-auto d-flex justify-content-start">
+						<p class="col-md-4 my-auto d-flex justify-content-start">
 							<span class="font-weight-bold">Votes:</span>
 							<span id="noOfVotes" class="pl-2">22</span>
 						</p>
+						
+						<!-- 
 						<p class="col-md-2 my-auto d-flex justify-content-start">
 							<span class="font-weight-bold">Views:</span>
 							<span id="noOfViews" class="pl-2">24</span>
 						</p>
-						<p class="col-md-3 my-auto d-flex justify-content-end">
+						-->
+						
+						<p class="col-md-4 my-auto d-flex justify-content-center">
 							<span class="font-weight-bold">No. of Answers:</span>
 							<span id="noOfAns" class="pl-2">5</span>
 						</p>

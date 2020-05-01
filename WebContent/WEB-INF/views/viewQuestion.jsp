@@ -97,10 +97,12 @@
 												</div>
 											</div>
 											<div class="col-md-3 d-flex justify-content-start">
+												<!-- 
 												<div class="d-flex">
 													<small class="font-weight-bold mr-auto p-2">VIEWED</small>
 													<small class="text-muted p-2">1 times</small>
-												</div>									
+												</div>	
+												-->								
 											</div>
 										</div>
 									</div>

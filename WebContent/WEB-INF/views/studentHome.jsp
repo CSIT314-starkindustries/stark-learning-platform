@@ -119,10 +119,11 @@
 								<div class="row" style="padding-top: 2%; padding-bottom: 2%; background: #F2F2F2;">
 									<!-- Header -->
 									<div class="col-sm-4 text-left">
-										<h4>Most Recent Questions</h4>
+										<h4><b>Most Recent Questions</b></h4>
 									</div>
+									
 									<div class="col-sm-4 mx-auto">
-										<form>
+										<!-- <form>
 											<fieldset>
 												<div class="form-group row">											
 										    		<label for="sortSelect" class="col-form-label col-sm-3 text-center" style="font-weight: bold;">Sort By</label>
@@ -134,9 +135,10 @@
 												    </div>
 												</div>										      	
 											</fieldset>
-										</form>
+										</form>-->
 									</div>
-									<div class="col-sm-4 d-flex align-items-center justify-content-center">
+									
+									<div class="col-sm-4 d-flex align-items-center justify-content-center" style="margin-right: 0;">
 										<div class="col-sm-6"></div>
 										<div class="col text-right">
 											<button type="button" class="btn btn-primary btn-block mb-2" data-toggle="modal" data-target="#askQns_modal">
@@ -151,7 +153,7 @@
 									<table class="table table-hover text-center table-responsive-md">
 									  	<thead>
 									    	<tr class="d-flex">
-									      		<th scope="col" class="col-4">
+									      		<th scope="col" class="col-6">
 									      			Questions
 									      			<span style="padding-left: 2%;"><i class="far fa-question-circle"></i></span>
 									      		</th>
@@ -166,16 +168,12 @@
 									      		<th scope="col" class="col-2">
 									      			Answers
 									      			<span style="padding-left: 2%;"><i class="far fa-comment-alt"></i></span>
-									      		</th>
-									      		<th scope="col" class="col-2">
-									      			Views
-									      			<span style="padding-left: 2%;"><i class="far fa-eye"></i></span>
-									      		</th>									      		
+									      		</th>								      		
 									    	</tr>
 									  	</thead>
 									  	<tbody>
 									    	<tr class="d-flex" id="mostRecentQnsTableRow">
-									      		<td class="col-4 text-left" id="qnsIdCol">
+									      		<td class="col-6 text-left" id="qnsIdCol">
 									      			<a href="viewQuestion" style="color: #065590;" id="qnsId">
 									      				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 									      			</a>
@@ -185,7 +183,6 @@
 									      		</td>
 									      		<td class="col-2 text-center" id="qnsVoteCountCol">0</td>
 									      		<td class="col-2 text-center" id="ansCountCol">0</td>
-									      		<td class="col-2 text-center" id="viewCountCol">0</td>
 									    	</tr>
 										</tbody>
 									</table>
@@ -197,9 +194,11 @@
 								<div class="row" style="padding-top: 2%; padding-bottom: 2%; background: #F2F2F2;">
 									<!-- Header -->
 									<div class="col-sm-4 text-left">
-										<h4>All Questions</h4>
+										<h4><b>All Questions</b></h4>
 									</div>
+									
 									<div class="col-sm-4 mx-auto">
+										<!-- 
 										<form>
 											<fieldset>
 												<div class="form-group row">											
@@ -213,8 +212,10 @@
 												</div>										      	
 											</fieldset>
 										</form>
+										-->
 									</div>
-									<div class="col-sm-4 d-flex align-items-center justify-content-center">
+									
+									<div class="col-sm-4 d-flex align-items-center justify-content-center" style="margin-right: 0;">
 										<div class="col-sm-6"></div>
 										<div class="col text-right">
 											<button type="button" class="btn btn-primary btn-block mb-2" data-toggle="modal" data-target="#askQns_modal">
@@ -229,7 +230,7 @@
 									<table class="table table-hover text-center table-responsive-md">
 									  	<thead>
 									    	<tr class="d-flex">
-									      		<th scope="col" class="col-4">
+									      		<th scope="col" class="col-6">
 									      			Questions
 									      			<span style="padding-left: 2%;"><i class="far fa-question-circle"></i></span>
 									      		</th>
@@ -244,16 +245,12 @@
 									      		<th scope="col" class="col-2">
 									      			Answers
 									      			<span style="padding-left: 2%;"><i class="far fa-comment-alt"></i></span>
-									      		</th>
-									      		<th scope="col" class="col-2">
-									      			Views
-									      			<span style="padding-left: 2%;"><i class="far fa-eye"></i></span>
-									      		</th>													      		
+									      		</th>												      		
 									    	</tr>
 									  	</thead>
 									  	<tbody>
 									    	<tr class="d-flex" id="allQnsTableRow">
-									      		<td class="col-4 text-left" id="qnsIdCol">
+									      		<td class="col-6 text-left" id="qnsIdCol">
 									      			<a href="viewQuestion" style="color: #065590;" id="qnsId">
 									      				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 									      			</a>
@@ -263,7 +260,6 @@
 									      		</td>
 									      		<td class="col-2 text-center" id="qnsVoteCountCol">3</td>
 									      		<td class="col-2 text-center" id="ansCountCol">2</td>
-									      		<td class="col-2 text-center" id="viewCountCol">10</td>
 									    	</tr>
 										</tbody>
 									</table>
@@ -275,9 +271,11 @@
 								<div class="row" style="padding-top: 2%; padding-bottom: 2%; background: #F2F2F2;">
 									<!-- Header -->
 									<div class="col-sm-4 text-left">
-										<h4>My Questions</h4>
+										<h4><b>My Questions</b></h4>
 									</div>
+									
 									<div class="col-sm-4 mx-auto">
+										<!-- 
 										<form>
 											<fieldset>
 												<div class="form-group row">											
@@ -291,8 +289,10 @@
 												</div>										      	
 											</fieldset>
 										</form>
+										-->
 									</div>
-									<div class="col-sm-4 d-flex align-items-center justify-content-center">
+									
+									<div class="col-sm-4 d-flex align-items-center justify-content-center" style="margin-right: 0;">
 										<div class="col-sm-6"></div>
 										<div class="col text-right">
 											<button type="button" class="btn btn-primary btn-block mb-2" data-toggle="modal" data-target="#askQns_modal">
@@ -307,7 +307,7 @@
 									<table class="table table-hover text-center table-responsive-md">
 									  	<thead>
 									    	<tr class="d-flex">
-									      		<th scope="col" class="col-4">
+									      		<th scope="col" class="col-5">
 									      			My Questions
 									      			<span style="padding-left: 2%;"><i class="far fa-question-circle"></i></span>
 									      		</th>
@@ -319,11 +319,7 @@
 									      			Answers
 									      			<span style="padding-left: 2%;"><i class="far fa-comment-alt"></i></span>
 									      		</th>
-									      		<th scope="col" class="col-2">
-									      			Views
-									      			<span style="padding-left: 2%;"><i class="far fa-eye"></i></span>
-									      		</th>
-									      		<th scope="col" class="col-2">
+									      		<th scope="col" class="col-3">
 									      			My Question Comments
 									      			<span style="padding-left: 2%;"><i class="far fa-comments"></i></span>
 									      		</th>									      											      		
@@ -331,15 +327,14 @@
 									  	</thead>
 									  	<tbody>
 									    	<tr class="d-flex" id="myQnsTableRow">
-									      		<td class="col-4 text-left" id="qnsIdCol">
+									      		<td class="col-5 text-left" id="qnsIdCol">
 													<a href="viewQuestion" style="color: #065590;" id="qnsId">
 									      				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 									      			</a>									      		
 									      		</td>
 									      		<td class="col-2 text-center" id="qnsVoteCountCol">0</td>
 									      		<td class="col-2 text-center" id="ansCountCol">0</td>
-									      		<td class="col-2 text-center" id="viewCountCol">20</td>
-									      		<td class="col-2 text-center" id="qnsCommentCountCol">0</td>
+									      		<td class="col-3 text-center" id="qnsCommentCountCol">0</td>
 									    	</tr>									    	
 										</tbody>
 									</table>
@@ -351,9 +346,11 @@
 								<div class="row" style="padding-top: 2%; padding-bottom: 2%; background: #F2F2F2;">
 									<!-- Header -->
 									<div class="col-sm-4 text-left">
-										<h4>My Answers</h4>
+										<h4><b>My Answers</b></h4>
 									</div>
+									
 									<div class="col-sm-4 mx-auto">
+										<!-- 
 										<form>
 											<fieldset>
 												<div class="form-group row">											
@@ -367,8 +364,10 @@
 												</div>										      	
 											</fieldset>
 										</form>
+										-->
 									</div>
-									<div class="col-sm-4 d-flex align-items-center justify-content-center">
+									
+									<div class="col-sm-4 d-flex align-items-center justify-content-center" style="margin-right: 0;">
 										<div class="col-sm-6"></div>
 										<div class="col text-right">
 											<button type="button" class="btn btn-primary btn-block mb-2" data-toggle="modal" data-target="#askQns_modal">
@@ -391,10 +390,6 @@
 									      			Asked By
 									      			<span style="padding-left: 2%;"><i class="far fa-user-circle"></i></span>
 									      		</th>
-									      		<th scope="col" class="col-1">
-									      			Views
-									      			<span style="padding-left: 2%;"><i class="far fa-eye"></i></span>
-									      		</th>
 									      		<th scope="col" class="col-2">
 									      			My Answers
 									      			<span style="padding-left: 2%;"><i class="far fa-comment-alt"></i></span>
@@ -403,7 +398,7 @@
 									      			My Answer Votes
 									      			<span style="padding-left: 2%;"><i class="far fa-thumbs-up"></i></span>
 									      		</th>
-									      		<th scope="col" class="col-2">
+									      		<th scope="col" class="col-3">
 									      			My Answer Comments
 									      			<span style="padding-left: 2%;"><i class="far fa-comments"></i></span>
 									      		</th>
@@ -419,12 +414,11 @@
 									      		<td class="col-2 text-center" id="userIdCol">
 									      			<a href="viewStudentProfile" id="userIdProfile">User122</a>
 									      		</td>
-									      		<td class="col-1 text-center" id="viewCountCol">4</td>
 									      		<td class="col-2 text-center" id="viewMyAnsCol">
 									      			<a href="#" id="viewMyAns" data-toggle="modal" data-target="#viewMyAns_modal">View My Answer</a>
 									      		</td>
 									      		<td class="col-2 text-center" id="ansVoteCountCol">3</td>
-									      		<td class="col-2 text-center" id="ansCommentCountCol">0</td>
+									      		<td class="col-3 text-center" id="ansCommentCountCol">0</td>
 									    	</tr>
 										</tbody>
 									</table>
@@ -436,9 +430,11 @@
 								<div class="row" style="padding-top: 2%; padding-bottom: 2%; background: #F2F2F2;">
 									<!-- Header -->
 									<div class="col-sm-4 text-left">
-										<h4>My Comments</h4>
+										<h4><b>My Comments</b></h4>
 									</div>
+									
 									<div class="col-sm-4 mx-auto">
+										<!-- 
 										<form>
 											<fieldset>
 												<div class="form-group row">											
@@ -452,8 +448,10 @@
 												</div>										      	
 											</fieldset>
 										</form>
+										-->
 									</div>
-									<div class="col-sm-4 d-flex align-items-center justify-content-center">
+									
+									<div class="col-sm-4 d-flex align-items-center justify-content-center" style="margin-right: 0;">
 										<div class="col-sm-6"></div>
 										<div class="col text-right">
 											<button type="button" class="btn btn-primary btn-block mb-2" data-toggle="modal" data-target="#askQns_modal">
@@ -468,7 +466,7 @@
 									<table class="table table-hover text-center table-responsive-md">
 									  	<thead>
 									    	<tr class="d-flex">
-									      		<th scope="col" class="col-4">
+									      		<th scope="col" class="col-5">
 									      			Questions
 									      			<span style="padding-left: 2%;"><i class="far fa-question-circle"></i></span>
 									      		</th>
@@ -483,11 +481,7 @@
 									      		<th scope="col" class="col-2">
 									      			Answers
 									      			<span style="padding-left: 2%;"><i class="far fa-comment-alt"></i></span>
-									      		</th>
-									      		<th scope="col" class="col-1">
-									      			Views
-									      			<span style="padding-left: 2%;"><i class="far fa-eye"></i></span>
-									      		</th>									      		
+									      		</th>								      		
 									      		<th scope="col" class="col-2">
 									      			My Comments
 									      			<span style="padding-left: 2%;"><i class="far fa-comment"></i></span>
@@ -496,7 +490,7 @@
 									  	</thead>
 									  	<tbody>
 									    	<tr class="d-flex" id="myCommentsTableRow">
-									      		<td class="col-4 text-left" id="qnsIdCol">
+									      		<td class="col-5 text-left" id="qnsIdCol">
 									      			<a href="viewQuestion"  style="color: #065590;" id="qnsId">
 									      				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 									      			</a>
@@ -506,7 +500,6 @@
 									      		</td>
 									      		<td class="col-1 text-center" id="voteCountCol">0</td>
 									      		<td class="col-2 text-center" id="ansCountCol">1</td>	
-									      		<td class="col-1 text-center" id="viewCountCol">1</td>
 									      		<td class="col-2 text-center" id="viewMyCommentCol">								      										      		
 													<a href="#" id="viewMyComment" data-toggle="modal" data-target="#viewMyComment_modal">View My Comments</a>
 												</td>									      		
