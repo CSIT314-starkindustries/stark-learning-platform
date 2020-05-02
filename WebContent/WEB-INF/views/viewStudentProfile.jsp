@@ -18,7 +18,7 @@
 		<div class="pageCon">
 		
 			<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-				<a class="navbar-brand" href="studentHome">Stark Industries</a>
+				<a class="navbar-brand" href="/studentHome?username=${loggedInUser}">Stark Industries</a>
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
 				  <span class="navbar-toggler-icon"></span>
 				</button>
@@ -33,12 +33,12 @@
 					</div>
 					<div class="nav-item col-sm-4 text-sm-left text-md-right text-lg-right">
 						<div class="dropdown" role="group">
-							<button id="userSettingToggleBtn" type="button" class="btn btn-link dropdown-toggle" data-toggle="dropdown">UserXXX</button>
+							<button id="userSettingToggleBtn" type="button" class="btn btn-link dropdown-toggle" data-toggle="dropdown">${loggedInUser}</button>
 						    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userSettingToggleBtn">
-						      	<a class="dropdown-item" href="studentProfile" id="userProfileLink">
+						      	<a class="dropdown-item" href="studentProfileServlet?username=${loggedInUser}" id="userProfileLink">
 						      		<span class="mr-3"><i class="fas fa-user-cog"></i></span>View Profile
 						      	</a>
-						      	<a class="dropdown-item" href="studentHome" id="studentHomeLink">
+						      	<a class="dropdown-item" href="/studentHome?username=${loggedInUser}" id="studentHomeLink">
 						      		<span class="mr-3"><i class="fas fa-chalkboard"></i></span>My Forum
 						      	</a>
 						      	<a class="dropdown-item" href="home" id="logoutLink">
@@ -68,7 +68,7 @@
 				<div class="row">
 					<div class="d-flex w-100 mt-2">
 						<div class="col-md-12 d-flex align-items-center justify-content-start">
-							<a href="studentHome" style="color: #ea8a8a;"><i class="far fa-hand-point-left mr-1"></i>Back to Forum</a>
+							<a href="/studentHome?username=${loggedInUser}" style="color: #ea8a8a;"><i class="far fa-hand-point-left mr-1"></i>Back to Forum</a>
 						</div>
 					</div>
 				</div>
@@ -89,7 +89,7 @@
 							 						<p><b>User ID:</b></label></p>
 							 					</div>
 							 					<div class="col-sm-7 text-left">
-							 						<p id="userId">UserXXX</p>
+							 						<p id="userId">${view_username}</p>
 							 					</div>
 							 				</div>			
 							 				<div class="row" style="margin-bottom: 0;">
@@ -99,7 +99,7 @@
 							 					<div class="col-sm-7 text-left">
 							 						<div class="row container-fluid">
 								 						<div class="col-sm-3">
-								 							<p id="participationRating">80</p>
+								 							<p id="participationRating">${user_part_rating}</p>
 								 						</div>
 								 						<div class="col-sm-9">
 								 							<p>/ 100</p>

@@ -20,7 +20,7 @@
 		
 			<!-- Start of Navbar -->			
 			<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-				<a class="navbar-brand" href="home">Stark Industries</a>
+				<a class="navbar-brand" href="#">Stark Industries</a>
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
 				  <span class="navbar-toggler-icon"></span>
 				</button>
@@ -262,7 +262,7 @@
 									      			</a>
 									      		</td>								      		
 									      		<td class="col-2 text-center" id="userIdCol">
-									      			<a href="viewStudentProfile" id="userIdProfile">${question.stud_username}</a>
+									      			<a href="viewStudentProfile?username=${loggedInUser}&view_username=${question.stud_username}" id="userIdProfile">${question.stud_username}</a>
 									      		</td>
 									      		<td class="col-2 text-center" id="qnsVoteCountCol">${question.total_votes}</td>
 									      		<td class="col-2 text-center" id="ansCountCol">${question.date_posted}</td>
@@ -400,18 +400,20 @@
 									<table class="table table-hover text-center table-responsive-md">
 									  	<thead>
 									    	<tr class="d-flex">
-									      		<th scope="col" class="col-3">
-									      			Questions
+									      		<th scope="col" class="col-6">
+									      			Answers
 									      			<span style="padding-left: 2%;"><i class="far fa-question-circle"></i></span>
 									      		</th>
-									      		<th scope="col" class="col-2">
-									      			Asked By
+									      		<th scope="col" class="col-3">
+									      			Question ID
 									      			<span style="padding-left: 2%;"><i class="far fa-user-circle"></i></span>
 									      		</th>
-									      		<th scope="col" class="col-2">
-									      			My Answers
+									      		<th scope="col" class="col-3">
+									      			My Answer Votes
 									      			<span style="padding-left: 2%;"><i class="far fa-comment-alt"></i></span>
 									      		</th>
+									      		
+									      		<!--  
 									      		<th scope="col" class="col-2">
 									      			My Answer Votes
 									      			<span style="padding-left: 2%;"><i class="far fa-thumbs-up"></i></span>
@@ -420,29 +422,32 @@
 									      			My Answer Comments
 									      			<span style="padding-left: 2%;"><i class="far fa-comments"></i></span>
 									      		</th>
+									      		-->
+									      		
 									    	</tr>
 									  	</thead>
 									  	<tbody>
 									  		
-									  		
+									  		<c:forEach items="${myAnswerList}" var="answer" varStatus="loop">
 									  		
 									    	<tr class="d-flex" id="myAnsTableRow">
-									      		<td class="col-3 text-left" id="qnsIdCol">
-													<a href="viewQuestion" style="color: #065590;" id="qnsId">
-									      				dasdasd
-									      			</a>									      		
+									      		<td class="col-6 text-left" id="qnsIdCol">
+									      				${answer.description}
+								      		
 									      		</td>
-									      		<td class="col-2 text-center" id="userIdCol">
-									      			<a href="viewStudentProfile" id="userIdProfile">User122</a>
+									      		<td class="col-3 text-center" id="userIdCol">
+									      			<a href="viewStudentProfile" id="userIdProfile">${answer.question_id}</a>
 									      		</td>
-									      		<td class="col-2 text-center" id="viewMyAnsCol">
-									      			<a href="#" id="viewMyAns" data-toggle="modal" data-target="#viewMyAns_modal">View My Answer</a>
+									      		<td class="col-3 text-center" id="viewMyAnsCol">
+									      			${answer.total_votes}
 									      		</td>
+									      		<!--  
 									      		<td class="col-2 text-center" id="ansVoteCountCol">3</td>
 									      		<td class="col-3 text-center" id="ansCommentCountCol">0</td>
+									      		-->
 									    	</tr>
 									    	
-									    	
+									    	</c:forEach>
 										</tbody>
 									</table>
 								</div>															
@@ -489,18 +494,20 @@
 									<table class="table table-hover text-center table-responsive-md">
 									  	<thead>
 									    	<tr class="d-flex">
-									      		<th scope="col" class="col-5">
-									      			Questions
+									      		<th scope="col" class="col-6">
+									      			Comments
 									      			<span style="padding-left: 2%;"><i class="far fa-question-circle"></i></span>
 									      		</th>
-									      		<th scope="col" class="col-2">
-									      			Asked By
+									      		<th scope="col" class="col-3">
+									      			Question ID
 									      			<span style="padding-left: 2%;"><i class="far fa-user-circle"></i></span>
 									      		</th>
-									      		<th scope="col" class="col-1">
-									      			Votes
+									      		<th scope="col" class="col-3">
+									      			Date Posted
 									      			<span style="padding-left: 2%;"><i class="far fa-thumbs-up"></i></span>
 									      		</th>
+									      		
+									      		<!--  
 									      		<th scope="col" class="col-2">
 									      			Answers
 									      			<span style="padding-left: 2%;"><i class="far fa-comment-alt"></i></span>
@@ -509,24 +516,32 @@
 									      			My Comments
 									      			<span style="padding-left: 2%;"><i class="far fa-comment"></i></span>
 									      		</th>
+									      		-->
+									      		
 									    	</tr>
 									  	</thead>
 									  	<tbody>
+									  	
+									  		<c:forEach items="${myCommentList}" var="comment" varStatus="loop">
 									    	<tr class="d-flex" id="myCommentsTableRow">
-									      		<td class="col-5 text-left" id="qnsIdCol">
-									      			<a href="viewQuestion"  style="color: #065590;" id="qnsId">
-									      				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-									      			</a>
+									      		<td class="col-6 text-left" id="qnsIdCol">
+									      			
+									      				${comment.description}
+									      			
 									      		</td>
-									      		<td class="col-2 text-center" id="userIdCol">
-									      			<a href="viewStudentProfile" id="userId">User121</a>
+									      		<td class="col-3 text-center" id="userIdCol">
+									      			<a href="viewStudentProfile" id="userId">${comment.question_id}</a>
 									      		</td>
-									      		<td class="col-1 text-center" id="voteCountCol">0</td>
+									      		<td class="col-3 text-center" id="voteCountCol">${comment.date_posted}</td>
+									      		<!--  
 									      		<td class="col-2 text-center" id="ansCountCol">1</td>	
 									      		<td class="col-2 text-center" id="viewMyCommentCol">								      										      		
 													<a href="#" id="viewMyComment" data-toggle="modal" data-target="#viewMyComment_modal">View My Comments</a>
-												</td>									      		
+												</td>	
+												-->								      		
 									    	</tr>
+									    	</c:forEach>
+									    	
 										</tbody>
 									</table>
 								</div>															
