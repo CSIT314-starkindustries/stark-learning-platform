@@ -8,16 +8,24 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Comment {
-	String comment_id;
+	int comment_id;
 	String description;
 	String stud_username;
-	String question_id;
-	String answer_id;
+	int question_id;
+	int answer_id;
 	Date date_posted;
 	
 	public Comment() {}
 	
-	public Comment(String comment_id,String description,String stud_username,String question_id,String answer_id,Date date_posted) {
+	public Comment(String description,String stud_username,int question_id,int answer_id,Date date_posted) {
+		this.description = description;
+		this.stud_username = stud_username;
+		this.question_id = question_id;
+		this.answer_id = answer_id;
+		this.date_posted = date_posted;
+	}
+	
+	public Comment(int comment_id,String description,String stud_username,int question_id,int answer_id,Date date_posted) {
 		this.comment_id = comment_id;
 		this.description = description;
 		this.stud_username = stud_username;
@@ -26,11 +34,11 @@ public class Comment {
 		this.date_posted = date_posted;
 	}
 
-	public String getComment_id() {
+	public int getComment_id() {
 		return comment_id;
 	}
 
-	public void setComment_id(String comment_id) {
+	public void setComment_id(int comment_id) {
 		this.comment_id = comment_id;
 	}
 
@@ -50,19 +58,19 @@ public class Comment {
 		this.stud_username = stud_username;
 	}
 
-	public String getQuestion_id() {
+	public int getQuestion_id() {
 		return question_id;
 	}
 
-	public void setQuestion_id(String question_id) {
+	public void setQuestion_id(int question_id) {
 		this.question_id = question_id;
 	}
 
-	public String getAnswer_id() {
+	public int getAnswer_id() {
 		return answer_id;
 	}
 
-	public void setAnswer_id(String answer_id) {
+	public void setAnswer_id(int answer_id) {
 		this.answer_id = answer_id;
 	}
 
@@ -78,12 +86,12 @@ public class Comment {
 		List<Comment> allCommentList = new ArrayList<Comment>();
 		while(rs.next()) {
 			Comment c = new Comment();
-			c.setComment_id(rs.getString("comment_id"));
+			c.setComment_id(rs.getInt("comment_id"));
 			c.setDescription(rs.getString("description"));
 			c.setDate_posted(rs.getDate("date_posted"));
 			c.setStud_username(rs.getString("stud_username"));
-			c.setAnswer_id(rs.getString("answer_id"));
-			c.setQuestion_id(rs.getString("question_id"));
+			c.setAnswer_id(rs.getInt("answer_id"));
+			c.setQuestion_id(rs.getInt("question_id"));
 			allCommentList.add(c);
 		}
 		return allCommentList;
@@ -92,12 +100,12 @@ public class Comment {
 	public static Comment getCommentById(ResultSet rs) throws SQLException {
 		Comment c = new Comment();
 		rs.next();
-		c.setComment_id(rs.getString("comment_id"));
+		c.setComment_id(rs.getInt("comment_id"));
 		c.setDescription(rs.getString("description"));
 		c.setDate_posted(rs.getDate("date_posted"));
 		c.setStud_username(rs.getString("stud_username"));
-		c.setAnswer_id(rs.getString("answer_id"));
-		c.setQuestion_id(rs.getString("question_id"));
+		c.setAnswer_id(rs.getInt("answer_id"));
+		c.setQuestion_id(rs.getInt("question_id"));
 		return c;
 	}
 	
