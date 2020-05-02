@@ -91,7 +91,7 @@
 			                  <small class="font-weight-bold">PERSONAL</small>
 			               	</div>
 			               	
-				            <a href="/viewMyPostServlet?postType=questions&username=${loggedInUser}" class="list-group-item list-group-item-action flex-column" id="myQnsTab" data-toggle="tab" data-target="#myQnsPane">
+				            <a href="#" class="list-group-item list-group-item-action flex-column" id="myQnsTab" data-toggle="tab" data-target="#myQnsPane">
 				                <div class="d-flex w-100 justify-content-center align-items-center">
 				                    <span class="mr-3"><i class="far fa-question-circle"></i></span>
 				                    <span>My Questions</span>
@@ -247,24 +247,27 @@
 									      			<span style="padding-left: 2%;"><i class="far fa-thumbs-up"></i></span>
 									      		</th>
 									      		<th scope="col" class="col-2">
-									      			Answers
+									      			Date Posted <!-- Total Answer -->
 									      			<span style="padding-left: 2%;"><i class="far fa-comment-alt"></i></span>
 									      		</th>												      		
 									    	</tr>
 									  	</thead>
 									  	<tbody>
+									  	
+									  		<c:forEach items="${allQuestionList}" var="question" varStatus="loop">
 									    	<tr class="d-flex" id="allQnsTableRow">
 									      		<td class="col-6 text-left" id="qnsIdCol">
-									      			<a href="viewQuestion" style="color: #065590;" id="qnsId">
-									      				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+									      			<a href="viewQuestion?question_id=${question.question_id}" style="color: #065590;" id="qnsId">
+									      				${question.title}
 									      			</a>
 									      		</td>								      		
 									      		<td class="col-2 text-center" id="userIdCol">
-									      			<a href="viewStudentProfile" id="userIdProfile">User111</a>
+									      			<a href="viewStudentProfile" id="userIdProfile">${question.stud_username}</a>
 									      		</td>
-									      		<td class="col-2 text-center" id="qnsVoteCountCol">3</td>
-									      		<td class="col-2 text-center" id="ansCountCol">2</td>
+									      		<td class="col-2 text-center" id="qnsVoteCountCol">${question.total_votes}</td>
+									      		<td class="col-2 text-center" id="ansCountCol">${question.date_posted}</td>
 									    	</tr>
+									    	</c:forEach>
 										</tbody>
 									</table>
 								</div>															
@@ -311,40 +314,41 @@
 									<table class="table table-hover text-center table-responsive-md">
 									  	<thead>
 									    	<tr class="d-flex">
-									      		<th scope="col" class="col-5">
+									      		<th scope="col" class="col-6">
 									      			My Questions
 									      			<span style="padding-left: 2%;"><i class="far fa-question-circle"></i></span>
 									      		</th>
-									      		<th scope="col" class="col-2">
+									      		<th scope="col" class="col-3">
 									      			My Question Votes
 									      			<span style="padding-left: 2%;"><i class="far fa-thumbs-up"></i></span>
 									      		</th>
-									      		<th scope="col" class="col-2">
-									      			Answers
+									      		<th scope="col" class="col-3">
+									      			Date Posted <!-- total answer -->
 									      			<span style="padding-left: 2%;"><i class="far fa-comment-alt"></i></span>
 									      		</th>
+									      		<!-- 
 									      		<th scope="col" class="col-3">
 									      			My Question Comments
 									      			<span style="padding-left: 2%;"><i class="far fa-comments"></i></span>
-									      		</th>									      											      		
+									      		</th>			
+									      		 -->						      											      		
 									    	</tr>
 									  	</thead>
 									  	<tbody>
 
 									  	
-									  		<c:forEach items="${myQuestionList}" var="user" varStatus="loop">
+									  		<c:forEach items="${myQuestionList}" var="question" varStatus="loop">
 									  	
 										  		<!-- For each loop here. pass in question list here -->
 										    	<tr class="d-flex" id="myQnsTableRow">
-										      		<td class="col-4 text-left" id="qnsIdCol">
-														<a href="viewQuestion" style="color: #065590;" id="qnsId">
-										      				${user.title}
+										      		<td class="col-6 text-left" id="qnsIdCol">
+														<a href="viewQuestion?question_id=${question.question_id}" style="color: #065590;" id="qnsId">
+										      				${question.title}
 										      			</a>									      		
 										      		</td>
-										      		<td class="col-2 text-center" id="qnsVoteCountCol">${user.total_votes}</td>
-										      		<td class="col-2 text-center" id="ansCountCol">0</td>
-										      		<td class="col-2 text-center" id="viewCountCol">20</td>
-										      		<td class="col-2 text-center" id="qnsCommentCountCol">0</td>
+										      		<td class="col-3 text-center" id="qnsVoteCountCol">${question.total_votes}</td>
+										      		<td class="col-3 text-center" id="ansCountCol">${question.date_posted}</td>
+										      		<!--  <td class="col-3 text-center" id="qnsCommentCountCol">0</td>-->
 										    	</tr>
 										    	
 										    	<!-- End For each loop-->	  
@@ -419,10 +423,13 @@
 									    	</tr>
 									  	</thead>
 									  	<tbody>
+									  		
+									  		
+									  		
 									    	<tr class="d-flex" id="myAnsTableRow">
 									      		<td class="col-3 text-left" id="qnsIdCol">
 													<a href="viewQuestion" style="color: #065590;" id="qnsId">
-									      				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+									      				dasdasd
 									      			</a>									      		
 									      		</td>
 									      		<td class="col-2 text-center" id="userIdCol">
@@ -434,6 +441,8 @@
 									      		<td class="col-2 text-center" id="ansVoteCountCol">3</td>
 									      		<td class="col-3 text-center" id="ansCommentCountCol">0</td>
 									    	</tr>
+									    	
+									    	
 										</tbody>
 									</table>
 								</div>															

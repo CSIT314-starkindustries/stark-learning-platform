@@ -7,16 +7,24 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Answer {
-	String answer_id;
+	int answer_id;
 	String description;
 	int total_votes;
 	String stud_username;
-	String question_id;
+	int question_id;
 	Date date_posted;
 	
 	public Answer() {}
 	
-	public Answer(String answer_id,String description,int total_votes,String stud_username,String question_id,Date date_posted) {
+	public Answer(String description,int total_votes,String stud_username,int question_id,Date date_posted) {
+		this.description = description;
+		this.total_votes = total_votes;
+		this.stud_username = stud_username;
+		this.question_id = question_id;
+		this.date_posted = date_posted;
+	}
+	
+	public Answer(int answer_id,String description,int total_votes,String stud_username,int question_id,Date date_posted) {
 		this.answer_id = answer_id;
 		this.description = description;
 		this.total_votes = total_votes;
@@ -25,11 +33,11 @@ public class Answer {
 		this.date_posted = date_posted;
 	}
 
-	public String getAnswer_id() {
+	public int getAnswer_id() {
 		return answer_id;
 	}
 
-	public void setAnswer_id(String answer_id) {
+	public void setAnswer_id(int answer_id) {
 		this.answer_id = answer_id;
 	}
 
@@ -57,11 +65,11 @@ public class Answer {
 		this.stud_username = stud_username;
 	}
 
-	public String getQuestion_id() {
+	public int getQuestion_id() {
 		return question_id;
 	}
 
-	public void setQuestion_id(String question_id) {
+	public void setQuestion_id(int question_id) {
 		this.question_id = question_id;
 	}
 
@@ -78,12 +86,12 @@ public class Answer {
 		List<Answer> allAnswerList = new ArrayList<Answer>();
 		while(rs.next()) {
 			Answer a = new Answer();
-			a.setAnswer_id(rs.getString("answer_id"));
+			a.setAnswer_id(rs.getInt("answer_id"));
 			a.setDescription(rs.getString("description"));
 			a.setTotal_votes(rs.getInt("total_votes"));
 			a.setDate_posted(rs.getDate("date_posted"));
 			a.setStud_username(rs.getString("stud_username"));
-			a.setQuestion_id(rs.getString("question_id"));
+			a.setQuestion_id(rs.getInt("question_id"));
 			allAnswerList.add(a);
 		}
 		return allAnswerList;
@@ -93,12 +101,12 @@ public class Answer {
 	public static Answer getAnswerById(ResultSet rs) throws SQLException {
 		Answer a = new Answer();
 		rs.next();
-		a.setAnswer_id(rs.getString("answer_id"));
+		a.setAnswer_id(rs.getInt("answer_id"));
 		a.setDescription(rs.getString("description"));
 		a.setTotal_votes(rs.getInt("total_votes"));
 		a.setDate_posted(rs.getDate("date_posted"));
 		a.setStud_username(rs.getString("stud_username"));
-		a.setQuestion_id(rs.getString("question_id"));
+		a.setQuestion_id(rs.getInt("question_id"));
 		return a;
 	}
 }

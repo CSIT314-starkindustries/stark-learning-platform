@@ -1,9 +1,5 @@
 Manifest-Version: 1.0
-<<<<<<< HEAD
 Built-By: LIU ZI AN
-=======
-Built-By: BearBear
->>>>>>> 7fec881c27f1f187dd99def4f3a7a171f870486f
 Build-Jdk: 1.8.0_221
 Created-By: Maven Integration for Eclipse
 
