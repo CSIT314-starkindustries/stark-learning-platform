@@ -1,4 +1,4 @@
-package com.starkindustries.project;
+package com.starkindustries.project.Servlet;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
