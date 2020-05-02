@@ -11,6 +11,8 @@
 		<link rel="stylesheet" href="/StarkLearningApp/css/studentHome.css">		
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 		<script type="text/javascript" src="/StarkLearningApp/js/studentHome.js"></script>
+		
+		
 	</head>
 	
 	<body>
@@ -27,9 +29,9 @@
 				<div class="navbar-nav navbar-collapse collapse row" id="navbarColor01">
 					<div class="nav-item col-sm-2"></div>
 					<div class="nav-item col-sm-6">
-						<form class="form-inline my-2 my-lg-0 mx-auto">
-							<input class="form-control mr-sm-2 w-75" type="text" placeholder="Search" style="form-control: width: 100%;">
-						  	<button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+						<form class="form-inline my-2 my-lg-0 mx-auto" id="searchForm" action="#" method="POST">
+							<input class="form-control mr-sm-2 w-75" id="search_param" type="text" placeholder="Search" style="form-control: width: 100%;">
+						  	<button class="btn btn-secondary my-2 my-sm-0" id="searchBtn" data-toggle="tab" data-target="#searchResultPane">Search</button>
 						</form>
 					</div>
 					<div class="nav-item col-sm-4 text-sm-left text-md-right text-lg-right">
@@ -507,7 +509,87 @@
 										</tbody>
 									</table>
 								</div>															
-						  	</div>						  	
+						  	</div>	
+						  	
+						  	<!-- Search Results Pane -->
+						  	<div class="tab-pane fade" id="searchResultPane" style="padding-bottom: 3%;">
+								<div class="row" style="padding-top: 2%; padding-bottom: 2%; background: #F2F2F2;">
+									<!-- Header -->
+									<div class="col-sm-4 text-left">
+										<h4><b>Search Results:</b> 
+											<%= request.getParameter("search_param")%>
+										</h4>
+									</div>
+									
+									<div class="col-sm-4 mx-auto">
+										<!-- 
+										<form>
+											<fieldset>
+												<div class="form-group row">											
+										    		<label for="sortSelect" class="col-form-label col-sm-3 text-center" style="font-weight: bold;">Sort By</label>
+												    <div class="col-sm-8 text-left">
+												      	<select class="form-control" id="sortSelect">
+												        	<option>A - Z</option>
+												        	<option>Z - A</option>
+												    	</select>
+												    </div>
+												</div>										      	
+											</fieldset>
+										</form>
+										-->
+									</div>
+									
+									<div class="col-sm-4 d-flex align-items-center justify-content-center" style="margin-right: 0;">
+										<div class="col-sm-6"></div>
+										<div class="col text-right">
+											<button type="button" class="btn btn-primary btn-block mb-2" data-toggle="modal" data-target="#askQns_modal">
+												<span style="padding-right: 10%;"><i class="far fa-question-circle"></i></span>Ask Question
+											</button>
+										</div>
+									</div>
+								</div>
+								
+								<div class="row">
+									<!-- Search Results Table -->
+									<table class="table table-hover text-center table-responsive-md">
+									  	<thead>
+									    	<tr class="d-flex">
+									      		<th scope="col" class="col-5">
+									      			Questions
+									      			<span style="padding-left: 2%;"><i class="far fa-question-circle"></i></span>
+									      		</th>
+									      		<th scope="col" class="col-2">
+									      			Asked By
+									      			<span style="padding-left: 2%;"><i class="far fa-user-circle"></i></span>
+									      		</th>
+									      		<th scope="col" class="col-3">
+									      			Question Votes
+									      			<span style="padding-left: 2%;"><i class="far fa-thumbs-up"></i></span>
+									      		</th>
+									      		<th scope="col" class="col-2">
+									      			Answers
+									      			<span style="padding-left: 2%;"><i class="far fa-comment-alt"></i></span>
+									      		</th>
+									    	</tr>
+									  	</thead>
+									  	<tbody>
+									    	<tr class="d-flex" id="searchResultTableRow">
+									      		<td class="col-5 text-left" id="qnsIdCol">
+									      			<a href="viewQuestion"  style="color: #065590;" id="qnsId">
+									      				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+									      			</a>
+									      		</td>
+									      		<td class="col-2 text-center" id="userIdCol">
+									      			<a href="viewStudentProfile" id="userId">User121</a>
+									      		</td>
+									      		<td class="col-3 text-center" id="voteCountCol">0</td>
+									      		<td class="col-2 text-center" id="ansCountCol">1</td>									      		
+									    	</tr>
+										</tbody>
+									</table>
+								</div>															
+						  	</div>	
+						  						  	
 					  	</div>
 						<!-- End of Tab Panes -->						
 					</div>					
