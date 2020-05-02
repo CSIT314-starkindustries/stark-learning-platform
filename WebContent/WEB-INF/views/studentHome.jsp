@@ -29,7 +29,7 @@
 				<div class="navbar-nav navbar-collapse collapse row" id="navbarColor01">
 					<div class="nav-item col-sm-2"></div>
 					<div class="nav-item col-sm-6">
-						<form class="form-inline my-2 my-lg-0 mx-auto" id="searchForm" action="#" method="POST">
+						<form class="form-inline my-2 my-lg-0 mx-auto" id="searchForm" action="#" method="GET">
 							<input class="form-control mr-sm-2 w-75" id="search_param" type="text" placeholder="Search" style="form-control: width: 100%;">
 						  	<button class="btn btn-secondary my-2 my-sm-0" id="searchBtn" data-toggle="tab" data-target="#searchResultPane">Search</button>
 						</form>
@@ -168,8 +168,8 @@
 									      			<span style="padding-left: 2%;"><i class="far fa-thumbs-up"></i></span>
 									      		</th>
 									      		<th scope="col" class="col-2">
-									      			Answers
-									      			<span style="padding-left: 2%;"><i class="far fa-comment-alt"></i></span>
+									      			Date Posted
+									      			<span style="padding-left: 2%;"><i class="far fa-calendar"></i></span>
 									      		</th>								      		
 									    	</tr>
 									  	</thead>
@@ -184,7 +184,7 @@
 									      			<a href="viewStudentProfile" id="userIdProfile">User123</a>
 									      		</td>
 									      		<td class="col-2 text-center" id="qnsVoteCountCol">0</td>
-									      		<td class="col-2 text-center" id="ansCountCol">0</td>
+									      		<td class="col-2 text-center" id="datePostedCol">27/04/2020</td>
 									    	</tr>
 										</tbody>
 									</table>
@@ -245,8 +245,8 @@
 									      			<span style="padding-left: 2%;"><i class="far fa-thumbs-up"></i></span>
 									      		</th>
 									      		<th scope="col" class="col-2">
-									      			Answers
-									      			<span style="padding-left: 2%;"><i class="far fa-comment-alt"></i></span>
+									      			Date Posted
+									      			<span style="padding-left: 2%;"><i class="far fa-calendar"></i></span>
 									      		</th>												      		
 									    	</tr>
 									  	</thead>
@@ -261,7 +261,7 @@
 									      			<a href="viewStudentProfile" id="userIdProfile">User111</a>
 									      		</td>
 									      		<td class="col-2 text-center" id="qnsVoteCountCol">3</td>
-									      		<td class="col-2 text-center" id="ansCountCol">2</td>
+									      		<td class="col-2 text-center" id="datePostedCol">27/04/2020</td>
 									    	</tr>
 										</tbody>
 									</table>
@@ -567,8 +567,8 @@
 									      			<span style="padding-left: 2%;"><i class="far fa-thumbs-up"></i></span>
 									      		</th>
 									      		<th scope="col" class="col-2">
-									      			Answers
-									      			<span style="padding-left: 2%;"><i class="far fa-comment-alt"></i></span>
+									      			Date Posted
+									      			<span style="padding-left: 2%;"><i class="far fa-calendar"></i></span>
 									      		</th>
 									    	</tr>
 									  	</thead>
@@ -583,7 +583,7 @@
 									      			<a href="viewStudentProfile" id="userId">User121</a>
 									      		</td>
 									      		<td class="col-3 text-center" id="voteCountCol">0</td>
-									      		<td class="col-2 text-center" id="ansCountCol">1</td>									      		
+									      		<td class="col-2 text-center" id="datePostedCol">27/04/2020</td>									      		
 									    	</tr>
 										</tbody>
 									</table>
