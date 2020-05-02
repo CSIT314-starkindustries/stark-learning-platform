@@ -17,5 +17,6 @@
     <welcome-file>weeklyReport</welcome-file>
     <welcome-file>topVotedQns</welcome-file>
     <welcome-file>participationRatings</welcome-file>
+ 
   </welcome-file-list>
 </web-app>

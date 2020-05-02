@@ -56,11 +56,11 @@
 					  <div class="row d-flex justify-content-center">
 					  
 					  <form id="studOrModForm">
-					    <div id="studentCheckDiv" class="col-md-4 custom-control custom-checkbox custom-control-inline">
+					    <div id="studentCheckDiv" class="custom-control custom-radio">
 					      <input type="radio" class="custom-control-input" id="studentCheck" name="userRadioBox" value="student" onchange="getUserInfo()">
 					      <label class="custom-control-label" for="studentCheck">Student</label>
 					    </div>
-					    <div id="moderatorCheckDiv" class="col-md-4 custom-control custom-checkbox custom-control-inline">
+					    <div id="moderatorCheckDiv" class="custom-control custom-radio">
 					      <input type="radio" class="custom-control-input" id="moderatorCheck" name="userRadioBox" value="moderator" onchange="getUserInfo()">
 					      <label class="custom-control-label" for="moderatorCheck">Moderator</label>
 					    </div>
@@ -413,6 +413,7 @@
 			document.getElementById("studOrModForm").action="displayUserServlet";
 			document.getElementById("studOrModForm").method="POST";
 			document.getElementById("studOrModForm").submit();	
+
 		}
 		
 		function searchForUser() {
