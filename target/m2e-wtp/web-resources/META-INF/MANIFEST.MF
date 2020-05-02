@@ -1,5 +1,10 @@
 Manifest-Version: 1.0
+<<<<<<< HEAD
 Built-By: LIU ZI AN
 Build-Jdk: 1.8.0_221
+=======
+Built-By: Erin
+Build-Jdk: 1.8.0_251
+>>>>>>> a7d8decf2effedb8fe3983fd51185b5b30ad060e
 Created-By: Maven Integration for Eclipse
 

@@ -12,6 +12,7 @@
 		<link rel="stylesheet" href="${pageContext.request.contextPath}/css/studentHome.css">		
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 		<script type="text/javascript" src="${pageContext.request.contextPath}/js/studentHome.js"></script>
+
 	</head>
 	
 	<body>
@@ -28,9 +29,9 @@
 				<div class="navbar-nav navbar-collapse collapse row" id="navbarColor01">
 					<div class="nav-item col-sm-2"></div>
 					<div class="nav-item col-sm-6">
-						<form class="form-inline my-2 my-lg-0 mx-auto">
-							<input class="form-control mr-sm-2 w-75" type="text" placeholder="Search" style="form-control: width: 100%;">
-						  	<button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+						<form class="form-inline my-2 my-lg-0 mx-auto" id="searchForm" action="searchResult" method="GET">
+							<input class="form-control mr-sm-2 w-75" name="search_param" type="text" placeholder="Search" style="form-control: width: 100%;">
+						  	<button type="submit" class="btn btn-secondary my-2 my-sm-0" id="searchBtn">Search</button>
 						</form>
 					</div>
 					<div class="nav-item col-sm-4 text-sm-left text-md-right text-lg-right">
@@ -170,8 +171,8 @@
 									      			<span style="padding-left: 2%;"><i class="far fa-thumbs-up"></i></span>
 									      		</th>
 									      		<th scope="col" class="col-2">
-									      			Answers
-									      			<span style="padding-left: 2%;"><i class="far fa-comment-alt"></i></span>
+									      			Date Posted
+									      			<span style="padding-left: 2%;"><i class="far fa-calendar"></i></span>
 									      		</th>								      		
 									    	</tr>
 									  	</thead>
@@ -186,7 +187,7 @@
 									      			<a href="viewStudentProfile" id="userIdProfile">User123</a>
 									      		</td>
 									      		<td class="col-2 text-center" id="qnsVoteCountCol">0</td>
-									      		<td class="col-2 text-center" id="ansCountCol">0</td>
+									      		<td class="col-2 text-center" id="datePostedCol">27/04/2020</td>
 									    	</tr>
 										</tbody>
 									</table>
@@ -247,8 +248,10 @@
 									      			<span style="padding-left: 2%;"><i class="far fa-thumbs-up"></i></span>
 									      		</th>
 									      		<th scope="col" class="col-2">
+
 									      			Date Posted <!-- Total Answer -->
-									      			<span style="padding-left: 2%;"><i class="far fa-comment-alt"></i></span>
+									      			<span style="padding-left: 2%;"><i class="far fa-calendar"></i></span>
+
 									      		</th>												      		
 									    	</tr>
 									  	</thead>
@@ -264,8 +267,10 @@
 									      		<td class="col-2 text-center" id="userIdCol">
 									      			<a href="viewStudentProfile?username=${loggedInUser}&view_username=${question.stud_username}" id="userIdProfile">${question.stud_username}</a>
 									      		</td>
+
 									      		<td class="col-2 text-center" id="qnsVoteCountCol">${question.total_votes}</td>
-									      		<td class="col-2 text-center" id="ansCountCol">${question.date_posted}</td>
+									      		<td class="col-2 text-center" id="datePostedCol">${question.date_posted}</td>
+
 									    	</tr>
 									    	</c:forEach>
 										</tbody>
@@ -545,7 +550,8 @@
 										</tbody>
 									</table>
 								</div>															
-						  	</div>						  	
+						  	</div>	
+						  						  	
 					  	</div>
 						<!-- End of Tab Panes -->						
 					</div>					

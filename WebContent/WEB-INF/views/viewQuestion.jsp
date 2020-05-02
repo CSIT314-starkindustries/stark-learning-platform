@@ -26,9 +26,9 @@
 				<div class="navbar-nav navbar-collapse collapse row" id="navbarColor01">
 					<div class="nav-item col-sm-2"></div>
 					<div class="nav-item col-sm-6">
-						<form class="form-inline my-2 my-lg-0 mx-auto">
-							<input class="form-control mr-sm-2 w-75" type="text" placeholder="Search" style="form-control: width: 100%;">
-						  	<button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+						<form class="form-inline my-2 my-lg-0 mx-auto" id="searchForm" action="searchResult" method="GET">
+							<input class="form-control mr-sm-2 w-75" name="search_param" type="text" placeholder="Search" style="form-control: width: 100%;">
+						  	<button type="submit" class="btn btn-secondary my-2 my-sm-0" id="searchBtn">Search</button>
 						</form>
 					</div>
 					<div class="nav-item col-sm-4 text-sm-left text-md-right text-lg-right">
@@ -144,12 +144,9 @@
 								</div>
 								<div class="col-md-12 d-flex justify-content-start" id="content-two-bottom">
 									<div class="d-flex justify-content-start align-items-center upvote-container">
-										<button type="button" class="btn upvote" data-toggle="tooltip" title="This question is useful and clear"><i class="far fa-thumbs-up"></i></button>
+										<button type="button" class="btn upvote" data-toggle="tooltip" title="This answer is useful and clear"><i class="far fa-thumbs-up"></i></button>
 										<span class="text-muted p-2">1</span>
-									</div>
-									<div class="d-flex justify-content-start align-items-center downvote-container">
-										<button type="button" class="btn downvote" data-toggle="tooltip" title="This question is not useful and unclear"><i class="far fa-thumbs-down"></i></button>
-										<span class="text-muted p-2">1</span>
+										<button type="button" class="btn downvote" data-toggle="tooltip" title="This answer is not useful and unclear"><i class="far fa-thumbs-down"></i></button>
 									</div>								
 									<div class="d-flex justify-content-end align-items-center ml-auto askedby-container">
 										<small class="font-weight-bold ml-auto p-2">ASKED BY</small>
@@ -213,11 +210,8 @@
 									<div class="d-flex justify-content-start align-items-center upvote-container">
 										<button type="button" class="btn upvote" data-toggle="tooltip" title="This answer is useful and clear"><i class="far fa-thumbs-up"></i></button>
 										<span class="text-muted p-2">1</span>
-									</div>
-									<div class="d-flex justify-content-start align-items-center downvote-container">
 										<button type="button" class="btn downvote" data-toggle="tooltip" title="This answer is not useful and unclear"><i class="far fa-thumbs-down"></i></button>
-										<span class="text-muted p-2">1</span>
-									</div>				
+									</div>			
 									<div class="d-flex justify-content-start align-items-center">
 										<small class="p-2 ml-4"><a href="#" data-toggle="modal" data-target="#add-comment-modal" title="Use comments to ask for more information or suggest improvement to the answer">Add comment</a></small>
 									</div>					
