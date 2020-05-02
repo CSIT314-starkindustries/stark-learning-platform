@@ -3,6 +3,7 @@ package com.starkindustries.project;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.sql.*;
+import java.util.Date;
 
 public class StarkDatabase {
 	public StarkDatabase() {
@@ -187,6 +188,151 @@ public class StarkDatabase {
 			query = String.format("UPDATE student SET stud_password = '%s' WHERE stud_username = '%s'",pass,username);
 		}
 		else query = String.format("UPDATE moderator SET mod_password = '%s' WHERE mod_username = '%s'",pass,username);
+		
+		mystmt = conn.createStatement();
+		rowsUpdated = mystmt.executeUpdate(query);
+		if (rowsUpdated == 0) return false;
+		else return true;
+	}
+	
+	public boolean postQuestion(String title, String description, String username, Connection conn) throws SQLException {
+		int rowsUpdated = 0;
+		PreparedStatement mystmt = null;
+		String query = "INSERT INTO questions (title, description, total_votes, date_posted, stud_username)"
+							+ "VALUES (?,?,?,?,?); ";
+		
+		mystmt = conn.prepareStatement(query);
+		mystmt.setString(1,title);
+		mystmt.setString(2,description);
+		mystmt.setInt(3,0);
+		mystmt.setDate(4,java.sql.Date.valueOf(java.time.LocalDate.now()));
+		mystmt.setString(5,username);
+		
+		rowsUpdated = mystmt.executeUpdate();
+		
+		if (rowsUpdated == 0) return false;
+		else return true;
+	}
+	
+	public boolean editQuestion(int q_id, String title, String description, Connection conn) throws SQLException {
+		int rowsUpdated = 0;
+		Statement mystmt;
+		String query = String.format("UPDATE questions SET description = '%s' WHERE question_id = '%d'",description,q_id);
+		
+		mystmt = conn.createStatement();
+		rowsUpdated = mystmt.executeUpdate(query);
+		if (rowsUpdated == 0) return false;
+		else return true;
+	}
+	
+	public ResultSet searchQuestion(String searchQuery, Connection conn) throws SQLException {
+		ResultSet rs;
+		Statement mystmt;
+		String query = "SELECT * FROM questions WHERE description LIKE '%" + searchQuery + "%'";
+		
+		mystmt = conn.createStatement();
+		rs = mystmt.executeQuery(query);
+		return rs;
+	}
+	
+	public boolean postAnswer(String description, String username, int q_id, Connection conn) throws SQLException {
+		int rowsUpdated = 0;
+		PreparedStatement mystmt = null;
+		String query = "INSERT INTO answers (description, total_votes, date_posted, stud_username, question_id)"
+							+ "VALUES (?,?,?,?,?); ";
+		
+		mystmt = conn.prepareStatement(query);
+		mystmt.setString(1,description);
+		mystmt.setInt(2,0);
+		mystmt.setDate(3,java.sql.Date.valueOf(java.time.LocalDate.now()));
+		mystmt.setString(4,username);
+		mystmt.setInt(5,q_id);
+		
+		rowsUpdated = mystmt.executeUpdate();
+		
+		if (rowsUpdated == 0) return false;
+		else return true;
+	}
+	
+	public boolean editAnswer(int a_id, String description, Connection conn) throws SQLException {
+		int rowsUpdated = 0;
+		Statement mystmt;
+		String query = String.format("UPDATE answers SET description = '%s' WHERE answer_id = '%d'",description,a_id);
+		
+		mystmt = conn.createStatement();
+		rowsUpdated = mystmt.executeUpdate(query);
+		if (rowsUpdated == 0) return false;
+		else return true;
+	}
+	
+	public ResultSet searchAnswer(String searchQuery, Connection conn) throws SQLException {
+		ResultSet rs;
+		Statement mystmt;
+		String query = "SELECT * FROM answers WHERE description LIKE '%" + searchQuery + "%'";
+		
+		mystmt = conn.createStatement();
+		rs = mystmt.executeQuery(query);
+		return rs;
+	}
+	
+	public boolean postComment(String description, String username, int a_id, int q_id, Connection conn) throws SQLException {
+		int rowsUpdated = 0;
+		PreparedStatement mystmt = null;
+		String query = "INSERT INTO comments (description, date_posted, stud_username, answer_id, question_id)"
+							+ "VALUES (?,?,?,?,?); ";
+		
+		mystmt = conn.prepareStatement(query);
+		mystmt.setString(1,description);
+		mystmt.setDate(2,java.sql.Date.valueOf(java.time.LocalDate.now()));
+		mystmt.setString(3,username);
+		
+		if (a_id != 0) mystmt.setInt(4,a_id);
+		else mystmt.setNull(4, Types.INTEGER);
+		
+		mystmt.setInt(5,q_id);
+		
+		rowsUpdated = mystmt.executeUpdate();
+		
+		if (rowsUpdated == 0) return false;
+		else return true;
+	}
+	
+	public boolean editComment(int c_id, String description, Connection conn) throws SQLException {
+		int rowsUpdated = 0;
+		Statement mystmt;
+		String query = String.format("UPDATE comments SET description = '%s' WHERE comment_id = '%d'",description,c_id);
+		
+		mystmt = conn.createStatement();
+		rowsUpdated = mystmt.executeUpdate(query);
+		if (rowsUpdated == 0) return false;
+		else return true;
+	}
+	
+	public boolean voteQuestion(Question q, String type, Connection conn) throws SQLException {
+		int rowsUpdated = 0;
+		Statement mystmt;
+		
+		int val = q.getTotal_votes();
+		if (type.equalsIgnoreCase("up")) val++;
+		else val--;
+		
+		String query = String.format("UPDATE questions SET total_votes = '%d' WHERE question_id = '%d'",val,q.getQuestion_id());
+		
+		mystmt = conn.createStatement();
+		rowsUpdated = mystmt.executeUpdate(query);
+		if (rowsUpdated == 0) return false;
+		else return true;
+	}
+	
+	public boolean voteAnswer(Answer a, String type, Connection conn) throws SQLException {
+		int rowsUpdated = 0;
+		Statement mystmt;
+		
+		int val = a.getTotal_votes();
+		if (type.equalsIgnoreCase("up")) val++;
+		else val--;
+		
+		String query = String.format("UPDATE answers SET total_votes = '%d' WHERE answer_id = '%d'",val,a.getAnswer_id());
 		
 		mystmt = conn.createStatement();
 		rowsUpdated = mystmt.executeUpdate(query);
