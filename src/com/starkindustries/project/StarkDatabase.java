@@ -79,17 +79,33 @@ public class StarkDatabase {
 		
 	}
 	
+	public ResultSet getSevenDayQuestions(Connection conn) {
+		Statement mystmt;
+		ResultSet rs = null;
+		String query = String.format("SELECT * FROM questions WHERE date_posted BETWEEN '%tF' AND '%tF'",java.sql.Date.valueOf(java.time.LocalDate.now().minusDays(7)),java.sql.Date.valueOf(java.time.LocalDate.now()));
+		
+		try {
+			mystmt = conn.createStatement();
+			rs = mystmt.executeQuery(query);
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return rs;
+	}
+	
 	// search for one question/ comment/ answer
-	public ResultSet getResultByPostId(String quesOrComOrAns, String postId, Connection conn) {
+	public ResultSet getResultByPostId(String quesOrComOrAns,int postId, Connection conn) {
 		Statement mystmt;
 		ResultSet rs = null;
 		String query = "";
 		if(quesOrComOrAns.equalsIgnoreCase("question") ||quesOrComOrAns.equalsIgnoreCase("questions")) {
-			query = String.format("SELECT * FROM questions WHERE question_id = '%s'", postId);
+			query = String.format("SELECT * FROM questions WHERE question_id = '%d'", postId);
 		}else if(quesOrComOrAns.equalsIgnoreCase("answer") ||quesOrComOrAns.equalsIgnoreCase("answers")) {
-			query = String.format("SELECT * FROM answers WHERE answer_id = '%s'", postId);
+			query = String.format("SELECT * FROM answers WHERE answer_id = '%d'", postId);
 		}else 
-			query = String.format("SELECT * FROM comments WHERE comment_id = '%s'", postId);
+			query = String.format("SELECT * FROM comments WHERE comment_id = '%d'", postId);
 		try {
 			mystmt = conn.createStatement();
 			rs = mystmt.executeQuery(query);
@@ -100,6 +116,35 @@ public class StarkDatabase {
 		return rs;
 	}
 	
+	// search for all answers that are children to question
+	public ResultSet getAnswersToQuestionId(int q_id, Connection conn) {
+		Statement mystmt;
+		ResultSet rs = null;
+		String query = String.format("SELECT * FROM answers WHERE question_id = '%d'", q_id);
+		try {
+			mystmt = conn.createStatement();
+			rs = mystmt.executeQuery(query);
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return rs;
+	}
+	
+	// search for all comments that are children to question
+	public ResultSet getCommentsToQuestionId(int q_id, Connection conn) {
+		Statement mystmt;
+		ResultSet rs = null;
+		String query = String.format("SELECT * FROM comments WHERE question_id = '%d'", q_id);
+		try {
+			mystmt = conn.createStatement();
+			rs = mystmt.executeQuery(query);
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return rs;
+	}
 	
 	public boolean createNewUser(String studOrMod, String username, String password, Connection conn) throws SQLException {
 		ResultSet rs = getResultByUserId(studOrMod,username,conn);
@@ -217,7 +262,7 @@ public class StarkDatabase {
 	public boolean editQuestion(int q_id, String title, String description, Connection conn) throws SQLException {
 		int rowsUpdated = 0;
 		Statement mystmt;
-		String query = String.format("UPDATE questions SET description = '%s' WHERE question_id = '%d'",description,q_id);
+		String query = String.format("UPDATE questions SET title = '%s', description = '%s' WHERE question_id = '%d'",title,description,q_id);
 		
 		mystmt = conn.createStatement();
 		rowsUpdated = mystmt.executeUpdate(query);
