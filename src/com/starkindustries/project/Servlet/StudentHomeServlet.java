@@ -37,6 +37,10 @@ public class StudentHomeServlet extends HttpServlet {
     	try {
 			Connection conn = db.getConn();
 			
+			//get questions in last 7 days
+			List<Question> sevenDayQnList = Question.getAllQuestionList(db.getSevenDayQuestions(conn));
+			request.setAttribute("sevenDayQuestionList", sevenDayQnList);
+			
 			// get all question
 			List<Question> allQnList = Question.getAllQuestionList(db.getAllRecords("questions", conn));
 			request.setAttribute("allQuestionList", allQnList);
@@ -52,7 +56,7 @@ public class StudentHomeServlet extends HttpServlet {
 			//get user comment
 			List<Comment> commentList = Comment.getAllCommentList(db.getResultByUserId("comments", username, conn));
 			request.setAttribute("myCommentList", commentList);
-			request.setAttribute("loggedInUser",username );
+			request.setAttribute("loggedInUser", username);
 			
 		} catch (URISyntaxException | SQLException e) {
 			
@@ -64,7 +68,7 @@ public class StudentHomeServlet extends HttpServlet {
     
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     	String username = request.getParameter("loggedInUser");
-    	request.setAttribute("loggedInUser",username );
+    	request.setAttribute("loggedInUser",username);
 		request.getRequestDispatcher("/WEB-INF/views/studentHome.jsp").forward(request, response);
 	}
 

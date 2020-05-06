@@ -1,38 +1,3 @@
-<<<<<<< HEAD
-C:\Users\LIU ZI AN\Desktop\Java WorkSpace\StarkLearningApp\src\com\starkindustries\project\Servlet\DisplayUserInfoServlet.java
-C:\Users\LIU ZI AN\Desktop\Java WorkSpace\StarkLearningApp\src\com\starkindustries\project\Servlet\LoginServlet.java
-C:\Users\LIU ZI AN\Desktop\Java WorkSpace\StarkLearningApp\src\com\starkindustries\project\Servlet\ModeratorProfileServlet.java
-C:\Users\LIU ZI AN\Desktop\Java WorkSpace\StarkLearningApp\src\com\starkindustries\project\Servlet\SearchServlet.java
-C:\Users\LIU ZI AN\Desktop\Java WorkSpace\StarkLearningApp\src\com\starkindustries\project\StarkDatabase.java
-C:\Users\LIU ZI AN\Desktop\Java WorkSpace\StarkLearningApp\src\com\starkindustries\project\Servlet\ParticipationRatingsServlet.java
-C:\Users\LIU ZI AN\Desktop\Java WorkSpace\StarkLearningApp\src\com\starkindustries\project\Servlet\HomeServlet.java
-C:\Users\LIU ZI AN\Desktop\Java WorkSpace\StarkLearningApp\src\com\starkindustries\project\Servlet\ModeratorForumServlet.java
-C:\Users\LIU ZI AN\Desktop\Java WorkSpace\StarkLearningApp\src\com\starkindustries\project\Servlet\SuspendServlet.java
-C:\Users\LIU ZI AN\Desktop\Java WorkSpace\StarkLearningApp\src\com\starkindustries\project\Servlet\WeeklyReportServlet.java
-C:\Users\LIU ZI AN\Desktop\Java WorkSpace\StarkLearningApp\src\com\starkindustries\project\Servlet\MonthlyReportServlet.java
-C:\Users\LIU ZI AN\Desktop\Java WorkSpace\StarkLearningApp\src\com\starkindustries\project\Servlet\TestSideNavServlet.java
-C:\Users\LIU ZI AN\Desktop\Java WorkSpace\StarkLearningApp\src\com\starkindustries\project\Student.java
-C:\Users\LIU ZI AN\Desktop\Java WorkSpace\StarkLearningApp\src\com\starkindustries\project\User.java
-C:\Users\LIU ZI AN\Desktop\Java WorkSpace\StarkLearningApp\src\com\starkindustries\project\Question.java
-C:\Users\LIU ZI AN\Desktop\Java WorkSpace\StarkLearningApp\src\com\starkindustries\project\Password.java
-C:\Users\LIU ZI AN\Desktop\Java WorkSpace\StarkLearningApp\src\com\starkindustries\project\Servlet\FooterServlet.java
-C:\Users\LIU ZI AN\Desktop\Java WorkSpace\StarkLearningApp\src\com\starkindustries\project\Servlet\StudentCreateAccServlet.java
-C:\Users\LIU ZI AN\Desktop\Java WorkSpace\StarkLearningApp\src\com\starkindustries\project\Validation.java
-C:\Users\LIU ZI AN\Desktop\Java WorkSpace\StarkLearningApp\src\com\starkindustries\project\SearchResultServlet.java
-C:\Users\LIU ZI AN\Desktop\Java WorkSpace\StarkLearningApp\src\com\starkindustries\project\Servlet\ViewStudentProfileServlet.java
-C:\Users\LIU ZI AN\Desktop\Java WorkSpace\StarkLearningApp\src\com\starkindustries\project\Comment.java
-C:\Users\LIU ZI AN\Desktop\Java WorkSpace\StarkLearningApp\src\com\starkindustries\project\Servlet\UserAdminServlet.java
-C:\Users\LIU ZI AN\Desktop\Java WorkSpace\StarkLearningApp\src\com\starkindustries\project\UserAdmin.java
-C:\Users\LIU ZI AN\Desktop\Java WorkSpace\StarkLearningApp\src\com\starkindustries\project\Answer.java
-C:\Users\LIU ZI AN\Desktop\Java WorkSpace\StarkLearningApp\src\com\starkindustries\project\Moderator.java
-C:\Users\LIU ZI AN\Desktop\Java WorkSpace\StarkLearningApp\src\com\starkindustries\project\Servlet\StudentProfileServlet.java
-C:\Users\LIU ZI AN\Desktop\Java WorkSpace\StarkLearningApp\src\com\starkindustries\project\Servlet\StudentHomeServlet.java
-C:\Users\LIU ZI AN\Desktop\Java WorkSpace\StarkLearningApp\src\com\starkindustries\project\Servlet\ViewQuestionServlet.java
-C:\Users\LIU ZI AN\Desktop\Java WorkSpace\StarkLearningApp\src\com\starkindustries\project\Servlet\CreateUserServlet.java
-C:\Users\LIU ZI AN\Desktop\Java WorkSpace\StarkLearningApp\src\com\starkindustries\project\Servlet\ResetPwServlet.java
-C:\Users\LIU ZI AN\Desktop\Java WorkSpace\StarkLearningApp\src\com\starkindustries\project\Main.java
-C:\Users\LIU ZI AN\Desktop\Java WorkSpace\StarkLearningApp\src\com\starkindustries\project\Servlet\TopVotedQnsServlet.java
-=======
 C:\Users\Harrason\eclipse-workspace\stark-learning-platform\src\com\starkindustries\project\Servlet\StudentProfileServlet.java
 C:\Users\Harrason\eclipse-workspace\stark-learning-platform\src\com\starkindustries\project\Servlet\ViewStudentProfileServlet.java
 C:\Users\Harrason\eclipse-workspace\stark-learning-platform\src\com\starkindustries\project\Question.java
@@ -58,6 +23,7 @@ C:\Users\Harrason\eclipse-workspace\stark-learning-platform\src\com\starkindustr
 C:\Users\Harrason\eclipse-workspace\stark-learning-platform\src\com\starkindustries\project\Servlet\CreateUserServlet.java
 C:\Users\Harrason\eclipse-workspace\stark-learning-platform\src\com\starkindustries\project\Servlet\HomeServlet.java
 C:\Users\Harrason\eclipse-workspace\stark-learning-platform\src\com\starkindustries\project\Password.java
+C:\Users\Harrason\eclipse-workspace\stark-learning-platform\src\com\starkindustries\project\Servlet\SearchResultServlet.java
 C:\Users\Harrason\eclipse-workspace\stark-learning-platform\src\com\starkindustries\project\Servlet\SearchServlet.java
 C:\Users\Harrason\eclipse-workspace\stark-learning-platform\src\com\starkindustries\project\Servlet\StudentHomeServlet.java
 C:\Users\Harrason\eclipse-workspace\stark-learning-platform\src\com\starkindustries\project\Moderator.java
@@ -65,4 +31,3 @@ C:\Users\Harrason\eclipse-workspace\stark-learning-platform\src\com\starkindustr
 C:\Users\Harrason\eclipse-workspace\stark-learning-platform\src\com\starkindustries\project\Servlet\ResetPwServlet.java
 C:\Users\Harrason\eclipse-workspace\stark-learning-platform\src\com\starkindustries\project\Servlet\WeeklyReportServlet.java
 C:\Users\Harrason\eclipse-workspace\stark-learning-platform\src\com\starkindustries\project\Comment.java
->>>>>>> 173a6c2ba06c58e1b536d574aa76fc89bb074e55

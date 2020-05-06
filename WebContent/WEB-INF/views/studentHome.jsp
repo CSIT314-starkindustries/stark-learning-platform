@@ -177,18 +177,22 @@
 									    	</tr>
 									  	</thead>
 									  	<tbody>
-									    	<tr class="d-flex" id="mostRecentQnsTableRow">
+									    	<c:forEach items="${sevenDayQuestionList}" var="question" varStatus="loop">
+									    	<tr class="d-flex" id="allQnsTableRow">
 									      		<td class="col-6 text-left" id="qnsIdCol">
-									      			<a href="viewQuestion" style="color: #065590;" id="qnsId">
-									      				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+									      			<a href="viewQuestion?question_id=${question.question_id}&username=${loggedInUser}" style="color: #065590;" id="qnsId">
+									      				${question.title}
 									      			</a>
-									      		</td>
+									      		</td>								      		
 									      		<td class="col-2 text-center" id="userIdCol">
-									      			<a href="viewStudentProfile" id="userIdProfile">User123</a>
+									      			<a href="viewStudentProfile?username=${loggedInUser}&view_username=${question.stud_username}" id="userIdProfile">${question.stud_username}</a>
 									      		</td>
-									      		<td class="col-2 text-center" id="qnsVoteCountCol">0</td>
-									      		<td class="col-2 text-center" id="datePostedCol">27/04/2020</td>
+
+									      		<td class="col-2 text-center" id="qnsVoteCountCol">${question.total_votes}</td>
+									      		<td class="col-2 text-center" id="datePostedCol">${question.date_posted}</td>
+
 									    	</tr>
+									    	</c:forEach>
 										</tbody>
 									</table>
 								</div>			
@@ -260,7 +264,7 @@
 									  		<c:forEach items="${allQuestionList}" var="question" varStatus="loop">
 									    	<tr class="d-flex" id="allQnsTableRow">
 									      		<td class="col-6 text-left" id="qnsIdCol">
-									      			<a href="viewQuestion?question_id=${question.question_id}" style="color: #065590;" id="qnsId">
+									      			<a href="viewQuestion?question_id=${question.question_id}&username=${loggedInUser}" style="color: #065590;" id="qnsId">
 									      				${question.title}
 									      			</a>
 									      		</td>								      		
@@ -347,7 +351,7 @@
 										  		<!-- For each loop here. pass in question list here -->
 										    	<tr class="d-flex" id="myQnsTableRow">
 										      		<td class="col-6 text-left" id="qnsIdCol">
-														<a href="viewQuestion?question_id=${question.question_id}" style="color: #065590;" id="qnsId">
+														<a href="viewQuestion?question_id=${question.question_id}&username=${loggedInUser}" style="color: #065590;" id="qnsId">
 										      				${question.title}
 										      			</a>									      		
 										      		</td>
