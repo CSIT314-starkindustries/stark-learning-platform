@@ -30,7 +30,9 @@ public class ResetPwServlet extends HttpServlet {
 		
 		StarkDatabase db = new StarkDatabase();
 		try {
-			db.resetPassword(userType.toLowerCase(), userName, db.getConn());
+			Connection conn = db.getConn();
+			db.resetPassword(userType.toLowerCase(), userName, conn);
+			conn.close();
 		} catch (SQLException | URISyntaxException e) {
 			e.printStackTrace();
 		}

@@ -42,7 +42,9 @@ public class CreateUserServlet extends HttpServlet {
 		
 		StarkDatabase db = new StarkDatabase();
 		try {
-			request.setAttribute("created",db.createNewUser(userType.toLowerCase(), username, password, db.getConn()));
+			Connection conn = db.getConn();
+			request.setAttribute("created",db.createNewUser(userType.toLowerCase(), username, password, conn));
+			conn.close();
 		} catch (SQLException | URISyntaxException e) {
 			e.printStackTrace();
 		}

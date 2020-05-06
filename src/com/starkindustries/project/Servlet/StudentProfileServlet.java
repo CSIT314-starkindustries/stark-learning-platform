@@ -32,8 +32,11 @@ public class StudentProfileServlet extends HttpServlet {
     	StarkDatabase db = new StarkDatabase();
     	Student s;
 		try {
-			s = Student.getStudent(db.getResultByUserId("student", username, db.getConn()));
+			Connection conn = db.getConn();
+			s = Student.getStudent(db.getResultByUserId("student", username,  conn));
 			request.setAttribute("user_part_rating",s.getParticipation_rating());
+			
+			conn.close();
 		} catch (SQLException | URISyntaxException e) {
 			
 			e.printStackTrace();
@@ -50,15 +53,17 @@ public class StudentProfileServlet extends HttpServlet {
     	//get userpassword
     	StarkDatabase db = new StarkDatabase();
     	try {
-			Student s = Student.getStudent(db.getResultByUserId("student", username, db.getConn()));
+    		Connection conn = db.getConn();
+			Student s = Student.getStudent(db.getResultByUserId("student", username, conn));
 			if(s.getPassword().equals(currentPw)) {
-				request.setAttribute("pwChangedSuccess",db.changePassword("student", username, newPw, db.getConn()));
+				request.setAttribute("pwChangedSuccess",db.changePassword("student", username, newPw, conn));
 				request.setAttribute("loggedInUser", username);
 				request.setAttribute("user_part_rating",s.getParticipation_rating());
 			}else {
 				request.setAttribute("isPwChanged",false);
 				request.setAttribute("loggedInUser", username);
 			}
+			conn.close();
 		} catch (SQLException | URISyntaxException e) {
 			
 			e.printStackTrace();

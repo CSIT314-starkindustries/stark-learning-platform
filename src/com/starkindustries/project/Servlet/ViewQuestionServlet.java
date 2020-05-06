@@ -37,6 +37,7 @@ public class ViewQuestionServlet extends HttpServlet {
 			
 			Question question = Question.getQuestionById(db.getResultByPostId("question",q_id, conn));
 			request.setAttribute("question", question);
+			request.setAttribute("questionId", question.getQuestion_id());
 			
 			List<Answer> answerList = Answer.getAllAnswerList(db.getAnswersToQuestionId(q_id, conn));
 			request.setAttribute("answerList", answerList);
@@ -44,6 +45,8 @@ public class ViewQuestionServlet extends HttpServlet {
 			List<Comment> commentList = Comment.getAllCommentList(db.getCommentsToQuestionId(q_id, conn));
 			request.setAttribute("commentList", commentList);
 			
+			
+			conn.close();
 		} catch (SQLException | URISyntaxException e) {
 			
 			e.printStackTrace();
@@ -113,6 +116,7 @@ public class ViewQuestionServlet extends HttpServlet {
 				request.setAttribute("commentList", commentList);
 	    	}
 			
+	    	conn.close();
 		} catch (SQLException | URISyntaxException e) {
 			
 			e.printStackTrace();

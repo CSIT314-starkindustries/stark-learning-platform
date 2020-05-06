@@ -31,7 +31,9 @@ public class SuspendServlet extends HttpServlet {
 		
 
 		try {
+			Connection conn = db.getConn();
 			db.studentSuspendToggle(username, db.getConn());
+			conn.close();
 		} catch (SQLException | URISyntaxException e) {
 			
 			e.printStackTrace();

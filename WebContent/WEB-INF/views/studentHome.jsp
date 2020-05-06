@@ -445,7 +445,7 @@
 								      		
 									      		</td>
 									      		<td class="col-3 text-center" id="userIdCol">
-									      			<a href="viewStudentProfile" id="userIdProfile">${answer.question_id}</a>
+									      			<a href="viewQuestion?question_id=${answer.question_id}&username=${loggedInUser}" id="userIdProfile">${answer.question_id}</a>
 									      		</td>
 									      		<td class="col-3 text-center" id="viewMyAnsCol">
 									      			${answer.total_votes}
@@ -539,7 +539,7 @@
 									      			
 									      		</td>
 									      		<td class="col-3 text-center" id="userIdCol">
-									      			<a href="viewStudentProfile" id="userId">${comment.question_id}</a>
+									      			<a href="viewQuestion?question_id=${comment.question_id}&username=${loggedInUser}" id="userId">${comment.question_id}</a>
 									      		</td>
 									      		<td class="col-3 text-center" id="voteCountCol">${comment.date_posted}</td>
 									      		<!--  

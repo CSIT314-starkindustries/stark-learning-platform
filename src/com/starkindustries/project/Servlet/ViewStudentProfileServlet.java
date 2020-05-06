@@ -2,6 +2,7 @@ package com.starkindustries.project.Servlet;
 
 import java.io.IOException;
 import java.net.URISyntaxException;
+import java.sql.Connection;
 import java.sql.SQLException;
 
 import javax.servlet.ServletException;
@@ -33,8 +34,11 @@ public class ViewStudentProfileServlet extends HttpServlet {
     	StarkDatabase db = new StarkDatabase();
     	Student s;
 		try {
-			s = Student.getStudent(db.getResultByUserId("student", view_username, db.getConn()));
+			Connection conn = db.getConn();
+			s = Student.getStudent(db.getResultByUserId("student", view_username, conn));
 			request.setAttribute("user_part_rating",s.getParticipation_rating());
+			
+			conn.close();
 		} catch (SQLException | URISyntaxException e) {
 			
 			e.printStackTrace();

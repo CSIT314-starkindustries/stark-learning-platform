@@ -2,6 +2,7 @@ package com.starkindustries.project.Servlet;
 
 import java.io.IOException;
 import java.net.URISyntaxException;
+import java.sql.Connection;
 import java.sql.SQLException;
 
 import javax.servlet.ServletException;
@@ -33,7 +34,8 @@ public class StudentCreateAccServlet extends HttpServlet {
 		//check if username is taken
 		StarkDatabase db = new StarkDatabase();
 		try {
-			if(db.createNewUser("student", username, password, db.getConn())) {
+			Connection conn = db.getConn();
+			if(db.createNewUser("student", username, password, conn)) {
 				request.setAttribute("created",true);
 				request.setAttribute("username", username);
 				request.getRequestDispatcher("/studentHome").forward(request,response);

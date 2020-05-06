@@ -262,7 +262,7 @@ public class StarkDatabase {
 	public boolean editQuestion(int q_id, String title, String description, Connection conn) throws SQLException {
 		int rowsUpdated = 0;
 		Statement mystmt;
-		String query = String.format("UPDATE questions SET title = '%s', description = '%s' WHERE question_id = '%d'",title,description,q_id);
+		String query = String.format("UPDATE questions SET title = '%s', description = '%s' WHERE question_id = '%d' ",title,description,q_id);
 		
 		mystmt = conn.createStatement();
 		rowsUpdated = mystmt.executeUpdate(query);

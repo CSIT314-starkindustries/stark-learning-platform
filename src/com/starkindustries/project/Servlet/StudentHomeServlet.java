@@ -58,6 +58,7 @@ public class StudentHomeServlet extends HttpServlet {
 			request.setAttribute("myCommentList", commentList);
 			request.setAttribute("loggedInUser", username);
 			
+			conn.close();
 		} catch (URISyntaxException | SQLException e) {
 			
 			e.printStackTrace();

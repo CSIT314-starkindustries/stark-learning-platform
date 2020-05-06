@@ -71,7 +71,7 @@ public class LoginServlet extends HttpServlet {
 				request.setAttribute("invalid_acc", "Invalid account");
 				request.getRequestDispatcher("/WEB-INF/views/home.jsp").forward(request,response);
 			}
-				
+			conn.close();
 		} catch (URISyntaxException | SQLException e) {
 			
 			e.printStackTrace();

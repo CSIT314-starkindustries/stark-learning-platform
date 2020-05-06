@@ -144,13 +144,17 @@
 								</div>
 								<div class="col-md-12 d-flex justify-content-start" id="content-two-bottom">
 									<div class="d-flex justify-content-start align-items-center upvote-container">
-										<button type="button" class="btn upvote" data-toggle="tooltip" title="This answer is useful and clear"><i class="far fa-thumbs-up"></i></button>
-										<span class="text-muted p-2">${question.total_votes}</span>
-										<button type="button" class="btn downvote" data-toggle="tooltip" title="This answer is not useful and unclear"><i class="far fa-thumbs-down"></i></button>
+									
+										<!-- vote button for question -->
+										<button type="button" class="btn upvote" data-toggle="tooltip" title="This answer is useful and clear" id="qn_upvote_button_id" onclick='upvoteQn(${questionId})'"><i class="far fa-thumbs-up"></i></button>
+										<span  id="qnVoteSpan_${questionId}"  class="text-muted p-2">${question.total_votes}</span>
+										<button type="button" class="btn downvote" data-toggle="tooltip" title="This answer is not useful and unclear" id="qn_downvote_button_id" onclick='downvoteQn(${questionId})'><i class="far fa-thumbs-down"></i></button>
+										<!-- end vote button for question -->
+										
 									</div>								
 									<div class="d-flex justify-content-end align-items-center ml-auto askedby-container">
 										<small class="font-weight-bold ml-auto p-2">ASKED BY</small>
-										<small class="text-muted p-2"><a href="viewStudentProfile">${question.stud_username}</a></small>
+										<small class="text-muted p-2"><a href="viewStudentProfile?username=${loggedInUser}&view_username=${question.stud_username}">${question.stud_username}</a></small>
 									</div>
 								</div>
 								<c:forEach items="${commentList}" var="comment" varStatus="loop">
@@ -164,7 +168,7 @@
 										<div class="col-md-12">
 											<div class="row">
 												<blockquote class="col-md-6 d-flex justify-content-start">
-													<footer class="blockquote-footer"><small><a href="viewStudentProfile">${comment.stud_username}</a>, <cite>${comment.date_posted}</cite></small></footer>
+													<footer class="blockquote-footer"><small><a href="viewStudentProfile?username=${loggedInUser}&view_username=${comment.stud_username}">${comment.stud_username}</a>, <cite>${comment.date_posted}</cite></small></footer>
 												</blockquote>
 												<c:if test="${comment.stud_username == loggedInUser}">
 													<div class="col-md-6 d-flex justify-content-end edit-comment">
@@ -209,16 +213,20 @@
 								</c:if>
 								<div class="col-md-12 d-flex justify-content-start" id="content-four-bottom">
 									<div class="d-flex justify-content-start align-items-center upvote-container">
-										<button type="button" class="btn upvote" data-toggle="tooltip" title="This answer is useful and clear"><i class="far fa-thumbs-up"></i></button>
-										<span class="text-muted p-2">${answer.total_votes}</span>
-										<button type="button" class="btn downvote" data-toggle="tooltip" title="This answer is not useful and unclear"><i class="far fa-thumbs-down"></i></button>
+									
+										<!-- vote button for answers -->
+										<button type="button" class="btn upvote" data-toggle="tooltip" title="This answer is useful and clear" id="ans_upvote_button_id_${answer.answer_id}" onclick='upvoteAns(${answer.answer_id})'><i class="far fa-thumbs-up"></i></button>
+										<span id= "ansVoteSpan_${answer.answer_id}" class="text-muted p-2">${answer.total_votes}</span>
+										<button type="button" class="btn downvote" data-toggle="tooltip" title="This answer is not useful and unclear" id="ans_downvote_button_id_${answer.answer_id}" onclick='downvoteAns(${answer.answer_id})'><i class="far fa-thumbs-down"></i></button>
+										<!-- end vote button for answers -->
+										
 									</div>			
 									<div class="d-flex justify-content-start align-items-center">
 										<small class="p-2 ml-4"><a href="#" class="ansAddCom" data-idone="${answer.question_id}" data-idtwo="${answer.answer_id}" data-toggle="modal" data-target="#add-comment-modal" title="Use comments to ask for more information or suggest improvement to the answer">Add comment</a></small>
 									</div>					
 									<div class="d-flex justify-content-end align-items-center ml-auto askedby-container">
 										<small class="font-weight-bold ml-auto p-2">ANSWERED BY</small>
-										<small class="text-muted p-2"><a href="viewStudentProfile">${answer.stud_username}</a></small>
+										<small class="text-muted p-2"><a href="viewStudentProfile?username=${loggedInUser}&view_username=${answer.stud_username}">${answer.stud_username}</a></small>
 									</div>
 								</div>
 								<c:forEach items="${commentList}" var="comment" varStatus="loop2">
@@ -232,7 +240,7 @@
 										<div class="col-md-12">
 											<div class="row">
 												<blockquote class="col-md-6 d-flex justify-content-start">
-													<footer class="blockquote-footer"><small><a href="viewStudentProfile">${comment.stud_username}</a>, <cite>${comment.date_posted}</cite></small></footer>
+													<footer class="blockquote-footer"><small><a href="viewStudentProfile?username=${loggedInUser}&view_username=${comment.stud_username}">${comment.stud_username}</a>, <cite>${comment.date_posted}</cite></small></footer>
 												</blockquote>
 												<c:if test="${comment.stud_username == loggedInUser}">
 													<div class="col-md-6 d-flex justify-content-end edit-comment">
@@ -516,4 +524,89 @@
 		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>      	
 	
 	</body>
+	<script>
+		function upvoteQn(postId) {
+			var question_id = ${questionId};
+			var vote_span_id = "qnVoteSpan_" + postId;
+			var current_vote_count = document.getElementById(vote_span_id).innerHTML;
+			var addedOneToVote = parseInt(current_vote_count) + 1;
+			document.getElementById(vote_span_id).innerHTML = addedOneToVote;
+			
+			document.getElementById("qn_upvote_button_id").disabled = true;
+			
+			//update database via servlet
+			updateVoteInDb("questions",question_id, postId, 'up');
+		}
+		
+		function downvoteQn(postId) {
+			var question_id = ${questionId};
+			var vote_span_id = "qnVoteSpan_" + postId;
+			var current_vote_count = document.getElementById(vote_span_id).innerHTML;
+			var minusOneToVote = parseInt(current_vote_count) - 1;
+			
+			document.getElementById(vote_span_id).innerHTML = minusOneToVote;
+			
+			document.getElementById("qn_downvote_button_id").disabled = true;
+			
+			updateVoteInDb("questions",question_id, postId, 'down');
+			
+		}
+		
+		function upvoteAns(postId) {
+			var question_id = ${questionId};
+			var vote_span_id = "ansVoteSpan_" + postId;
+			var current_vote_count = document.getElementById(vote_span_id).innerHTML;
+			var addedOneToVote = parseInt(current_vote_count) + 1;
+			document.getElementById(vote_span_id).innerHTML = addedOneToVote;
+			
+			var ans_upvote_btn_id = "ans_upvote_button_id_" + postId;
+			
+			document.getElementById(ans_upvote_btn_id).disabled = true;
+			
+			updateVoteInDb("answers",question_id, postId, 'up');
+		}
+		
+		function downvoteAns(postId) {
+			var question_id = ${questionId};
+			var vote_span_id = "ansVoteSpan_" + postId;
+			var current_vote_count = document.getElementById(vote_span_id).innerHTML;
+			var minusOneToVote = parseInt(current_vote_count) - 1;
+			document.getElementById(vote_span_id).innerHTML = minusOneToVote;
+			
+			var ans_downvote_btn_id = "ans_downvote_button_id_" + postId;
+			document.getElementById(ans_downvote_btn_id).disabled = true;
+			
+			updateVoteInDb("answers",question_id, postId, 'down');
+			
+		}
+		
+		function updateVoteInDb(postType, question_id, post_id, vote_type) {
+			var request;
+			var param = 'postType=' + postType + '&postId=' + post_id + '&voteType=' + vote_type + '&question_id=' + question_id + '&username=' + '${loggedInUser}';
+			var url = '/updateVoteServlet?' + param;
+			
+			
+			if(window.XMLHttpRequest) {
+				request = new XMLHttpRequest();
+			}else {
+				request = new ActiveXObject("Microsoft.XMLHTTP");
+			}
+			
+			request.onreadystatechange = function() {
+				if(request.readyState == 4) {
+					if(request.status = 200) {
+						console.log(request.responseText);
+					}
+					else {
+						console.log("vote failed");
+					}
+				}
+			};
+			
+			request.open('GET', url,true);
+			request.send();
+			
+		}
+		
+	</script> 
 </html>
