@@ -44,6 +44,11 @@ public class LoginServlet extends HttpServlet {
 				
 			}else if(userType.equalsIgnoreCase("student") && validator.validateUser(1, username, password)) {
 				request.setAttribute("loggedInUser", username);
+				
+				//get questions in last 7 days
+				List<Question> sevenDayQnList = Question.getAllQuestionList(db.getSevenDayQuestions(conn));
+				request.setAttribute("sevenDayQuestionList", sevenDayQnList);
+				
 				// get all question
 				List<Question> allQnList = Question.getAllQuestionList(db.getAllRecords("questions", conn));
 				request.setAttribute("allQuestionList", allQnList);

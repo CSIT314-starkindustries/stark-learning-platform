@@ -12,6 +12,22 @@ public class Main {
 	public static void main(String[] args) throws URISyntaxException, SQLException  {
 		StarkDatabase db = new StarkDatabase();
 		
+		//db.postAnswer("this is another answer","user120",32,db.getConn());
+		db.postComment("This is first answer comment","user125",244,32,db.getConn());
+		db.postComment("This is second answer comment","user127",245,32,db.getConn());
+		
+		/*List<Question> qList = Question.getAllQuestionList(db.getSevenDayQuestions(db.getConn()));
+		for (Question q : qList) {
+			System.out.print(q.getQuestion_id() + " ");
+			System.out.print(q.getTitle() + " ");
+			System.out.print(q.getDescription() + " ");
+			System.out.print(q.getTotal_votes() + " ");
+			System.out.print(q.getDate_posted() + " ");
+			System.out.println(q.getStud_username() + " ");
+		}
+		System.out.println("----------");
+		
+		
 		//-----Question Test------
 		//db.postQuestion("default title","this is a default question","user129",db.getConn());
 		
@@ -94,6 +110,6 @@ public class Main {
 			System.out.println(rs.getInt("comment_id") + " " + rs.getString("description") + " " + rs.getDate("date_posted") + " " + 
 					   		   rs.getString("stud_username") + " " + rs.getInt("answer_id") + " " + rs.getInt("question_id"));
 		}
-		
+		*/
 	}
 }
