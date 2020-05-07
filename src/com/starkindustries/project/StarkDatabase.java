@@ -273,7 +273,7 @@ public class StarkDatabase {
 	public ResultSet searchQuestion(String searchQuery, Connection conn) throws SQLException {
 		ResultSet rs;
 		Statement mystmt;
-		String query = "SELECT * FROM questions WHERE description LIKE '%" + searchQuery + "%'";
+		String query = "SELECT * FROM questions WHERE title LIKE '%" + searchQuery + "%'";
 		
 		mystmt = conn.createStatement();
 		rs = mystmt.executeQuery(query);
@@ -361,6 +361,7 @@ public class StarkDatabase {
 		if (type.equalsIgnoreCase("up")) val++;
 		else val--;
 		
+		
 		String query = String.format("UPDATE questions SET total_votes = '%d' WHERE question_id = '%d'",val,q.getQuestion_id());
 		
 		mystmt = conn.createStatement();
@@ -376,6 +377,7 @@ public class StarkDatabase {
 		int val = a.getTotal_votes();
 		if (type.equalsIgnoreCase("up")) val++;
 		else val--;
+		
 		
 		String query = String.format("UPDATE answers SET total_votes = '%d' WHERE answer_id = '%d'",val,a.getAnswer_id());
 		
