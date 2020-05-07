@@ -68,7 +68,7 @@ public class ViewQuestionServlet extends HttpServlet {
 	    		String desc = request.getParameter("qnsBody-val");
 	    		System.out.println(title + " " + desc);
 	    		db.postQuestion(title, desc, username, conn);
-	    		q_id = Question.getQuestionById(db.searchQuestion(desc, conn)).getQuestion_id();
+	    		q_id = Question.getQuestionById(db.searchQuestion(title, conn)).getQuestion_id();
 	    	}
 	    	if (request.getParameter("postAnsBtn") != null) {
 	    		q_id = Integer.parseInt(request.getParameter("answer-qid-val"));

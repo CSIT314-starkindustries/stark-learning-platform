@@ -29,7 +29,8 @@
 				<div class="navbar-nav navbar-collapse collapse row" id="navbarColor01">
 					<div class="nav-item col-sm-2"></div>
 					<div class="nav-item col-sm-6">
-						<form class="form-inline my-2 my-lg-0 mx-auto" id="searchForm" action="searchResult" method="GET">
+						<form class="form-inline my-2 my-lg-0 mx-auto" id="searchForm" action="/searchResult" method="POST">
+							<input type="hidden" name="username" class="userId" value="${loggedInUser}" />
 							<input class="form-control mr-sm-2 w-75" name="search_param" type="text" placeholder="Search" style="form-control: width: 100%;">
 						  	<button type="submit" class="btn btn-secondary my-2 my-sm-0" id="searchBtn">Search</button>
 						</form>
@@ -574,13 +575,14 @@
 						        </button>
 					      	</div>
 					      	<div class="modal-body mx-3">
-					      		<form id="askQnsForm" class="needs-validation" novalidate>
+					      		<form id="askQnsForm" action="/viewQuestion" method="POST" class="needs-validation" novalidate>
 		 							<fieldset>
+		 								<input type="hidden" name="username" class="userId" value="${loggedInUser}" />
 		 								<div class="form-group row">
 		 									<div class="col-sm-1"></div>
 		 									<div class="col-sm-10">
 		 										<label for="qnsTitle"><b>Title</b></label>
-										      	<input type="text" class="form-control" id="qnsTitle" aria-describedby="qnsTitleHelp" placeholder="Enter title" contenteditable="true">
+										      	<input type="text" class="form-control" name="qnsTitle-val" id="qnsTitle" aria-describedby="qnsTitleHelp" placeholder="Enter title" contenteditable="true">
 										      	<small id="qnsTitleHelp" class="form-text text-muted">Be specific</small>		 										
 		 									</div>
 										    <div class="col-sm-1"></div>	
@@ -589,14 +591,14 @@
 		 									<div class="col-sm-1"></div>
 										    <div class="col-sm-10">
 										    	<label for="qnsBody"><b>Body</b></label>
-      											<textarea class="form-control" id="qnsBody" aria-describedby="qnsBodyHelp" rows="10" contenteditable="true" style="resize: none;"></textarea>
+      											<textarea class="form-control" name="qnsBody-val" id="qnsBody" aria-describedby="qnsBodyHelp" rows="10" contenteditable="true" style="resize: none;"></textarea>
 										    	<small id="qnsBodyHelp" class="form-text text-muted">Describe in detail and include all information related to your question</small>	
 										    </div>
 											<div class="col-sm-1"></div>			
 										</div>
 										
 										<div class="modal-footer" style="text-align: center;">
-								        	<button type="submit" class="btn btn-primary mr-auto" id="#postQnsBtn" style="margin: auto; display: block;">Post Question</button>			        	
+								        	<button type="submit" name="postQnBtn" class="btn btn-primary mr-auto" id="#postQnsBtn" style="margin: auto; display: block;">Post Question</button>			        	
 								    	</div>
 		 							</fieldset>
 		 						</form>

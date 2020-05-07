@@ -26,7 +26,8 @@
 				<div class="navbar-nav navbar-collapse collapse row" id="navbarColor01">
 					<div class="nav-item col-sm-2"></div>
 					<div class="nav-item col-sm-6">
-						<form class="form-inline my-2 my-lg-0 mx-auto" id="searchForm" action="searchResult" method="GET">
+						<form class="form-inline my-2 my-lg-0 mx-auto" id="searchForm" action="/searchResult" method="GET">
+							<input type="hidden" name="username" class="userId" value="${loggedInUser}" />
 							<input class="form-control mr-sm-2 w-75" name="search_param" type="text" placeholder="Search" style="form-control: width: 100%;">
 						  	<button type="submit" class="btn btn-secondary my-2 my-sm-0" id="searchBtn">Search</button>
 						</form>
