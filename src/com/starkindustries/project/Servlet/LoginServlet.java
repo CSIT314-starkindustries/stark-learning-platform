@@ -66,6 +66,9 @@ public class LoginServlet extends HttpServlet {
 				request.setAttribute("myCommentList", commentList);
 				
 				request.getRequestDispatcher("/WEB-INF/views/studentHome.jsp").forward(request,response);
+			}else if(userType.equalsIgnoreCase("moderator") && validator.validateUser(2, username, password)) {
+				request.setAttribute("loggedInUser", username);
+				request.getRequestDispatcher("/WEB-INF/views/moderatorForum.jsp").forward(request,response);
 			}
 			else {
 				request.setAttribute("invalid_acc", "Invalid account");

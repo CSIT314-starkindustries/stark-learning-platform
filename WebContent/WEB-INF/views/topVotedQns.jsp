@@ -5,12 +5,12 @@
 	<head>
 		<meta charset="ISO-8859-1">
 		<title>Top Voted Question of the Year Report</title>
-		<link rel="stylesheet" href="/StarkLearningApp/css/bootstrap.min.css">
-		<link rel="stylesheet" href="/StarkLearningApp/css/bootstrap.css">
-		<link rel="stylesheet" href="/StarkLearningApp/css/all.css"> 
-		<link rel="stylesheet" href="/StarkLearningApp/css/topVotedQns.css">		
+		<link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.min.css">
+		<link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.css">
+		<link rel="stylesheet" href="${pageContext.request.contextPath}/css/all.css"> 
+		<link rel="stylesheet" href="${pageContext.request.contextPath}/css/topVotedQns.css">		
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-		<!-- <script type="text/javascript" src="/StarkLearningApp/js/topVotedQns.js"></script> -->
+		<!-- <script type="text/javascript" src="${pageContext.request.contextPath}/js/topVotedQns.js"></script> -->
 		
 		<style>
 		@media print {

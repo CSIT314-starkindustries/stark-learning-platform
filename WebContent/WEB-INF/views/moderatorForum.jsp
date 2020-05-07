@@ -5,12 +5,12 @@
 	<head>
 		<meta charset="ISO-8859-1">
 		<title>Moderator Forum</title>
-		<link rel="stylesheet" href="/StarkLearningApp/css/bootstrap.min.css">
-		<link rel="stylesheet" href="/StarkLearningApp/css/bootstrap.css">
-		<link rel="stylesheet" href="/StarkLearningApp/css/all.css"> 
-		<link rel="stylesheet" href="/StarkLearningApp/css/modForum.css">		
+		<link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.min.css">
+		<link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.css">
+		<link rel="stylesheet" href="${pageContext.request.contextPath}/css/all.css"> 
+		<link rel="stylesheet" href="${pageContext.request.contextPath}/css/modForum.css">		
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-		<script type="text/javascript" src="/StarkLearningApp/js/moderatorForum.js"></script>
+		<script type="text/javascript" src="${pageContext.request.contextPath}/js/moderatorForum.js"></script>
 		
 		<script>
 		    window.onload = function () {
@@ -37,7 +37,7 @@
 		
 			<!-- Start of Navbar -->			
 			<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-				<a class="navbar-brand" href="moderatorForum">Stark Industries</a>
+				<a class="navbar-brand" href="moderatorForum?username=${loggedInUser}">Stark Industries</a>
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
 				  <span class="navbar-toggler-icon"></span>
 				</button>
@@ -47,12 +47,12 @@
 					<div class="nav-item col-sm-6"></div>
 					<div class="nav-item col-sm-4 text-sm-left text-md-right text-lg-right">
 						<div class="dropdown" role="group">
-							<button id="userSettingToggleBtn" type="button" class="btn btn-link dropdown-toggle" data-toggle="dropdown">Moderator</button>
+							<button id="userSettingToggleBtn" type="button" class="btn btn-link dropdown-toggle" data-toggle="dropdown">${loggedInUser}</button>
 						    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userSettingToggleBtn">
-						      	<a class="dropdown-item" href="moderatorProfile" id="moderatorProfileLink">
+						      	<a class="dropdown-item" href="moderatorProfile?username=${loggedInUser}" id="moderatorProfileLink">
 						      		<span class="mr-3"><i class="fas fa-user-cog"></i></span>View Profile
 						      	</a>
-						      	<a class="dropdown-item" href="moderatorForum" id="moderatorForumLink">
+						      	<a class="dropdown-item" href="moderatorForum?username=${loggedInUser}" id="moderatorForumLink">
 						      		<span class="mr-3"><i class="fas fa-chalkboard-teacher"></i></span>My Forum
 						      	</a>
 						      	<a class="dropdown-item" href="home" id="logoutLink">
