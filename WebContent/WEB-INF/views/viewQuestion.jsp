@@ -140,15 +140,17 @@
 										${question.description}
 									</p>
 								</div>
+								<c:if test="${question.stud_username == loggedInUser}">
 								<div class="col-md-12 d-flex justify-content-end">
 									<small class="edit-question-link"><a href="#" class="qnEdit" data-toggle="modal" data-target="#edit-qns-modal">Edit Question</a></small>
 								</div>
+								</c:if>
 								<div class="col-md-12 d-flex justify-content-start" id="content-two-bottom">
 									<div class="d-flex justify-content-start align-items-center upvote-container">
 
 									
 										<!-- vote button for question -->
-										<button type="button" class="btn upvote" data-toggle="tooltip" title="This answer is useful and clear" id="qn_upvote_button_id" onclick='upvoteQn(${questionId})'"><i class="far fa-thumbs-up"></i></button>
+										<button type="button" class="btn upvote" data-toggle="tooltip" title="This answer is useful and clear" id="qn_upvote_button_id" onclick='upvoteQn(${questionId})'><i class="far fa-thumbs-up"></i></button>
 										<span  id="qnVoteSpan_${questionId}"  class="text-muted p-2">${question.total_votes}</span>
 										<button type="button" class="btn downvote" data-toggle="tooltip" title="This answer is not useful and unclear" id="qn_downvote_button_id" onclick='downvoteQn(${questionId})'><i class="far fa-thumbs-down"></i></button>
 										<!-- end vote button for question -->
