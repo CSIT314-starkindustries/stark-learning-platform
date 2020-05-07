@@ -261,11 +261,22 @@ public class StarkDatabase {
 	
 	public boolean editQuestion(int q_id, String title, String description, Connection conn) throws SQLException {
 		int rowsUpdated = 0;
+		/*
 		Statement mystmt;
 		String query = String.format("UPDATE questions SET title = '%s', description = '%s' WHERE question_id = '%d' ",title,description,q_id);
 		
 		mystmt = conn.createStatement();
 		rowsUpdated = mystmt.executeUpdate(query);
+		*/
+		
+		PreparedStatement pstmt = null;
+		String query = "UPDATE questions SET title = ?, description = ? WHERE question_id = ? ";
+		pstmt = conn.prepareStatement(query);
+		pstmt.setString(1,title);
+		pstmt.setString(2, description);
+		pstmt.setInt(3, q_id);
+		
+		rowsUpdated = pstmt.executeUpdate();
 		if (rowsUpdated == 0) return false;
 		else return true;
 	}
@@ -344,11 +355,20 @@ public class StarkDatabase {
 	
 	public boolean editComment(int c_id, String description, Connection conn) throws SQLException {
 		int rowsUpdated = 0;
-		Statement mystmt;
-		String query = String.format("UPDATE comments SET description = '%s' WHERE comment_id = '%d'",description,c_id);
+		//Statement mystmt;
+		//String query = String.format("UPDATE comments SET description = '%s' WHERE comment_id = '%d'",description,c_id);
 		
-		mystmt = conn.createStatement();
-		rowsUpdated = mystmt.executeUpdate(query);
+		//mystmt = conn.createStatement();
+		//rowsUpdated = mystmt.executeUpdate(query);
+		
+		PreparedStatement pstmt = null;
+		String query = "UPDATE comments SET description = ? WHERE comment_id = ?";
+		pstmt = conn.prepareStatement(query);
+		pstmt.setString(1,description);
+		pstmt.setInt(2, c_id);
+		
+		
+		rowsUpdated = pstmt.executeUpdate();
 		if (rowsUpdated == 0) return false;
 		else return true;
 	}
