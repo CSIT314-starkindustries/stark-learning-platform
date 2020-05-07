@@ -27,7 +27,8 @@
 				<div class="navbar-nav navbar-collapse collapse row" id="navbarColor01">
 					<div class="nav-item col-sm-2"></div>
 					<div class="nav-item col-sm-6">
-						<form class="form-inline my-2 my-lg-0 mx-auto" id="searchForm" action="searchResult" method="GET">
+						<form class="form-inline my-2 my-lg-0 mx-auto" id="searchForm" action="/searchResult" method="POST">
+							<input type="hidden" name="username" class="userId" value="${loggedInUser}" />
 							<input class="form-control mr-sm-2 w-75" name="search_param" type="text" placeholder="Search" style="form-control: width: 100%;">
 						  	<button type="submit" class="btn btn-secondary my-2 my-sm-0" id="searchBtn">Search</button>
 						</form>
@@ -144,6 +145,7 @@
 								</div>
 								<div class="col-md-12 d-flex justify-content-start" id="content-two-bottom">
 									<div class="d-flex justify-content-start align-items-center upvote-container">
+
 									
 										<!-- vote button for question -->
 										<button type="button" class="btn upvote" data-toggle="tooltip" title="This answer is useful and clear" id="qn_upvote_button_id" onclick='upvoteQn(${questionId})'"><i class="far fa-thumbs-up"></i></button>
@@ -213,6 +215,7 @@
 								</c:if>
 								<div class="col-md-12 d-flex justify-content-start" id="content-four-bottom">
 									<div class="d-flex justify-content-start align-items-center upvote-container">
+
 									
 										<!-- vote button for answers -->
 										<button type="button" class="btn upvote" data-toggle="tooltip" title="This answer is useful and clear" id="ans_upvote_button_id_${answer.answer_id}" onclick='upvoteAns(${answer.answer_id})'><i class="far fa-thumbs-up"></i></button>
@@ -220,6 +223,7 @@
 										<button type="button" class="btn downvote" data-toggle="tooltip" title="This answer is not useful and unclear" id="ans_downvote_button_id_${answer.answer_id}" onclick='downvoteAns(${answer.answer_id})'><i class="far fa-thumbs-down"></i></button>
 										<!-- end vote button for answers -->
 										
+
 									</div>			
 									<div class="d-flex justify-content-start align-items-center">
 										<small class="p-2 ml-4"><a href="#" class="ansAddCom" data-idone="${answer.question_id}" data-idtwo="${answer.answer_id}" data-toggle="modal" data-target="#add-comment-modal" title="Use comments to ask for more information or suggest improvement to the answer">Add comment</a></small>
@@ -518,6 +522,7 @@
 			</div>	
 		</div>
 		<!-- End of Footer -->
+		<script>var contextPath = "${pageContext.request.contextPath}";</script>
 		<script type="text/javascript" src="${pageContext.request.contextPath}/js/viewQuestion.js"></script>
 		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
