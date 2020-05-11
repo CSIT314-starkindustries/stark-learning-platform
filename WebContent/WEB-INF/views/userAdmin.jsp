@@ -183,13 +183,13 @@
 		      		</div>
 					<div class="container modal-body">
 					
-			        	<form class="needs-validation" id="createNewUserForm" novalidate>
+			        	<form action="/createUserServlet" method="POST" class="needs-validation" id="createNewUserForm" novalidate>
 							<div class="">
 						    	<div class="row d-flex justify-content-center form-group form-inline">
 						    		<div class="">
 						    			<span class="fas fa-user newUserIcon" aria-hidden="true"></span>
 						      			<input type="text" class="form-control" id="newUserName" name="newUserID"  placeholder="User ID" required>
-						      			
+
 						    		</div>
 						    	</div>
 							    <div class="row d-flex justify-content-center form-group form-inline">
@@ -210,7 +210,7 @@
 							    </div>
 						  	</div>
 						  	<div class="modal-footer">
-					      		<button type="submit" class="btn btn-primary mr-auto ml-auto" id="submitNewUserBtn" onclick="createUser()" value="create">Submit</button>
+					      		<button type="submit" class="btn btn-primary mr-auto ml-auto" id="submitNewUserBtn" value="create">Submit</button>
 					      	</div>
 						</form>
 						
@@ -333,7 +333,7 @@
 		
 		//when user admin create user account with used username
 		if(${created == 'false'}){
-			  alert("username taken");
+			  alert("error when creating user");
 		}
 		
 		var suspend_buttons = document.querySelectorAll("input[type='checkbox']");
@@ -423,12 +423,13 @@
 			document.getElementById("searchForm").method="GET";
 			document.getElementById("searchForm").submit();		
 		}
-		
+		/*
 		function createUser() {
 			document.getElementById("createNewUserForm").action="/createUserServlet";
 			document.getElementById("createNewUserForm").method="POST";
 			document.getElementById("createNewUserForm").submit();
 		}
+		*/
 		
 	</script>
 </html>

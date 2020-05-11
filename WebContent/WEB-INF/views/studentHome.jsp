@@ -582,7 +582,7 @@
 		 									<div class="col-sm-1"></div>
 		 									<div class="col-sm-10">
 		 										<label for="qnsTitle"><b>Title</b></label>
-										      	<input type="text" class="form-control" name="qnsTitle-val" id="qnsTitle" aria-describedby="qnsTitleHelp" placeholder="Enter title" contenteditable="true">
+										      	<input type="text" class="form-control" name="qnsTitle-val" id="qnsTitle" aria-describedby="qnsTitleHelp" placeholder="Enter title" contenteditable="true" required>
 										      	<small id="qnsTitleHelp" class="form-text text-muted">Be specific</small>		 										
 		 									</div>
 										    <div class="col-sm-1"></div>	
@@ -591,7 +591,7 @@
 		 									<div class="col-sm-1"></div>
 										    <div class="col-sm-10">
 										    	<label for="qnsBody"><b>Body</b></label>
-      											<textarea class="form-control" name="qnsBody-val" id="qnsBody" aria-describedby="qnsBodyHelp" rows="10" contenteditable="true" style="resize: none;"></textarea>
+      											<textarea class="form-control" name="qnsBody-val" id="qnsBody" aria-describedby="qnsBodyHelp" rows="10" contenteditable="true" style="resize: none;" required></textarea>
 										    	<small id="qnsBodyHelp" class="form-text text-muted">Describe in detail and include all information related to your question</small>	
 										    </div>
 											<div class="col-sm-1"></div>			

@@ -64,7 +64,8 @@ public class StudentCreateAccServlet extends HttpServlet {
 				request.setAttribute("myCommentList", commentList);
 				
 				request.getRequestDispatcher("/WEB-INF/views/studentHome.jsp").forward(request,response);
-			}else {
+			}
+			else {
 				request.setAttribute("created",false);
 				request.getRequestDispatcher("/home").forward(request,response);
 			}
