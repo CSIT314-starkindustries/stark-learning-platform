@@ -3,7 +3,7 @@ package com.starkindustries.project;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class UserAdmin {
+public class UserAdmin implements User {
 	private String username;
 	private String password;
 	

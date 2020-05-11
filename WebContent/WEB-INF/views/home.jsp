@@ -1,16 +1,20 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" 
 	pageEncoding="ISO-8859-1"%>
+	
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html>
 	<head>
 		<meta charset="ISO-8859-1">
-		<title>Welcome to Stark Industries</title>
-		<link rel="stylesheet" href="/StarkLearningApp/css/bootstrap.min.css">
-		<link rel="stylesheet" href="/StarkLearningApp/css/bootstrap.css">
-		<link rel="stylesheet" href="/StarkLearningApp/css/all.css"> 
-		<link rel="stylesheet" href="/StarkLearningApp/css/home.css">		
+
+		<title>Welcome to Stark Industry</title>
+		<link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.min.css">
+		<link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.css">
+		<link rel="stylesheet" href="${pageContext.request.contextPath}/css/all.css"> 
+		<link rel="stylesheet" href="${pageContext.request.contextPath}/css/home.css">		
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-		<script type="text/javascript" src="/StarkLearningApp/js/home.js"></script>
+		<script type="text/javascript" src="${pageContext.request.contextPath}/js/home.js"></script>
 	</head>
 	
 	<body>		
@@ -104,7 +108,7 @@
 						<div class="card text-white bg-primary mb-3" style="max-width: 20rem;">
 							<div class="card-header">Captain Steve Rogers</div>
 							<div class="img-card">
-								<img src="/StarkLearningApp/img/captain_america.jpg" class="card-img-top" alt="..." height="200px">
+								<img src="${pageContext.request.contextPath}/img/captain_america.jpg" class="card-img-top" alt="..." height="200px">
 						  	</div>
 						  	<div class="card-body">
 						    	<h4 class="card-title">Captain America</h4>
@@ -116,7 +120,7 @@
 						<div class="card text-white bg-primary mb-3" style="max-width: 20rem;">
 							<div class="card-header">Peter Parker</div>
 							<div class="img-card">
-								<img src="/StarkLearningApp/img/spiderman.jpg" class="card-img-top" alt="..." height="200px">
+								<img src="${pageContext.request.contextPath}/img/spiderman.jpg" class="card-img-top" alt="..." height="200px">
 						  	</div>
 						  	<div class="card-body">
 						    	<h4 class="card-title">Spider-Man</h4>
@@ -128,7 +132,7 @@
 						<div class="card text-white bg-primary mb-3" style="max-width: 20rem;">
 							<div class="card-header">Thor Odinson</div>
 							<div class="img-card">
-								<img src="/StarkLearningApp/img/thor.jpg" class="card-img-top" alt="..." height="200px">
+								<img src="${pageContext.request.contextPath}/img/thor.jpg" class="card-img-top" alt="..." height="200px">
 						  	</div>
 						  	<div class="card-body">
 						    	<h4 class="card-title">Thor</h4>
@@ -145,7 +149,7 @@
 						<div class="card text-white bg-primary mb-3" style="max-width: 20rem;">
 							<div class="card-header">Stephen Vincent Strange</div>
 							<div class="img-card">
-								<img src="/StarkLearningApp/img/doctor_strange.jpg" class="card-img-top" alt="..." height="200px">
+								<img src="${pageContext.request.contextPath}/img/doctor_strange.jpg" class="card-img-top" alt="..." height="200px">
 						  	</div>
 						  	<div class="card-body">
 						    	<h4 class="card-title">Doctor Strange</h4>
@@ -157,7 +161,7 @@
 						<div class="card text-white bg-primary mb-3" style="max-width: 20rem;">
 							<div class="card-header">89P13</div>
 							<div class="img-card">
-								<img src="/StarkLearningApp/img/rocket_raccoon.jpg" class="card-img-top" alt="..." height="200px">
+								<img src="${pageContext.request.contextPath}/img/rocket_raccoon.jpg" class="card-img-top" alt="..." height="200px">
 						  	</div>
 						  	<div class="card-body">
 						    	<h4 class="card-title">Rocket Raccoon</h4>
@@ -169,7 +173,7 @@
 						<div class="card text-white bg-primary mb-3" style="max-width: 20rem;">
 							<div class="card-header">Groot</div>
 							<div class="img-card">
-								<img src="/StarkLearningApp/img/groot.jpg" class="card-img-top" alt="..." height="200px">
+								<img src="${pageContext.request.contextPath}/img/groot.jpg" class="card-img-top" alt="..." height="200px">
 						  	</div>
 						  	<div class="card-body">
 						    	<h4 class="card-title">Baby Groot</h4>
@@ -186,7 +190,7 @@
 						<div class="card text-white bg-primary mb-3" style="max-width: 20rem;">
 							<div class="card-header">Tony Stark</div>
 							<div class="img-card">
-								<img src="/StarkLearningApp/img/tony_stark.jpg" class="card-img-top" alt="..." height="200px">
+								<img src="${pageContext.request.contextPath}/img/tony_stark.jpg" class="card-img-top" alt="..." height="200px">
 						  	</div>
 						  	<div class="card-body">
 						    	<h4 class="card-title">Iron Man</h4>
@@ -210,13 +214,13 @@
 				        </button>
 			      	</div>
 			      	<div class="modal-body mx-3">
-			      		<form id="regForm" class="needs-validation" novalidate>
+			      		<form action="/studentCreateAccServlet" method="POST" id="regForm" class="needs-validation" novalidate>
  							<fieldset>
  								<div class="form-group row">
  									<div class="col-sm-1"></div>
 								    <label for="regUserId" class="col-sm-2 col-form-label text-right"><i class="fas fa-user"></i></label>
 								    <div class="col-sm-7">
-								    	<input type="text" class="form-control" id="regUserId" placeholder="User ID" required>
+								    	<input type="text" class="form-control" id="regUserId" placeholder="User ID" name="username" required>
 										<div class="invalid-feedback">Please enter your assigned User ID</div>
 									</div>
 									<div class="col-sm-2"></div>			
@@ -296,13 +300,16 @@
 								<h5 style="padding-top: 5%; padding-bottom: 5%;">Log in as Student</h5>
 							</div>				    	
 							<div class="model-body mx-3">
-								<form class="needs-validation" novalidate>
+								<form action="/loginServlet" method="POST" class="needs-validation" novalidate>
 		 							<fieldset>
 		 								<div class="form-group row">
 		 									<div class="col-sm-2"></div>
 										    <label for="studUserId" class="col-sm-2 col-form-label text-right"><i class="fas fa-user"></i></label>
 										    <div class="col-sm-5">
-										    	<input type="text" class="form-control" id="studUserId" placeholder="User ID" required>
+										    
+										    	<input type="text" class="form-control" id="studUserId" placeholder="User ID" name="username" required>
+										    	<input type="hidden" name="usertype" value="student">
+										    	
 										    	<div class="invalid-feedback">Please fill out this field.</div>
 											</div>
 											<div class="col-sm-3"></div>			
@@ -311,7 +318,9 @@
 		 									<div class="col-sm-2"></div>
 										    <label for="studPassword" class="col-sm-2 col-form-label text-right"><i class="fas fa-lock"></i></label>
 										    <div class="col-sm-5">
-										    	<input type="password" class="form-control" id="studPassword" placeholder="Password" required>
+										    
+										    	<input type="password" class="form-control" id="studPassword" placeholder="Password" name="password" required>
+										    	
 										    	<div class="invalid-feedback">Please fill out this field.</div>
 											</div>
 											<div class="col-sm-3"></div>			
@@ -441,13 +450,17 @@
 								<h5 style="padding-top: 5%; padding-bottom: 5%;">Log in as User Administrator</h5>
 							</div>				    	
 							<div class="model-body mx-3">
-								<form class="needs-validation" novalidate>
+							
+								<form action="/loginServlet" method="POST" class="needs-validation" novalidate>
 		 							<fieldset>
 		 								<div class="form-group row">
 		 									<div class="col-sm-2"></div>
 										    <label for="userAdminUserId" class="col-sm-2 col-form-label text-right"><i class="fas fa-user"></i></label>
 										    <div class="col-sm-5">
-										    	<input type="text" class="form-control" id="userAdminUserId" placeholder="User ID" required>
+										    	<input type="text" class="form-control" id="userAdminUserId" placeholder="User ID" name="username" value ="" required>
+										    	
+										    	<input type="hidden" name="usertype" value="user_admin">
+										    	
 										    	<div class="invalid-feedback">Please fill out this field.</div>
 											</div>
 											<div class="col-sm-3"></div>			
@@ -456,7 +469,7 @@
 		 									<div class="col-sm-2"></div>
 										    <label for="userAdminPassword" class="col-sm-2 col-form-label text-right"><i class="fas fa-lock"></i></label>
 										    <div class="col-sm-5">
-										    	<input type="password" class="form-control" id="userAdminPassword" placeholder="Password" required>
+										    	<input type="password" class="form-control" id="userAdminPassword" placeholder="Password" name="password" value="" required>
 												<div class="invalid-feedback">Please fill out this field.</div>
 											</div>
 											<div class="col-sm-3"></div>			
@@ -464,8 +477,20 @@
 										<div class="form-group row text-center">
 											<button type="submit" class="btn btn-primary mr-auto" id="#loginBtn" style="margin: auto; display: block;">Log In</button>			        			
 										</div>
+										
+										<!-- style red and centralize -->
+										<c:if test="${not empty invalid_acc}">
+											<script>
+												window.addEventListener("load",function() {
+													alert("${invalid_acc}");
+												})
+											</script>
+										</c:if>
+										
+										
 									</fieldset>
 								</form>
+								
 							</div>
 							<div class="model-footer" style="padding-bottom: 4%;"></div>
 					  	</div>					  	
@@ -499,4 +524,11 @@
 		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>      	
 	
 	</body>
+	<script>
+	
+		if(${created == 'false'}){
+			  alert("username taken");
+		}
+	
+	</script>
 </html>
