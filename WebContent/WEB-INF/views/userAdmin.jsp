@@ -16,6 +16,7 @@
 	</head>
 	
 	<body>
+		<div class="pageCon">
 		<!-- Navbar -->
 		<nav class="navbar navbar-expand-lg navbar-dark bg-primary" id="topPage">
 			<a class="navbar-brand" href="home">Stark Industries</a>
@@ -300,6 +301,7 @@
 			<!-- End of OnSubmit Suspend User Message Box -->
 			
 			<!-- End of Content -->
+		</div>
 		</div>
 		<!-- End of Page Container -->
 
