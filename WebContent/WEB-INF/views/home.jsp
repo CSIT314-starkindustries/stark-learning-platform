@@ -358,7 +358,7 @@
 									<div class="row">
 										<div class="col-sm-3"></div>
 										<div class="col-sm-6">
-											<form class="needs-validation" novalidate>
+											<form action="/home" class="needs-validation" onSubmit="submitResetPwRequest()" novalidate>
 												<fieldset>
 													<div class="form-group">
 									                	<input type="text" class="form-control" id="forgot_password_userId" placeholder="User ID" required>
@@ -434,7 +434,7 @@
 									<div class="row">
 										<div class="col-sm-3"></div>
 										<div class="col-sm-6">
-											<form class="needs-validation" novalidate>
+											<form action="/home" class="needs-validation" onSubmit="submitResetPwRequest()" novalidate>
 												<fieldset>
 													<div class="form-group">
 									                	<input type="password" class="form-control" id="forgot_password_userId" placeholder="User ID" required>
@@ -535,6 +535,9 @@
 		if(${created == 'false'}){
 			  alert("username taken");
 		}
-	
+		
+		function submitResetPwRequest() {
+			alert("Request has been sent to user admin");
+		}
 	</script>
 </html>
