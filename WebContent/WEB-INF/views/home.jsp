@@ -380,13 +380,17 @@
 								<h5 style="padding-top: 5%; padding-bottom: 5%;">Log in as Moderator</h5>
 							</div>				    	
 							<div class="model-body mx-3">
-								<form class="needs-validation" novalidate>
+							
+							
+								<form form action="/loginServlet" method="POST" class="needs-validation" novalidate>
 		 							<fieldset>
 		 								<div class="form-group row">
 		 									<div class="col-sm-2"></div>
 										    <label for=""modUserId"" class="col-sm-2 col-form-label text-right"><i class="fas fa-user"></i></label>
 										    <div class="col-sm-5">
-										    	<input type="text" class="form-control" id="modUserId" placeholder="User ID" required>
+										    	<input type="text" class="form-control" id="modUserId" placeholder="User ID" name="username" value ="" required>
+										    	<input type="hidden" name="usertype" value="moderator">
+										    	
 										    	<div class="invalid-feedback">Please fill out this field.</div>
 											</div>
 											<div class="col-sm-3"></div>			
@@ -395,7 +399,7 @@
 		 									<div class="col-sm-2"></div>
 										    <label for="modPassword" class="col-sm-2 col-form-label text-right"><i class="fas fa-lock"></i></label>
 										    <div class="col-sm-5">
-										    	<input type="password" class="form-control" id="modPassword" placeholder="Password" required>
+										    	<input type="password" class="form-control" id="modPassword" placeholder="Password" name="password" value="" required>
 										    	<div class="invalid-feedback">Please fill out this field.</div>
 											</div>
 											<div class="col-sm-3"></div>			
@@ -405,6 +409,8 @@
 										</div>
 									</fieldset>
 								</form>
+								
+								
 							</div>
 							<div class="model-footer">
 								<div class="row text-center">

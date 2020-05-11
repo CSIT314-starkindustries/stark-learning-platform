@@ -17,8 +17,13 @@ public class ModeratorForumServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    	String username = request.getParameter("username");
+    	request.setAttribute("loggedInUser", username);
 		request.getRequestDispatcher("/WEB-INF/views/moderatorForum.jsp").forward(request, response);
 	}
-
+    
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    	doGet(request,response);
+    }
 
 }

@@ -42,7 +42,7 @@ body {
 	border-top: none; 
 }
 
-#searchBtn, #infoBtn, #resetPwBtn {
+#searchBtn, #infoBtn, .resetButtons {
 	border: none;
 	background-color: transparent;
 }

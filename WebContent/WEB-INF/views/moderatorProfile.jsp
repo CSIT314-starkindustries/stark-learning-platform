@@ -5,12 +5,12 @@
 	<head>
 		<meta charset="ISO-8859-1">
 		<title>Moderator Profile</title>
-		<link rel="stylesheet" href="/StarkLearningApp/css/bootstrap.min.css">
-		<link rel="stylesheet" href="/StarkLearningApp/css/bootstrap.css">
-		<link rel="stylesheet" href="/StarkLearningApp/css/all.css"> 
-		<link rel="stylesheet" href="/StarkLearningApp/css/moderatorProfile.css">		
+		<link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.min.css">
+		<link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.css">
+		<link rel="stylesheet" href="${pageContext.request.contextPath}/css/all.css"> 
+		<link rel="stylesheet" href="${pageContext.request.contextPath}/css/moderatorProfile.css">		
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-		<script type="text/javascript" src="/StarkLearningApp/js/moderatorProfile.js"></script>
+		<script type="text/javascript" src="${pageContext.request.contextPath}/js/moderatorProfile.js"></script>
 	</head>
 	
 	<body>		
@@ -19,7 +19,7 @@
 		
 			<!-- Start of Navbar -->			
 			<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-				<a class="navbar-brand" href="#">Stark Industries</a>
+				<a class="navbar-brand" href="moderatorForum?username=${loggedInUser}">Stark Industries</a>
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
 				  <span class="navbar-toggler-icon"></span>
 				</button>
@@ -30,12 +30,12 @@
 					</div>
 					<div class="nav-item col-sm-4 text-sm-left text-md-right text-lg-right">
 						<div class="dropdown" role="group">
-							<button id="userSettingToggleBtn" type="button" class="btn btn-link dropdown-toggle" data-toggle="dropdown">Moderator</button>
+							<button id="userSettingToggleBtn" type="button" class="btn btn-link dropdown-toggle" data-toggle="dropdown">${loggedInUser}</button>
 						    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userSettingToggleBtn">
-						      	<a class="dropdown-item" href="moderatorProfile" id="moderatorProfileLink">
+						      	<a class="dropdown-item" href="moderatorProfile?username=${loggedInUser}" id="moderatorProfileLink">
 						      		<span class="mr-3"><i class="fas fa-user-cog"></i></span>View Profile
 						      	</a>
-						      	<a class="dropdown-item" href="moderatorForum" id="moderatorForumLink">
+						      	<a class="dropdown-item" href="moderatorForum?username=${loggedInUser}" id="moderatorForumLink">
 						      		<span class="mr-3"><i class="fas fa-chalkboard-teacher"></i></span>My Forum
 						      	</a>
 						      	<a class="dropdown-item" href="home" id="logoutLink">
@@ -54,7 +54,7 @@
 				<div class="row">
 					<div class="d-flex w-100 mt-2">
 						<div class="col-md-12 d-flex align-items-center justify-content-start">
-							<a href="moderatorForum" style="color: #ea8a8a;"><i class="far fa-hand-point-left mr-1"></i>Back to Forum</a>
+							<a href="moderatorForum?username=${loggedInUser}" style="color: #ea8a8a;"><i class="far fa-hand-point-left mr-1"></i>Back to Forum</a>
 						</div>
 					</div>
 				</div>
@@ -73,7 +73,7 @@
 										 		<fieldset>
 											 		<div class="row" style="margin-bottom: 0;">
 											 			<p class="col-sm-6 text-right font-weight-bold">Moderator ID:</p>
-											 			<p class="col-sm-6 text-left">ModXXX</p>
+											 			<p class="col-sm-6 text-left">${loggedInUser}</p>
 											 		</div>
 											 	</fieldset>
 											 </form>			 		
@@ -87,7 +87,7 @@
 						<div class="row container-fluid">
 							<div class="col"></div>
 							<div class="col">
-								<form id="profileForm" class="needs-validation" novalidate>
+								<form action="/moderatorProfile" method="POST" id="profileForm" class="needs-validation" novalidate>
 								 	<fieldset>
 								 		<div class="row" style="margin-bottom: 3%;">
 								 			<div class="col">
@@ -97,17 +97,18 @@
 								 		<div class="form-group row text-center">
 								 			<label for="currentPassword" class="col-sm-5 col-form-label text-right"><b>Current Password:</b></label>
 								 			<div class="col-sm-7">
-								 				<input type="password" class="form-control" id="currentPassword" placeholder="Current Password" name="currentPassword"
-													pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required>
+								 				<input type="password" class="form-control" id="currentPassword" placeholder="Current Password" name="currentPassword" required>
 												<div class="invalid-feedback text-left">Please enter current password</div>
 								 			</div>
 								 		</div>	
 								 		<div class="form-group row text-center">
 								 			<label for="newPassword" class="col-sm-5 col-form-label text-right"><b>New Password:</b></label>
 								 			<div class="col-sm-7">
+								 			
+								 				<input type="hidden" name="username" value="${loggedInUser}">
 								 				<input type="password" class="form-control" id="newPassword" placeholder="New Password" name="newPassword"
 													pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
-											   	<div class="invalid-feedback text-left">New password cannot be the same as current password</div>
+											   	<div class="invalid-feedback text-left">Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters</div>
 								 			</div>
 								 		</div>		
 								 		<div class="form-group row">
@@ -155,4 +156,13 @@
 		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>      	
 	
 	</body>
+	<script>
+		if(${isPwChanged == 'false'}){
+			  alert("Wrong current password");
+		} 
+		
+		if(${pwChangedSuccess == 'true'}){
+			alert("Password has been successfully changed.")
+		}
+	</script>
 </html>

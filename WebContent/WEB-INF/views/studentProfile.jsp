@@ -143,7 +143,7 @@
 						 						<input type="password" class="form-control" id="newPassword" placeholder="New Password" name="newPassword"
 										    	pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
 										    	
-									    	<div class="invalid-feedback text-left">New password cannot be the same as current password</div>
+									    	<div class="invalid-feedback text-left">Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters</div>
 						 					</div>
 						 				</div>		
 						 				<div class="form-group row">
