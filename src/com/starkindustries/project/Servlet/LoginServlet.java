@@ -17,6 +17,7 @@ import com.starkindustries.project.Answer;
 import com.starkindustries.project.Comment;
 import com.starkindustries.project.Question;
 import com.starkindustries.project.StarkDatabase;
+import com.starkindustries.project.Student;
 import com.starkindustries.project.Validation;
 
 
@@ -42,7 +43,7 @@ public class LoginServlet extends HttpServlet {
 			if(userType.equalsIgnoreCase("user_admin") && validator.validateUser(3, username, password)) {
 				request.getRequestDispatcher("/WEB-INF/views/userAdmin.jsp").forward(request,response);
 				
-			}else if(userType.equalsIgnoreCase("student") && validator.validateUser(1, username, password)) {
+			}else if(userType.equalsIgnoreCase("student") && validator.validateUser(1, username, password) && Student.getStudent(db.getResultByUserId("student", username, conn)).getIsSuspended() != true) {
 				request.setAttribute("loggedInUser", username);
 				
 				//get questions in last 7 days
@@ -71,7 +72,7 @@ public class LoginServlet extends HttpServlet {
 				request.getRequestDispatcher("/WEB-INF/views/moderatorForum.jsp").forward(request,response);
 			}
 			else {
-				request.setAttribute("invalid_acc", "Invalid account");
+				request.setAttribute("invalid_acc", "Invalid account or have been suspended");
 				request.getRequestDispatcher("/WEB-INF/views/home.jsp").forward(request,response);
 			}
 			conn.close();
