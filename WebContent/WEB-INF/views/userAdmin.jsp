@@ -19,7 +19,7 @@
 		<div class="pageCon">
 		<!-- Navbar -->
 		<nav class="navbar navbar-expand-lg navbar-dark bg-primary" id="topPage">
-			<a class="navbar-brand" href="home">Stark Industries</a>
+			<a class="navbar-brand" href="/userAdmin">Stark Industries</a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
 			  <span class="navbar-toggler-icon"></span>
 			</button>
