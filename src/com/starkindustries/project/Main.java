@@ -4,19 +4,35 @@ import java.io.*;
 import java.net.URISyntaxException;
 import java.sql.*;
 import java.time.LocalDate;
+import java.time.Month;
+import java.time.ZoneId;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 public class Main {
 
 	public static void main(String[] args) throws URISyntaxException, SQLException  {
-		StarkDatabase db = new StarkDatabase();
+		//StarkDatabase db = new StarkDatabase();
+		
+		int i = 5;
+		String iStr = Month.of(i).toString();
+		iStr = iStr.substring(0,1) + iStr.substring(1).toLowerCase();
+		System.out.println(iStr);
+		
+		Calendar cld = Calendar.getInstance();
+		cld.set(Calendar.YEAR, 2020);
+		cld.set(Calendar.WEEK_OF_YEAR, 19);
+		cld.set(Calendar.DAY_OF_WEEK,Calendar.MONDAY);
+		LocalDate result = LocalDate.ofInstant(cld.getTime().toInstant(), ZoneId.systemDefault());
+		
+		System.out.println(result);
 		
 		//db.postAnswer("this is another answer","user120",32,db.getConn());
-		db.postComment("This is first answer comment","user125",244,32,db.getConn());
+		/*db.postComment("This is first answer comment","user125",244,32,db.getConn());
 		db.postComment("This is second answer comment","user127",245,32,db.getConn());
 		
-		/*List<Question> qList = Question.getAllQuestionList(db.getSevenDayQuestions(db.getConn()));
+		List<Question> qList = Question.getAllQuestionList(db.getSevenDayQuestions(db.getConn()));
 		for (Question q : qList) {
 			System.out.print(q.getQuestion_id() + " ");
 			System.out.print(q.getTitle() + " ");

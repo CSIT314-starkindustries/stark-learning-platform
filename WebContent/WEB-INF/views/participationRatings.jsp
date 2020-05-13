@@ -1,16 +1,20 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix = "fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 	<head>
 		<meta charset="ISO-8859-1">
 		<title>Top 10 Students' Participation Ratings Report</title>
-		<link rel="stylesheet" href="/StarkLearningApp/css/bootstrap.min.css">
-		<link rel="stylesheet" href="/StarkLearningApp/css/bootstrap.css">
-		<link rel="stylesheet" href="/StarkLearningApp/css/all.css"> 
-		<link rel="stylesheet" href="/StarkLearningApp/css/participationRatings.css">		
+		<link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.min.css">
+		<link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.css">
+		<link rel="stylesheet" href="${pageContext.request.contextPath}/css/all.css">
+		<link rel="stylesheet" href="${pageContext.request.contextPath}/css/participationRatings.css">	
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-		<script type="text/javascript" src="/StarkLearningApp/js/participationRatings.js"></script>
+		<jsp:useBean id="now" class="java.util.Date" />
+		<fmt:formatDate var="nowDate" value="${now}" pattern="yyyy-MM-dd" />
+		<script type="text/javascript" src="${pageContext.request.contextPath}/js/participationRatings.js"></script>
 		
 	</head>
 
@@ -21,7 +25,7 @@
 				<div class="row">
 					<div class="d-flex w-100 mt-2">
 						<div class="col-md-12 d-flex align-items-center justify-content-start">
-							<a href="moderatorForum" id="backToForumLink" style="color: #ea8a8a;"><i class="far fa-hand-point-left mr-1"></i>Back to Forum</a>
+							<a href="moderatorForum?username=${loggedInUser}" id="backToForumLink" style="color: #ea8a8a;"><i class="far fa-hand-point-left mr-1"></i>Back to Forum</a>
 						</div>
 					</div>
 				</div>
@@ -39,13 +43,13 @@
 							<div class="col">
 								<p>
 									<b>Requested By:</b>
-									<span id="userId" class="pl-2">Mod ID</span>
+									<span id="userId" class="pl-2">${loggedInUser}</span>
 								</p>
 							</div>						
 							<div class="col">
 								<p>
 									<b>Date Requested:</b>
-									<span id="reportDate" class="pl-2">28-04-2020</span>
+									<span id="reportDate" class="pl-2">${nowDate}</span>
 								</p>
 							</div>
 						</div>
@@ -66,13 +70,15 @@
 							    	</tr>
 							  	</thead>
 							  	<tbody>
+							  		<c:forEach items="${studList}" var="student" varStatus="loop">
 							    	<tr class="d-flex" id="rankingRow">
-							     	 	<td class="col-4 text-center" id="rankCol">1</td>
-							      		<td class="col-4 text-center" id="userIdCol">UserXXX</td>
+							     	 	<td class="col-4 text-center" id="rankCol">${loop.index+1}</td>
+							      		<td class="col-4 text-center" id="userIdCol">${student.username}</td>
 							      		<td class="col-4 text-center" id="participationRatingCol">
-							      			<span id="participationRating">80</span> / 100
+							      			<span id="participationRating">${student.participation_rating}</span> / 100
 							      		</td>
 							    	</tr>
+							    	</c:forEach>
 							    </tbody>
 							</table>
 							

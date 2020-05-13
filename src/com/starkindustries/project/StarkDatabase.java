@@ -3,7 +3,10 @@ package com.starkindustries.project;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.sql.*;
-import java.util.Date;
+import java.time.DayOfWeek;
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.util.Calendar;
 
 public class StarkDatabase {
 	public StarkDatabase() {
@@ -82,7 +85,92 @@ public class StarkDatabase {
 	public ResultSet getSevenDayQuestions(Connection conn) {
 		Statement mystmt;
 		ResultSet rs = null;
-		String query = String.format("SELECT * FROM questions WHERE date_posted BETWEEN '%tF' AND '%tF'",java.sql.Date.valueOf(java.time.LocalDate.now().minusDays(7)),java.sql.Date.valueOf(java.time.LocalDate.now()));
+		String query = String.format("SELECT * FROM questions WHERE date_posted BETWEEN '%tF' AND '%tF'",Date.valueOf(LocalDate.now().minusDays(7)),Date.valueOf(LocalDate.now()));
+		
+		try {
+			mystmt = conn.createStatement();
+			rs = mystmt.executeQuery(query);
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return rs;
+	}
+	
+	public ResultSet getYearlyQuestions(int year, Connection conn) {
+		Statement mystmt;
+		ResultSet rs = null;
+		String query = String.format("WITH summary AS (SELECT q.*, ROW_NUMBER() OVER(PARTITION BY EXTRACT(year FROM date_posted) ORDER BY total_votes DESC) AS rk FROM questions q) " +
+				   					 "SELECT s.* FROM summary s WHERE s.rk = 1 AND EXTRACT(year FROM date_posted) = '%d' ORDER BY EXTRACT(year FROM s.date_posted) DESC", year);
+		
+		try {
+			mystmt = conn.createStatement();
+			rs = mystmt.executeQuery(query);
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return rs;
+	}
+	
+	public ResultSet getMonthlyQuestions(int month, int year, Connection conn) {
+		Statement mystmt;
+		ResultSet rs = null;
+		/*String query = "WITH summary AS (SELECT q.*, ROW_NUMBER() OVER(PARTITION BY EXTRACT(year FROM date_posted), EXTRACT(month FROM date_posted) ORDER BY total_votes DESC) AS rk FROM questions q) " +
+					   "SELECT s.* FROM summary s WHERE s.rk = 1 ORDER BY EXTRACT(year FROM s.date_posted) DESC,  EXTRACT(month FROM s.date_posted) DESC";*/
+		String query = String.format("SELECT * FROM questions WHERE EXTRACT(month FROM date_posted) = '%d' AND EXTRACT(year FROM date_posted) = '%d' ORDER BY date_posted DESC",month,year);
+		
+		try {
+			mystmt = conn.createStatement();
+			rs = mystmt.executeQuery(query);
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return rs;
+	}
+	
+	public ResultSet getWeeklyQuestions(int week, int year, Connection conn) {
+		Statement mystmt;
+		ResultSet rs = null;
+		Calendar cld = Calendar.getInstance();
+		cld.set(Calendar.YEAR, year);
+		cld.set(Calendar.WEEK_OF_YEAR, week);
+		cld.set(Calendar.DAY_OF_WEEK,Calendar.MONDAY);
+		LocalDate requestDate = LocalDate.ofInstant(cld.getTime().toInstant(), ZoneId.systemDefault());
+		
+		String query = String.format("SELECT * FROM questions WHERE date_posted BETWEEN '%tF' AND '%tF' ORDER BY date_posted DESC",Date.valueOf(requestDate),Date.valueOf(requestDate.plusDays(6)));
+		
+		/*String query = String.format("SELECT * FROM" +
+									 "(SELECT *, ROW_NUMBER() OVER(ORDER BY total_votes DESC) AS rk FROM questions WHERE date_posted BETWEEN '%tF' AND '%tF' UNION ALL " +
+									 "SELECT *, ROW_NUMBER() OVER(ORDER BY total_votes DESC) AS rk FROM questions WHERE date_posted BETWEEN '%tF' AND '%tF' UNION ALL " +
+									 "SELECT *, ROW_NUMBER() OVER(ORDER BY total_votes DESC) AS rk FROM questions WHERE date_posted BETWEEN '%tF' AND '%tF' UNION ALL " +
+									 "SELECT *, ROW_NUMBER() OVER(ORDER BY total_votes DESC) AS rk FROM questions WHERE date_posted BETWEEN '%tF' AND '%tF') as weekly_top " +
+									 "WHERE rk = 1 ORDER BY date_posted DESC",
+									 Date.valueOf(today.minusDays(27+days)),Date.valueOf(today.minusDays(21+days)),
+									 Date.valueOf(today.minusDays(20+days)),Date.valueOf(today.minusDays(14+days)),
+									 Date.valueOf(today.minusDays(13+days)),Date.valueOf(today.minusDays(7+days)),
+									 Date.valueOf(today.minusDays(6+days)),Date.valueOf(today.minusDays(days)));*/
+
+		
+		try {
+			mystmt = conn.createStatement();
+			rs = mystmt.executeQuery(query);
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return rs;
+	}
+	
+	public ResultSet getParticipationList(Connection conn) {
+		Statement mystmt;
+		ResultSet rs = null;
+		String query = "SELECT * FROM student ORDER BY participation_rating DESC LIMIT 10";
 		
 		try {
 			mystmt = conn.createStatement();
@@ -250,7 +338,7 @@ public class StarkDatabase {
 		mystmt.setString(1,title);
 		mystmt.setString(2,description);
 		mystmt.setInt(3,0);
-		mystmt.setDate(4,java.sql.Date.valueOf(java.time.LocalDate.now()));
+		mystmt.setDate(4,Date.valueOf(LocalDate.now()));
 		mystmt.setString(5,username);
 		
 		rowsUpdated = mystmt.executeUpdate();
@@ -300,7 +388,7 @@ public class StarkDatabase {
 		mystmt = conn.prepareStatement(query);
 		mystmt.setString(1,description);
 		mystmt.setInt(2,0);
-		mystmt.setDate(3,java.sql.Date.valueOf(java.time.LocalDate.now()));
+		mystmt.setDate(3,Date.valueOf(LocalDate.now()));
 		mystmt.setString(4,username);
 		mystmt.setInt(5,q_id);
 		
@@ -339,7 +427,7 @@ public class StarkDatabase {
 		
 		mystmt = conn.prepareStatement(query);
 		mystmt.setString(1,description);
-		mystmt.setDate(2,java.sql.Date.valueOf(java.time.LocalDate.now()));
+		mystmt.setDate(2,Date.valueOf(LocalDate.now()));
 		mystmt.setString(3,username);
 		
 		if (a_id != 0) mystmt.setInt(4,a_id);
