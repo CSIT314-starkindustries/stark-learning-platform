@@ -1,34 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" 
 	pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix = "fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 	<head>
 		<meta charset="ISO-8859-1">
 		<title>Moderator Forum</title>
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 		<link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.min.css">
 		<link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.css">
 		<link rel="stylesheet" href="${pageContext.request.contextPath}/css/all.css"> 
 		<link rel="stylesheet" href="${pageContext.request.contextPath}/css/modForum.css">		
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-		<script type="text/javascript" src="${pageContext.request.contextPath}/js/moderatorForum.js"></script>
-		
-		<script>
-		    window.onload = function () {
-		        //Reference the DropDownList.
-		        var ddlYears = document.getElementById("ddlYears");
-		 
-		        //Determine the Current Year.
-		        var currentYear = (new Date()).getFullYear();
-		 		
-		        //Loop and add the Year values to DropDownList.
-		        for (var i = currentYear; i >= 2000 ; i--) {
-		        	var option = document.createElement("OPTION");
-		            option.innerHTML = i;
-		            option.value = i;
-		            ddlYears.appendChild(option);
-		        }
-		    };
-		</script>
 	</head>
 	
 	<body>		
@@ -119,7 +102,7 @@
 							<!-- Container above table -->
 							<div class="row d-flex align-items-center header-container">
 								<div class="col-md-2">
-									<a href="topVotedQns" role="button" class="btn btn-outline-primary" id="genReportBtn">Generate Report</a>
+									<a href="#" role="button" data-user="${loggedInUser}" class="btn btn-outline-primary" id="topVotedQnsBtn">Generate Report</a>
 								</div>
 								<div class="col-md-4">
 									<form class="needs-validation" novalidate>
@@ -145,25 +128,16 @@
 											</tr>
 										</thead>
 										<tbody>
+											<c:forEach items="${yearList}" var="question" varStatus="loop">
+											<fmt:formatDate var="year" value="${question.date_posted}" pattern="yyyy" />
 											<tr>
-												<td class="font-weight-bold">1</td>
-												<td class="text-center"><a href="viewStudentProfile">UserXXX</a></td>
-												<td class="text-center">2020</td>
-												<td class="text-center">200</td>
-												<td>YEARLY... Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-													Nullam volutpat ligula sit amet ipsum condimentum, id imperdiet urna efficitur. 
-													Maecenas convallis est vitae laoreet dictum. 
-													Integer facilisis dolor in ipsum dapibus convallis vel ut diam. 
-													Aenean lacinia nulla nisl, lobortis lobortis neque lacinia eget. 
-													Nunc sollicitudin sed risus at cursus. 
-													Integer malesuada malesuada nunc, non ultrices odio imperdiet luctus. 
-													Morbi vel nulla at ligula porta tincidunt eu imperdiet dolor. 
-													Aliquam pellentesque pharetra metus condimentum pretium. 
-													In hac habitasse platea dictumst. Nullam in quam metus. 
-													Aliquam lacinia lacinia felis, eu venenatis felis sodales quis. 
-													Donec egestas arcu eu felis volutpat euismod.
-												</td>
+												<td class="font-weight-bold">${loop.index+1}</td>
+												<td class="text-center"><a href="viewStudentProfile?view_username=${question.stud_username}">${question.stud_username}</a></td>
+												<td class="text-center">${year}</td>
+												<td class="text-center">${question.total_votes}</td>
+												<td>${question.title}</td>
 											</tr>
+											</c:forEach>
 										</tbody>
 									</table>
 								</div>
@@ -175,12 +149,12 @@
 							<!-- Container above table -->
 							<div class="row d-flex align-items-center header-container">
 								<div class="col-md-2">
-									<a href="monthlyReport" role="button" class="btn btn-outline-primary" id="genReportBtn">Generate Report</a>
+									<a href="#" role="button" data-user="${loggedInUser}" class="btn btn-outline-primary" id="monthlyReportBtn">Generate Report</a>
 								</div>
 								<div class="col-md-4">
 									<form class="needs-validation" novalidate>	
 										<div class="form-group" style="margin-top: 15px;">
-											<input class="form-control" type="month" min="2000-01">
+											<input class="form-control" type="month" value="2020-01" min="2000-01" id="monthSelect">
 										</div>
 									</form>
 								</div>
@@ -196,46 +170,21 @@
 												<th scope="col" class="text-center" style="border-top: none;">#</th>
 												<th scope="col" class="text-center" style="border-top: none;">User ID</th>
 												<th scope="col" class="text-center" style="border-top: none;">Month/Year</th>
-												<th scope="col" class="text-center" style="border-top: none;">Questions</th>
+												<th scope="col" class="text-center" style="border-top: none;">Votes</th>
+												<th scope="col" class="text-center" style="border-top: none;">Question</th>
 											</tr>
 										</thead>
 										<tbody>
+											<c:forEach items="${monthList}" var="question" varStatus="loop">
+											<fmt:formatDate var="monthYear" value="${question.date_posted}" pattern="MM/yyyy" />
 											<tr>
-												<td class="font-weight-bold">1</td>
-												<td class="text-center"><a href="viewStudentProfile">UserXXX</a></td>
-												<td class="text-center">April 2020</td>
-												<td>MONTHLY... Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-													Nullam volutpat ligula sit amet ipsum condimentum, id imperdiet urna efficitur. 
-													Maecenas convallis est vitae laoreet dictum. 
-													Integer facilisis dolor in ipsum dapibus convallis vel ut diam. 
-													Aenean lacinia nulla nisl, lobortis lobortis neque lacinia eget. 
-													Nunc sollicitudin sed risus at cursus. 
-													Integer malesuada malesuada nunc, non ultrices odio imperdiet luctus. 
-													Morbi vel nulla at ligula porta tincidunt eu imperdiet dolor. 
-													Aliquam pellentesque pharetra metus condimentum pretium. 
-													In hac habitasse platea dictumst. Nullam in quam metus. 
-													Aliquam lacinia lacinia felis, eu venenatis felis sodales quis. 
-													Donec egestas arcu eu felis volutpat euismod.
-												</td>
+												<td class="font-weight-bold">${loop.index+1}</td>
+												<td class="text-center"><a href="viewStudentProfile?view_username=${question.stud_username}">${question.stud_username}</a></td>
+												<td class="text-center">${monthYear}</td>
+												<td class="text-center">${question.total_votes}</td>
+												<td>${question.title}</td>
 											</tr>
-											<tr>
-												<td class="font-weight-bold text-center">2</td>
-												<td class="text-center"><a href="viewStudentProfile">UserXXX</a></td>
-												<td class="text-center">April 2020</td>
-												<td>MONTHLY... Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-													Nullam volutpat ligula sit amet ipsum condimentum, id imperdiet urna efficitur. 
-													Maecenas convallis est vitae laoreet dictum. 
-													Integer facilisis dolor in ipsum dapibus convallis vel ut diam. 
-													Aenean lacinia nulla nisl, lobortis lobortis neque lacinia eget. 
-													Nunc sollicitudin sed risus at cursus. 
-													Integer malesuada malesuada nunc, non ultrices odio imperdiet luctus. 
-													Morbi vel nulla at ligula porta tincidunt eu imperdiet dolor. 
-													Aliquam pellentesque pharetra metus condimentum pretium. 
-													In hac habitasse platea dictumst. Nullam in quam metus. 
-													Aliquam lacinia lacinia felis, eu venenatis felis sodales quis. 
-													Donec egestas arcu eu felis volutpat euismod.
-												</td>
-											</tr>
+											</c:forEach>
 										</tbody>
 									</table>
 								</div>
@@ -247,12 +196,12 @@
 							<!-- Container above table -->
 							<div class="row d-flex align-items-center header-container">
 								<div class="col-md-2">
-									<a href="weeklyReport" role="button" class="btn btn-outline-primary" id="genReportBtn">Generate Report</a>
+									<a href="#" role="button" data-user="${loggedInUser}" class="btn btn-outline-primary" id="weeklyReportBtn">Generate Report</a>
 								</div>
 								<div class="col-md-4">
 									<form class="needs-validation" novalidate>
 										<div class="form-group" style="margin-top: 15px;">
-											<input class="form-control" type="week" min="2000-01">
+											<input class="form-control" type="week" value="2020-W01" min="2000-01" id="weekSelect">
 										</div>
 									</form>
 								</div>
@@ -268,28 +217,21 @@
 												<th scope="col" class="text-center" style="border-top: none;">#</th>
 												<th scope="col" class="text-center" style="border-top: none;">User ID</th>
 												<th scope="col" class="text-center" style="border-top: none;">Week</th>
-												<th scope="col" class="text-center" style="border-top: none;">Questions</th>
+												<th scope="col" class="text-center" style="border-top: none;">Votes</th>
+												<th scope="col" class="text-center" style="border-top: none;">Question</th>
 											</tr>
 										</thead>
 										<tbody>
+											<c:forEach items="${weekList}" var="question" varStatus="loop">
+											<fmt:formatDate var="week" value="${question.date_posted}" pattern="ww" />
 											<tr>
-												<td class="font-weight-bold text-center">1</td>
-												<td class="text-center"><a href="viewStudentProfile">UserXXX</a></td>
-												<td class="text-center">17</td>
-												<td>WEEKLY... Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-													Nullam volutpat ligula sit amet ipsum condimentum, id imperdiet urna efficitur. 
-													Maecenas convallis est vitae laoreet dictum. 
-													Integer facilisis dolor in ipsum dapibus convallis vel ut diam. 
-													Aenean lacinia nulla nisl, lobortis lobortis neque lacinia eget. 
-													Nunc sollicitudin sed risus at cursus. 
-													Integer malesuada malesuada nunc, non ultrices odio imperdiet luctus. 
-													Morbi vel nulla at ligula porta tincidunt eu imperdiet dolor. 
-													Aliquam pellentesque pharetra metus condimentum pretium. 
-													In hac habitasse platea dictumst. Nullam in quam metus. 
-													Aliquam lacinia lacinia felis, eu venenatis felis sodales quis. 
-													Donec egestas arcu eu felis volutpat euismod.
-												</td>
+												<td class="font-weight-bold">${loop.index+1}</td>
+												<td class="text-center"><a href="viewStudentProfile?view_username=${question.stud_username}">${question.stud_username}</a></td>
+												<td class="text-center">${week}</td>
+												<td class="text-center">${question.total_votes}</td>
+												<td>${question.title}</td>
 											</tr>
+											</c:forEach>
 										</tbody>
 									</table>
 								</div>
@@ -301,7 +243,7 @@
 							<!-- Container above table -->
 							<div class="row d-flex align-items-center" style="padding: 25px 0px; background-color: #dce3e6;">
 								<div class="col-md-2">
-									<a href="participationRatings" role="button" class="btn btn-outline-primary" id="genReportBtn">Generate Report</a>
+									<a href="participationRatings?username=${loggedInUser}" role="button" class="btn btn-outline-primary" id="partRatingsBtn">Generate Report</a>
 								</div>
 							</div>
 							<!-- End of Container above table -->
@@ -318,21 +260,13 @@
 											</tr>
 										</thead>
 										<tbody>
+											<c:forEach items="${studList}" var="student" varStatus="loop">
 											<tr>
-												<td class="font-weight-bold text-center">1</td>
-												<td class="text-center"><a href="viewStudentProfile">UserXXX</a></td>
-												<td class="text-center">80/100</td>
+												<td class="font-weight-bold text-center">${loop.index+1}</td>
+												<td class="text-center"><a href="viewStudentProfile?view_username=${student.username}">${student.username}</a></td>
+												<td class="text-center">${student.participation_rating}</td>
 											</tr>
-											<tr>
-												<td class="font-weight-bold text-center">2</td>
-												<td class="text-center"><a href="viewStudentProfile">UserXXX</a></td>
-												<td class="text-center">76/100</td>
-											</tr>
-											<tr>
-												<td class="font-weight-bold text-center">3</td>
-												<td class="text-center"><a href="viewStudentProfile">UserXXX</a></td>
-												<td class="text-center">68/100</td>
-											</tr>
+											</c:forEach>
 										</tbody>
 									</table>
 								</div>
@@ -367,7 +301,7 @@
 		</div>
 		<!-- End of Footer -->
 		
-		
+		<script type="text/javascript" src="${pageContext.request.contextPath}/js/moderatorForum.js"></script>
 		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>      	

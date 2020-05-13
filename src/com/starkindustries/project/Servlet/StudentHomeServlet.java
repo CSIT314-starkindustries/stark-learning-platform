@@ -56,7 +56,6 @@ public class StudentHomeServlet extends HttpServlet {
 			//get user comment
 			List<Comment> commentList = Comment.getAllCommentList(db.getResultByUserId("comments", username, conn));
 			request.setAttribute("myCommentList", commentList);
-			request.setAttribute("loggedInUser", username);
 			
 			conn.close();
 		} catch (URISyntaxException | SQLException e) {
