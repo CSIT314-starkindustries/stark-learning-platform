@@ -132,7 +132,7 @@
 											<fmt:formatDate var="year" value="${question.date_posted}" pattern="yyyy" />
 											<tr>
 												<td class="font-weight-bold">${loop.index+1}</td>
-												<td class="text-center"><a href="viewStudentProfile?view_username=${question.stud_username}">${question.stud_username}</a></td>
+												<td class="text-center"><a href="modViewStudServlet?username=${loggedInUser}&view_username=${question.stud_username}">${question.stud_username}</a></td>
 												<td class="text-center">${year}</td>
 												<td class="text-center">${question.total_votes}</td>
 												<td>${question.title}</td>
@@ -179,7 +179,7 @@
 											<fmt:formatDate var="monthYear" value="${question.date_posted}" pattern="MM/yyyy" />
 											<tr>
 												<td class="font-weight-bold">${loop.index+1}</td>
-												<td class="text-center"><a href="viewStudentProfile?view_username=${question.stud_username}">${question.stud_username}</a></td>
+												<td class="text-center"><a href="modViewStudServlet?username=${loggedInUser}&view_username=${question.stud_username}">${question.stud_username}</a></td>
 												<td class="text-center">${monthYear}</td>
 												<td class="text-center">${question.total_votes}</td>
 												<td>${question.title}</td>
@@ -226,7 +226,7 @@
 											<fmt:formatDate var="week" value="${question.date_posted}" pattern="ww" />
 											<tr>
 												<td class="font-weight-bold">${loop.index+1}</td>
-												<td class="text-center"><a href="viewStudentProfile?view_username=${question.stud_username}">${question.stud_username}</a></td>
+												<td class="text-center"><a href="modViewStudServlet?username=${loggedInUser}&view_username=${question.stud_username}">${question.stud_username}</a></td>
 												<td class="text-center">${week}</td>
 												<td class="text-center">${question.total_votes}</td>
 												<td>${question.title}</td>
@@ -263,7 +263,7 @@
 											<c:forEach items="${studList}" var="student" varStatus="loop">
 											<tr>
 												<td class="font-weight-bold text-center">${loop.index+1}</td>
-												<td class="text-center"><a href="viewStudentProfile?view_username=${student.username}">${student.username}</a></td>
+												<td class="text-center"><a href="modViewStudServlet?username=${loggedInUser}&view_username=${student.username}">${student.username}</a></td>
 												<td class="text-center">${student.participation_rating}</td>
 											</tr>
 											</c:forEach>
