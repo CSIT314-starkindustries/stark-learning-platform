@@ -1,14 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" 
 	pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix = "fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 	<head>
 		<meta charset="ISO-8859-1">
 		<title>Generate Weekly Report</title>
-		<link rel="stylesheet" href="/StarkLearningApp/css/bootstrap.min.css">
-		<link rel="stylesheet" href="/StarkLearningApp/css/bootstrap.css">
-		<link rel="stylesheet" href="/StarkLearningApp/css/all.css">
+		<link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.min.css">
+		<link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.css">
+		<link rel="stylesheet" href="${pageContext.request.contextPath}/css/all.css">
+		<link rel="stylesheet" href="${pageContext.request.contextPath}/css/weeklyReport.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		<jsp:useBean id="now" class="java.util.Date" />
+		<fmt:formatDate var="nowDate" value="${now}" pattern="yyyy-MM-dd" />
 		
 		<style>
 		@media print {
@@ -30,14 +35,14 @@
 			<div class="row">
 				<div class="d-flex w-100 mt-2">
 					<div class="col-md-12 d-flex align-items-center justify-content-start">
-						<a href="moderatorForum" id="backToForumLink" style="color: #ea8a8a;"><i class="far fa-hand-point-left mr-1"></i>Back to Forum</a>
+						<a href="moderatorForum?username=${loggedInUser}" id="backToForumLink" style="color: #ea8a8a;"><i class="far fa-hand-point-left mr-1"></i>Back to Forum</a>
 					</div>
 				</div>
 			</div>		
 			<div class="row">
 				<div class="col text-center py-3">
 					<h3 class="font-weight-bolder">Weekly Report</h3>
-					<p id="weekDates">Week 17<br>20-04-2020 to 26-04-2020</p>
+					<p id="weekDates">Week ${requestedWeek} of ${requestedYear}<br>${weekString}</p>
 				</div>
 			</div>
 			<div class="row pt-1">
@@ -47,13 +52,13 @@
 						<div class="col">
 							<p>
 								<b>Requested By:</b>
-								<span id="modId" class="pl-2">Mod ID</span>
+								<span id="modId" class="pl-2">${loggedInUser}</span>
 							</p>
 						</div>						
 						<div class="col">
 							<p>
 								<b>Date Requested:</b>
-								<span id="requestedDate" class="pl-2">28-04-2020</span>
+								<span id="requestedDate" class="pl-2">${nowDate}</span>
 							</p>
 						</div>
 					</div>
@@ -63,12 +68,13 @@
 			</div>
 			
 			<!-- Start of Question Container -->
+			<c:forEach items="${weekList}" var="question" varStatus="loop">
 			<div class="row">
 				<div class="col-md-2"></div>
 				<div class="col-md-8 container-fluid">
 					<h5 class="text-left font-weight-bold">Question</h5>
 					<p>
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+						${question.title}
 					</p>
 					<hr>
 				</div>
@@ -80,17 +86,17 @@
 					<div class="row">
 						<p class="col-6 my-auto d-flex justify-content-start">
 							<span class="font-weight-bold">User ID:</span>
-							<span id="userId" class="pl-2">UserXXX</span>
+							<span id="userId" class="pl-2">${question.stud_username}</span>
 						</p>
 						<p class="col-6 my-auto d-flex justify-content-end">
 							<span class="font-weight-bold">Date Posted:</span>
-							<span id="datePosted" class="pl-2">24-04-2020</span>
+							<span id="datePosted" class="pl-2">${question.date_posted}</span>
 						</p>
 					</div>
 					<div class="row">
 						<p class="col-md-4 my-auto d-flex justify-content-start">
 							<span class="font-weight-bold">Votes:</span>
-							<span id="noOfVotes" class="pl-2">22</span>
+							<span id="noOfVotes" class="pl-2">${question.total_votes}</span>
 						</p>
 						
 						<!-- 
@@ -98,7 +104,7 @@
 							<span class="font-weight-bold">Views:</span>
 							<span id="noOfViews" class="pl-2">24</span>
 						</p>
-						-->
+						
 						
 						<p class="col-md-4 my-auto d-flex justify-content-center">
 							<span class="font-weight-bold">No. of Answers:</span>
@@ -108,11 +114,13 @@
 							<span class="font-weight-bold">No. of Comments:</span>
 							<span id="noOfQns" class="pl-2">10</span>
 						</p>
+						-->
 					</div>
 					<hr class="hr" style="background-color: #455A64">
 				</div>
 				<div class="col-md-2"></div>
 			</div>
+			</c:forEach>
 			<!-- End of Question Container -->
 			
 			<!-- Print Report Button -->

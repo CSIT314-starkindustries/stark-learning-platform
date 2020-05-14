@@ -5,6 +5,8 @@ import java.net.URISyntaxException;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDate;
+import java.util.Calendar;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -69,6 +71,29 @@ public class LoginServlet extends HttpServlet {
 				request.getRequestDispatcher("/WEB-INF/views/studentHome.jsp").forward(request,response);
 			}else if(userType.equalsIgnoreCase("moderator") && validator.validateUser(2, username, password)) {
 				request.setAttribute("loggedInUser", username);
+				
+				LocalDate current = LocalDate.now();
+				int year = current.getYear();
+				int month = current.getMonthValue();
+				Calendar cld = Calendar.getInstance();
+				int week = cld.get(Calendar.WEEK_OF_YEAR);
+				
+				//get yearly questions
+				List<Question> yearList = Question.getAllQuestionList(db.getYearlyQuestions(year,conn));
+				request.setAttribute("yearList", yearList);
+				
+				// get monthly questions
+				List<Question> monthList = Question.getAllQuestionList(db.getMonthlyQuestions(month,year,conn));
+				request.setAttribute("monthList", monthList);
+				
+				// get weekly questions
+				List<Question> weekList = Question.getAllQuestionList(db.getWeeklyQuestions(week,year,conn));
+				request.setAttribute("weekList", weekList);
+				
+				//get participation list
+				List<Student> participationList = Student.getStudList(db.getParticipationList(conn));
+				request.setAttribute("studList", participationList);
+				
 				request.getRequestDispatcher("/WEB-INF/views/moderatorForum.jsp").forward(request,response);
 			}
 			else {

@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix = "fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -10,6 +12,8 @@
 		<link rel="stylesheet" href="${pageContext.request.contextPath}/css/all.css"> 
 		<link rel="stylesheet" href="${pageContext.request.contextPath}/css/topVotedQns.css">		
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		<jsp:useBean id="now" class="java.util.Date" />
+		<fmt:formatDate var="nowDate" value="${now}" pattern="yyyy-MM-dd" />
 		<!-- <script type="text/javascript" src="${pageContext.request.contextPath}/js/topVotedQns.js"></script> -->
 		
 		<style>
@@ -31,7 +35,7 @@
 				<div class="row">
 					<div class="d-flex w-100 mt-2">
 						<div class="col-md-12 d-flex align-items-center justify-content-start">
-							<a href="moderatorForum" id="backToForumLink" style="color: #ea8a8a;"><i class="far fa-hand-point-left mr-1"></i>Back to Forum</a>
+							<a href="moderatorForum?username=${loggedInUser}" id="backToForumLink" style="color: #ea8a8a;"><i class="far fa-hand-point-left mr-1"></i>Back to Forum</a>
 						</div>
 					</div>
 				</div>
@@ -39,7 +43,7 @@
 				<div class="row">
 					<div class="col text-center py-3">
 						<h3 class="font-weight-bolder">Top Voted Question Of The Year Report</h3>
-						<p id="yearId">2020</p>
+						<p id="yearId">${requestedYear}</p>
 					</div>
 				</div>
 				
@@ -50,13 +54,13 @@
 							<div class="col">
 								<p>
 									<b>Requested By:</b>
-									<span id="userId" class="pl-2">Mod ID</span>
+									<span id="userId" class="pl-2">${loggedInUser}</span>
 								</p>
 							</div>						
 							<div class="col">
 								<p>
 									<b>Date Requested:</b>
-									<span id="reportDate" class="pl-2">28-04-2020</span>
+									<span id="reportDate" class="pl-2">${nowDate}</span>
 								</p>
 							</div>
 						</div>
@@ -65,12 +69,13 @@
 					<div class="col-sm-2"></div>
 				</div>
 				
+				<c:forEach items="${yearList}" var="question" varStatus="loop">
 				<div class="row">
 					<div class="col-sm-2"></div>
 					<div class="col-sm-8 container-fluid">
 						<h5 class="text-left"><b>Question</b></h5>
 						<p id="qnsId">
-							Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+							${question.title}
 						</p>
 						<hr>
 					</div>
@@ -84,25 +89,26 @@
 						<div class="row">
 							<div class="col">
 								<p>
-									Posted By:<span id="userId" class="pl-2">UserXXX</span>
+									Posted By:<span id="userId" class="pl-2">${question.stud_username}</span>
 									<br>
-									Date Posted:<span id="qnsDate" class="pl-2">26-04-2020</span>
+									Date Posted:<span id="qnsDate" class="pl-2">${question.date_posted}</span>
 									<br>
-									No. of Votes:<span id="voteCount" class="pl-2">50</span>
+									No. of Votes:<span id="voteCount" class="pl-2">${question.total_votes}</span>
 								</p>
 							</div>
-							<div class="col">
+							<!--<div class="col">
 								<p>
 									No. of Answers:<span id="ansCount" class="pl-2">3</span>
 									<br>
 									No. of Comments:<span id="commentCount" class="pl-2">20</span>
 								</p>
-							</div>
+							</div>-->
 						</div>
 						<hr class="hr" style="background-color: #455A64;">
 					</div>
 					<div class="col-sm-2"></div>
 				</div>
+				</c:forEach>
 				
 				<div class="row">
 					<div class="col text-center mt-3 mb-3">
