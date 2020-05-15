@@ -32,7 +32,7 @@ public class StudentHomeServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     	StarkDatabase db = new StarkDatabase();
     	String username = request.getParameter("username");
-    	
+    	request.setAttribute("loggedInUser",username);
     	
     	try {
 			Connection conn = db.getConn();

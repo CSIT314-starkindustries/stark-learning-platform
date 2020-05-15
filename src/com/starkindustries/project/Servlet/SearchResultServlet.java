@@ -2,8 +2,11 @@ package com.starkindustries.project.Servlet;
 
 import java.io.IOException;
 import java.net.URISyntaxException;
+import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Set;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -11,6 +14,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.starkindustries.project.Answer;
 import com.starkindustries.project.Question;
 import com.starkindustries.project.StarkDatabase;
 
@@ -36,8 +40,17 @@ public class SearchResultServlet extends HttpServlet {
     	System.out.println(searchQuery);
     	if (searchQuery != null && !searchQuery.equalsIgnoreCase("")) {
     		try {    			
-    			List<Question> searchResults = Question.getAllQuestionList(db.searchQuestion(searchQuery, db.getConn()));
-    			request.setAttribute("searchResults", searchResults);
+    			Connection conn = db.getConn();
+    			List<Question> qSearchResults = Question.getAllQuestionList(db.searchQuestion(searchQuery, conn));
+    			List<Answer> aSearchResults = Answer.getAllAnswerList(db.searchAnswer(searchQuery, conn));
+    			if (aSearchResults.size() > 0) {
+    				qSearchResults.addAll(Question.getAllQuestionList(db.searchAnswerQuestion(aSearchResults, conn)));
+    				Set<Question> qSet = new LinkedHashSet<>(qSearchResults);
+        			qSearchResults.clear();
+        			qSearchResults.addAll(qSet);
+    			}
+    			
+    			request.setAttribute("searchResults", qSearchResults);
         	} catch (SQLException | URISyntaxException e) {
     			e.printStackTrace();
     		}
