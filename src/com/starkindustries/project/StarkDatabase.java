@@ -6,7 +6,9 @@ import java.sql.*;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.ZoneId;
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 
 public class StarkDatabase {
 	public StarkDatabase() {
@@ -372,7 +374,8 @@ public class StarkDatabase {
 	public ResultSet searchQuestion(String searchQuery, Connection conn) throws SQLException {
 		ResultSet rs;
 		Statement mystmt;
-		String query = "SELECT * FROM questions WHERE title LIKE '%" + searchQuery + "%'";
+		String query = "SELECT * FROM questions WHERE title LIKE '%" + searchQuery + "%' UNION " +
+					   "SELECT * FROM questions WHERE description LIKE '%" + searchQuery + "%'";
 		
 		mystmt = conn.createStatement();
 		rs = mystmt.executeQuery(query);
@@ -413,6 +416,26 @@ public class StarkDatabase {
 		ResultSet rs;
 		Statement mystmt;
 		String query = "SELECT * FROM answers WHERE description LIKE '%" + searchQuery + "%'";
+		
+		mystmt = conn.createStatement();
+		rs = mystmt.executeQuery(query);
+		return rs;
+	}
+	
+	public ResultSet searchAnswerQuestion(List<Answer> aList, Connection conn) throws SQLException {
+		ResultSet rs;
+		Statement mystmt;
+		List<Integer> qIdList = new ArrayList<Integer>();
+		for (int i = 0; i < aList.size(); i++) {
+			qIdList.add(aList.get(i).question_id);
+			System.out.println(qIdList.get(i));
+		}
+		
+		String query =  String.format("SELECT * FROM questions WHERE question_id = '%d'", qIdList.get(0));
+		
+		for (int i = 1; i < qIdList.size(); i++) {
+			query += " UNION SELECT * FROM questions WHERE question_id = '" + qIdList.get(i) + "'";
+		}
 		
 		mystmt = conn.createStatement();
 		rs = mystmt.executeQuery(query);
